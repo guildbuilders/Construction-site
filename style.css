@@ -254,6 +254,13 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   margin-top: 2rem;
+
+  max-width: 1000px;   /* controls overall width */
+  margin-left: auto;
+  margin-right: auto;
+}
+.home-gallery-preview .container {
+  text-align: center;
 }
 
 .home-photo {

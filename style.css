@@ -244,3 +244,54 @@ h3 {
     display: flex;
   }
 }
+
+.home-gallery-preview {
+  background: #f7f7f5;
+}
+
+.home-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.home-photo {
+  height: 260px;
+  border-radius: 18px;
+}
+
+.gallery-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.gallery-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 800px) {
+  .home-photo-grid,
+  .gallery-category-grid {
+    grid-template-columns: 1fr;
+  }
+}

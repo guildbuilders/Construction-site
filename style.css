@@ -302,3 +302,173 @@ h3 {
     grid-template-columns: 1fr;
   }
 }
+body {
+  background: #0f1c2e;
+  color: #ffffff;
+}
+
+.site-header {
+  background: rgba(15, 28, 46, 0.96);
+  border-bottom: 1px solid #22324a;
+}
+
+.site-footer {
+  background: #0f1c2e;
+  border-top: 1px solid #22324a;
+}
+
+.logo,
+.site-nav a,
+h1,
+h2,
+h3,
+.btn-secondary,
+.gallery-category,
+.card,
+.project,
+.contact-form input,
+.contact-form textarea,
+.footer-inner {
+  color: #ffffff;
+}
+
+p,
+.hero-text,
+.contact-wrap p,
+.card p,
+.project p {
+  color: #d8dee8;
+}
+
+.section-alt {
+  background: #13243a;
+}
+
+.hero {
+  background: linear-gradient(to bottom, #0f1c2e, #13243a);
+}
+
+.eyebrow,
+.section-label {
+  color: #d4af37;
+}
+
+.btn {
+  border: 1px solid #d4af37;
+}
+
+.btn-primary {
+  background: #d4af37;
+  color: #0f1c2e;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #d4af37;
+}
+
+.card,
+.project,
+.gallery-category {
+  background: #16283f;
+  border: 1px solid #2a3e5c;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #16283f;
+  border: 1px solid #2a3e5c;
+}
+
+.placeholder {
+  background: #22324a;
+  color: #d4af37;
+}
+
+.home-gallery-preview .container {
+  text-align: center;
+}
+
+.home-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-photo {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.gallery-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.gallery-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  padding: 1.5rem;
+  border-radius: 18px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+}
+
+.gallery-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.gallery-section {
+  padding-top: 4rem;
+}
+
+.gallery-image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.gallery-back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #d4af37;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .home-photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-image-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .gallery-category-grid {
+    grid-template-columns: 1fr;
+  }
+}

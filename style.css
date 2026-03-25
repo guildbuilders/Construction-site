@@ -32,7 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 130px;
+  min-height: 215px;
 }
 
 .logo {
@@ -42,7 +42,7 @@ body {
 }
 
 .logo-image {
-  height: 110px;
+  height: 180px;
   width: auto;
   display: block;
 }
@@ -156,7 +156,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
-  margin-top: 2rem;
+  margin-2rem;
 }
 
 .card,
@@ -210,7 +210,7 @@ h3 {
 
 .site-footer {
   padding: 2rem 0;
-  border-top: 1px solid #ddd;
+  border-1px solid #ddd;
   background: #f7f7f5;
 }
 
@@ -235,7 +235,7 @@ h3 {
   .site-nav {
     display: none;
     position: absolute;
-    top: 130px;
+    215px;
     left: 0;
     right: 0;
     background: #f7f7f5;

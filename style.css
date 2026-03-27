@@ -503,7 +503,7 @@ p,
   position: fixed;
   z-index: 9999;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: transparent;
   justify-content: center;
   align-items: center;
   padding: 30px;

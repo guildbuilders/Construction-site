@@ -544,23 +544,24 @@ p,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  background: transparent;
   color: #ffffff;
   font-size: 2rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: none;
   z-index: 10000;
 }
 
 .lightbox-arrow:hover {
-  background: rgba(255, 255, 255, 0.24);
+  background: transparent;
+  opacity: 0.75;
 }
 
 .lightbox-prev {
@@ -586,6 +587,7 @@ p,
     right: 12px;
   }
 }
+
 @media (max-width: 800px) {
   .nav {
     position: relative;

@@ -605,3 +605,7 @@ p,
     transform: translateY(-50%);
   }
 }
+
+.gallery-category-wide {
+  grid-column: 1 / -1;
+}

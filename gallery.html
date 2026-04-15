@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Guild Builders Inc.</title>
+  <meta
+    name="description"
+    content="Browse remodeling and construction projects by Guild Builders Inc., including full home renovations, kitchens, bathrooms, decks, patio covers, and exterior improvements."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="top"></div>
 
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html#home" class="logo">
+        <img src="guild-logo.png" alt="Guild Builders Inc. logo" class="logo-image" />
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-small">
+      <div class="container hero-content">
+        <p class="eyebrow">Our Work</p>
+        <h1>Project Gallery</h1>
+        <p class="hero-text">
+          Browse completed residential construction and remodeling projects by category.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Gallery Categories</p>
+        <h2>Select a Category</h2>
+
+        <div class="gallery-category-grid">
+          <a href="full-home-renovations.html" class="gallery-category">Full Home Renovations</a>
+          <a href="kitchens-cabinets.html" class="gallery-category">Kitchens and Cabinets</a>
+          <a href="bathrooms.html" class="gallery-category">Bathrooms</a>
+          <a href="decks-patio-covers.html" class="gallery-category">Decks &amp; Patio Covers</a>
+          <a href="exterior-renovations.html" class="gallery-category gallery-category-wide">Exterior Renovations</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt home-gallery-preview">
+      <div class="container">
+        <p class="section-label">Featured Work</p>
+        <h2>A few highlights from recent projects</h2>
+        <div class="home-photo-grid">
+          <img src="home1.webp" alt="Guild Builders featured project photo 1" class="home-photo" loading="lazy" />
+          <img src="home2.webp" alt="Guild Builders featured project photo 2" class="home-photo" loading="lazy" />
+          <img src="home3.webp" alt="Guild Builders featured project photo 3" class="home-photo" loading="lazy" />
+          <img src="home4.webp" alt="Guild Builders featured project photo 4" class="home-photo" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="hero-buttons">
+          <a href="index.html#contact" class="btn btn-primary">Request a Quote</a>
+          <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Guild Builders Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

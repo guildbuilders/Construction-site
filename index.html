@@ -4,32 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guild Builders Inc.</title>
+  <meta
+    name="description"
+    content="Guild Builders Inc. provides residential construction and remodeling services throughout San Diego County, including kitchens, bathrooms, full home renovations, decks, patio covers, and exterior improvements."
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="top"></div>
+
   <header class="site-header">
     <div class="container nav">
-<a href="#home" class="logo">
-  <img src="guild-logo.png" alt="Guild Builders Inc. logo" class="logo-image" />
-</a>
+      <a href="index.html#home" class="logo">
+        <img src="guild-logo.png" alt="Guild Builders Inc. logo" class="logo-image" />
+      </a>
+
       <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
         ☰
       </button>
 
-    <nav class="site-nav" id="site-nav">
-     <a href="index.html">Home</a>
-     <a href="index.html#about">About Us</a>
-     <a href="index.html#services">Services</a>
-     <a href="gallery.html">Gallery</a>
-    <a href="index.html#contact">Contact</a>
-</nav>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section id="home" class="hero">
       <div class="container hero-content">
-        <p class="eyebrow">Licensed • Reliable, Bonded & Insured • High-Quality Craftsmanship</p>
+        <p class="eyebrow">Licensed • Reliable, Bonded &amp; Insured • High-Quality Craftsmanship</p>
         <h1>Professional Construction Services Built to Last</h1>
         <p class="hero-text">
           Residential construction with a focus on quality,
@@ -46,13 +53,12 @@
       <div class="container">
         <p class="section-label">Featured Work</p>
         <h2>A few highlights from recent projects</h2>
-      <div class="home-photo-grid">
-        <img src="home1.webp" alt="Guild Builders project photo 1" class="home-photo" />
-        <img src="home2.webp" alt="Guild Builders project photo 2" class="home-photo" />
-        <img src="home3.webp" alt="Guild Builders project photo 3" class="home-photo" />
-        <img src="home4.webp" alt="Guild Builders project photo 4" class="home-photo" />
-      </div>
-
+        <div class="home-photo-grid">
+          <img src="home1.webp" alt="Guild Builders project photo 1" class="home-photo" loading="lazy" />
+          <img src="home2.webp" alt="Guild Builders project photo 2" class="home-photo" loading="lazy" />
+          <img src="home3.webp" alt="Guild Builders project photo 3" class="home-photo" loading="lazy" />
+          <img src="home4.webp" alt="Guild Builders project photo 4" class="home-photo" loading="lazy" />
+        </div>
       </div>
     </section>
 
@@ -66,7 +72,7 @@
           <p>
             Guild Builders was established in 2022 by an American-owned family committed to delivering reliable,
             high-quality craftsmanship work with clear communication and professional service. Every project is
-            approached with attention to detail, strong project management and respect for the client’s budget and timeline.
+            approached with attention to detail, strong project management, and respect for the client’s budget and timeline.
           </p>
           <p>
             Whether it’s a renovation, new build, or structural improvement,
@@ -106,594 +112,24 @@
       </div>
     </section>
 
-    <section id="projects-gallery" class="section">
+    <section class="section">
       <div class="container">
         <p class="section-label">Projects &amp; Gallery</p>
         <h2>Browse Our Work by Category</h2>
 
-    <div class="gallery-category-grid">
-     <a href="#gallery-full-home-renovations" class="gallery-category">Full Home Renovations</a>
-      <a href="#gallery-kitchens" class="gallery-category">Kitchens and Cabinets</a>
-      <a href="#gallery-bathrooms" class="gallery-category">Bathrooms</a>
-      <a href="#gallery-decks" class="gallery-category">Decks & Patio Covers</a>
-      <a href="#gallery-exterior-renovations" class="gallery-category gallery-category-wide">Exterior Renovations</a>
-    </div>
-  </div>
-</section>
+        <div class="gallery-category-grid">
+          <a href="full-home-renovations.html" class="gallery-category">Full Home Renovations</a>
+          <a href="kitchens-cabinets.html" class="gallery-category">Kitchens and Cabinets</a>
+          <a href="bathrooms.html" class="gallery-category">Bathrooms</a>
+          <a href="decks-patio-covers.html" class="gallery-category">Decks &amp; Patio Covers</a>
+          <a href="exterior-renovations.html" class="gallery-category gallery-category-wide">Exterior Renovations</a>
+        </div>
 
-<section id="gallery-full-home-renovations" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Full Home Renovations</p>
-    <h2>Select a Project</h2>
-
-    <div class="gallery-category-grid">
-      <a href="#fullhome-dalia-drive" class="gallery-category">Dalia Drive</a>
-      <a href="#fullhome-arabian-crest-drive" class="gallery-category">Arabian Crest Drive</a>
-      <a href="#fullhome-brava-street" class="gallery-category">Brava Street</a>
-      <a href="#fullhome-opal-street" class="gallery-category">Opal Street</a>
-    </div>
-
-    <a href="#projects-gallery" class="gallery-back-link">Back to Projects &amp; Gallery</a>
-  </div>
-</section>
-
-<section id="fullhome-dalia-drive" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Dalia Drive</p>
-    <h2>Full Home Renovation</h2>
-    <div class="gallery-image-grid">
-      <img src="dalia1.webp" alt="Dalia Drive full home renovation photo 1" class="gallery-image" />
-      <img src="dalia2.webp" alt="Dalia Drive full home renovation photo 2" class="gallery-image" />
-      <img src="dalia3.webp" alt="Dalia Drive full home renovation photo 3" class="gallery-image" />
-      <img src="dalia4.webp" alt="Dalia Drive full home renovation photo 4" class="gallery-image" />
-      <img src="dalia5.webp" alt="Dalia Drive full home renovation photo 5" class="gallery-image" />
-      <img src="dalia6.webp" alt="Dalia Drive full home renovation photo 6" class="gallery-image" />
-      <img src="dalia7.webp" alt="Dalia Drive full home renovation photo 7" class="gallery-image" />
-      <img src="dalia8.webp" alt="Dalia Drive full home renovation photo 8" class="gallery-image" />
-      <img src="dalia9.webp" alt="Dalia Drive full home renovation photo 9" class="gallery-image" />
-      <img src="dalia10.webp" alt="Dalia Drive full home renovation photo 10" class="gallery-image" />
-      <img src="dalia11.webp" alt="Dalia Drive full home renovation photo 11" class="gallery-image" />
-      <img src="dalia12.webp" alt="Dalia Drive full home renovation photo 12" class="gallery-image" />
-      <img src="dalia13.webp" alt="Dalia Drive full home renovation photo 13" class="gallery-image" />
-      <img src="dalia14.webp" alt="Dalia Drive full home renovation photo 14" class="gallery-image" />
-      <img src="dalia15.webp" alt="Dalia Drive full home renovation photo 15" class="gallery-image" />
-      <img src="dalia16.webp" alt="Dalia Drive full home renovation photo 16" class="gallery-image" />
-      <img src="dalia17.webp" alt="Dalia Drive full home renovation photo 17" class="gallery-image" />
-      <img src="dalia18.webp" alt="Dalia Drive full home renovation photo 18" class="gallery-image" />
-      <img src="dalia19.webp" alt="Dalia Drive full home renovation photo 19" class="gallery-image" />
-      <img src="dalia20.webp" alt="Dalia Drive full home renovation photo 20" class="gallery-image" />
-      <img src="dalia21.webp" alt="Dalia Drive full home renovation photo 21" class="gallery-image" />
-    </div>
-    <a href="#gallery-full-home-renovations" class="gallery-back-link">Back to Full Home Renovations</a>  </div>
-</section>
-
-<section id="fullhome-arabian-crest-drive" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Arabian Crest Drive</p>
-    <h2>Full Home Renovation</h2>
-    <div class="gallery-image-grid">
-      <img src="arabiancrest1.webp" alt="Arabian Crest Drive full home renovation photo 1" class="gallery-image" />
-      <img src="arabiancrest2.webp" alt="Arabian Crest Drive full home renovation photo 2" class="gallery-image" />
-      <img src="arabiancrest3.webp" alt="Arabian Crest Drive full home renovation photo 3" class="gallery-image" />
-      <img src="arabiancrest4.webp" alt="Arabian Crest Drive full home renovation photo 4" class="gallery-image" />
-      <img src="arabiancrest5.webp" alt="Arabian Crest Drive full home renovation photo 5" class="gallery-image" />
-      <img src="arabiancrest6.webp" alt="Arabian Crest Drive full home renovation photo 6" class="gallery-image" />
-      <img src="arabiancrest7.webp" alt="Arabian Crest Drive full home renovation photo 7" class="gallery-image" />
-      <img src="arabiancrest8.webp" alt="Arabian Crest Drive full home renovation photo 8" class="gallery-image" />
-      <img src="arabiancrest9.webp" alt="Arabian Crest Drive full home renovation photo 9" class="gallery-image" />
-      <img src="arabiancrest10.webp" alt="Arabian Crest Drive full home renovation photo 10" class="gallery-image" />
-    </div>
-    <a href="#gallery-full-home-renovations" class="gallery-back-link">Back to Full Home Renovations</a>  </div>
-</section>
-
-<section id="fullhome-brava-street" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Brava Street</p>
-    <h2>Full Home Renovation</h2>
-    <div class="gallery-image-grid">
-      <img src="brava1.webp" alt="Brava Street full home renovation photo 1" class="gallery-image" />
-      <img src="brava2.webp" alt="Brava Street full home renovation photo 2" class="gallery-image" />
-      <img src="brava3.webp" alt="Brava Street full home renovation photo 3" class="gallery-image" />
-      <img src="brava4.webp" alt="Brava Street full home renovation photo 4" class="gallery-image" />
-      <img src="brava5.webp" alt="Brava Street full home renovation photo 5" class="gallery-image" />
-      <img src="brava6.webp" alt="Brava Street full home renovation photo 6" class="gallery-image" />
-      <img src="brava7.webp" alt="Brava Street full home renovation photo 7" class="gallery-image" />
-      <img src="brava8.webp" alt="Brava Street full home renovation photo 8" class="gallery-image" />
-      <img src="brava9.webp" alt="Brava Street full home renovation photo 9" class="gallery-image" />
-      <img src="brava10.webp" alt="Brava Street full home renovation photo 10" class="gallery-image" />
-      <img src="brava11.webp" alt="Brava Street full home renovation photo 11" class="gallery-image" />
-      <img src="brava12.webp" alt="Brava Street full home renovation photo 12" class="gallery-image" />
-      <img src="brava13.webp" alt="Brava Street full home renovation photo 13" class="gallery-image" />
-    </div>
-    <a href="#gallery-full-home-renovations" class="gallery-back-link">Back to Full Home Renovations</a>
-  </div>
-</section>
-
-<section id="fullhome-opal-street" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Opal Street</p>
-    <h2>Full Home Renovation</h2>
-    <div class="gallery-image-grid">
-      <img src="opal1.webp" alt="Opal Street full home renovation photo 1" class="gallery-image" />
-      <img src="opal2.webp" alt="Opal Street full home renovation photo 2" class="gallery-image" />
-      <img src="opal3.webp" alt="Opal Street full home renovation photo 3" class="gallery-image" />
-      <img src="opal4.webp" alt="Opal Street full home renovation photo 4" class="gallery-image" />
-      <img src="opal5.webp" alt="Opal Street full home renovation photo 5" class="gallery-image" />
-      <img src="opal6.webp" alt="Opal Street full home renovation photo 6" class="gallery-image" />
-      <img src="opal7.webp" alt="Opal Street full home renovation photo 7" class="gallery-image" />
-      <img src="opal8.webp" alt="Opal Street full home renovation photo 8" class="gallery-image" />
-      <img src="opal9.webp" alt="Opal Street full home renovation photo 9" class="gallery-image" />
-      <img src="opal10.webp" alt="Opal Street full home renovation photo 10" class="gallery-image" />
-      <img src="opal11.webp" alt="Opal Street full home renovation photo 11" class="gallery-image" />
-      <img src="opal12.webp" alt="Opal Street full home renovation photo 12" class="gallery-image" />
-      <img src="opal13.webp" alt="Opal Street full home renovation photo 13" class="gallery-image" />
-      <img src="opal14.webp" alt="Opal Street full home renovation photo 14" class="gallery-image" />
-      <img src="opal15.webp" alt="Opal Street full home renovation photo 15" class="gallery-image" />
-      <img src="opal16.webp" alt="Opal Street full home renovation photo 16" class="gallery-image" />
-      <img src="opal17.webp" alt="Opal Street full home renovation photo 17" class="gallery-image" />
-      <img src="opal18.webp" alt="Opal Street full home renovation photo 18" class="gallery-image" />
-      <img src="opal19.webp" alt="Opal Street full home renovation photo 19" class="gallery-image" />
-      <img src="opal20.webp" alt="Opal Street full home renovation photo 20" class="gallery-image" />
-    </div>
-    <a href="#gallery-full-home-renovations" class="gallery-back-link">Back to Full Home Renovations</a>
-  </div>
-</section>
-    
-    <section id="gallery-kitchens" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Kitchens and Cabinets</p>
-    <h2>Select a Project</h2>
-
-    <div class="gallery-category-grid">
-      <a href="#kitchen-baywind-point" class="gallery-category">Baywind Point</a>
-      <a href="#kitchen-caminito-ocean-cove" class="gallery-category">Caminito Ocean Cove</a>
-      <a href="#kitchen-pipilo-street" class="gallery-category">Pipilo Street</a>
-      <a href="#kitchen-unicornio-street" class="gallery-category">Unicornio Street</a>
-      <a href="#kitchen-everts-street" class="gallery-category">Everts Street</a>
-      <a href="#kitchen-luciernaga-street" class="gallery-category">Luciernaga Street</a>
-      <a href="#kitchen-north-star-drive" class="gallery-category">North Star Drive</a>
-    </div>
-
-    <a href="#projects-gallery" class="gallery-back-link">Back to Projects &amp; Gallery</a>
-  </div>
-</section>
-
-<section id="kitchen-baywind-point" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Baywind Point</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="baywind1.webp" alt="Baywind Point kitchen project photo 1" class="gallery-image" />
-      <img src="baywind2.webp" alt="Baywind Point kitchen project photo 2" class="gallery-image" />
-      <img src="baywind3.webp" alt="Baywind Point kitchen project photo 3" class="gallery-image" />
-      <img src="baywind4.webp" alt="Baywind Point kitchen project photo 4" class="gallery-image" />
-      <img src="baywind5.webp" alt="Baywind Point kitchen project photo 5" class="gallery-image" />
-      <img src="baywind6.webp" alt="Baywind Point kitchen project photo 6" class="gallery-image" />
-      <img src="baywind7.webp" alt="Baywind Point kitchen project photo 7" class="gallery-image" />
-      <img src="baywind8.webp" alt="Baywind Point kitchen project photo 8" class="gallery-image" />
-      <img src="baywind9.webp" alt="Baywind Point kitchen project photo 9" class="gallery-image" />
-      <img src="baywind10.webp" alt="Baywind Point kitchen project photo 10" class="gallery-image" />
-      <img src="baywind11.webp" alt="Baywind Point kitchen project photo 11" class="gallery-image" />
-      <img src="baywind12.webp" alt="Baywind Point kitchen project photo 12" class="gallery-image" />
-      <img src="baywind13.webp" alt="Baywind Point kitchen project photo 13" class="gallery-image" />
-      <img src="baywind14.webp" alt="Baywind Point kitchen project photo 14" class="gallery-image" />
-      <img src="baywind15.webp" alt="Baywind Point kitchen project photo 15" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="kitchen-caminito-ocean-cove" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Caminito Ocean Cove</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="caminito1.webp" alt="Caminito Ocean Cove kitchen photo 1" class="gallery-image" />
-      <img src="caminito2.webp" alt="Caminito Ocean Cove kitchen photo 2" class="gallery-image" />
-      <img src="caminito3.webp" alt="Caminito Ocean Cove kitchen photo 3" class="gallery-image" />
-      <img src="caminito4.webp" alt="Caminito Ocean Cove kitchen photo 4" class="gallery-image" />
-      <img src="caminito5.webp" alt="Caminito Ocean Cove kitchen photo 5" class="gallery-image" />
-      <img src="caminito6.webp" alt="Caminito Ocean Cove kitchen photo 6" class="gallery-image" />
-      <img src="caminito7.webp" alt="Caminito Ocean Cove kitchen photo 7" class="gallery-image" />
-      <img src="caminito8.webp" alt="Caminito Ocean Cove kitchen photo 8" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="kitchen-pipilo-street" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Pipilo Street</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="pipilo1.webp" alt="Pipilo Street kitchen photo 1" class="gallery-image" />
-      <img src="pipilo2.webp" alt="Pipilo Street kitchen photo 2" class="gallery-image" />
-      <img src="pipilo3.webp" alt="Pipilo Street kitchen photo 3" class="gallery-image" />
-      <img src="pipilo4.webp" alt="Pipilo Street kitchen photo 4" class="gallery-image" />
-      <img src="pipilo5.webp" alt="Pipilo Street kitchen photo 5" class="gallery-image" />
-      <img src="pipilo6.webp" alt="Pipilo Street kitchen photo 6" class="gallery-image" />
-      <img src="pipilo7.webp" alt="Pipilo Street kitchen photo 7" class="gallery-image" />
-      <img src="pipilo8.webp" alt="Pipilo Street kitchen photo 8" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="kitchen-unicornio-street" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Unicornio Street</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="unicornio1.webp" alt="Unicornio Street kitchen photo 1" class="gallery-image" />
-      <img src="unicornio2.webp" alt="Unicornio Street kitchen photo 2" class="gallery-image" />
-      <img src="unicornio3.webp" alt="Unicornio Street kitchen photo 3" class="gallery-image" />
-      <img src="unicornio4.webp" alt="Unicornio Street kitchen photo 4" class="gallery-image" />
-      <img src="unicornio5.webp" alt="Unicornio Street kitchen photo 5" class="gallery-image" />
-      <img src="unicornio6.webp" alt="Unicornio Street kitchen photo 6" class="gallery-image" />
-      <img src="unicornio7.webp" alt="Unicornio Street kitchen photo 7" class="gallery-image" />
-      <img src="unicornio8.webp" alt="Unicornio Street kitchen photo 8" class="gallery-image" />
-      <img src="unicornio9.webp" alt="Unicornio Street kitchen photo 9" class="gallery-image" />
-      <img src="unicornio10.webp" alt="Unicornio Street kitchen photo 10" class="gallery-image" />
-      <img src="unicornio11.webp" alt="Unicornio Street kitchen photo 11" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="kitchen-everts-street" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Everts Street</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="everts1.webp" alt="Everts Street kitchen photo 1" class="gallery-image" />
-      <img src="everts2.webp" alt="Everts Street kitchen photo 2" class="gallery-image" />
-      <img src="everts3.webp" alt="Everts Street kitchen photo 3" class="gallery-image" />
-      <img src="everts4.webp" alt="Everts Street kitchen photo 4" class="gallery-image" />
-      <img src="everts5.webp" alt="Everts Street kitchen photo 5" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="kitchen-luciernaga-street" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Luciernaga Street</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="luciernaga1.webp" alt="Luciernaga Street kitchen photo 1" class="gallery-image" />
-      <img src="luciernaga2.webp" alt="Luciernaga Street kitchen photo 2" class="gallery-image" />
-      <img src="luciernaga3.webp" alt="Luciernaga Street kitchen photo 3" class="gallery-image" />
-      <img src="luciernaga4.webp" alt="Luciernaga Street kitchen photo 4" class="gallery-image" />
-      <img src="luciernaga5.webp" alt="Luciernaga Street kitchen photo 5" class="gallery-image" />
-      <img src="luciernaga6.webp" alt="Luciernaga Street kitchen photo 6" class="gallery-image" />
-      <img src="luciernaga7.webp" alt="Luciernaga Street kitchen photo 7" class="gallery-image" />
-      <img src="luciernaga8.webp" alt="Luciernaga Street kitchen photo 8" class="gallery-image" />
-      <img src="luciernaga9.webp" alt="Luciernaga Street kitchen photo 9" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="kitchen-north-star-drive" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">North Star Drive</p>
-    <h2>Kitchen Project</h2>
-    <div class="gallery-image-grid">
-      <img src="northstar1.webp" alt="North Star Drive kitchen photo 1" class="gallery-image" />
-      <img src="northstar2.webp" alt="North Star Drive kitchen photo 2" class="gallery-image" />
-      <img src="northstar3.webp" alt="North Star Drive kitchen photo 3" class="gallery-image" />
-      <img src="northstar4.webp" alt="North Star Drive kitchen photo 4" class="gallery-image" />
-      <img src="northstar5.webp" alt="North Star Drive kitchen photo 5" class="gallery-image" />
-      <img src="northstar6.webp" alt="North Star Drive kitchen photo 6" class="gallery-image" />
-    </div>
-    <a href="#gallery-kitchens" class="gallery-back-link">Back to Kitchens and Cabinets</a>
-  </div>
-</section>
-
-<section id="gallery-bathrooms" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Bathrooms</p>
-    <h2>Select a Project</h2>
-
-    <div class="gallery-category-grid">
-      <a href="#bathroom-scarlet-way" class="gallery-category">Scarlet Way</a>
-      <a href="#bathroom-avalon-avenue" class="gallery-category">Avalon Avenue</a>
-      <a href="#bathroom-sunset-ridge-drive" class="gallery-category">Sunset Ridge Drive</a>
-      <a href="#bathroom-bay-leaf-drive" class="gallery-category">Bay Leaf Drive</a>
-      <a href="#bathroom-s-sierra-avenue" class="gallery-category">S Sierra Avenue</a>
-      <a href="#bathroom-tynebourne-circle" class="gallery-category">Tynebourne Circle</a>
-      <a href="#bathroom-archer-street" class="gallery-category">Archer Street</a>
-      <a href="#bathroom-tara-way" class="gallery-category">Tara Way</a>
-      <a href="#bathroom-willowhaven-road" class="gallery-category">Willowhaven Road</a>
-      <a href="#bathroom-honors-drive" class="gallery-category">Honors Drive</a>
-    </div>
-
-    <a href="#projects-gallery" class="gallery-back-link">Back to Projects &amp; Gallery</a>
-  </div>
-</section>
-
-<section id="bathroom-scarlet-way" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Scarlet Way</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="scarlet1.webp" alt="Scarlet Way bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="scarlet2.webp" alt="Scarlet Way bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="scarlet3.webp" alt="Scarlet Way bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="scarlet4.webp" alt="Scarlet Way bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-avalon-avenue" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Avalon Avenue</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="avalon1.webp" alt="Avalon Avenue bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="avalon2.webp" alt="Avalon Avenue bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-sunset-ridge-drive" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Sunset Ridge Drive</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="sunsetridge1.webp" alt="Sunset Ridge Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="sunsetridge2.webp" alt="Sunset Ridge Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="sunsetridge3.webp" alt="Sunset Ridge Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="sunsetridge4.webp" alt="Sunset Ridge Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="sunsetridge5.webp" alt="Sunset Ridge Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="sunsetridge6.webp" alt="Sunset Ridge Drive bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-bay-leaf-drive" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Bay Leaf Drive</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="bayleaf1.webp" alt="Bay Leaf Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="bayleaf2.webp" alt="Bay Leaf Drive bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-s-sierra-avenue" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">S Sierra Avenue</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="ssierra1.webp" alt="S. Sierra Avenue bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="ssierra2.webp" alt="S. Sierra Avenue bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="ssierra3.webp" alt="S. Sierra Avenue bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-tynebourne-circle" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Tynebourne Circle</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="tynebourne1.webp" alt="Tynebourne Circle bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="tynebourne2.webp" alt="Tynebourne Circle bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="tynebourne3.webp" alt="Tynebourne Circle bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-archer-street" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Archer Street</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="archer1.webp" alt="Archer Street bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="archer2.webp" alt="Archer Street bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="archer3.webp" alt="Archer Street bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="archer4.webp" alt="Archer Street bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="archer5.webp" alt="Archer Street bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-tara-way" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Tara Way</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="tara1.webp" alt="Tara Way bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="tara2.webp" alt="Tara Way bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="tara3.webp" alt="Tara Way bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-willowhaven-road" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Willowhaven Road</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="willowhaven1.webp" alt="Willowhaven Road bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="willowhaven2.webp" alt="Willowhaven Road bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="willowhaven3.webp" alt="Willowhaven Road bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="bathroom-honors-drive" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Honors Drive</p>
-    <h2>Bathroom Project</h2>
-    <div class="gallery-image-grid">
-      <img src="honors1.webp" alt="Honors Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="honors2.webp" alt="Honors Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="honors3.webp" alt="Honors Drive bathroom remodel by Guild Builders" class="gallery-image" />
-      <img src="honors4.webp" alt="Honors Drive bathroom remodel by Guild Builders" class="gallery-image" />
-    </div>
-    <a href="#gallery-bathrooms" class="gallery-back-link">Back to Bathrooms</a>
-  </div>
-</section>
-
-<section id="gallery-decks" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Decks & Patio Covers</p>
-    <h2>Select a Project</h2>
-
-    <div class="gallery-category-grid">
-      <a href="#deck-constance-drive" class="gallery-category">Constance Drive</a>
-      <a href="#deck-hill-street" class="gallery-category">Hill Street</a>
-      <a href="#deck-playa-vista" class="gallery-category">Playa Vista</a>
-      <a href="#deck-seaforest-court" class="gallery-category">Sea Forest Court</a>
-      <a href="#deck-torrey-circle" class="gallery-category">Torrey Circle</a>
-      <a href="#deck-dora-drive" class="gallery-category">Dora Drive</a>
-      <a href="#deck-lemon-st" class="gallery-category">Lemon St</a>
-      <a href="#deck-bavarian-drive" class="gallery-category">Bavarian Drive</a>
-    </div>
-
-    <a href="#projects-gallery" class="gallery-back-link">Back to Projects &amp; Gallery</a>
-  </div>
-</section>
-
-<section id="deck-constance-drive" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Constance Drive</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="constance1.webp" alt="Constance Drive deck photo 1" class="gallery-image" />
-      <img src="constance2.webp" alt="Constance Drive deck photo 2" class="gallery-image" />
-      <img src="constance3.webp" alt="Constance Drive deck photo 3" class="gallery-image" />
-      <img src="constance4.webp" alt="Constance Drive deck photo 4" class="gallery-image" />
-      <img src="constance5.webp" alt="Constance Drive deck photo 5" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-hill-street" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Hill Street</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="hill1.webp" alt="Hill Street deck photo 1" class="gallery-image" />
-      <img src="hill2.webp" alt="Hill Street deck photo 2" class="gallery-image" />
-      <img src="hill3.webp" alt="Hill Street deck photo 3" class="gallery-image" />
-      <img src="hill4.webp" alt="Hill Street deck photo 4" class="gallery-image" />
-      <img src="hill5.webp" alt="Hill Street deck photo 5" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-playa-vista" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Playa Vista</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="playa1.webp" alt="Playa Vista deck photo 1" class="gallery-image" />
-      <img src="playa2.webp" alt="Playa Vista deck photo 2" class="gallery-image" />
-      <img src="playa3.webp" alt="Playa Vista deck photo 3" class="gallery-image" />
-      <img src="playa4.webp" alt="Playa Vista deck photo 4" class="gallery-image" />
-      <img src="playa5.webp" alt="Playa Vista deck photo 5" class="gallery-image" />
-      <img src="playa6.webp" alt="Playa Vista deck photo 6" class="gallery-image" />
-      <img src="playa7.webp" alt="Playa Vista deck photo 7" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-seaforest-court" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Seaforest Court</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="seaforest1.webp" alt="Sea Forest Court deck photo 1" class="gallery-image" />
-      <img src="seaforest2.webp" alt="Sea Forest Court deck photo 2" class="gallery-image" />
-      <img src="seaforest3.webp" alt="Sea Forest Court deck photo 3" class="gallery-image" />
-      <img src="seaforest4.webp" alt="Sea Forest Court deck photo 4" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-torrey-circle" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Torrey Circle</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="torrey1.webp" alt="Torrey Circle deck photo 1" class="gallery-image" />
-      <img src="torrey2.webp" alt="Torrey Circle deck photo 2" class="gallery-image" />
-      <img src="torrey3.webp" alt="Torrey Circle deck photo 3" class="gallery-image" />
-      <img src="torrey4.webp" alt="Torrey Circle deck photo 4" class="gallery-image" />
-      <img src="torrey5.webp" alt="Torrey Circle deck photo 5" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-dora-drive" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Dora Drive</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="dora1.webp" alt="Dora Drive deck photo 1" class="gallery-image" />
-      <img src="dora2.webp" alt="Dora Drive deck photo 2" class="gallery-image" />
-      <img src="dora3.webp" alt="Dora Drive deck photo 3" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-lemon-st" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Lemon St</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="lemon1.webp" alt="Lemon St deck photo 1" class="gallery-image" />
-      <img src="lemon2.webp" alt="Lemon St deck photo 2" class="gallery-image" />
-      <img src="lemon3.webp" alt="Lemon St deck photo 3" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="deck-bavarian-drive" class="section gallery-section">
-  <div class="container">
-    <p class="section-label">Bavarian Drive</p>
-    <h2>Deck Project</h2>
-    <div class="gallery-image-grid">
-      <img src="bavarian1.webp" alt="Bavarian Drive deck photo 1" class="gallery-image" />
-      <img src="bavarian2.webp" alt="Bavarian Drive deck photo 2" class="gallery-image" />
-      <img src="bavarian3.webp" alt="Bavarian Drive deck photo 3" class="gallery-image" />
-    </div>
-    <a href="#gallery-decks" class="gallery-back-link">Back to Decks & Patio Covers</a>
-  </div>
-</section>
-
-<section id="gallery-exterior-renovations" class="section section-alt gallery-section">
-  <div class="container">
-    <p class="section-label">Exterior Renovations</p>
-    <h2>Select a Project</h2>
-    <div class="gallery-image-grid">
-      <div class="project-image placeholder">Exterior Photo 1</div>
-      <div class="project-image placeholder">Exterior Photo 2</div>
-      <div class="project-image placeholder">Exterior Photo 3</div>
-    </div>
-    <a href="#projects-gallery" class="gallery-back-link">Back to Projects &amp; Gallery</a>
-  </div>
-</section>
+        <div class="hero-buttons" style="margin-top: 2rem;">
+          <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
 
     <section id="contact" class="section section-alt">
       <div class="container contact-wrap">
@@ -724,12 +160,7 @@
       <p>© 2026 Guild Builders Inc. All rights reserved.</p>
     </div>
   </footer>
-<div id="lightbox" class="lightbox">
-  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
-  <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
-  <img class="lightbox-content" id="lightbox-img" alt="Expanded project image" />
-  <button type="button" class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
-</div>
+
   <script src="script.js"></script>
 </body>
 </html>

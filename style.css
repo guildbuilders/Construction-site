@@ -32,7 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 215px;
+  min-height: 150px;
 }
 
 .logo {
@@ -42,7 +42,7 @@ body {
 }
 
 .logo-image {
-  height: 180px;
+  height: 120px;
   width: auto;
   display: block;
 }
@@ -69,10 +69,6 @@ body {
   font-size: 1.8rem;
   cursor: pointer;
   color: #ffffff;
-}
-
-#home {
-  scroll-margin-top: 140px;
 }
 
 .hero {
@@ -335,7 +331,7 @@ p,
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #0f1c2e;
+  background: rgba(15, 28, 46, 0.96);
   justify-content: center;
   align-items: center;
   padding: 30px;
@@ -423,10 +419,15 @@ p,
   .nav {
     position: relative;
     justify-content: center;
+    min-height: 110px;
   }
 
   .logo {
     margin: 0 auto;
+  }
+
+  .logo-image {
+    height: 82px;
   }
 
   .menu-toggle {
@@ -440,7 +441,7 @@ p,
   .site-nav {
     display: none;
     position: absolute;
-    top: 215px;
+    top: 110px;
     left: 0;
     right: 0;
     background: #0f1c2e;
@@ -459,6 +460,14 @@ p,
   .gallery-image-grid,
   .home-photo-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .section {
+    padding: 4rem 0;
   }
 
   .lightbox-arrow {

@@ -295,6 +295,61 @@ p,
   grid-column: 1 / -1;
 }
 
+.homepage-category-grid {
+  margin-top: 2rem;
+}
+
+.gallery-photo-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+}
+
+.gallery-photo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 28, 46, 0.2),
+    rgba(15, 28, 46, 0.7)
+  );
+}
+
+.gallery-photo-card span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+}
+
+.category-fullhome {
+  background-image: url("home1.webp");
+}
+
+.category-kitchens {
+  background-image: url("baywind1.webp");
+}
+
+.category-bathrooms {
+  background-image: url("scarlet1.webp");
+}
+
+.category-decks {
+  background-image: url("constance1.webp");
+}
+
+.category-exterior {
+  background-image: url("home4.webp");
+}
+
 .gallery-section {
   padding-top: 4rem;
 }

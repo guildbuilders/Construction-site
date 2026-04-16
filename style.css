@@ -108,9 +108,10 @@ h1 {
 }
 
 .thank-you-title {
-  font-size: clamp(5rem, 12vw, 10rem);
-  line-height: 0.95;
+  font-size: clamp(7.5rem, 17vw, 15rem);
+  line-height: 0.88;
   margin: 0.7rem 0 1.2rem;
+  font-weight: 900;
 }
 
 h2 {

@@ -112,7 +112,7 @@ h1 {
   font-weight: 900;
   letter-spacing: 0.14em;
 }
-}
+
 
 h2 {
   font-size: clamp(1.8rem, 4vw, 3rem);

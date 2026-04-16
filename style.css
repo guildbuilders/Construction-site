@@ -167,6 +167,10 @@ p,
   background: #13243a;
 }
 
+.section .container {
+  text-align: center;
+}
+
 .two-column {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -182,12 +186,21 @@ p,
   margin-top: 2rem;
 }
 
+.card-grid,
+.project-grid,
+.gallery-category-grid,
+.home-photo-grid,
+.gallery-image-grid {
+  justify-content: center;
+}
+
 .card,
 .project,
 .gallery-category {
   background: #16283f;
   border: 1px solid #2a3e5c;
   border-radius: 18px;
+  text-align: left;
 }
 
 .card,
@@ -290,7 +303,6 @@ p,
   text-decoration: none;
   color: #ffffff;
   font-weight: 600;
-  text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -362,7 +374,7 @@ p,
 
 .category-bathrooms {
   background-image: url("scarlet1.webp");
-  background-position: center 25%;
+  background-position: center 30%;
 }
 
 .category-decks {

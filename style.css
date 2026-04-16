@@ -595,7 +595,7 @@ p,
   .nav {
     position: relative;
     justify-content: center;
-    min-height: 110px;
+    min-height: 230px;
   }
 
   .logo {
@@ -603,7 +603,7 @@ p,
   }
 
   .logo-image {
-    height: 82px;
+    height: 205px;
   }
 
   .menu-toggle {
@@ -612,12 +612,13 @@ p,
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 2.4rem;
   }
 
   .site-nav {
     display: none;
     position: absolute;
-    top: 110px;
+    top: 230px;
     left: 0;
     right: 0;
     background: #0f1c2e;

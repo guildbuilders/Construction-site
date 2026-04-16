@@ -5,6 +5,13 @@ if (menuToggle && siteNav) {
   menuToggle.addEventListener("click", () => {
     siteNav.classList.toggle("open");
   });
+
+  const navLinks = siteNav.querySelectorAll("a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("open");
+    });
+  });
 }
 
 const lightbox = document.getElementById("lightbox");
@@ -13,11 +20,15 @@ const lightboxClose = document.getElementById("lightbox-close");
 const lightboxPrev = document.getElementById("lightbox-prev");
 const lightboxNext = document.getElementById("lightbox-next");
 
-const clickableImages = Array.from(document.querySelectorAll(".gallery-image, .home-photo"));
+const clickableImages = Array.from(
+  document.querySelectorAll(".gallery-image, .home-photo")
+);
 
 let currentImageIndex = 0;
 
 function openLightbox(index) {
+  if (!lightbox || !lightboxImg || clickableImages.length === 0) return;
+
   currentImageIndex = index;
   lightboxImg.src = clickableImages[currentImageIndex].src;
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
@@ -25,16 +36,21 @@ function openLightbox(index) {
 }
 
 function closeLightbox() {
+  if (!lightbox) return;
   lightbox.classList.remove("active");
 }
 
 function showNextImage() {
+  if (!lightboxImg || clickableImages.length === 0) return;
+
   currentImageIndex = (currentImageIndex + 1) % clickableImages.length;
   lightboxImg.src = clickableImages[currentImageIndex].src;
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
 }
 
 function showPrevImage() {
+  if (!lightboxImg || clickableImages.length === 0) return;
+
   currentImageIndex = (currentImageIndex - 1 + clickableImages.length) % clickableImages.length;
   lightboxImg.src = clickableImages[currentImageIndex].src;
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
@@ -73,7 +89,7 @@ if (lightbox) {
 }
 
 document.addEventListener("keydown", (e) => {
-  if (!lightbox.classList.contains("active")) return;
+  if (!lightbox || !lightbox.classList.contains("active")) return;
 
   if (e.key === "Escape") {
     closeLightbox();

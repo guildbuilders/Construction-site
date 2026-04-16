@@ -33,11 +33,14 @@ function openLightbox(index) {
   lightboxImg.src = clickableImages[currentImageIndex].src;
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
   lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function closeLightbox() {
   if (!lightbox) return;
+
   lightbox.classList.remove("active");
+  document.body.style.overflow = "";
 }
 
 function showNextImage() {

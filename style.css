@@ -315,7 +315,7 @@ p,
   background: linear-gradient(
     to bottom,
     rgba(15, 28, 46, 0.2),
-    rgba(15, 28, 46, 0.7)
+    rgba(15, 28, 46, 0.72)
   );
 }
 
@@ -330,6 +330,7 @@ p,
   padding: 1rem;
 }
 
+/* homepage category backgrounds */
 .category-fullhome {
   background-image: url("home1.webp");
 }
@@ -348,6 +349,126 @@ p,
 
 .category-exterior {
   background-image: url("home4.webp");
+}
+
+/* full home project card backgrounds */
+.project-dalia {
+  background-image: url("dalia1.webp");
+}
+
+.project-arabiancrest {
+  background-image: url("arabiancrest1.webp");
+}
+
+.project-brava {
+  background-image: url("brava1.webp");
+}
+
+.project-opal {
+  background-image: url("opal1.webp");
+}
+
+/* kitchen project card backgrounds */
+.project-baywind {
+  background-image: url("baywind1.webp");
+}
+
+.project-caminito {
+  background-image: url("caminito1.webp");
+}
+
+.project-pipilo {
+  background-image: url("pipilo1.webp");
+}
+
+.project-unicornio {
+  background-image: url("unicornio1.webp");
+}
+
+.project-everts {
+  background-image: url("everts1.webp");
+}
+
+.project-luciernaga {
+  background-image: url("luciernaga1.webp");
+}
+
+.project-northstar {
+  background-image: url("northstar1.webp");
+}
+
+/* bathroom project card backgrounds */
+.project-scarlet {
+  background-image: url("scarlet1.webp");
+}
+
+.project-avalon {
+  background-image: url("avalon1.webp");
+}
+
+.project-sunsetridge {
+  background-image: url("sunsetridge1.webp");
+}
+
+.project-bayleaf {
+  background-image: url("bayleaf1.webp");
+}
+
+.project-ssierra {
+  background-image: url("ssierra1.webp");
+}
+
+.project-tynebourne {
+  background-image: url("tynebourne1.webp");
+}
+
+.project-archer {
+  background-image: url("archer1.webp");
+}
+
+.project-tara {
+  background-image: url("tara1.webp");
+}
+
+.project-willowhaven {
+  background-image: url("willowhaven1.webp");
+}
+
+.project-honors {
+  background-image: url("honors1.webp");
+}
+
+/* deck project card backgrounds */
+.project-constance {
+  background-image: url("constance1.webp");
+}
+
+.project-hill {
+  background-image: url("hill1.webp");
+}
+
+.project-playa {
+  background-image: url("playa1.webp");
+}
+
+.project-seaforest {
+  background-image: url("seaforest1.webp");
+}
+
+.project-torrey {
+  background-image: url("torrey1.webp");
+}
+
+.project-dora {
+  background-image: url("dora1.webp");
+}
+
+.project-lemon {
+  background-image: url("lemon1.webp");
+}
+
+.project-bavarian {
+  background-image: url("bavarian1.webp");
 }
 
 .gallery-section {

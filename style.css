@@ -303,8 +303,9 @@ p,
   position: relative;
   overflow: hidden;
   min-height: 220px;
-  background-size: cover;
-  background-position: center;
+  background-size: var(--bg-size, cover);
+  background-position: center center;
+  background-repeat: no-repeat;
   border-radius: 18px;
 }
 
@@ -331,147 +332,187 @@ p,
 }
 
 /* homepage category backgrounds */
-.category-fullhome {
-  background-image: url("home1.webp");
-}
-
-.category-kitchens {
-  background-image: url("baywind1.webp");
-}
-
-.category-bathrooms {
-  background-image: url("scarlet1.webp");
-  background-size: 75%;
+.category-fullhome,
+.category-kitchens,
+.category-bathrooms,
+.category-decks,
+.category-exterior {
+  background-size: var(--bg-size, cover);
   background-repeat: no-repeat;
   background-position: center center;
 }
 
+.category-fullhome {
+  background-image: url("home1.webp");
+  --bg-size: 75%;
+}
+
+.category-kitchens {
+  background-image: url("baywind1.webp");
+  --bg-size: 75%;
+}
+
+.category-bathrooms {
+  background-image: url("scarlet1.webp");
+  --bg-size: 75%;
+}
+
 .category-decks {
   background-image: url("constance1.webp");
+  --bg-size: 75%;
 }
 
 .category-exterior {
-  background-image: url("home4.webp");
+  background-image: url("pavers1.webp");
+  --bg-size: 75%;
 }
-
 /* full home project card backgrounds */
 .project-dalia {
   background-image: url("dalia1.webp");
+  --bg-size: 75%;
 }
 
 .project-arabiancrest {
   background-image: url("arabiancrest1.webp");
+  --bg-size: 75%;
 }
 
 .project-brava {
   background-image: url("brava1.webp");
+  --bg-size: 75%;
 }
 
 .project-opal {
   background-image: url("opal1.webp");
+  --bg-size: 75%;
 }
 
 /* kitchen project card backgrounds */
 .project-baywind {
   background-image: url("baywind1.webp");
+  --bg-size: 75%;
 }
 
 .project-caminito {
   background-image: url("caminito1.webp");
+  --bg-size: 75%;
 }
 
 .project-pipilo {
   background-image: url("pipilo1.webp");
+  --bg-size: 75%;
 }
 
 .project-unicornio {
   background-image: url("unicornio1.webp");
+  --bg-size: 75%;
 }
 
 .project-everts {
   background-image: url("everts1.webp");
+  --bg-size: 75%;
 }
 
 .project-luciernaga {
   background-image: url("luciernaga1.webp");
+  --bg-size: 75%;
 }
 
 .project-northstar {
   background-image: url("northstar1.webp");
+  --bg-size: 75%;
 }
 
 /* bathroom project card backgrounds */
 .project-scarlet {
   background-image: url("scarlet1.webp");
+  --bg-size: 75%;
 }
 
 .project-avalon {
   background-image: url("avalon1.webp");
+  --bg-size: 75%;
 }
 
 .project-sunsetridge {
   background-image: url("sunsetridge1.webp");
+  --bg-size: 75%;
 }
 
 .project-bayleaf {
   background-image: url("bayleaf1.webp");
+  --bg-size: 75%;
 }
 
 .project-ssierra {
   background-image: url("ssierra1.webp");
+  --bg-size: 75%;
 }
 
 .project-tynebourne {
   background-image: url("tynebourne1.webp");
+  --bg-size: 75%;
 }
 
 .project-archer {
   background-image: url("archer1.webp");
+  --bg-size: 75%;
 }
 
 .project-tara {
   background-image: url("tara1.webp");
+  --bg-size: 75%;
 }
 
 .project-willowhaven {
   background-image: url("willowhaven1.webp");
+  --bg-size: 75%;
 }
 
 .project-honors {
   background-image: url("honors1.webp");
+  --bg-size: 75%;
 }
 
 /* deck project card backgrounds */
 .project-constance {
   background-image: url("constance1.webp");
+  --bg-size: 75%;
 }
 
 .project-hill {
   background-image: url("hill1.webp");
+  --bg-size: 75%;
 }
 
 .project-playa {
   background-image: url("playa1.webp");
+  --bg-size: 75%;
 }
 
 .project-seaforest {
   background-image: url("seaforest1.webp");
+  --bg-size: 75%;
 }
 
 .project-torrey {
   background-image: url("torrey1.webp");
+  --bg-size: 75%;
 }
 
 .project-dora {
   background-image: url("dora1.webp");
+  --bg-size: 75%;
 }
 
 .project-lemon {
   background-image: url("lemon1.webp");
+  --bg-size: 75%;
 }
 
 .project-bavarian {
   background-image: url("bavarian1.webp");
+  --bg-size: 75%;
 }
 
 .gallery-section {

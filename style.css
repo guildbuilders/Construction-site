@@ -275,6 +275,13 @@ p,
   font-size: 0.9rem;
 }
 
+.footer-license {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #d4af37;
+  letter-spacing: 0.5px;
+}
+
 .home-gallery-preview .container {
   text-align: center;
 }

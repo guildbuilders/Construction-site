@@ -1,27 +1,248 @@
-<section class="hero">
-  <div class="container hero-content">
-    
-    <p class="eyebrow">
-      Licensed & Bonded • Detail-Driven • Built With Integrity
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <h1>
-      Thoughtfully Built Homes. Zero Compromises.
-    </h1>
+  <title>Guild Builders Inc.</title>
 
-    <p class="hero-text">
-      Family-owned contractors focused on quality craftsmanship, clear communication, and attention to detail.
-    </p>
+  <meta
+    name="description"
+    content="Guild Builders Inc. provides residential construction and remodeling services throughout San Diego County, including kitchens, bathrooms, full home renovations, decks, patio covers, and exterior improvements."
+  />
 
-    <div class="hero-buttons">
-      <a href="contact.html" class="btn btn-primary">
-        Request a Quote
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18096983407"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18096983407');
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="top"></div>
+
+  <header class="site-header">
+
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+        <img
+          src="guild-logo.png"
+          alt="Guild Builders Inc. logo"
+          class="logo-image"
+        />
       </a>
 
-      <a href="gallery.html" class="btn btn-secondary">
-        View Projects &amp; Gallery
-      </a>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <nav
+        class="site-nav"
+        id="site-nav"
+        aria-label="Main navigation"
+      >
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
     </div>
 
-  </div>
-</section>
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-content">
+
+        <p class="eyebrow">
+          Licensed &amp; Bonded • Detail-Driven • Built With Integrity
+        </p>
+
+        <h1>
+          Thoughtfully Built Homes. Zero Compromises.
+        </h1>
+
+        <p class="hero-text">
+          Family-owned contractors focused on quality craftsmanship,
+          clear communication, and attention to detail.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            href="contact.html"
+            class="btn btn-primary"
+          >
+            Request a Quote
+          </a>
+
+          <a
+            href="gallery.html"
+            class="btn btn-secondary"
+          >
+            View Projects &amp; Gallery
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section home-gallery-preview">
+
+      <div class="container">
+
+        <p class="section-label">
+          Featured Work
+        </p>
+
+        <h2>
+          A few highlights...
+        </h2>
+
+        <div class="home-photo-grid">
+
+          <img
+            src="home1.webp"
+            alt="Guild Builders project photo 1"
+            class="home-photo"
+            loading="lazy"
+          />
+
+          <img
+            src="home2.webp"
+            alt="Guild Builders project photo 2"
+            class="home-photo"
+            loading="lazy"
+          />
+
+          <img
+            src="home3.webp"
+            alt="Guild Builders project photo 3"
+            class="home-photo"
+            loading="lazy"
+          />
+
+          <img
+            src="home4.webp"
+            alt="Guild Builders project photo 4"
+            class="home-photo"
+            loading="lazy"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="container">
+
+        <p class="section-label">
+          Projects &amp; Gallery
+        </p>
+
+        <h2>
+          Browse Our Work by Category &amp; Project
+        </h2>
+
+        <div class="gallery-category-grid homepage-category-grid">
+
+          <a
+            href="full-home-renovations.html"
+            class="gallery-category gallery-photo-card category-fullhome"
+          >
+            <span>Full Home Renovations</span>
+          </a>
+
+          <a
+            href="kitchens-cabinets.html"
+            class="gallery-category gallery-photo-card category-kitchens"
+          >
+            <span>Kitchens &amp; Cabinets</span>
+          </a>
+
+          <a
+            href="bathrooms.html"
+            class="gallery-category gallery-photo-card category-bathrooms"
+          >
+            <span>Bathrooms</span>
+          </a>
+
+          <a
+            href="decks-patio-covers.html"
+            class="gallery-category gallery-photo-card category-decks"
+          >
+            <span>Decks &amp; Patio Covers</span>
+          </a>
+
+          <a
+            href="exterior-renovations.html"
+            class="gallery-category gallery-photo-card category-exterior gallery-category-wide"
+          >
+            <span>Exterior Renovations</span>
+          </a>
+
+        </div>
+
+        <div class="hero-buttons" style="margin-top: 2rem;">
+
+          <a
+            href="gallery.html"
+            class="btn btn-primary"
+          >
+            View Full Gallery
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <p>
+        © 2026 Guild Builders Inc. All rights reserved.
+      </p>
+
+      <p class="footer-license">
+        Licensed &amp; Bonded | License #1154614
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

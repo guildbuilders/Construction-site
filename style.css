@@ -242,6 +242,11 @@ p,
   align-items: start;
 }
 
+.contact-wrap h2 {
+  color: #d4af37;
+  letter-spacing: 0.04em;
+}
+
 .contact-form {
   display: grid;
   gap: 1rem;
@@ -340,8 +345,8 @@ p,
   position: relative;
   overflow: hidden;
   min-height: 300px;
-  background-size: cover;
-  background-position: center center;
+  background-size: var(--bg-size, cover);
+  background-position: var(--bg-position, center center);
   background-repeat: no-repeat;
   border-radius: 18px;
 }

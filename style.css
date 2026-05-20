@@ -19,6 +19,8 @@ body {
   margin: 0 auto;
 }
 
+/* HEADER */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -71,6 +73,8 @@ body {
   cursor: pointer;
   color: #ffffff;
 }
+
+/* HERO */
 
 .hero {
   padding: 7rem 0 5rem;
@@ -150,6 +154,8 @@ p,
   justify-content: center;
 }
 
+/* BUTTONS */
+
 .btn {
   display: inline-block;
   padding: 0.9rem 1.3rem;
@@ -168,6 +174,8 @@ p,
   background: transparent;
   color: #d4af37;
 }
+
+/* SECTIONS */
 
 .section {
   padding: 5rem 0;
@@ -188,6 +196,8 @@ p,
   align-items: start;
 }
 
+/* GENERAL CARDS */
+
 .card-grid,
 .project-grid {
   display: grid;
@@ -196,35 +206,26 @@ p,
   margin-top: 2rem;
 }
 
-.card-grid,
-.project-grid,
-.gallery-category-grid,
-.home-photo-grid,
-.gallery-image-grid {
-  justify-content: center;
-}
-
 .card,
-.project,
-.gallery-category {
+.project {
   background: #16283f;
   border: 1px solid #2a3e5c;
   border-radius: 18px;
   text-align: left;
-}
-
-.card,
-.project {
   padding: 1.4rem;
 }
 
+/* PROJECT IMAGE CARDS */
+
 .project-image {
-  height: 220px;
+  width: 100%;
+  height: 260px;
   border-radius: 14px;
   margin-bottom: 1rem;
-  background-size: var(--bg-size, cover);
+  background-size: cover !important;
   background-position: var(--bg-position, center center);
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .placeholder {
@@ -234,6 +235,8 @@ p,
   color: #d4af37;
   font-weight: 600;
 }
+
+/* CONTACT */
 
 .contact-wrap {
   display: grid;
@@ -268,6 +271,8 @@ p,
   resize: vertical;
 }
 
+/* FOOTER */
+
 .site-footer {
   padding: 2rem 0;
   border-top: 1px solid #22324a;
@@ -286,6 +291,8 @@ p,
   color: #d4af37;
   letter-spacing: 0.5px;
 }
+
+/* HOME GALLERY PREVIEW */
 
 .home-gallery-preview .container {
   text-align: center;
@@ -307,7 +314,10 @@ p,
   object-fit: cover;
   border-radius: 18px;
   display: block;
+  cursor: pointer;
 }
+
+/* GALLERY CATEGORY CARDS */
 
 .gallery-category-grid {
   display: grid;
@@ -317,20 +327,48 @@ p,
 }
 
 .gallery-category {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: 320px;
   padding: 1.5rem;
+  overflow: hidden;
   text-decoration: none;
   color: #ffffff;
   font-weight: 600;
+  background-color: #16283f;
+  background-size: cover !important;
+  background-position: var(--bg-position, center center);
+  background-repeat: no-repeat;
+  border: 1px solid #2a3e5c;
+  border-radius: 18px;
+  text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-category::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 28, 46, 0.18),
+    rgba(15, 28, 46, 0.72)
+  );
+  z-index: 0;
+}
+
+.gallery-category span,
+.gallery-category h2,
+.gallery-category h3 {
+  position: relative;
+  z-index: 1;
 }
 
 .gallery-category:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .gallery-category-wide {
@@ -341,14 +379,23 @@ p,
   margin-top: 2rem;
 }
 
+/* PROJECT PHOTO CARDS */
+
 .gallery-photo-card {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
   overflow: hidden;
-  min-height: 300px;
-  background-size: var(--bg-size, cover);
+  background-color: #16283f;
+  background-size: cover !important;
   background-position: var(--bg-position, center center);
   background-repeat: no-repeat;
+  border: 1px solid #2a3e5c;
   border-radius: 18px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-photo-card::before {
@@ -357,9 +404,10 @@ p,
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15, 28, 46, 0.2),
-    rgba(15, 28, 46, 0.72)
+    rgba(15, 28, 46, 0.16),
+    rgba(15, 28, 46, 0.76)
   );
+  z-index: 0;
 }
 
 .gallery-photo-card span {
@@ -367,196 +415,166 @@ p,
   z-index: 1;
   display: block;
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   text-align: center;
   padding: 1rem;
 }
 
-/* homepage category backgrounds */
-.category-fullhome,
-.category-kitchens,
-.category-bathrooms,
-.category-decks,
-.category-exterior {
-  background-size: cover;
-  background-repeat: no-repeat;
+.gallery-photo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
+
+/* CATEGORY BACKGROUNDS */
 
 .category-fullhome {
   background-image: url("home1.webp");
-  background-position: center center;
 }
 
 .category-kitchens {
   background-image: url("baywind1.webp");
-  background-position: center center;
 }
 
 .category-bathrooms {
   background-image: url("scarlet1.webp");
-  background-position: center 22%;
+  --bg-position: center 22%;
 }
 
 .category-decks {
   background-image: url("constance1.webp");
-  background-position: center center;
 }
 
 .category-exterior {
   background-image: url("pavers1.webp");
-  background-position: center center;
 }
 
-/* full home project card backgrounds */
+/* FULL HOME PROJECT BACKGROUNDS */
+
 .project-dalia {
   background-image: url("dalia1.webp");
-  --bg-size: 75%;
 }
 
 .project-arabiancrest {
   background-image: url("arabiancrest1.webp");
-  --bg-size: 75%;
 }
 
 .project-brava {
   background-image: url("brava1.webp");
-  --bg-size: 75%;
 }
 
 .project-opal {
   background-image: url("opal1.webp");
-  --bg-size: 75%;
 }
 
-/* kitchen project card backgrounds */
+/* KITCHEN PROJECT BACKGROUNDS */
+
 .project-baywind {
   background-image: url("baywind1.webp");
-  --bg-size: 75%;
 }
 
 .project-caminito {
   background-image: url("caminito1.webp");
-  --bg-size: 75%;
 }
 
 .project-pipilo {
   background-image: url("pipilo1.webp");
-  --bg-size: 75%;
 }
 
 .project-unicornio {
   background-image: url("unicornio1.webp");
-  --bg-size: 75%;
 }
 
 .project-everts {
   background-image: url("everts1.webp");
-  --bg-size: 75%;
 }
 
 .project-luciernaga {
   background-image: url("luciernaga1.webp");
-  --bg-size: 75%;
 }
 
 .project-northstar {
   background-image: url("northstar1.webp");
-  --bg-size: 75%;
 }
 
-/* bathroom project card backgrounds */
+/* BATHROOM PROJECT BACKGROUNDS */
+
 .project-scarlet {
   background-image: url("scarlet1.webp");
-  --bg-size: 75%;
   --bg-position: center 25%;
 }
 
 .project-avalon {
   background-image: url("avalon1.webp");
-  --bg-size: 75%;
 }
 
 .project-sunsetridge {
   background-image: url("sunsetridge1.webp");
-  --bg-size: 75%;
 }
 
 .project-bayleaf {
   background-image: url("bayleaf1.webp");
-  --bg-size: 75%;
 }
 
 .project-ssierra {
   background-image: url("ssierra1.webp");
-  --bg-size: 75%;
 }
 
 .project-tynebourne {
   background-image: url("tynebourne1.webp");
-  --bg-size: 75%;
 }
 
 .project-archer {
   background-image: url("archer1.webp");
-  --bg-size: 75%;
 }
 
 .project-tara {
   background-image: url("tara1.webp");
-  --bg-size: 75%;
 }
 
 .project-willowhaven {
   background-image: url("willowhaven1.webp");
-  --bg-size: 75%;
 }
 
 .project-honors {
   background-image: url("honors1.webp");
-  --bg-size: 75%;
 }
 
-/* deck project card backgrounds */
+/* DECK PROJECT BACKGROUNDS */
+
 .project-constance {
   background-image: url("constance1.webp");
-  --bg-size: 75%;
 }
 
 .project-hill {
   background-image: url("hill1.webp");
-  --bg-size: 75%;
 }
 
 .project-playa {
   background-image: url("playa1.webp");
-  --bg-size: 75%;
 }
 
 .project-seaforest {
   background-image: url("seaforest1.webp");
-  --bg-size: 75%;
 }
 
 .project-torrey {
   background-image: url("torrey1.webp");
-  --bg-size: 75%;
 }
 
 .project-dora {
   background-image: url("dora1.webp");
-  --bg-size: 75%;
 }
 
 .project-lemon {
   background-image: url("lemon1.webp");
-  --bg-size: 75%;
 }
 
 .project-bavarian {
   background-image: url("bavarian1.webp");
-  --bg-size: 75%;
 }
+
+/* INDIVIDUAL GALLERY PAGES */
 
 .gallery-section {
   padding-top: 4rem;
@@ -575,6 +593,7 @@ p,
   object-fit: cover;
   border-radius: 18px;
   display: block;
+  cursor: pointer;
 }
 
 .gallery-back-link {
@@ -584,10 +603,7 @@ p,
   text-decoration: none;
 }
 
-.gallery-image,
-.home-photo {
-  cursor: pointer;
-}
+/* LIGHTBOX */
 
 .lightbox {
   display: none;
@@ -660,6 +676,8 @@ p,
   right: 24px;
 }
 
+/* TABLET */
+
 @media (max-width: 900px) {
   .home-photo-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -669,6 +687,8 @@ p,
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* MOBILE NAV */
 
 @media (max-width: 800px) {
   .two-column,
@@ -719,7 +739,15 @@ p,
   .site-nav.open {
     display: flex;
   }
+
+  .project-image,
+  .gallery-photo-card,
+  .gallery-category {
+    min-height: 300px;
+  }
 }
+
+/* SMALL MOBILE */
 
 @media (max-width: 600px) {
   .gallery-image-grid,
@@ -753,6 +781,12 @@ p,
     width: 100%;
     max-width: 320px;
     text-align: center;
+  }
+
+  .project-image,
+  .gallery-photo-card,
+  .gallery-category {
+    min-height: 260px;
   }
 
   .lightbox-arrow {

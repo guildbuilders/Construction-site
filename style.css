@@ -75,7 +75,6 @@ body {
 }
 
 /* HERO */
-
 .hero {
   padding: 7rem 0 5rem;
   background: linear-gradient(to bottom, #0f1c2e, #13243a);
@@ -548,6 +547,28 @@ body.full-home-page .project-kingsfield {
 
 .project-honors {
   background-image: url("honors1.webp");
+}
+
+/* BATHROOM PAGE ONLY BACKGROUND OVERRIDES */
+
+body.bathroom-page .project-dalia {
+  background-image: url("dalia9.webp");
+}
+
+body.bathroom-page .project-arabiancrest {
+  background-image: url("arabiancrest5.webp");
+}
+
+body.bathroom-page .project-brava {
+  background-image: url("brava8.webp");
+}
+
+body.bathroom-page .project-opal {
+  background-image: url("opal11.webp");
+}
+
+body.bathroom-page .project-kingsfield {
+  background-image: url("kingsfield7.webp");
 }
 
 /* DECK PROJECT BACKGROUNDS */

@@ -469,6 +469,9 @@ p,
 
 .project-kingsfield {
   background-image: url("kingsfield1.webp");
+}
+
+body.full-home-page .project-kingsfield {
   grid-column: 1 / -1;
   min-height: 300px;
   background-position: center center;

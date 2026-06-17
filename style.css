@@ -478,6 +478,9 @@ body.full-home-page .project-kingsfield {
 
 /* KITCHEN PROJECT BACKGROUNDS */
 
+.project-miracle {
+  background-image: url("miracle1.webp");
+}
 .project-skyline {
   background-image: url("skyline1.webp");
 }

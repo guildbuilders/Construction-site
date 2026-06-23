@@ -478,6 +478,10 @@ body.full-home-page .project-kingsfield {
 
 /* KITCHEN PROJECT BACKGROUNDS */
 
+.project-ivy {
+  background-image: url("ivy1.webp");
+}
+
 .project-miracle {
   background-image: url("miracle1.webp");
 }

@@ -485,7 +485,7 @@ body.full-home-page .project-kingsfield {
   background-image: url("miracle1.webp");
 }
 
-.project-kingsfield {
+.project-kingsfield-kitchen {
   background-image: url("kingsfield1.webp");
 }
 
@@ -527,6 +527,22 @@ body.full-home-page .project-kingsfield {
 
 .project-northstar {
   background-image: url("northstar1.webp");
+}
+
+.project-dalia-kitchen {
+  background-image: url("dalia1.webp");
+}
+
+.project-arabian-kitchen {
+  background-image: url("arabian1.webp");
+}
+
+.project-brava-kitchen {
+  background-image: url("brava1.webp");
+}
+
+.project-opal-kitchen {
+  background-image: url("opal1.webp");
 }
 
 /* BATHROOM PROJECT BACKGROUNDS */

@@ -146,13 +146,6 @@ body {
   border-color: #ffffff;
 }
 
-/* phones: show the poster still instead of downloading/playing the video */
-@media (max-width: 800px) {
-  .hero-video .hero-bg-video {
-    display: none;
-  }
-}
-
 /* HOMEPAGE: full-screen video with the header overlaid on top of it */
 
 body.home .hero-video {

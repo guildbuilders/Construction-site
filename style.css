@@ -531,8 +531,6 @@ p,
 
 .project-opal {
   background-image: url("opal1-1000.webp");
-  grid-column: 1 / -1;
-  min-height: 340px;
 }
 
 .project-kingsfield {
@@ -540,8 +538,6 @@ p,
 }
 
 body.full-home-page .project-kingsfield {
-  grid-column: 1 / -1;
-  min-height: 300px;
   background-position: center center;
 }
 

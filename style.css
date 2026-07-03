@@ -110,6 +110,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* zoom in to crop off the black side bars baked into some clips */
+  transform: scale(1.3);
   z-index: 0;
 }
 
@@ -156,9 +158,9 @@ body {
 body.home .hero-video {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  padding: 0 0 4rem;
+  padding: 0 0 12vh;
 }
 
 /* header floats over the video (logo + nav become part of the video) */

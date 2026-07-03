@@ -10,8 +10,8 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  background: #0f1c2e;
-  color: #ffffff;
+  background: #f5f2ea;
+  color: #48556a;
 }
 
 .container {
@@ -25,8 +25,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(15, 28, 46, 0.96);
-  border-bottom: 1px solid #22324a;
+  background: rgba(245, 242, 234, 0.92);
+  border-bottom: 1px solid #e4ddce;
   backdrop-filter: blur(8px);
 }
 
@@ -56,13 +56,13 @@ body {
 
 .site-nav a {
   text-decoration: none;
-  color: #d4af37;
+  color: #14243a;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 .site-nav a:hover {
-  color: #f0cf6a;
+  color: #a17c1e;
 }
 
 .menu-toggle {
@@ -71,7 +71,7 @@ body {
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: #ffffff;
+  color: #14243a;
 }
 
 /* HERO */
@@ -79,7 +79,7 @@ body {
 .hero,
 .page-hero {
   padding: 7rem 0 5rem;
-  background: linear-gradient(to bottom, #0f1c2e, #13243a);
+  background: linear-gradient(to bottom, #ffffff, #f0ece2);
 }
 
 .hero-small {
@@ -98,13 +98,13 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.95rem;
-  color: #d4af37;
+  color: #a17c1e;
 }
 
 h1,
 h2,
 h3 {
-  color: #ffffff;
+  color: #14243a;
 }
 
 h1 {
@@ -120,7 +120,7 @@ h1 {
   letter-spacing: 0.14em !important;
   line-height: 1 !important;
   margin-bottom: 1rem !important;
-  color: #d4af37 !important;
+  color: #a17c1e !important;
 }
 
 h2 {
@@ -140,7 +140,7 @@ p,
 .card p,
 .project p,
 .page-hero p {
-  color: #d8dee8;
+  color: #48556a;
 }
 
 .hero-text {
@@ -175,7 +175,7 @@ p,
 
 .btn-secondary {
   background: transparent;
-  color: #d4af37;
+  color: #14243a;
 }
 
 /* SECTIONS */
@@ -188,7 +188,7 @@ p,
 
 .section-alt,
 .project-section:nth-of-type(even) {
-  background: #13243a;
+  background: #ffffff;
 }
 
 .section .container,
@@ -216,8 +216,8 @@ p,
 
 .card,
 .project {
-  background: #16283f;
-  border: 1px solid #2a3e5c;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
   border-radius: 18px;
   text-align: left;
   padding: 1.4rem;
@@ -231,8 +231,8 @@ p,
   min-height: 340px;
   overflow: hidden;
   border-radius: 18px;
-  border: 1px solid #2a3e5c;
-  background: #16283f;
+  border: 1px solid #e4ddce;
+  background: #ffffff;
   text-decoration: none;
   color: #ffffff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -296,8 +296,8 @@ p,
 .placeholder {
   display: grid;
   place-items: center;
-  background: #22324a;
-  color: #d4af37;
+  background: #ece6d9;
+  color: #a17c1e;
   font-weight: 600;
 }
 
@@ -311,7 +311,7 @@ p,
 }
 
 .contact-wrap h2 {
-  color: #d4af37;
+  color: #a17c1e;
   letter-spacing: 0.04em;
 }
 
@@ -324,11 +324,11 @@ p,
 .contact-form textarea {
   width: 100%;
   padding: 1rem;
-  border: 1px solid #2a3e5c;
+  border: 1px solid #d8d2c4;
   border-radius: 14px;
   font: inherit;
-  background: #16283f;
-  color: #ffffff;
+  background: #ffffff;
+  color: #33404f;
 }
 
 .contact-form textarea {
@@ -340,21 +340,21 @@ p,
 
 .site-footer {
   padding: 2rem 0;
-  border-top: 1px solid #22324a;
-  background: #0f1c2e;
+  border-top: 1px solid #e4ddce;
+  background: #efeae0;
 }
 
 .footer-inner,
 .site-footer .container {
   text-align: center;
-  color: #d8dee8;
+  color: #48556a;
   font-size: 0.9rem;
 }
 
 .footer-license {
   margin-top: 8px;
   font-size: 0.9rem;
-  color: #d4af37;
+  color: #a17c1e;
   letter-spacing: 0.5px;
 }
 
@@ -407,7 +407,7 @@ p,
   background-size: cover !important;
   background-position: var(--bg-position, center center);
   background-repeat: no-repeat;
-  border: 1px solid #2a3e5c;
+  border: 1px solid #e4ddce;
   border-radius: 18px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -458,7 +458,7 @@ p,
   background-size: cover !important;
   background-position: var(--bg-position, center center);
   background-repeat: no-repeat;
-  border: 1px solid #2a3e5c;
+  border: 1px solid #e4ddce;
   border-radius: 18px;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -767,7 +767,7 @@ body.kitchen-page .project-kingsfield {
 .gallery-back-link {
   display: inline-block;
   margin-top: 1rem;
-  color: #d4af37;
+  color: #a17c1e;
   text-decoration: none;
 }
 
@@ -897,8 +897,8 @@ body.kitchen-page .project-kingsfield {
     top: 200px;
     left: 0;
     right: 0;
-    background: #0f1c2e;
-    border-bottom: 1px solid #22324a;
+    background: #f5f2ea;
+    border-bottom: 1px solid #e4ddce;
     padding: 1rem 4%;
     flex-direction: column;
     gap: 1rem;

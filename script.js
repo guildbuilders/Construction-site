@@ -112,3 +112,21 @@ document.addEventListener("keydown", (e) => {
     showPrevImage();
   }
 });
+
+// Homepage: header is transparent over the video hero, turns solid once
+// the user scrolls past the video.
+const homeHeader = document.querySelector("body.home .site-header");
+if (homeHeader) {
+  const heroVideo = document.querySelector(".hero-video");
+  const updateHeader = () => {
+    const heroHeight = heroVideo ? heroVideo.offsetHeight : window.innerHeight;
+    if (window.scrollY > heroHeight - homeHeader.offsetHeight) {
+      homeHeader.classList.add("scrolled");
+    } else {
+      homeHeader.classList.remove("scrolled");
+    }
+  };
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  window.addEventListener("resize", updateHeader);
+}

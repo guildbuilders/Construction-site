@@ -1,5 +1,7 @@
 .git
 .git/**
+.wrangler
+.wrangler/**
 .gitignore
 .DS_Store
 **/.DS_Store

@@ -538,6 +538,7 @@ p,
 }
 
 body.full-home-page .project-kingsfield {
+  grid-column: 1 / -1;
   background-position: center center;
 }
 
@@ -632,6 +633,10 @@ body.full-home-page .project-kingsfield {
 
 .project-bayleaf {
   background-image: url("bayleaf1-1000.webp");
+}
+
+body.bathroom-page .project-bayleaf {
+  grid-column: 1 / -1;
 }
 
 .project-ssierra {

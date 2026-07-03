@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" />
 
 
-  <link rel="stylesheet" href="style.css?v=13" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 
 <body>
@@ -81,7 +81,22 @@
 
   <main>
 
-    <section class="hero">
+    <section class="hero hero-video">
+
+      <video
+        class="hero-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="hero-poster.webp"
+        aria-hidden="true"
+      >
+        <source src="hero-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay"></div>
 
       <div class="container hero-content">
 

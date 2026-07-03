@@ -495,48 +495,48 @@ p,
 /* CATEGORY BACKGROUNDS */
 
 .category-fullhome {
-  background-image: url("home1.webp");
+  background-image: url("home1-1000.webp");
 }
 
 .category-kitchens {
-  background-image: url("miracle1.webp");
+  background-image: url("miracle1-1000.webp");
 }
 
 .category-bathrooms {
-  background-image: url("scarlet1.webp");
+  background-image: url("scarlet1-1000.webp");
   --bg-position: center 22%;
 }
 
 .category-decks {
-  background-image: url("constance1.webp");
+  background-image: url("constance1-1000.webp");
 }
 
 .category-exterior {
-  background-image: url("pavers1.webp");
+  background-image: url("pavers1-1000.webp");
 }
 
 /* FULL HOME PROJECT BACKGROUNDS */
 
 .project-dalia {
-  background-image: url("dalia1.webp");
+  background-image: url("dalia1-1000.webp");
 }
 
 .project-arabiancrest {
-  background-image: url("arabiancrest1.webp");
+  background-image: url("arabiancrest1-1000.webp");
 }
 
 .project-brava {
-  background-image: url("brava1.webp");
+  background-image: url("brava1-1000.webp");
 }
 
 .project-opal {
-  background-image: url("opal1.webp");
+  background-image: url("opal1-1000.webp");
   grid-column: 1 / -1;
   min-height: 340px;
 }
 
 .project-kingsfield {
-  background-image: url("kingsfield1.webp");
+  background-image: url("kingsfield1-1000.webp");
 }
 
 body.full-home-page .project-kingsfield {
@@ -548,138 +548,146 @@ body.full-home-page .project-kingsfield {
 /* KITCHEN PROJECT BACKGROUNDS */
 
 .project-miracle {
-  background-image: url("miracle1.webp");
+  background-image: url("miracle1-1000.webp");
 }
 
 .project-kingsfield-kitchen {
-  background-image: url("kingsfield1.webp");
+  background-image: url("kingsfield1-1000.webp");
 }
 
 .project-caminito {
-  background-image: url("caminito1.webp");
+  background-image: url("caminito1-1000.webp");
 }
 
 .project-baywind {
-  background-image: url("baywind1.webp");
+  background-image: url("baywind1-1000.webp");
 }
 
 .project-ivy {
-  background-image: url("ivy1.webp");
+  background-image: url("ivy1-1000.webp");
 }
 
 .project-reflection {
-  background-image: url("reflection1.webp");
+  background-image: url("reflection1-1000.webp");
 }
 
 .project-pipilo {
-  background-image: url("pipilo1.webp");
+  background-image: url("pipilo1-1000.webp");
 }
 
 .project-skyline {
-  background-image: url("skyline1.webp");
+  background-image: url("skyline1-1000.webp");
 }
 
 .project-unicornio {
-  background-image: url("unicornio1.webp");
+  background-image: url("unicornio1-1000.webp");
 }
 
 .project-luciernaga {
-  background-image: url("luciernaga1.webp");
+  background-image: url("luciernaga1-1000.webp");
 }
 
 .project-everts {
-  background-image: url("everts1.webp");
+  background-image: url("everts1-1000.webp");
 }
 
 .project-northstar {
-  background-image: url("northstar1.webp");
+  background-image: url("northstar1-1000.webp");
 }
 
 .project-dalia-kitchen {
-  background-image: url("dalia1.webp");
+  background-image: url("dalia1-1000.webp");
 }
 
 .project-arabian-kitchen {
-  background-image: url("arabiancrest1.webp");
+  background-image: url("arabiancrest1-1000.webp");
 }
 
 .project-brava-kitchen {
-  background-image: url("brava1.webp");
+  background-image: url("brava1-1000.webp");
 }
 
 .project-opal-kitchen {
-  background-image: url("opal1.webp");
+  background-image: url("opal1-1000.webp");
+}
+
+.project-canyon {
+  background-image: url("canyon1-1000.webp");
+}
+
+.project-southsierra {
+  background-image: url("southsierra1-1000.webp");
 }
 
 /* BATHROOM PROJECT BACKGROUNDS */
 
 .project-scarlet {
-  background-image: url("scarlet1.webp");
+  background-image: url("scarlet1-1000.webp");
   --bg-position: center 25%;
 }
 
 .project-avalon {
-  background-image: url("avalon1.webp");
+  background-image: url("avalon1-1000.webp");
 }
 
 .project-sunsetridge {
-  background-image: url("sunsetridge1.webp");
+  background-image: url("sunsetridge1-1000.webp");
 }
 
 .project-bayleaf {
-  background-image: url("bayleaf1.webp");
+  background-image: url("bayleaf1-1000.webp");
 }
 
 .project-ssierra {
-  background-image: url("ssierra1.webp");
+  background-image: url("ssierra1-1000.webp");
 }
 
 .project-tynebourne {
-  background-image: url("tynebourne1.webp");
+  background-image: url("tynebourne1-1000.webp");
 }
 
 .project-archer {
-  background-image: url("archer5.webp");
+  background-image: url("archer5-1000.webp");
 }
 
 .project-tara {
-  background-image: url("tara3.webp");
+  background-image: url("tara3-1000.webp");
 }
 
 .project-willowhaven {
-  background-image: url("willowhaven1.webp");
+  background-image: url("willowhaven1-1000.webp");
 }
 
 .project-honors {
-  background-image: url("honors1.webp");
+  background-image: url("honors1-1000.webp");
 }
 
 /* BATHROOM PAGE ONLY BACKGROUND OVERRIDES */
 
 body.bathroom-page .project-dalia {
-  background-image: url("dalia13.webp");
+  background-image: url("dalia13-1000.webp");
 }
 
 body.bathroom-page .project-arabiancrest {
-  background-image: url("arabiancrest5.webp");
+  background-image: url("arabiancrest5-1000.webp");
 }
 
 body.bathroom-page .project-brava {
-  background-image: url("brava9.webp");
+  background-image: url("brava9-1000.webp");
 }
 
 body.bathroom-page .project-opal {
-  background-image: url("opal11.webp");
+  background-image: url("opal11-1000.webp");
 }
 
 body.bathroom-page .project-kingsfield {
-  background-image: url("kingsfield12.webp");
+  background-image: url("kingsfield12-1000.webp");
 }
 
 /* KITCHEN PAGE ONLY SAFETY OVERRIDES */
 
 body.kitchen-page .project-dalia {
-  background-image: url("dalia1.webp");
+  background-image: url("dalia1-1000.webp");
   grid-column: auto;
   min-height: 340px;
 }
@@ -689,51 +697,51 @@ body.kitchen-page .project-arabiancrest {
 }
 
 body.kitchen-page .project-brava {
-  background-image: url("brava1.webp");
+  background-image: url("brava1-1000.webp");
 }
 
 body.kitchen-page .project-opal {
-  background-image: url("opal1.webp");
+  background-image: url("opal1-1000.webp");
   grid-column: auto;
   min-height: 340px;
 }
 
 body.kitchen-page .project-kingsfield {
-  background-image: url("kingsfield1.webp");
+  background-image: url("kingsfield1-1000.webp");
 }
 
 /* DECK PROJECT BACKGROUNDS */
 
 .project-constance {
-  background-image: url("constance1.webp");
+  background-image: url("constance1-1000.webp");
 }
 
 .project-hill {
-  background-image: url("hill1.webp");
+  background-image: url("hill1-1000.webp");
 }
 
 .project-playa {
-  background-image: url("playa2.webp");
+  background-image: url("playa2-1000.webp");
 }
 
 .project-seaforest {
-  background-image: url("seaforest1.webp");
+  background-image: url("seaforest1-1000.webp");
 }
 
 .project-torrey {
-  background-image: url("torrey1.webp");
+  background-image: url("torrey1-1000.webp");
 }
 
 .project-dora {
-  background-image: url("dora1.webp");
+  background-image: url("dora1-1000.webp");
 }
 
 .project-lemon {
-  background-image: url("lemon1.webp");
+  background-image: url("lemon1-1000.webp");
 }
 
 .project-bavarian {
-  background-image: url("bavarian1.webp");
+  background-image: url("bavarian1-1000.webp");
 }
 
 /* INDIVIDUAL GALLERY PAGES */

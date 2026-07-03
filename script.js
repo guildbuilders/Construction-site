@@ -26,11 +26,17 @@ const clickableImages = Array.from(
 
 let currentImageIndex = 0;
 
+// Gallery thumbnails load a small -1000 copy for speed; the full-size
+// original is stored in data-full so the lightbox can show it crisp on click.
+function fullSrc(img) {
+  return img.dataset.full || img.src;
+}
+
 function openLightbox(index) {
   if (!lightbox || !lightboxImg || clickableImages.length === 0) return;
 
   currentImageIndex = index;
-  lightboxImg.src = clickableImages[currentImageIndex].src;
+  lightboxImg.src = fullSrc(clickableImages[currentImageIndex]);
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
   lightbox.classList.add("active");
   document.body.style.overflow = "hidden";
@@ -47,7 +53,7 @@ function showNextImage() {
   if (!lightboxImg || clickableImages.length === 0) return;
 
   currentImageIndex = (currentImageIndex + 1) % clickableImages.length;
-  lightboxImg.src = clickableImages[currentImageIndex].src;
+  lightboxImg.src = fullSrc(clickableImages[currentImageIndex]);
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
 }
 
@@ -55,7 +61,7 @@ function showPrevImage() {
   if (!lightboxImg || clickableImages.length === 0) return;
 
   currentImageIndex = (currentImageIndex - 1 + clickableImages.length) % clickableImages.length;
-  lightboxImg.src = clickableImages[currentImageIndex].src;
+  lightboxImg.src = fullSrc(clickableImages[currentImageIndex]);
   lightboxImg.alt = clickableImages[currentImageIndex].alt;
 }
 

@@ -1,0 +1,9 @@
+{
+  // Static-assets Worker that serves the Guild Builders site.
+  // Deploy with:  wrangler deploy
+  "name": "patient-flower-2dca",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "."
+  }
+}

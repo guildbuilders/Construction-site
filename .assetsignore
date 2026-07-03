@@ -1,0 +1,13 @@
+.git
+.git/**
+.gitignore
+.DS_Store
+**/.DS_Store
+.assetsignore
+wrangler.jsonc
+wrangler.toml
+node_modules
+deploy.command
+optimize-images.command
+optimize-images.py
+HOW-TO-ADD-PHOTOS.md

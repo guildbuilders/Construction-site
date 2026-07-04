@@ -144,6 +144,28 @@ body {
   border-color: #ffffff;
 }
 
+/* Google reviews badge in the hero */
+.hero-reviews {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.6rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.hero-reviews .stars {
+  color: #f4c542;
+  letter-spacing: 2px;
+  font-size: 1.15rem;
+}
+
+.hero-reviews:hover .reviews-text {
+  text-decoration: underline;
+}
+
 /* HOMEPAGE: full-screen video with the header overlaid on top of it */
 
 body.home .hero-video {

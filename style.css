@@ -176,6 +176,13 @@ body.home .hero-video {
   padding: 0 0 13vh;
 }
 
+/* web/desktop only: drop the hero text lower so it sits under the logo */
+@media (min-width: 801px) {
+  body.home .hero-video {
+    padding-bottom: 8vh;
+  }
+}
+
 /* header floats over the video (logo + nav become part of the video) */
 body.home .site-header {
   position: fixed;

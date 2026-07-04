@@ -139,7 +139,7 @@ body {
 }
 
 .hero-video .eyebrow {
-  color: #e7c34e;
+  color: #d2b780;
 }
 
 .hero-video .btn-secondary {
@@ -176,7 +176,7 @@ body.home .hero-video {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 0 0 13vh;
+  padding: 0 0 8vh;
 }
 
 /* web/desktop only: drop the hero text lower so it sits under the logo */
@@ -302,7 +302,7 @@ p,
 }
 
 .btn-primary {
-  background: #d4af37;
+  background: #d2b780;
   color: #0f1c2e;
 }
 

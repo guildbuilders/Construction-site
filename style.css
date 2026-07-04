@@ -57,8 +57,11 @@ body {
 .site-nav a {
   text-decoration: none;
   color: #2c4666;
-  font-size: 1.25rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.35rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
 }
 
 .site-nav a:hover {
@@ -179,7 +182,7 @@ body.home .hero-video {
 /* web/desktop only: drop the hero text lower so it sits under the logo */
 @media (min-width: 801px) {
   body.home .hero-video {
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
   }
 }
 

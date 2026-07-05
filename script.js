@@ -134,3 +134,28 @@ if (overlayHeader) {
   window.addEventListener("scroll", updateHeader, { passive: true });
   window.addEventListener("resize", updateHeader);
 }
+
+// Scroll-reveal: content sections gently fade + rise as they enter view.
+if (
+  "IntersectionObserver" in window &&
+  window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+) {
+  const blocks = document.querySelectorAll(
+    ".section > .container, .projects-overview > .container, .project-section > .container"
+  );
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.06, rootMargin: "0px 0px -30px 0px" }
+  );
+  blocks.forEach((block) => {
+    block.classList.add("reveal");
+    io.observe(block);
+  });
+}

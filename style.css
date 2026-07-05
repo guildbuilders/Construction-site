@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  background: #f5f2ea;
+  background: #ffffff;
   color: #48556a;
 }
 
@@ -25,7 +25,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(245, 242, 234, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid #e4ddce;
   backdrop-filter: blur(8px);
 }
@@ -82,7 +82,7 @@ body {
 .hero,
 .page-hero {
   padding: 7rem 0 5rem;
-  background: linear-gradient(to bottom, #ffffff, #f0ece2);
+  background: linear-gradient(to bottom, #ffffff, #f6f3ec);
 }
 
 .hero-small {
@@ -209,7 +209,7 @@ body.home .site-header .site-nav a:hover {
 
 /* once scrolled past the video, the header becomes solid again */
 body.home .site-header.scrolled {
-  background: rgba(245, 242, 234, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid #e4ddce;
   backdrop-filter: blur(8px);
 }
@@ -321,7 +321,7 @@ p,
 
 .section-alt,
 .project-section:nth-of-type(even) {
-  background: #ffffff;
+  background: #f6f3ec;
 }
 
 .section .container,
@@ -474,7 +474,7 @@ p,
 .site-footer {
   padding: 2rem 0;
   border-top: 1px solid #e4ddce;
-  background: #efeae0;
+  background: #f6f3ec;
 }
 
 .footer-inner,
@@ -1031,7 +1031,7 @@ body.kitchen-page .project-kingsfield {
     top: 200px;
     left: 0;
     right: 0;
-    background: #f5f2ea;
+    background: #ffffff;
     border-bottom: 1px solid #e4ddce;
     padding: 1rem 4%;
     flex-direction: column;

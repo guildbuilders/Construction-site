@@ -121,9 +121,7 @@ const overlayHeader = document.querySelector(
 );
 if (overlayHeader) {
   const heroVideo = document.querySelector(".hero-video");
-  const logoImg = document.body.classList.contains("home")
-    ? overlayHeader.querySelector(".logo-image")
-    : null;
+  const logoImg = overlayHeader.querySelector(".logo-image");
   const updateHeader = () => {
     const heroHeight = heroVideo ? heroVideo.offsetHeight : window.innerHeight;
     const scrolled = window.scrollY > heroHeight - overlayHeader.offsetHeight;

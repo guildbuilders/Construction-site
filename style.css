@@ -408,13 +408,14 @@ p,
 }
 
 /* GOLD ACCENT line under section headings */
-.section > .container > h2::after,
-.projects-overview > .container > h2::after {
+.section h2::after,
+.projects-overview h2::after,
+.project-section h2::after {
   content: "";
   display: block;
-  width: 56px;
-  height: 2px;
-  margin: 0.9rem auto 0;
+  width: 68px;
+  height: 3px;
+  margin: 1rem auto 0;
   background: #c2a24e;
   border-radius: 2px;
 }

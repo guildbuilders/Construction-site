@@ -201,17 +201,20 @@ body.home .site-header {
 body.home .site-header .site-nav a,
 body.home .site-header .menu-toggle {
   color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-}
-
-/* once scrolled onto the white page, drop the shadow */
-body.home .site-header.scrolled .site-nav a,
-body.home .site-header.scrolled .menu-toggle {
-  text-shadow: none;
 }
 
 body.home .site-header .site-nav a:hover {
   color: #e7c34e;
+}
+
+/* mobile menu open on homepage: the dropdown is white, so make links dark
+   (otherwise white-on-white looks like a blank white box) */
+body.home .site-header .site-nav.open a {
+  color: #2c4666;
+}
+
+body.home .site-header .site-nav.open a:hover {
+  color: #a17c1e;
 }
 
 /* once scrolled past the video, the header becomes solid again */
@@ -1048,18 +1051,6 @@ body.kitchen-page .project-kingsfield {
 
   .site-nav.open {
     display: flex;
-  }
-
-  /* homepage: transparent menu over the video, solid white once scrolled
-     onto the page (so items never overlap page content) */
-  body.home .site-nav {
-    background: transparent;
-    border-bottom: none;
-  }
-
-  body.home .site-header.scrolled .site-nav {
-    background: #ffffff;
-    border-bottom: 1px solid #e4ddce;
   }
 
   .project-image,

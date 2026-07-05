@@ -147,13 +147,58 @@ body {
   border-color: #ffffff;
 }
 
-/* Contact page: video-background hero (like the homepage, but not full-screen) */
+/* Contact page: full-screen video hero with the header overlaid on it */
 .contact-hero {
-  min-height: 62vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: url("ivy-poster.webp");
+}
+
+body.contact-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.contact-page .site-header .site-nav a,
+body.contact-page .site-header .menu-toggle {
+  color: #ffffff;
+}
+
+body.contact-page .site-header .site-nav a:hover {
+  color: #e7c34e;
+}
+
+/* mobile menu open on contact: dropdown is white, so links go dark */
+body.contact-page .site-header .site-nav.open a {
+  color: #2c4666;
+}
+
+body.contact-page .site-header .site-nav.open a:hover {
+  color: #a17c1e;
+}
+
+/* solid header once scrolled past the video */
+body.contact-page .site-header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #e4ddce;
+  backdrop-filter: blur(8px);
+}
+
+body.contact-page .site-header.scrolled .site-nav a,
+body.contact-page .site-header.scrolled .menu-toggle {
+  color: #2c4666;
+}
+
+body.contact-page .site-header.scrolled .site-nav a:hover {
+  color: #a17c1e;
 }
 
 /* Google reviews badge in the hero */

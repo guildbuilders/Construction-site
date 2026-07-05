@@ -113,18 +113,21 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Homepage: header is transparent over the video hero, turns solid once
-// the user scrolls past the video. The logo also swaps from the BOLD
-// "Builders Inc." version (readable over the dark video) to the regular
-// version once you scroll onto the ivory background.
-const homeHeader = document.querySelector("body.home .site-header");
-if (homeHeader) {
+// Pages with a full-screen video hero (home + contact): the header is
+// transparent over the video and turns solid once you scroll past it.
+// On the homepage the logo also swaps bold -> regular over the ivory.
+const overlayHeader = document.querySelector(
+  "body.home .site-header, body.contact-page .site-header"
+);
+if (overlayHeader) {
   const heroVideo = document.querySelector(".hero-video");
-  const logoImg = homeHeader.querySelector(".logo-image");
+  const logoImg = document.body.classList.contains("home")
+    ? overlayHeader.querySelector(".logo-image")
+    : null;
   const updateHeader = () => {
     const heroHeight = heroVideo ? heroVideo.offsetHeight : window.innerHeight;
-    const scrolled = window.scrollY > heroHeight - homeHeader.offsetHeight;
-    homeHeader.classList.toggle("scrolled", scrolled);
+    const scrolled = window.scrollY > heroHeight - overlayHeader.offsetHeight;
+    overlayHeader.classList.toggle("scrolled", scrolled);
     if (logoImg) {
       logoImg.src = scrolled ? "guild-logo-reg.png" : "guild-logo-4.png";
     }

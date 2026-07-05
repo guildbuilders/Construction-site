@@ -147,6 +147,15 @@ body {
   border-color: #ffffff;
 }
 
+/* Contact page: video-background hero (like the homepage, but not full-screen) */
+.contact-hero {
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("ivy-poster.webp");
+}
+
 /* Google reviews badge in the hero */
 .hero-reviews {
   display: inline-flex;
@@ -700,7 +709,7 @@ body.full-home-page .project-kingsfield {
 }
 
 .project-baywind {
-  background-image: url("baywind1-1000.webp");
+  background-image: url("baywind2-1000.webp");
 }
 
 .project-ivy {

@@ -207,6 +207,16 @@ body.home .site-header .site-nav a:hover {
   color: #e7c34e;
 }
 
+/* mobile menu open on homepage: the dropdown is white, so make links dark
+   (otherwise white-on-white looks like a blank white box) */
+body.home .site-header .site-nav.open a {
+  color: #2c4666;
+}
+
+body.home .site-header .site-nav.open a:hover {
+  color: #a17c1e;
+}
+
 /* once scrolled past the video, the header becomes solid again */
 body.home .site-header.scrolled {
   background: rgba(255, 255, 255, 0.92);

@@ -159,3 +159,13 @@ if (
     io.observe(block);
   });
 }
+
+// Sticky mobile Call / Quote bar (shown on phones; not on the contact page)
+if (!document.body.classList.contains("contact-page")) {
+  const bar = document.createElement("div");
+  bar.className = "mobile-cta";
+  bar.innerHTML =
+    '<a class="call" href="tel:+16197632982">Call Us</a>' +
+    '<a class="quote" href="contact.html">Request a Quote</a>';
+  document.body.appendChild(bar);
+}

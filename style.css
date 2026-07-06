@@ -102,7 +102,7 @@ body {
   position: relative;
   overflow: hidden;
   /* poster shows instantly and stays as the mobile fallback */
-  background-image: url("hero-poster.webp");
+  background-image: url("miracle-poster.webp");
   background-size: cover;
   background-position: center;
 }

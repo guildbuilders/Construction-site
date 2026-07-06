@@ -289,15 +289,15 @@ body.services-page .site-header.scrolled .site-nav a:hover {
   color: #a17c1e;
 }
 
-/* FAQ page: full-screen video hero with the header overlaid (same as services) */
-.faq-hero {
+/* About page: full-screen video hero with the header overlaid (same as services) */
+.about-hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("sierra-kitchen-poster.webp?v=2");
+  background-image: url("caminito-poster.webp");
 }
-body.faq-page .site-header {
+body.about-page .site-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -307,29 +307,29 @@ body.faq-page .site-header {
   backdrop-filter: none;
   transition: background 0.3s ease, border-color 0.3s ease;
 }
-body.faq-page .site-header .site-nav a,
-body.faq-page .site-header .menu-toggle {
+body.about-page .site-header .site-nav a,
+body.about-page .site-header .menu-toggle {
   color: #ffffff;
 }
-body.faq-page .site-header .site-nav a:hover {
+body.about-page .site-header .site-nav a:hover {
   color: #e7c34e;
 }
-body.faq-page .site-header .site-nav.open a {
+body.about-page .site-header .site-nav.open a {
   color: #2c4666;
 }
-body.faq-page .site-header .site-nav.open a:hover {
+body.about-page .site-header .site-nav.open a:hover {
   color: #a17c1e;
 }
-body.faq-page .site-header.scrolled {
+body.about-page .site-header.scrolled {
   background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid #e4ddce;
   backdrop-filter: blur(8px);
 }
-body.faq-page .site-header.scrolled .site-nav a,
-body.faq-page .site-header.scrolled .menu-toggle {
+body.about-page .site-header.scrolled .site-nav a,
+body.about-page .site-header.scrolled .menu-toggle {
   color: #2c4666;
 }
-body.faq-page .site-header.scrolled .site-nav a:hover {
+body.about-page .site-header.scrolled .site-nav a:hover {
   color: #a17c1e;
 }
 

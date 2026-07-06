@@ -117,7 +117,7 @@ document.addEventListener("keydown", (e) => {
 // transparent over the video and turns solid once you scroll past it.
 // On the homepage the logo also swaps bold -> regular over the ivory.
 const overlayHeader = document.querySelector(
-  "body.home .site-header, body.contact-page .site-header, body.gallery-page .site-header, body.services-page .site-header"
+  "body.home .site-header, body.contact-page .site-header, body.gallery-page .site-header, body.services-page .site-header, body.faq-page .site-header"
 );
 if (overlayHeader) {
   const heroVideo = document.querySelector(".hero-video");

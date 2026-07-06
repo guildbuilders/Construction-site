@@ -295,7 +295,7 @@ body.services-page .site-header.scrolled .site-nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("sierra-kitchen-poster.webp");
+  background-image: url("sierra-kitchen-poster.webp?v=2");
 }
 body.faq-page .site-header {
   position: fixed;

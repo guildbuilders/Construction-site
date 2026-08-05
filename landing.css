@@ -415,6 +415,11 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   body.lp-video-hero .lp-header-inner { min-height: 0; }
   body.lp-video-hero .lp-header-phone { transform: none; }
 
+  /* Lead form first on mobile - the form is the point of the page, so it
+     goes above the headline and bullets rather than below them. */
+  body.lp-video-hero .lp-form-card { order: -1; }
+  body.lp-video-hero .lp-hero-copy { order: 0; }
+
   /* Tighten the copy so the whole block, review line included, clears the
      first screen on a phone. */
   body.lp-video-hero .lp-hero-copy h1 {

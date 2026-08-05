@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="landing.css?v=2" />
+  <link rel="stylesheet" href="landing.css?v=3" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -36,7 +36,7 @@
   <!-- Header: logo + phone only (no nav — keep the visitor focused) -->
   <header class="lp-header">
     <div class="lp-container lp-header-inner">
-      <span class="lp-logo"><img src="guild-logo-reg.png" alt="Guild Builders Inc." /></span>
+      <span class="lp-logo lp-logo-home"><img src="guild-logo-4.png" alt="Guild Builders Inc. logo" /></span>
       <a class="lp-header-phone" href="tel:+16197632982" onclick="return gb_callConversion();">
         <span class="tel">(619) 763-2982</span>
       </a>
@@ -44,7 +44,23 @@
   </header>
 
   <!-- Hero with lead form above the fold -->
-  <section class="lp-hero" style="background-image:url('miracle1-1000.webp');">
+  <section class="lp-hero lp-hero-video" style="background-image:url('miracle-poster.webp');">
+
+    <!-- Same background video as the home page hero. The poster above stays
+         visible until it loads and is the fallback where autoplay is blocked. -->
+    <video
+      class="lp-hero-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="miracle-poster.webp"
+      aria-hidden="true"
+    >
+      <source src="miracle-video.mp4" type="video/mp4" />
+    </video>
+
     <div class="lp-container lp-hero-inner">
 
       <div class="lp-hero-copy">

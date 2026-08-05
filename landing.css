@@ -41,6 +41,8 @@ h1, h2, h3 {
   min-height: 84px;
 }
 .lp-logo img { height: 68px; width: auto; display: block; }
+/* Home-page logo treatment: matches .logo-image in style.css (200px / 180px) */
+.lp-logo.lp-logo-home img { height: 200px; }
 .lp-header-phone {
   display: inline-flex;
   align-items: center;
@@ -63,14 +65,27 @@ h1, h2, h3 {
   background-size: cover;
   background-position: center;
   color: #ffffff;
+  overflow: hidden;
 }
 .lp-hero::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(120deg, rgba(15, 28, 46, 0.9) 0%, rgba(15, 28, 46, 0.72) 55%, rgba(15, 28, 46, 0.55) 100%);
 }
+/* Background video hero, same treatment as .hero-bg-video on the main site.
+   Sits under the ::before gradient so the copy and form stay readable. */
+.lp-hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 .lp-hero-inner {
+  z-index: 2;
   position: relative;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -314,6 +329,10 @@ h1, h2, h3 {
 
 /* ---------- Sticky mobile call bar ---------- */
 .lp-sticky-call { display: none; }
+
+@media (max-width: 800px) {
+  .lp-logo.lp-logo-home img { height: 180px; }
+}
 
 @media (max-width: 860px) {
   .lp-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem 0 3rem; }

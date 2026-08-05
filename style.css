@@ -1587,3 +1587,158 @@ body.kitchen-page .project-kingsfield {
     right: 12px;
   }
 }
+
+/* ---------------------------------------------------------------
+   BLOG
+   --------------------------------------------------------------- */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 28, 46, 0.12);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-card-body h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.blog-card-body p {
+  color: #48556a;
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+}
+
+.blog-card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #a17c1e;
+}
+
+/* Article body */
+
+.post-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.post-hero-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.post-body h2 {
+  text-align: left;
+  font-size: 1.75rem;
+  margin: 2.6rem 0 0.9rem;
+}
+
+.post-body h3 {
+  font-size: 1.2rem;
+  margin: 1.8rem 0 0.6rem;
+}
+
+.post-body p,
+.post-body li {
+  color: #3d4a5c;
+  line-height: 1.8;
+}
+
+.post-body p {
+  margin: 0 0 1.15rem;
+}
+
+.post-body ul {
+  margin: 0 0 1.4rem;
+  padding-left: 1.3rem;
+}
+
+.post-body li {
+  margin-bottom: 0.55rem;
+}
+
+.post-body strong {
+  color: #14243a;
+}
+
+.post-note {
+  background: #f6f3ec;
+  border-left: 3px solid #d2b780;
+  border-radius: 0 10px 10px 0;
+  padding: 1.1rem 1.3rem;
+  margin: 2rem 0;
+}
+
+.post-note p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.post-back {
+  display: inline-block;
+  margin-top: 2.5rem;
+  color: #a17c1e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-back:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  .post-hero-image {
+    height: 240px;
+  }
+}

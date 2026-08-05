@@ -74,6 +74,8 @@ body.lp-video-hero .lp-header {
 body.lp-video-hero .lp-header-phone {
   color: #ffffff;
   border-color: #ffffff;
+  /* sits higher in the tall logo header rather than centered against it */
+  transform: translateY(-26px);
 }
 body.lp-video-hero .lp-header-phone:hover {
   background: #ffffff;

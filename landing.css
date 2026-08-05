@@ -145,6 +145,13 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   z-index: 1;
   background: linear-gradient(120deg, rgba(15, 28, 46, 0.9) 0%, rgba(15, 28, 46, 0.72) 55%, rgba(15, 28, 46, 0.55) 100%);
 }
+/* Poster fallback behind the hero video - matches whichever source the
+   page loads, so the still frame never disagrees with the video. */
+.lp-hero.lp-hero-video { background-image: url("bluewaydrive-poster.webp?v=2"); }
+@media (min-width: 861px) {
+  .lp-hero.lp-hero-video { background-image: url("miracle-poster.webp"); }
+}
+
 /* Background video hero, same treatment as .hero-bg-video on the main site.
    Sits under the ::before gradient so the copy and form stay readable. */
 .lp-hero-bg-video {

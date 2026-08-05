@@ -17,6 +17,9 @@
     gtag('config', 'AW-18096983407');
     /* Conversion action: "Contact (1)" / phone click on the website. */
     function gb_callConversion() {
+      /* GA4 - lets Analytics attribute calls from organic and direct traffic,
+         which Google Ads never sees. Separate event, so no double-counting. */
+      gtag('event', 'phone_click');
       gtag('event', 'conversion', {
         send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD',
         value: 1.0,
@@ -29,16 +32,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="landing.css?v=11" />
+  <link rel="stylesheet" href="landing.css?v=13" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
 
-<body>
+<body class="lp-video-hero">
 
   <header class="lp-header">
     <div class="lp-container lp-header-inner">
-      <span class="lp-logo"><img src="guild-logo-reg.png" alt="Guild Builders Inc." /></span>
+      <span class="lp-logo lp-logo-home"><img src="guild-logo-4.png" alt="Guild Builders Inc. logo" /></span>
       <a class="lp-header-phone" href="tel:+16197632982" onclick="return gb_callConversion();">
         <span class="tel">(619) 763-2982</span>
       </a>
@@ -93,7 +96,7 @@
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
           <button type="submit" class="lp-btn">Get My Free Estimate →</button>
-          <p class="lp-form-fineprint">We respect your privacy. We'll never share or spam your phone number.</p>
+          <p class="lp-form-fineprint">We respect your privacy. We'll never sell your information or send you spam.</p>
         </form>
       </div>
 
@@ -165,6 +168,39 @@
     <a class="call" href="tel:+16197632982" onclick="return gb_callConversion();">📞 Call Now</a>
     <a class="quote" href="#quote">Free Estimate</a>
   </div>
+
+  <script>
+    (function () {
+      /* Hero video: pick the source matching the viewport shape so only ONE
+         file downloads. Portrait clip on phones, landscape on wide screens. */
+      var v = document.querySelector('.lp-hero-bg-video');
+      if (v && v.dataset.portrait) {
+        var wide = window.matchMedia('(min-width: 861px)').matches;
+        v.poster = wide ? v.dataset.landscapePoster : v.dataset.portraitPoster;
+        v.src = wide ? v.dataset.landscape : v.dataset.portrait;
+        var play = v.play();
+        if (play && play.catch) { play.catch(function () {}); }
+      }
+
+      /* Transparent header over the hero, solid once scrolled past it.
+         Mirrors the overlayHeader block in script.js, which landing pages
+         don't load. Logo swaps bold -> regular over the ivory. */
+      var header = document.querySelector('.lp-header');
+      var hero = document.querySelector('.lp-hero');
+      if (!header || !hero) return;
+      var logo = header.querySelector('.lp-logo img');
+      function updateHeader() {
+        var past = window.scrollY > hero.offsetHeight - header.offsetHeight;
+        header.classList.toggle('scrolled', past);
+        if (logo) {
+          logo.src = past ? 'guild-logo-reg.png' : 'guild-logo-4.png';
+        }
+      }
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      window.addEventListener('resize', updateHeader);
+    })();
+  </script>
 
 </body>
 </html>

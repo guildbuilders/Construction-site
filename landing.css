@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Guild Builders — Google Ads Landing Pages
+   Standalone, conversion-focused styles (no site nav, one goal: get the lead)
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  background: #ffffff;
+  color: #48556a;
+}
+
+.lp-container { width: min(1150px, 92%); margin: 0 auto; }
+
+h1, h2, h3 {
+  color: #14243a;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+}
+
+/* ---------- Header (logo + phone only, no nav) ---------- */
+.lp-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e4ddce;
+  backdrop-filter: blur(8px);
+}
+.lp-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+}
+.lp-logo img { height: 68px; width: auto; display: block; }
+.lp-header-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #14243a;
+  text-decoration: none;
+  border: 2px solid #d2b780;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.lp-header-phone:hover { background: #d2b780; color: #0f1c2e; }
+.lp-header-phone .tel { white-space: nowrap; }
+
+/* ---------- Hero ---------- */
+.lp-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+.lp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(15, 28, 46, 0.9) 0%, rgba(15, 28, 46, 0.72) 55%, rgba(15, 28, 46, 0.55) 100%);
+}
+.lp-hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3.5rem 0 4rem;
+}
+.lp-hero-copy .eyebrow {
+  color: #d2b780;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  margin: 0 0 0.8rem;
+}
+.lp-hero-copy h1 { color: #ffffff; font-size: clamp(2.1rem, 4.4vw, 3.3rem); }
+.lp-hero-copy .lp-subhead { font-size: 1.18rem; color: #eef1f6; max-width: 32ch; }
+.lp-hero-bullets { list-style: none; padding: 0; margin: 1.4rem 0 0; }
+.lp-hero-bullets li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.55rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+.lp-hero-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #14243a;
+  background: #d2b780;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  top: 0.15rem;
+}
+.lp-hero-reviews {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+.lp-hero-reviews .stars { color: #f0c04a; letter-spacing: 2px; }
+
+/* ---------- Lead form card ---------- */
+.lp-form-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.8rem 1.7rem 1.9rem;
+  box-shadow: 0 24px 60px rgba(15, 28, 46, 0.35);
+  color: #48556a;
+}
+.lp-form-card h2 { font-size: 1.75rem; text-align: center; }
+.lp-form-card .lp-form-sub {
+  text-align: center;
+  margin: 0 0 1.2rem;
+  font-size: 0.95rem;
+  color: #6a7688;
+}
+.lp-form label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #14243a;
+  margin: 0 0 0.25rem;
+}
+.lp-form input,
+.lp-form select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  margin-bottom: 0.9rem;
+  border: 1px solid #d7d0c0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #14243a;
+  background: #fdfcfa;
+}
+.lp-form input:focus,
+.lp-form select:focus { outline: none; border-color: #d2b780; box-shadow: 0 0 0 3px rgba(210, 183, 128, 0.25); }
+.lp-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: #d2b780;
+  color: #0f1c2e;
+  font-weight: 800;
+  font-size: 1.08rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.95rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.lp-btn:hover { background: #c2a24e; }
+.lp-btn:active { transform: translateY(1px); }
+.lp-form-fineprint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #8a94a4;
+  margin: 0.8rem 0 0;
+}
+
+/* ---------- Trust bar ---------- */
+.lp-trustbar { background: #f6f3ec; border-bottom: 1px solid #e4ddce; }
+.lp-trustbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1.4rem 0;
+  text-align: center;
+}
+.lp-trust-item { flex: 1 1 200px; }
+.lp-trust-item strong { display: block; color: #14243a; font-size: 1.05rem; }
+.lp-trust-item span { font-size: 0.85rem; color: #6a7688; }
+
+/* ---------- Generic section ---------- */
+.lp-section { padding: 3.4rem 0; }
+.lp-section.alt { background: #f6f3ec; }
+.lp-section h2 { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+.lp-section h2::after {
+  content: "";
+  display: block;
+  width: 66px;
+  height: 3px;
+  margin: 0.9rem auto 0;
+  background: #c2a24e;
+  border-radius: 2px;
+}
+.lp-section-lead { text-align: center; max-width: 60ch; margin: 0.5rem auto 2.2rem; }
+
+/* ---------- Gallery ---------- */
+.lp-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+.lp-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ---------- Steps ---------- */
+.lp-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+.lp-step { text-align: center; padding: 0 0.6rem; }
+.lp-step-num {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 0.9rem;
+  border-radius: 50%;
+  background: #14243a;
+  color: #d2b780;
+  display: grid;
+  place-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ---------- Reviews ---------- */
+.lp-reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+  margin-top: 1.6rem;
+}
+.lp-review {
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.lp-review .stars { color: #f0c04a; letter-spacing: 2px; margin-bottom: 0.5rem; }
+.lp-review p { font-style: italic; color: #3a4557; margin: 0 0 0.8rem; }
+.lp-review .lp-review-name { font-weight: 700; color: #14243a; font-style: normal; }
+
+/* ---------- CTA band ---------- */
+.lp-cta-band { background: #14243a; color: #ffffff; text-align: center; padding: 3.2rem 0; }
+.lp-cta-band h2 { color: #ffffff; }
+.lp-cta-band h2::after { background: #d2b780; }
+.lp-cta-band .lp-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+.lp-cta-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #d2b780;
+  color: #0f1c2e;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lp-cta-phone:hover { background: #c2a24e; }
+.lp-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.85rem 1.7rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lp-cta-ghost:hover { background: #ffffff; color: #14243a; }
+
+/* ---------- Footer ---------- */
+.lp-footer { background: #0f1c2e; color: #b9c2d0; text-align: center; padding: 2rem 0; font-size: 0.88rem; }
+.lp-footer strong { color: #ffffff; }
+
+/* ---------- Sticky mobile call bar ---------- */
+.lp-sticky-call { display: none; }
+
+@media (max-width: 860px) {
+  .lp-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem 0 3rem; }
+  .lp-header-phone .tel { display: none; }
+  .lp-header-phone::after { content: "Call Now"; }
+  .lp-sticky-call {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+  }
+  .lp-sticky-call a {
+    flex: 1;
+    text-align: center;
+    padding: 0.95rem 0.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .lp-sticky-call .call { background: #14243a; color: #ffffff; }
+  .lp-sticky-call .quote { background: #d2b780; color: #0f1c2e; }
+  body { padding-bottom: 56px; }
+}

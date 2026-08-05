@@ -61,6 +61,10 @@ body.lp-video-hero .lp-hero-inner {
 body.lp-video-hero .lp-form-card {
   transform: translateY(-15%);
 }
+/* lifts the headline/bullets column so the Google review line clears the fold */
+body.lp-video-hero .lp-hero-copy {
+  transform: translateY(-10%);
+}
 body.lp-video-hero .lp-header {
   position: fixed;
   top: 0;
@@ -388,8 +392,9 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 
 @media (max-width: 860px) {
-  /* single column here - lifting the card would overlap the copy above it */
-  body.lp-video-hero .lp-form-card { transform: none; }
+  /* single column here - lifting either block would overlap what's above it */
+  body.lp-video-hero .lp-form-card,
+  body.lp-video-hero .lp-hero-copy { transform: none; }
   .lp-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem 0 3rem; }
   .lp-header-phone .tel { display: none; }
   .lp-header-phone::after { content: "Call Now"; }

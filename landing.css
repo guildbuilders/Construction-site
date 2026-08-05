@@ -43,6 +43,52 @@ h1, h2, h3 {
 .lp-logo img { height: 68px; width: auto; display: block; }
 /* Home-page logo treatment: matches .logo-image in style.css (200px / 180px) */
 .lp-logo.lp-logo-home img { height: 200px; }
+
+/* ---------- Full-screen video hero, mirroring body.home in style.css ----------
+   The header goes fixed and transparent so the logo reads as part of the
+   video, then turns solid ivory once you scroll past the hero. */
+body.lp-video-hero .lp-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+/* clears the fixed header (200px logo + 1px border) */
+body.lp-video-hero .lp-hero-inner {
+  padding-top: 220px;
+  padding-bottom: 4rem;
+}
+body.lp-video-hero .lp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+body.lp-video-hero .lp-header-phone {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+body.lp-video-hero .lp-header-phone:hover {
+  background: #ffffff;
+  color: #0f1c2e;
+}
+/* once scrolled past the video, the header becomes solid again */
+body.lp-video-hero .lp-header.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e4ddce;
+  backdrop-filter: blur(8px);
+}
+body.lp-video-hero .lp-header.scrolled .lp-header-phone {
+  color: #14243a;
+  border-color: #d2b780;
+}
+body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
+  background: #d2b780;
+  color: #0f1c2e;
+}
 .lp-header-phone {
   display: inline-flex;
   align-items: center;
@@ -332,6 +378,7 @@ h1, h2, h3 {
 
 @media (max-width: 800px) {
   .lp-logo.lp-logo-home img { height: 180px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 200px; }
 }
 
 @media (max-width: 860px) {

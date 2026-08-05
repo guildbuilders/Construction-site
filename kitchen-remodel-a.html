@@ -26,12 +26,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="landing.css?v=3" />
+  <link rel="stylesheet" href="landing.css?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
 
-<body>
+<body class="lp-video-hero">
 
   <!-- Header: logo + phone only (no nav — keep the visitor focused) -->
   <header class="lp-header">
@@ -200,6 +200,28 @@
     <a class="call" href="tel:+16197632982" onclick="return gb_callConversion();">📞 Call Now</a>
     <a class="quote" href="#quote">Free Estimate</a>
   </div>
+
+  <!-- Transparent header over the video, solid once past the hero.
+       Mirrors the overlayHeader block in script.js, which the landing
+       pages don't load. Logo swaps bold -> regular over the ivory. -->
+  <script>
+    (function () {
+      var header = document.querySelector('.lp-header');
+      var hero = document.querySelector('.lp-hero');
+      if (!header || !hero) return;
+      var logo = header.querySelector('.lp-logo img');
+      function updateHeader() {
+        var past = window.scrollY > hero.offsetHeight - header.offsetHeight;
+        header.classList.toggle('scrolled', past);
+        if (logo) {
+          logo.src = past ? 'guild-logo-reg.png' : 'guild-logo-4.png';
+        }
+      }
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      window.addEventListener('resize', updateHeader);
+    })();
+  </script>
 
 </body>
 </html>

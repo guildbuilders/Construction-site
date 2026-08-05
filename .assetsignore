@@ -10,6 +10,7 @@ wrangler.jsonc
 wrangler.toml
 node_modules
 deploy.command
+publish.command
 optimize-images.command
 optimize-images.py
 HOW-TO-ADD-PHOTOS.md

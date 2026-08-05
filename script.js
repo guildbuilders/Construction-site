@@ -117,7 +117,7 @@ document.addEventListener("keydown", (e) => {
 // transparent over the video and turns solid once you scroll past it.
 // On the homepage the logo also swaps bold -> regular over the ivory.
 const overlayHeader = document.querySelector(
-  "body.home .site-header, body.contact-page .site-header, body.gallery-page .site-header, body.about-page .site-header, body.services-page .site-header, body.faq-page .site-header"
+  "body.home .site-header, body.contact-page .site-header, body.gallery-page .site-header, body.about-page .site-header, body.services-page .site-header, body.faq-page .site-header, body.blog-page .site-header"
 );
 if (overlayHeader) {
   const heroVideo = document.querySelector(".hero-video");
@@ -127,7 +127,9 @@ if (overlayHeader) {
     const scrolled = window.scrollY > heroHeight - overlayHeader.offsetHeight;
     overlayHeader.classList.toggle("scrolled", scrolled);
     if (logoImg) {
-      logoImg.src = scrolled ? "guild-logo-reg.png" : "guild-logo-4.png";
+      // Root-relative: the blog lives in /blog/, where a bare filename would
+      // resolve to /blog/guild-logo-*.png and 404.
+      logoImg.src = scrolled ? "/guild-logo-reg.png" : "/guild-logo-4.png";
     }
   };
   updateHeader();

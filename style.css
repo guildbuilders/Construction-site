@@ -1763,3 +1763,50 @@ body.kitchen-page .project-kingsfield {
   text-align: center;
   line-height: 1.6;
 }
+
+/* Blog index: full-screen video hero with the header overlaid (same as faq) */
+.blog-hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("bluewaydrive-poster.webp?v=2");
+}
+body.blog-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+body.blog-page .site-header .site-nav a,
+body.blog-page .site-header .menu-toggle {
+  color: #ffffff;
+}
+body.blog-page .site-header .site-nav a:hover {
+  color: #e7c34e;
+}
+body.blog-page .site-header .site-nav.open a {
+  color: #2c4666;
+}
+body.blog-page .site-header .site-nav.open a:hover {
+  color: #a17c1e;
+}
+body.blog-page .site-header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #e4ddce;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+body.blog-page .site-header.scrolled .site-nav a,
+body.blog-page .site-header.scrolled .menu-toggle {
+  color: #2c4666;
+}
+body.blog-page .site-header.scrolled .site-nav a:hover {
+  color: #a17c1e;
+}

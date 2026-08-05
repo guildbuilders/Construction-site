@@ -211,18 +211,25 @@ h1, h2, h3 {
 .lp-section-lead { text-align: center; max-width: 60ch; margin: 0.5rem auto 2.2rem; }
 
 /* ---------- Gallery ---------- */
+/* Matches the .gallery-image-grid sizing on the main site's project pages */
 .lp-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.9rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
   margin-top: 1.6rem;
 }
 .lp-gallery img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 240px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 18px;
   display: block;
+}
+@media (max-width: 900px) {
+  .lp-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .lp-gallery { grid-template-columns: 1fr; }
 }
 
 /* ---------- Steps ---------- */

@@ -21,9 +21,13 @@
     gtag('js', new Date());
     gtag('config', 'AW-18096983407');
     /* Fires a Google Ads conversion when the click-to-call button is tapped.
-       REPLACE the label after the slash with your "Phone Call" conversion label. */
+       Conversion action: "Contact (1)" / phone click on the website. */
     function gb_callConversion() {
-      gtag('event', 'conversion', { send_to: 'AW-18096983407/PASTE_CALL_LABEL' });
+      gtag('event', 'conversion', {
+        send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD',
+        value: 1.0,
+        currency: 'USD'
+      });
       return true;
     }
   </script>

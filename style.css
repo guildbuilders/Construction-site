@@ -1814,3 +1814,22 @@ body.blog-page .site-header.scrolled .menu-toggle {
 body.blog-page .site-header.scrolled .site-nav a:hover {
   color: #a17c1e;
 }
+
+/* Closing block linking an article back into the relevant service pages */
+.post-related {
+  margin: 2.6rem 0 0;
+  padding: 1.3rem 1.5rem;
+  background: #f6f3ec;
+  border-radius: 14px;
+}
+
+.post-related p {
+  margin: 0;
+  font-size: 0.98rem;
+  color: #3d4a5c;
+}
+
+.post-related a {
+  color: #a17c1e;
+  font-weight: 600;
+}

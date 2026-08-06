@@ -1392,7 +1392,8 @@ body.kitchen-page .project-kingsfield {
   background: rgba(15, 28, 46, 0.96);
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  /* small padding so tall portrait photos get the full screen height */
+  padding: 12px;
 }
 
 .lightbox.active {
@@ -1400,8 +1401,13 @@ body.kitchen-page .project-kingsfield {
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 90%;
+  /* viewport units rather than percentages, so the cap does not shrink with
+     the container's padding. Portrait photos are height-limited, so every
+     pixel of height here is width they gain. */
+  max-width: 94vw;
+  max-height: 94vh;
+  width: auto;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }

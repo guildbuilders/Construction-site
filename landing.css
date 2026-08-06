@@ -208,8 +208,8 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  /* tightened from 1.5rem so the review line sits further off the fold */
-  margin-top: 0.95rem;
+  /* tightened so the review line sits well clear of the fold */
+  margin-top: 0.6rem;
   color: #ffffff;
   font-weight: 600;
 }
@@ -585,7 +585,16 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 
 @media (max-width: 860px) {
-  .lp-promo { padding: 0.75rem 1.4rem 0.85rem; }
+  /* centre the badge and the eyebrow under it; the headline, bullets and
+     review line stay left-aligned */
+  .lp-promo {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.75rem 1.4rem 0.85rem;
+  }
+  .lp-hero-copy .eyebrow { text-align: center; }
   .lp-promo-lead { font-size: 1.2rem; }
   .lp-promo-offer { font-size: 0.88rem; }
 }

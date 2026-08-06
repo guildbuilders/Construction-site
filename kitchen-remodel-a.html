@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="landing.css?v=20" />
+  <link rel="stylesheet" href="landing.css?v=21" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -246,9 +246,23 @@
         if (!promo || !card) return;
         promo.style.top = '';
         promo.style.position = 'relative';
+        var logoReset = document.querySelector('.lp-logo');
+        if (logoReset) { logoReset.style.transform = ''; }
         if (!window.matchMedia('(min-width: 861px)').matches) return;
         var gap = Math.round(promo.getBoundingClientRect().top - card.getBoundingClientRect().top);
         if (gap > 0) { promo.style.top = (-gap) + 'px'; }
+
+        /* Centre the logo horizontally over the offer badge, so the header
+           does not read as left-aligned against it. Desktop only - on mobile
+           the logo and badge are both centred by CSS already. */
+        var logo = document.querySelector('.lp-logo');
+        if (logo) {
+          logo.style.transform = '';
+          var lb = logo.getBoundingClientRect();
+          var pb = promo.getBoundingClientRect();
+          var dx = Math.round((pb.left + pb.width / 2) - (lb.left + lb.width / 2));
+          if (dx) { logo.style.transform = 'translateX(' + dx + 'px)'; }
+        }
       }
       alignPromo();
       window.addEventListener('resize', alignPromo);

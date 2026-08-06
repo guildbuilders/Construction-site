@@ -1,3 +1,18 @@
+
+// Hero video: only load it on screens wide enough to benefit. On phones the
+// poster image stands in, which saves 4-6MB of download on a cellular
+// connection. The <video> carries no src until this runs, so nothing is
+// fetched on mobile at all.
+(function () {
+  var v = document.querySelector(".hero-bg-video[data-src]");
+  if (!v) return;
+  if (!window.matchMedia("(min-width: 861px)").matches) return;
+  v.preload = "auto";
+  v.src = v.dataset.src;
+  var play = v.play();
+  if (play && play.catch) { play.catch(function () {}); }
+})();
+
 const menuToggle = document.getElementById("menu-toggle");
 const siteNav = document.getElementById("site-nav");
 

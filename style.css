@@ -1100,12 +1100,12 @@ a.card-link:hover h3 {
 
 .category-bathrooms {
   background-image: url("camino1-1000.webp");
-  --bg-position: center 38%;
+  --bg-position: center 12%;
 }
 
 .project-camino {
   background-image: url("camino1-1000.webp");
-  --bg-position: center 38%;
+  --bg-position: center 12%;
 }
 
 .category-decks {
@@ -1905,4 +1905,12 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
   border-left: none;
   border-top: 3px solid #d2b780;
   border-radius: 0 0 10px 10px;
+}
+
+
+/* Portrait shots where the subject sits high in the frame: crop from the very
+   top so the shower head stays in the 240px thumbnail rather than being
+   clipped off above it. */
+.gallery-image.gallery-image-top {
+  object-position: center top;
 }

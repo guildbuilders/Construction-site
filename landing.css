@@ -549,7 +549,8 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   border: 1px solid rgba(210, 183, 128, 0.85);
   border-radius: 12px;
   padding: 0.95rem 1.9rem 1.05rem;
-  margin: 0 0 1rem;
+  /* smaller gap pulls the eyebrow through review line up toward the offer */
+  margin: 0 0 0.4rem;
   max-width: 100%;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);

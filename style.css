@@ -1099,8 +1099,13 @@ a.card-link:hover h3 {
 }
 
 .category-bathrooms {
-  background-image: url("scarlet1-1000.webp");
-  --bg-position: center 22%;
+  background-image: url("camino1-1000.webp");
+  --bg-position: center 38%;
+}
+
+.project-camino {
+  background-image: url("camino1-1000.webp");
+  --bg-position: center 38%;
 }
 
 .category-decks {

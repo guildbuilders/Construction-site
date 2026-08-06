@@ -532,3 +532,52 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   .lp-sticky-call .quote { background: #d2b780; color: #0f1c2e; }
   body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 }
+
+/* ---------- Limited-time promotion band ----------
+   Spans both hero columns on desktop. On mobile the hero is one column with
+   the form ordered first, so order:-2 keeps the promo above the form. */
+.lp-promo {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: rgba(15, 28, 46, 0.55);
+  border: 2px solid #d2b780;
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 0.4rem;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.lp-promo-stars {
+  display: block;
+  color: #d2b780;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  margin-bottom: 0.35rem;
+}
+
+.lp-promo-lead {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.lp-promo-offer {
+  margin: 0.15rem 0 0;
+  color: #f3e6c8;
+  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
+  letter-spacing: 0.02em;
+}
+
+.lp-promo-offer strong {
+  color: #d2b780;
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  body.lp-video-hero .lp-promo { order: -2; }
+  .lp-promo { padding: 0.75rem 1rem; }
+}

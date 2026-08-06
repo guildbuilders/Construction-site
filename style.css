@@ -1833,3 +1833,34 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
   color: #a17c1e;
   font-weight: 600;
 }
+
+/* Related reading: sibling articles in the same category */
+.post-more {
+  margin: 2.6rem 0 0;
+  padding-top: 1.6rem;
+  border-top: 1px solid #e4ddce;
+}
+
+.post-more h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
+}
+
+.post-more ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.post-more li {
+  margin-bottom: 0.4rem;
+}
+
+.post-more a {
+  color: #a17c1e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post-more a:hover {
+  text-decoration: underline;
+}

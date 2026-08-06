@@ -534,41 +534,48 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 
 /* ---------- Limited-time promotion band ----------
-   Spans both hero columns on desktop. On mobile the hero is one column with
-   the form ordered first, so order:-2 keeps the promo above the form. */
+   One compact row so it reads as a considered offer rather than a banner,
+   and so the hero still fits a 900px-tall MacBook screen. Spans both hero
+   columns; on mobile it sits above the form, which is ordered first. */
 .lp-promo {
   grid-column: 1 / -1;
-  text-align: center;
-  background: rgba(15, 28, 46, 0.55);
-  border: 2px solid #d2b780;
-  border-radius: 12px;
-  padding: 0.9rem 1.2rem;
-  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  background: rgba(15, 28, 46, 0.5);
+  border: 1px solid rgba(210, 183, 128, 0.85);
+  border-radius: 999px;
+  padding: 0.55rem 1.5rem;
+  margin-bottom: 0.2rem;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
-.lp-promo-stars {
-  display: block;
+.lp-promo-star {
   color: #d2b780;
-  font-size: 0.8rem;
-  letter-spacing: 0.5em;
-  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  line-height: 1;
 }
 
 .lp-promo-lead {
-  margin: 0;
   color: #ffffff;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.32rem);
   font-weight: 700;
-  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.lp-promo-rule {
+  width: 1px;
+  height: 1.1em;
+  background: rgba(210, 183, 128, 0.6);
 }
 
 .lp-promo-offer {
-  margin: 0.15rem 0 0;
   color: #f3e6c8;
-  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
   letter-spacing: 0.02em;
 }
 
@@ -579,5 +586,6 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 
 @media (max-width: 860px) {
   body.lp-video-hero .lp-promo { order: -2; }
-  .lp-promo { padding: 0.75rem 1rem; }
+  .lp-promo { padding: 0.5rem 1rem; border-radius: 14px; }
+  .lp-promo-rule { display: none; }
 }

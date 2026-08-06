@@ -1165,6 +1165,11 @@ body.full-home-page .project-kingsfield {
   background-image: url("ivy1-1000.webp");
 }
 
+.project-sundance {
+  background-image: url("sundance1-1000.webp");
+  --bg-position: center 55%;
+}
+
 .project-reflection {
   background-image: url("reflection1-1000.webp");
 }

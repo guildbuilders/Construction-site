@@ -1675,7 +1675,7 @@ body.kitchen-page .project-kingsfield {
 }
 
 .post-body h2 {
-  text-align: left;
+  text-align: center;
   font-size: 1.75rem;
   margin: 2.6rem 0 0.9rem;
 }
@@ -1874,4 +1874,30 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
 
 .service-intro .post-body > h2:first-of-type {
   margin-top: 0.6rem;
+}
+
+
+/* Blog articles and service page copy: centered text, no list markers */
+.post-body,
+.post-body p,
+.post-body h3,
+.post-body li,
+.post-note p,
+.post-related p,
+.post-more h3,
+.post-more li {
+  text-align: center;
+}
+
+.post-body ul,
+.post-body ol {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.post-note {
+  border-left: none;
+  border-top: 3px solid #d2b780;
+  border-radius: 0 0 10px 10px;
 }

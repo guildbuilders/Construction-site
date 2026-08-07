@@ -586,8 +586,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 
 @media (max-width: 860px) {
-  /* centre the badge and the eyebrow under it; the headline, bullets and
-     review line stay left-aligned */
+  /* the whole hero copy column is centred on phones */
   .lp-promo {
     display: flex;
     width: fit-content;
@@ -595,7 +594,37 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
     margin-right: auto;
     padding: 0.75rem 1.4rem 0.85rem;
   }
-  .lp-hero-copy .eyebrow { text-align: center; }
   .lp-promo-lead { font-size: 1.2rem; }
   .lp-promo-offer { font-size: 0.88rem; }
+
+  .lp-hero-copy { text-align: center; }
+  /* 32ch makes this narrower than the column, so centring the text inside a
+     left-sitting box still reads off-centre. Let it span the column. */
+  .lp-hero-copy .lp-subhead {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* The tick is absolutely positioned at the left of a full-width row, which
+     would strand it far from centred text. Lay each item out as a flex row
+     sized to its own content, then centre the row. */
+  .lp-hero-bullets li {
+    padding-left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .lp-hero-bullets li::before {
+    position: static;
+    top: auto;
+    left: auto;
+    flex: 0 0 auto;
+    margin-top: 0.15rem;
+  }
 }

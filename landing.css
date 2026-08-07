@@ -606,18 +606,20 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
     margin-right: auto;
   }
 
-  /* The tick is absolutely positioned at the left of a full-width row, which
-     would strand it far from centred text. Lay each item out as a flex row
-     sized to its own content, then centre the row. */
+  /* Centre the LIST as a block sized to its longest line, then let each row
+     fill it. Centring each row individually would stagger the ticks, since
+     the lines differ in length - this keeps them on one vertical edge. */
+  .lp-hero-bullets {
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .lp-hero-bullets li {
     padding-left: 0;
     display: flex;
     align-items: flex-start;
     gap: 0.6rem;
-    width: fit-content;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     text-align: left;
   }
   .lp-hero-bullets li::before {

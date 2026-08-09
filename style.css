@@ -1962,6 +1962,19 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
   margin-bottom: 0.25rem;
 }
 
+/* Cross-links between the kitchen, bathroom and whole-home pages covering
+   the same house. Sits at the end of the article body. */
+.project-related {
+  margin: 2.4rem 0 0;
+  padding: 1rem 1.3rem;
+  background: #f6f3ec;
+  border-left: 3px solid #c9a227;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.95rem;
+}
+.project-related strong { color: #14243a; }
+.project-related a { color: #a17c1e; font-weight: 600; }
+
 .project-spec dd {
   margin: 0;
   color: #14243a;

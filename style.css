@@ -1941,6 +1941,10 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
 
 .project-spec { text-align: left; }
 
+/* With an odd number of specs the last one would sit beside an empty half,
+   which is what made the original strip look broken. Span it instead. */
+.project-spec:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
 .project-spec dt {
   font-size: 0.72rem;
   letter-spacing: 0.09em;

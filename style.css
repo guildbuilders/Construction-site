@@ -1925,3 +1925,83 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
 .gallery-image.gallery-image-top {
   object-position: center top;
 }
+
+/* Project page: at-a-glance spec strip under the hero image */
+.project-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.1rem 1.5rem;
+  margin: 0 0 2.4rem;
+  padding: 1.3rem 1.5rem;
+  background: #f6f3ec;
+  border-radius: 14px;
+}
+
+.project-spec dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #a17c1e;
+  margin-bottom: 0.25rem;
+}
+
+.project-spec dd {
+  margin: 0;
+  color: #14243a;
+  font-weight: 600;
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+/* "See how we built it" link on a gallery project section */
+.project-detail-link {
+  display: inline-block;
+  margin: 0 0 1.2rem;
+  color: #a17c1e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-detail-link:hover { text-decoration: underline; }
+
+/* Featured local project block on a city page */
+.city-project {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.6rem;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.city-project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(15, 28, 46, 0.12);
+}
+
+.city-project img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.city-project-body { padding: 1.2rem 1.6rem 1.2rem 0; }
+
+.city-project-body h3 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+
+.city-project-body p { margin: 0 0 0.7rem; color: #48556a; font-size: 0.97rem; }
+
+.city-project-cta { color: #a17c1e; font-weight: 600; font-size: 0.95rem; }
+
+@media (max-width: 700px) {
+  .city-project { grid-template-columns: 1fr; }
+  .city-project-body { padding: 0 1.4rem 1.4rem; }
+}

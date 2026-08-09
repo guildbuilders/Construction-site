@@ -252,7 +252,7 @@ body.gallery-page .site-header.scrolled .site-nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("ivy-poster-2.webp");
+  background-image: url("westwood-poster-2.webp");
 }
 body.services-page .site-header {
   position: fixed;
@@ -1161,12 +1161,12 @@ body.full-home-page .project-kingsfield {
   background-image: url("baywind2-1000.webp");
 }
 
-.project-ivy {
-  background-image: url("ivy1-1000.webp");
+.project-westwood {
+  background-image: url("westwood1-1000.webp");
 }
 
-.project-sundance {
-  background-image: url("sundance1-1000.webp");
+.project-lakeridge {
+  background-image: url("lakeridge1-1000.webp");
   --bg-position: center 55%;
 }
 

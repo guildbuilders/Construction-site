@@ -32,7 +32,10 @@
        Conversion action: "Contact (1)" / phone click on the website. */
     function gb_callConversion() {
       /* GA4 - lets Analytics attribute calls from organic and direct traffic,
-         which Google Ads never sees. Separate event, so no double-counting. */
+         which Google Ads never sees. Deliberately NO send_to: G-39ZPTZ73DK is
+         a destination on the Google tag, not a configured gtag target, so
+         targeting it explicitly makes gtag drop the event. Untargeted reaches
+         GA4 correctly - verified. */
       gtag('event', 'phone_click');
       /* No value sent here on purpose - the conversion action in Google Ads
          owns the value ($1000). Sending one from the page would override it. */

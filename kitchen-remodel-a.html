@@ -34,11 +34,9 @@
       /* GA4 - lets Analytics attribute calls from organic and direct traffic,
          which Google Ads never sees. Separate event, so no double-counting. */
       gtag('event', 'phone_click');
-      gtag('event', 'conversion', {
-        send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD',
-        value: 1.0,
-        currency: 'USD'
-      });
+      /* No value sent here on purpose - the conversion action in Google Ads
+         owns the value ($1000). Sending one from the page would override it. */
+      gtag('event', 'conversion', { send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD' });
       return true;
     }
   </script>

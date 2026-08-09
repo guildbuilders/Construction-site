@@ -1130,8 +1130,8 @@ a.card-link:hover h3 {
   background-image: url("brava1-1000.webp");
 }
 
-.project-opal {
-  background-image: url("opal1-1000.webp");
+.project-dixie {
+  background-image: url("dixie1-1000.webp");
 }
 
 .project-kingsfield {
@@ -1210,8 +1210,8 @@ body.full-home-page .project-kingsfield {
   background-image: url("brava1-1000.webp");
 }
 
-.project-opal-kitchen {
-  background-image: url("opal1-1000.webp");
+.project-dixie-kitchen {
+  background-image: url("dixie1-1000.webp");
 }
 
 .project-canyon {
@@ -1283,8 +1283,8 @@ body.bathroom-page .project-brava {
   background-image: url("brava9-1000.webp");
 }
 
-body.bathroom-page .project-opal {
-  background-image: url("opal11-1000.webp");
+body.bathroom-page .project-dixie {
+  background-image: url("dixie11-1000.webp");
 }
 
 body.bathroom-page .project-kingsfield {
@@ -1303,8 +1303,8 @@ body.kitchen-page .project-brava {
   background-image: url("brava1-1000.webp");
 }
 
-body.kitchen-page .project-opal {
-  background-image: url("opal1-1000.webp");
+body.kitchen-page .project-dixie {
+  background-image: url("dixie1-1000.webp");
   grid-column: auto;
   min-height: 340px;
 }

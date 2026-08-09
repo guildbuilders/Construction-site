@@ -1037,6 +1037,12 @@ a.card-link:hover h3 {
   grid-column: 1 / -1;
 }
 
+/* An odd number of cards left the last one alone in its row with dead space
+   to the right. Let it run the full width as a wide rectangle instead. */
+.gallery-category-grid > .gallery-category:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .homepage-category-grid {
   margin-top: 2rem;
 }
@@ -1224,8 +1230,8 @@ body.full-home-page .project-kingsfield {
 
 /* BATHROOM PROJECT BACKGROUNDS */
 
-.project-scarlet {
-  background-image: url("scarlet1-1000.webp");
+.project-lupita {
+  background-image: url("lupita1-1000.webp");
   --bg-position: center 25%;
 }
 
@@ -1237,11 +1243,11 @@ body.full-home-page .project-kingsfield {
   background-image: url("sunsetridge1-1000.webp");
 }
 
-.project-bayleaf {
-  background-image: url("bayleaf1-1000.webp");
+.project-lark {
+  background-image: url("lark1-1000.webp");
 }
 
-body.bathroom-page .project-bayleaf {
+body.bathroom-page .project-lark {
   grid-column: 1 / -1;
 }
 
@@ -1942,8 +1948,10 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
 .project-spec { text-align: left; }
 
 /* With an odd number of specs the last one would sit beside an empty half,
-   which is what made the original strip look broken. Span it instead. */
-.project-spec:last-child:nth-child(odd) { grid-column: 1 / -1; }
+   which is what made the original strip look broken. Span the full width AND
+   centre it - spanning alone still parked the text on the left with a wide
+   gap to its right, which is what the hole actually looked like. */
+.project-spec:last-child:nth-child(odd) { grid-column: 1 / -1; text-align: center; }
 
 .project-spec dt {
   font-size: 0.72rem;

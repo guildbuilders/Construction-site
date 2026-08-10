@@ -117,23 +117,19 @@
         <h2>Free Estimate &amp; Design Consult</h2>
         <p class="lp-form-sub">Tell us about your project — we'll reach out within 24 hours.</p>
         <form class="lp-form" action="https://formsubmit.co/1b42094d0074b6b4874cd920b2882218" method="POST">
-          <label for="name">Full Name</label>
-          <input id="name" type="text" name="name" placeholder="Your name" required />
+          <label for="first-name">First Name</label>
+          <input id="first-name" type="text" name="first_name" autocomplete="given-name" required />
+
+          <label for="last-name">Last Name</label>
+          <input id="last-name" type="text" name="last_name" autocomplete="family-name" required />
+
           <label for="phone">Phone Number</label>
-          <input id="phone" type="tel" name="phone" placeholder="(619) 000-0000" required />
-          <label for="project">Project Type</label>
-          <select id="project" name="project_type" required>
-            <option value="" disabled selected>Select your project</option>
-            <option>Bathroom remodel</option>
-            <option>Kitchen remodel</option>
-            <option>Full home renovation</option>
-            <option>Multiple projects</option>
-            <option>Deck / patio cover</option>
-            <option>Other</option>
-          </select>
-          <label for="zip">ZIP Code</label>
-          <input id="zip" type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" placeholder="92101" required />
-          <input type="hidden" name="_subject" value="New Lead — Google Ads (Bathroom B)" />
+          <input id="phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" autocomplete="email" required />
+
+<input type="hidden" name="_subject" value="New Lead — Google Ads (Bathroom B)" />
           <input type="hidden" name="lead_source" value="Google Ads — Bathroom Landing B" />
           <input type="hidden" name="_next" value="https://guildbuildersgroup.com/thank-you.html" />
           <input type="hidden" name="_captcha" value="false" />

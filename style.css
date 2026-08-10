@@ -1028,15 +1028,6 @@ a.card-link:hover h3 {
   z-index: 1;
 }
 
-/* Second line on a category card. Identical type to the line above it -
-   this only breaks the label onto its own line, nothing else. */
-.gallery-category-sub {
-  display: block;
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: none;
-  opacity: 1;
-}
 
 .gallery-category:hover {
   transform: translateY(-2px);
@@ -1107,7 +1098,7 @@ a.card-link:hover h3 {
 /* CATEGORY BACKGROUNDS */
 
 .category-fullhome {
-  background-image: url("dalia1-1000.webp");
+  background-image: url("fullhome-1000.webp");
 }
 
 .category-kitchens {

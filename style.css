@@ -1492,10 +1492,12 @@ body.kitchen-page .project-kingsfield {
     grid-template-columns: 1fr;
   }
 
+  /* Was 200px with a 180px logo - a quarter of a phone screen taken by a
+     fixed header before any content appeared. Roughly halved. */
   .nav {
     position: relative;
     justify-content: center;
-    min-height: 200px;
+    min-height: 116px;
   }
 
   .logo {
@@ -1503,7 +1505,7 @@ body.kitchen-page .project-kingsfield {
   }
 
   .logo-image {
-    height: 180px;
+    height: 96px;
   }
 
   .menu-toggle {
@@ -1518,7 +1520,7 @@ body.kitchen-page .project-kingsfield {
   .site-nav {
     display: none;
     position: absolute;
-    top: 200px;
+    top: 116px;
     left: 0;
     right: 0;
     background: #ffffff;

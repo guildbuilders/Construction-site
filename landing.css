@@ -524,10 +524,17 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   .lp-sticky-call a {
     flex: 1;
     text-align: center;
-    padding: 0.95rem 0.5rem;
+    padding: 0.95rem 0.4rem;
     font-weight: 800;
     text-decoration: none;
     font-size: 1rem;
+    /* the full number is longer than "Call Now" was - keep it on one line
+       and let it shrink rather than wrap on a 360px phone */
+    white-space: nowrap;
+  }
+  .lp-sticky-call .call { font-size: 0.95rem; }
+  @media (max-width: 374px) {
+    .lp-sticky-call a { font-size: 0.86rem; padding-left: 0.25rem; padding-right: 0.25rem; }
   }
   .lp-sticky-call .call { background: #14243a; color: #ffffff; }
   .lp-sticky-call .quote { background: #d2b780; color: #0f1c2e; }

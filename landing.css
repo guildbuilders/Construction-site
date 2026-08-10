@@ -147,7 +147,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 /* Poster fallback behind the hero video - matches whichever source the
    page loads, so the still frame never disagrees with the video. */
-.lp-hero.lp-hero-video { background-image: url("bluewaydrive-poster.webp?v=2"); }
+.lp-hero.lp-hero-video { background-image: url("miracle-poster.webp"); }
 @media (min-width: 861px) {
   .lp-hero.lp-hero-video { background-image: url("miracle-poster.webp"); }
 }
@@ -404,17 +404,19 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   margin-top: 1.6rem;
 }
 .lp-step { text-align: center; padding: 0 0.6rem; }
+.lp-step h3 { font-size: 1.32rem; }
+.lp-step p { font-size: 1.06rem; }
 .lp-step-num {
-  width: 54px;
-  height: 54px;
-  margin: 0 auto 0.9rem;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 1rem;
   border-radius: 50%;
   background: #14243a;
   color: #d2b780;
   display: grid;
   place-items: center;
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 

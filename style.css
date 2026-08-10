@@ -1172,10 +1172,6 @@ body.full-home-page .project-kingsfield {
   background-image: url("westwood1-1000.webp");
 }
 
-.project-lakeridge {
-  background-image: url("lakeridge1-1000.webp");
-  --bg-position: center 55%;
-}
 
 .project-reflection {
   background-image: url("reflection1-1000.webp");
@@ -1800,7 +1796,7 @@ body.kitchen-page .project-kingsfield {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("miracle-poster.webp");
+  background-image: url("bluewaydrive-poster.webp?v=2");
 }
 body.blog-page .site-header {
   position: fixed;

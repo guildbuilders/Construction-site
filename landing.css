@@ -269,9 +269,12 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 .lp-btn:hover { background: #c2a24e; }
 .lp-btn:active { transform: translateY(1px); }
+/* the padlock reads small next to the text at matching size */
+.lp-lock { font-size: 1.18em; line-height: 1; vertical-align: -0.06em; }
+
 .lp-form-fineprint {
   text-align: center;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: #8a94a4;
   margin: 0.8rem 0 0;
 }
@@ -288,7 +291,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 .lp-trust-item { flex: 1 1 200px; }
 .lp-trust-item strong { display: block; color: #14243a; font-size: 1.05rem; }
-.lp-trust-item span { font-size: 0.85rem; color: #6a7688; }
+.lp-trust-item span { font-size: 0.92rem; color: #6a7688; }
 
 /* ---------- Generic section ---------- */
 .lp-section { padding: 3.4rem 0; }

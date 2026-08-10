@@ -279,6 +279,72 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   margin: 0.8rem 0 0;
 }
 
+/* ---------- Gallery lightbox ----------
+   Ported from style.css, which landing pages do not load. Same behaviour:
+   click a thumbnail, get the full-size original over a dark backdrop. */
+.lp-gallery-image { cursor: zoom-in; }
+
+.lp-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 28, 46, 0.96);
+  justify-content: center;
+  align-items: center;
+  /* small padding so tall portrait photos get the full screen height */
+  padding: 12px;
+}
+.lp-lightbox.active { display: flex; }
+
+.lp-lightbox-content {
+  max-width: 94vw;
+  max-height: 94vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.lp-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 10001;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 300;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.lp-lightbox-close:hover { opacity: 0.8; }
+
+.lp-lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.lp-lightbox-arrow:hover { opacity: 0.75; }
+.lp-lightbox-prev { left: 24px; }
+.lp-lightbox-next { right: 24px; }
+
+@media (max-width: 600px) {
+  .lp-lightbox-arrow { width: 38px; height: 38px; font-size: 1.5rem; }
+  .lp-lightbox-prev { left: 6px; }
+  .lp-lightbox-next { right: 6px; }
+  .lp-lightbox-close { top: 12px; right: 14px; font-size: 34px; }
+}
+
 /* ---------- Trust bar ---------- */
 .lp-trustbar { background: #f6f3ec; border-bottom: 1px solid #e4ddce; }
 .lp-trustbar-inner {

@@ -1028,17 +1028,14 @@ a.card-link:hover h3 {
   z-index: 1;
 }
 
-/* Secondary line on a category card. Keeps a long label from reading as one
-   cluttered run - the primary service stays the headline, the rest sits
-   under it, lighter and smaller. */
+/* Second line on a category card. Identical type to the line above it -
+   this only breaks the label onto its own line, nothing else. */
 .gallery-category-sub {
   display: block;
-  margin-top: 0.45rem;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.85;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  opacity: 1;
 }
 
 .gallery-category:hover {

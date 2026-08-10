@@ -509,8 +509,9 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   body.lp-video-hero .lp-form-card,
   body.lp-video-hero .lp-hero-copy { transform: none; }
   .lp-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem 0 3rem; }
-  .lp-header-phone .tel { display: none; }
-  .lp-header-phone::after { content: "Call Now"; }
+  /* Was hiding the number and printing "Call Now" in its place. Show the
+     real number, as the main site does - it is the thing people act on. */
+  .lp-header-phone .tel { display: inline; white-space: nowrap; }
   .lp-sticky-call {
     display: flex;
     position: fixed;

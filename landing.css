@@ -193,8 +193,9 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   content: "✓";
   position: absolute;
   left: 0;
-  color: #14243a;
-  background: #d2b780;
+  /* white on #238b45 clears 4.5:1, so the tick stays legible over the video */
+  color: #ffffff;
+  background: #238b45;
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 50%;

@@ -1232,7 +1232,7 @@ body.full-home-page .project-kingsfield {
 
 .project-lupita {
   background-image: url("lupita1-1000.webp");
-  --bg-position: center 25%;
+  --bg-position: center top;
 }
 
 .project-avalon {

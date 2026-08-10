@@ -1013,6 +1013,7 @@ a.card-link:hover h3 {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(15, 28, 46, 0.18),
@@ -1025,9 +1026,8 @@ a.card-link:hover h3 {
 .gallery-category h2,
 .gallery-category h3 {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
-
 
 .gallery-category:hover {
   transform: translateY(-2px);
@@ -1067,10 +1067,25 @@ a.card-link:hover h3 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* The tiles used to paint their photo with background-image, which meant
+   no alt text and nothing for Google Images to index. They are real <img>
+   now: image at the bottom, gradient over it, label on top. */
+.gallery-category-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  border-radius: inherit;
+}
+
 .gallery-photo-card::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(15, 28, 46, 0.16),
@@ -1081,7 +1096,7 @@ a.card-link:hover h3 {
 
 .gallery-photo-card span {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: block;
   color: #ffffff;
   font-size: 1.15rem;
@@ -1097,53 +1112,11 @@ a.card-link:hover h3 {
 
 /* CATEGORY BACKGROUNDS */
 
-.category-fullhome {
-  background-image: url("fullhome-1000.webp");
-}
-
-.category-kitchens {
-  background-image: url("miracle1-1000.webp");
-}
-
-.category-bathrooms {
-  background-image: url("camino1-1000.webp");
-  --bg-position: center 12%;
-}
-
-.project-camino {
-  background-image: url("camino1-1000.webp");
-  --bg-position: center 12%;
-}
-
-.category-decks {
-  background-image: url("constance1-1000.webp");
-}
-
 .category-exterior {
   background-image: url("pavers1-1000.webp");
 }
 
 /* FULL HOME PROJECT BACKGROUNDS */
-
-.project-dalia {
-  background-image: url("dalia1-1000.webp");
-}
-
-.project-arabiancrest {
-  background-image: url("arabiancrest1-1000.webp");
-}
-
-.project-brava {
-  background-image: url("brava1-1000.webp");
-}
-
-.project-dixie {
-  background-image: url("dixie1-1000.webp");
-}
-
-.project-kingsfield {
-  background-image: url("kingsfield1-1000.webp");
-}
 
 body.full-home-page .project-kingsfield {
   grid-column: 1 / -1;
@@ -1152,207 +1125,41 @@ body.full-home-page .project-kingsfield {
 
 /* KITCHEN PROJECT BACKGROUNDS */
 
-.project-miracle {
-  background-image: url("miracle1-1000.webp");
-}
-
-.project-kingsfield-kitchen {
-  background-image: url("kingsfield1-1000.webp");
-}
-
-.project-caminito {
-  background-image: url("caminito1-1000.webp");
-}
-
-.project-baywind {
-  background-image: url("baywind2-1000.webp");
-}
-
-.project-westwood {
-  background-image: url("westwood1-1000.webp");
-}
-
-
-.project-reflection {
-  background-image: url("reflection1-1000.webp");
-}
-
-.project-pipilo {
-  background-image: url("pipilo1-1000.webp");
-}
-
-.project-poole {
-  background-image: url("poole1-1000.webp");
-}
-
-.project-unicornio {
-  background-image: url("unicornio1-1000.webp");
-}
-
-.project-luciernaga {
-  background-image: url("luciernaga1-1000.webp");
-}
-
-.project-everts {
-  background-image: url("everts1-1000.webp");
-}
-
-.project-northstar {
-  background-image: url("northstar1-1000.webp");
-}
-
-.project-dalia-kitchen {
-  background-image: url("dalia1-1000.webp");
-}
-
-.project-arabian-kitchen {
-  background-image: url("arabiancrest1-1000.webp");
-}
-
-.project-brava-kitchen {
-  background-image: url("brava1-1000.webp");
-}
-
-.project-dixie-kitchen {
-  background-image: url("dixie1-1000.webp");
-}
-
-.project-canyon {
-  background-image: url("canyon1-1000.webp");
-}
-
-.project-southsierra {
-  background-image: url("southsierra2-1000.webp");
-}
-
 /* BATHROOM PROJECT BACKGROUNDS */
-
-.project-lupita {
-  background-image: url("lupita1-1000.webp");
-  --bg-position: center top;
-}
-
-.project-avalon {
-  background-image: url("avalon1-1000.webp");
-}
-
-.project-sunsetridge {
-  background-image: url("sunsetridge1-1000.webp");
-}
-
-.project-lark {
-  background-image: url("lark1-1000.webp");
-}
 
 body.bathroom-page .project-lark {
   grid-column: 1 / -1;
 }
 
-.project-ssierra {
-  background-image: url("ssierra1-1000.webp");
-}
-
-.project-tynebourne {
-  background-image: url("tynebourne1-1000.webp");
-}
-
-.project-archer {
-  background-image: url("archer5-1000.webp");
-}
-
-.project-tara {
-  background-image: url("tara3-1000.webp");
-}
-
-.project-willowhaven {
-  background-image: url("willowhaven1-1000.webp");
-}
-
-.project-honors {
-  background-image: url("honors1-1000.webp");
-}
-
 /* BATHROOM PAGE ONLY BACKGROUND OVERRIDES */
 
-body.bathroom-page .project-dalia {
-  background-image: url("dalia13-1000.webp");
-}
+body.bathroom-page 
 
-body.bathroom-page .project-arabiancrest {
-  background-image: url("arabiancrest5-1000.webp");
-}
+body.bathroom-page 
 
-body.bathroom-page .project-brava {
-  background-image: url("brava9-1000.webp");
-}
+body.bathroom-page 
 
-body.bathroom-page .project-dixie {
-  background-image: url("dixie11-1000.webp");
-}
+body.bathroom-page 
 
-body.bathroom-page .project-kingsfield {
-  background-image: url("kingsfield12-1000.webp");
-}
+body.bathroom-page 
 
 /* KITCHEN PAGE ONLY SAFETY OVERRIDES */
 
 body.kitchen-page .project-dalia {
-  background-image: url("dalia1-1000.webp");
   grid-column: auto;
   min-height: 340px;
 }
 
-body.kitchen-page .project-brava {
-  background-image: url("brava1-1000.webp");
-}
+body.kitchen-page 
 
 body.kitchen-page .project-dixie {
-  background-image: url("dixie1-1000.webp");
   grid-column: auto;
   min-height: 340px;
 }
 
-body.kitchen-page .project-kingsfield {
-  background-image: url("kingsfield1-1000.webp");
-}
+body.kitchen-page 
 
 /* DECK PROJECT BACKGROUNDS */
-
-.project-constance {
-  background-image: url("constance1-1000.webp");
-}
-
-.project-hill {
-  background-image: url("hill1-1000.webp");
-}
-
-.project-playa {
-  background-image: url("playa2-1000.webp");
-}
-
-.project-seaforest {
-  background-image: url("seaforest1-1000.webp");
-}
-
-.project-torrey {
-  background-image: url("torrey1-1000.webp");
-}
-
-.project-dora {
-  background-image: url("dora1-1000.webp");
-}
-
-.project-lemon {
-  background-image: url("lemon1-1000.webp");
-}
-
-.project-bavarian {
-  background-image: url("bavarian1-1000.webp");
-}
-
-.project-pavers {
-  background-image: url("pavers1-1000.webp");
-}
 
 /* INDIVIDUAL GALLERY PAGES */
 
@@ -1887,7 +1694,6 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
   text-decoration: underline;
 }
 
-
 /* Service page intro copy */
 .service-intro .post-body > .section-label {
   margin: 0 0 0.4rem;
@@ -1896,7 +1702,6 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
 .service-intro .post-body > h2:first-of-type {
   margin-top: 0.6rem;
 }
-
 
 /* Blog articles and service page copy: centered text, no list markers */
 .post-body,
@@ -1922,7 +1727,6 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
   border-top: 3px solid #d2b780;
   border-radius: 0 0 10px 10px;
 }
-
 
 /* Portrait shots where the subject sits high in the frame: crop from the very
    top so the shower head stays in the 240px thumbnail rather than being

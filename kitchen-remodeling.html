@@ -25,6 +25,10 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'AW-18096983407');
+    /* GA4. Without this line gtag never initialised the Analytics property,
+       so no page_view and no event ever reached it - the tag only ever had
+       an Ads destination configured. */
+    gtag('config', 'G-39ZPTZ73DK');
   </script>
 
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />

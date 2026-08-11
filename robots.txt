@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://guildbuildersgroup.com/sitemap.xml
+Sitemap: https://guildbuildersgroup.com/sitemap-index.xml

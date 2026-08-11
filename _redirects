@@ -1,2 +1,7 @@
 /exterior-renovations.html /decks-patio-covers 301
 /exterior-renovations /decks-patio-covers 301
+
+# A sitemap was submitted to Search Console at this path by mistake and the
+# UI gives no way to remove it. Point it at the real sitemap index so the
+# entry reports success instead of a permanent 404 error.
+/guildbuildersgroup.com /sitemap-index.xml 301

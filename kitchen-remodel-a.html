@@ -98,13 +98,8 @@
 
       <div class="lp-hero-copy">
         <!-- Semiquincentennial offer, sitting above the eyebrow line -->
-        <aside class="lp-promo" aria-label="Limited time offer">
-          <span class="lp-promo-stars" aria-hidden="true">★ ★ ★</span>
-          <span class="lp-promo-lead">Happy 250th, America.</span>
-          <span class="lp-promo-offer">Take <strong>25% off</strong>, on us.</span>
-        </aside>
         <p class="eyebrow">San Diego County Kitchen Remodeling</p>
-        <h1>Your Dream Kitchen, Built Right the First Time</h1>
+        <h1>Secure Your FREE Design Consultation &amp; Save 25% On Your Dream Kitchen</h1>
         <p class="lp-subhead">Get a <strong>free in-home estimate &amp; design consultation</strong>; no pressure, no obligation.</p>
         <ul class="lp-hero-bullets">
           <li>Licensed &amp; bonded (CA #1154614)</li>
@@ -250,38 +245,6 @@
         if (play && play.catch) { play.catch(function () {}); }
       }
 
-      /* Line the offer badge up with the top of the white form card. The two
-         hero columns are centred independently and carry different lifts, so
-         the gap varies with window size and cannot be a fixed value. Measure
-         it and offset the badge by that much with position:relative, which
-         moves it visually without disturbing the eyebrow or headline. */
-      function alignPromo() {
-        var promo = document.querySelector('.lp-promo');
-        var card = document.querySelector('.lp-form-card');
-        if (!promo || !card) return;
-        promo.style.top = '';
-        promo.style.position = 'relative';
-        var logoReset = document.querySelector('.lp-logo');
-        if (logoReset) { logoReset.style.transform = ''; }
-        if (!window.matchMedia('(min-width: 861px)').matches) return;
-        var gap = Math.round(promo.getBoundingClientRect().top - card.getBoundingClientRect().top);
-        if (gap > 0) { promo.style.top = (-gap) + 'px'; }
-
-        /* Centre the logo horizontally over the offer badge, so the header
-           does not read as left-aligned against it. Desktop only - on mobile
-           the logo and badge are both centred by CSS already. */
-        var logo = document.querySelector('.lp-logo');
-        if (logo) {
-          logo.style.transform = '';
-          var lb = logo.getBoundingClientRect();
-          var pb = promo.getBoundingClientRect();
-          var dx = Math.round((pb.left + pb.width / 2) - (lb.left + lb.width / 2));
-          if (dx) { logo.style.transform = 'translateX(' + dx + 'px)'; }
-        }
-      }
-      alignPromo();
-      window.addEventListener('resize', alignPromo);
-      window.addEventListener('load', alignPromo);
 
       /* Transparent header over the hero, solid once scrolled past it.
          Mirrors the overlayHeader block in script.js, which landing pages

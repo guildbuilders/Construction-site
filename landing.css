@@ -606,7 +606,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
 }
 .lp-owner-figure {
-  flex: 0 0 148px;
+  flex: 0 0 208px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -626,6 +626,18 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   font-size: 1.06rem;
   color: #14243a;
 }
+.lp-owner-quote {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: #5c6879;
+  text-align: center;
+  border-top: 1px solid #e4ddce;
+  padding-top: 0.7rem;
+}
+.lp-owner-quote::before { content: "\201C"; }
+.lp-owner-quote::after  { content: "\201D"; }
 /* the rule between photo and text, as on the reference card */
 .lp-owner-text {
   align-self: stretch;
@@ -706,6 +718,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   color: #14243a;
 }
 .lp-ba-img {
+  cursor: zoom-in;
   width: 100%;
   /* height:auto is required, not tidiness. The width/height attributes on the
      img are presentational hints that set CSS height, and aspect-ratio only

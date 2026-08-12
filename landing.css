@@ -979,6 +979,88 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 .lp-review p { font-style: italic; color: #3a4557; margin: 0 0 0.8rem; }
 .lp-review .lp-review-name { font-weight: 700; color: #14243a; font-style: normal; }
 
+/* ---------- Trust strip ---------- */
+.lp-trust-kicker {
+  text-align: center;
+  margin: 2.2rem 0 1.1rem;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7c8798;
+}
+/* Wordmarks set in the site's own type rather than brand logos. Naming a
+   brand you install is fair use; its logo is not, and implies a dealer or
+   endorsement relationship. */
+.lp-brands {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 2.6rem;
+}
+.lp-brands li {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #14243a;
+  opacity: 0.62;
+}
+
+.lp-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.lp-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28rem;
+  min-width: 200px;
+  padding: 1.25rem 1.6rem;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+a.lp-badge:hover { border-color: #d2b780; transform: translateY(-2px); }
+a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
+.lp-badge-name {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.08rem;
+  color: #14243a;
+}
+.lp-badge-stars { color: #f0c04a; letter-spacing: 2px; font-size: 1.05rem; }
+.lp-badge-score { font-size: 0.95rem; color: #5c6879; }
+.lp-badge-cta {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #14243a;
+  border-bottom: 1px solid #d2b780;
+}
+
+@media (max-width: 600px) {
+  .lp-brands { gap: 0.9rem 1.6rem; }
+  .lp-brands li { font-size: 1.12rem; }
+  .lp-badge { min-width: 0; flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.lp-badge:hover { transform: none; }
+}
+
 /* ---------- CTA band ---------- */
 .lp-cta-band { background: #14243a; color: #ffffff; text-align: center; padding: 3.2rem 0; }
 .lp-cta-band h2 { color: #ffffff; }

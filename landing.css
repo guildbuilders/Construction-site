@@ -130,7 +130,18 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   transition: background 0.2s ease, color 0.2s ease;
 }
 .lp-header-phone:hover { background: #d2b780; color: #0f1c2e; }
-.lp-header-phone .tel { white-space: nowrap; }
+/* Same nudge as the estimate button, on the same 3.5s cadence. Applied to
+   the inner span rather than the link, because the link already carries a
+   translateY at several breakpoints and an animation on it would wipe that
+   out. A transform needs a block-level box, hence inline-block. */
+.lp-header-phone .tel {
+  white-space: nowrap;
+  display: inline-block;
+  animation: lp-nudge 3.5s ease-in-out 0.8s infinite;
+}
+.lp-header-phone:hover .tel,
+.lp-header-phone:focus-visible .tel,
+.lp-header-phone:active .tel { animation: none; }
 
 /* ---------- Hero ---------- */
 .lp-hero {
@@ -307,7 +318,8 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 .lp-btn:active { animation: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .lp-btn { animation: none; }
+  .lp-btn,
+  .lp-header-phone .tel { animation: none; }
 }
 /* the padlock reads small next to the text at matching size */
 .lp-lock { font-size: 1.18em; line-height: 1; vertical-align: -0.06em; }
@@ -623,7 +635,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   .lp-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem 0 3rem; }
   /* Was hiding the number and printing "Call Now" in its place. Show the
      real number, as the main site does - it is the thing people act on. */
-  .lp-header-phone .tel { display: inline; white-space: nowrap; }
+  .lp-header-phone .tel { display: inline-block; white-space: nowrap; }
   .lp-sticky-call {
     display: flex;
     position: fixed;

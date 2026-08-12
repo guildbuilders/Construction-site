@@ -236,11 +236,11 @@
         var wide = window.matchMedia('(min-width: 861px)').matches;
         v.poster = wide ? v.dataset.landscapePoster : v.dataset.portraitPoster;
         v.src = wide ? v.dataset.landscape : v.dataset.portrait;
-        /* Slightly slower than real time - the clip pans quickly enough to
+        /* Slowed to 0.6x - the clip pans quickly enough to
            feel busy behind the headline. Set on loadedmetadata too because
            some browsers reset the rate when a new source loads. */
-        v.playbackRate = 0.8;
-        v.addEventListener('loadedmetadata', function () { v.playbackRate = 0.8; });
+        v.playbackRate = 0.6;
+        v.addEventListener('loadedmetadata', function () { v.playbackRate = 0.6; });
         var play = v.play();
         if (play && play.catch) { play.catch(function () {}); }
       }

@@ -543,6 +543,8 @@ p,
   text-decoration: none;
   font-weight: 600;
   border: 1px solid #d4af37;
+  /* buttons inherit the UA default of 13.3px without this */
+  font-size: 1rem;
 }
 
 .btn-primary {

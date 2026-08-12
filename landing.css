@@ -52,7 +52,7 @@ h1, h2, h3 {
 /* Home-page logo treatment: matches .logo-image in style.css (180px).
    translateY nudges it down visually without taking part in layout, so
    nothing below it moves. */
-.lp-logo.lp-logo-home img { height: 180px; transform: translateY(8px); }
+.lp-logo.lp-logo-home img { height: 171px; transform: translateY(8px); }
 
 /* ---------- Full-screen video hero, mirroring body.home in style.css ----------
    The header goes fixed and transparent so the logo reads as part of the
@@ -69,7 +69,7 @@ body.lp-video-hero .lp-hero {
 }
 /* clears the fixed header (200px logo + 1px border) */
 body.lp-video-hero .lp-hero-inner {
-  padding-top: 200px;
+  padding-top: 191px;
   padding-bottom: 4rem;
 }
 /* lifts the lead form card 15% of its own height above the hero copy */
@@ -459,17 +459,21 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 .lp-step h3 { font-size: 1.32rem; }
 .lp-step p { font-size: 1.06rem; }
 .lp-step-num {
-  width: 66px;
-  height: 66px;
+  width: 72px;
+  height: 72px;
   margin: 0 auto 1rem;
   border-radius: 50%;
   background: #14243a;
-  color: #d2b780;
-  display: grid;
-  place-items: center;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;
-  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* the serif sat the digit high in the circle and gold on navy was dim;
+     sans at line-height 1 centres cleanly and white reads at 13:1 */
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 /* ---------- Reviews ---------- */
@@ -539,8 +543,8 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
    step: padding-top should stay ~20px above the logo height. */
 
 @media (max-width: 1024px) {
-  .lp-logo.lp-logo-home img { height: 153px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 173px; }
+  .lp-logo.lp-logo-home img { height: 145px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 165px; }
 }
 
 /* ---------- Short desktop screens ----------
@@ -548,16 +552,16 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
    1366x768 laptop, and the lifted form card slid up underneath it. Scale the
    logo down and ease off the lift so nothing hides behind the header. */
 @media (min-width: 861px) and (max-height: 940px) {
-  .lp-logo.lp-logo-home img { height: 135px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 153px; }
+  .lp-logo.lp-logo-home img { height: 128px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 146px; }
   body.lp-video-hero .lp-form-card { transform: translateY(-5%); }
   body.lp-video-hero .lp-hero-copy { transform: translateY(-4%); }
   body.lp-video-hero .lp-header-phone { transform: translateY(-16px); }
 }
 
 @media (min-width: 861px) and (max-height: 820px) {
-  .lp-logo.lp-logo-home img { height: 108px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 126px; }
+  .lp-logo.lp-logo-home img { height: 103px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 121px; }
   body.lp-video-hero .lp-form-card,
   body.lp-video-hero .lp-hero-copy { transform: none; }
   body.lp-video-hero .lp-header-phone { transform: none; }
@@ -568,17 +572,17 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
    let it scroll away and shrink the logo. */
 @media (max-height: 500px) {
   body.lp-video-hero .lp-header { position: absolute; }
-  .lp-logo.lp-logo-home img { height: 76px; }
+  .lp-logo.lp-logo-home img { height: 72px; }
   body.lp-video-hero .lp-hero-inner {
-    padding-top: 92px;
+    padding-top: 88px;
     padding-bottom: 2rem;
   }
 }
 
 @media (max-width: 860px) {
-  .lp-logo.lp-logo-home img { height: 117px; }
+  .lp-logo.lp-logo-home img { height: 111px; }
   body.lp-video-hero .lp-hero-inner {
-    padding-top: 137px;
+    padding-top: 131px;
     padding-bottom: 2.5rem;
   }
   /* Header sits at the top of the PAGE rather than following the viewport,
@@ -616,14 +620,14 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 
 @media (max-width: 600px) {
-  .lp-logo.lp-logo-home img { height: 97px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 115px; }
+  .lp-logo.lp-logo-home img { height: 92px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 110px; }
 }
 
 /* Short phones - reclaim more height so the review line still makes the fold */
 @media (max-width: 860px) and (max-height: 720px) {
-  .lp-logo.lp-logo-home img { height: 83px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 99px; }
+  .lp-logo.lp-logo-home img { height: 79px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 95px; }
   body.lp-video-hero .lp-hero-copy .eyebrow { margin-bottom: 0.5rem; }
   body.lp-video-hero .lp-hero-bullets li { margin-bottom: 0.3rem; }
 }

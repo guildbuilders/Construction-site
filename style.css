@@ -34,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 210px;
+  min-height: 201px;
 }
 
 .logo {
@@ -44,7 +44,7 @@ body {
 }
 
 .logo-image {
-  height: 180px;
+  height: 171px;
   width: auto;
   display: block;
   /* visual nudge only - transform does not affect layout, so the nav height
@@ -617,13 +617,21 @@ p,
   background: #ffffff;
 }
 .process-num {
-  display: block;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #d2b780;
+  /* filled circle rather than a bare numeral - reads as a step marker and the
+     white on navy is legible where gold on ivory was not */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 0.9rem;
+  border-radius: 50%;
+  background: #14243a;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #ffffff;
   line-height: 1;
-  margin-bottom: 0.4rem;
 }
 .process-step h3 {
   color: #14243a;
@@ -1305,7 +1313,7 @@ body.kitchen-page
   .nav {
     position: relative;
     justify-content: center;
-    min-height: 106px;
+    min-height: 102px;
   }
 
   .logo {
@@ -1313,7 +1321,7 @@ body.kitchen-page
   }
 
   .logo-image {
-    height: 86px;
+    height: 82px;
   }
 
   .menu-toggle {
@@ -1328,7 +1336,7 @@ body.kitchen-page
   .site-nav {
     display: none;
     position: absolute;
-    top: 106px;
+    top: 102px;
     left: 0;
     right: 0;
     background: #ffffff;

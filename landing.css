@@ -990,45 +990,6 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   text-transform: uppercase;
   color: #7c8798;
 }
-/* Wordmarks set in the site's own type rather than brand logos. Naming a
-   brand you install is fair use; its logo is not, and implies a dealer or
-   endorsement relationship. */
-.lp-brands {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.7rem 1.9rem;
-}
-.lp-brands li {
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.94rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: #14243a;
-  opacity: 0.55;
-}
-
-/* the quiet strip that closes the page, under the final CTA */
-.lp-brandstrip {
-  background: #f6f3ec;
-  border-top: 1px solid #e4ddce;
-  padding: 2rem 0;
-}
-.lp-brandstrip-kicker {
-  text-align: center;
-  margin: 0 0 1.1rem;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #8b95a3;
-}
 
 .lp-badges {
   display: flex;
@@ -1070,11 +1031,7 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
 }
 
 @media (max-width: 600px) {
-  .lp-brands { gap: 0.6rem 1.2rem; }
-  .lp-brands li { font-size: 0.86rem; letter-spacing: 0.1em; }
-  .lp-badge { min-width: 0; flex: 1 1 100%; }
-}
-@media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
   a.lp-badge:hover { transform: none; }
 }
 

@@ -507,67 +507,80 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 
 /* ---------- Steps ----------
-   Stacked cards, each with a ribbon tab carrying the number over the card's
-   top-left corner. Three centred circles side by side read as a feature grid;
-   a vertical stack reads as an ordered sequence, which is what the section is
-   actually saying. */
+   Four photo cards in a row, numbered, with a chevron in each gap. */
 .lp-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-  max-width: 860px;
-  margin: 2.1rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.2rem;
 }
 .lp-step {
   position: relative;
-  text-align: left;
   background: #ffffff;
   border: 1px solid #e4ddce;
   border-radius: 12px;
-  /* left padding clears the tab; the copy stays flush for every wrapped line */
-  padding: 1.5rem 1.7rem 1.5rem 5.4rem;
+  /* deliberately NOT overflow:hidden. The photo needs clipping to the top
+     corners, but hiding overflow here also clips the chevron, which sits in
+     the gap outside the card. The clipping moves to the photo instead. */
+  text-align: center;
+  padding-bottom: 1.4rem;
   box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
 }
-.lp-step h3 { font-size: 1.32rem; margin: 0 0 0.3rem; }
-.lp-step p { font-size: 1.06rem; margin: 0; }
-
-.lp-step-num {
-  position: absolute;
-  top: -7px;
-  left: 1.05rem;
-  width: 46px;
-  height: 66px;
-  /* square top-right so the fold below joins the tab without a seam */
-  border-radius: 7px 0 7px 7px;
-  background: #14243a;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* the serif sat the digit high in the tab; sans at line-height 1 centres
-     cleanly and white on navy reads at 13:1 */
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1.7rem;
-  font-weight: 800;
-  line-height: 1;
-}
-/* The folded corner that turns the tab into a ribbon. Darker navy so it reads
-   as the underside of the fold rather than a stray flag. */
-.lp-step-num::after {
+/* the chevron sits in the gap before every card but the first */
+.lp-step + .lp-step::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: -15px;
-  width: 15px;
-  height: 17px;
-  background: #0a1524;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
+  top: 78px;
+  left: -1.1rem;
+  width: 11px;
+  height: 11px;
+  border-top: 2px solid #b9c2ce;
+  border-right: 2px solid #b9c2ce;
+  transform: rotate(45deg);
 }
+.lp-step-photo {
+  position: relative;
+  line-height: 0;
+  border-radius: 11px 11px 0 0;
+  overflow: hidden;
+}
+.lp-step-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.42;
+  object-fit: cover;
+  display: block;
+}
+/* the number straddles the photo's bottom edge, as on the reference */
+.lp-step-num {
+  position: absolute;
+  left: 50%;
+  bottom: -19px;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  color: #14243a;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+}
+.lp-step h3 { font-size: 1.2rem; margin: 2rem 1.1rem 0.5rem; }
+.lp-step p { font-size: 0.99rem; margin: 0 1.1rem; }
 
-@media (max-width: 600px) {
-  .lp-step { padding: 1.3rem 1.2rem 1.3rem 4.4rem; }
-  .lp-step-num { width: 38px; height: 56px; left: 0.75rem; font-size: 1.45rem; }
-  .lp-step-num::after { right: -12px; width: 12px; height: 14px; }
+.lp-steps-cta { text-align: center; margin-top: 2.4rem; }
+
+@media (max-width: 900px) {
+  .lp-steps { grid-template-columns: repeat(2, 1fr); gap: 1.7rem 1.5rem; }
+  /* the chevrons only make sense in one continuous row */
+  .lp-step + .lp-step::before { display: none; }
+}
+@media (max-width: 520px) {
+  .lp-steps { grid-template-columns: 1fr; }
 }
 
 /* ---------- Owner card ----------
@@ -1097,8 +1110,8 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   padding: 0.35rem 0.9rem;
   border-radius: 4px 4px 4px 0;
 }
-.lp-guarantee h3 { font-size: 1.24rem; margin: 0 0 0.5rem; color: #14243a; }
-.lp-guarantee p { margin: 0; color: #3a4557; font-size: 1.01rem; }
+.lp-guarantee h3 { font-size: 1.4rem; margin: 0 0 0.6rem; color: #14243a; }
+.lp-guarantee p { margin: 0; color: #3a4557; font-size: 1.14rem; line-height: 1.62; }
 
 .lp-guarantees-cta { text-align: center; margin-top: 2.4rem; }
 /* same nudge as the form button, on the same cadence, so the page has one
@@ -1117,6 +1130,7 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   box-shadow: 0 10px 26px rgba(210, 183, 128, 0.22);
   animation: lp-nudge 3.5s ease-in-out 0.8s infinite;
 }
+.lp-gold-btn-light { box-shadow: 0 8px 22px rgba(20, 36, 58, 0.12); }
 .lp-gold-btn:hover,
 .lp-gold-btn:focus-visible,
 .lp-gold-btn:active { animation: none; background: #e0caa0; }

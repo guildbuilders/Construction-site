@@ -47,6 +47,9 @@ body {
   height: 180px;
   width: auto;
   display: block;
+  /* visual nudge only - transform does not affect layout, so the nav height
+     and everything below it stay exactly where they were */
+  transform: translateY(8px);
 }
 
 .site-nav {

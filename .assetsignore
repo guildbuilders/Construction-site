@@ -14,3 +14,5 @@ publish.command
 optimize-images.command
 optimize-images.py
 HOW-TO-ADD-PHOTOS.md
+tools
+tools/**

@@ -1031,8 +1031,94 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
 }
 
 @media (max-width: 600px) {
-  @media (prefers-reduced-motion: reduce) {
+  .lp-badge { min-width: 0; flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
   a.lp-badge:hover { transform: none; }
+}
+
+/* ---------- Guarantees ---------- */
+.lp-guarantees {
+  background: #14243a;
+  color: #e7ecf3;
+  padding: 3.4rem 0;
+}
+.lp-guarantees-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  text-align: center;
+  margin: 0;
+}
+.lp-laurel { color: #d2b780; flex: 0 0 auto; }
+/* the right-hand branch is the same drawing turned over */
+.lp-guarantees-title .lp-laurel:last-child { transform: scaleX(-1); }
+.lp-guarantees-lead {
+  text-align: center;
+  max-width: 58ch;
+  margin: 1.2rem auto 2.4rem;
+  color: #c4cedd;
+}
+.lp-guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+  align-items: start;
+}
+.lp-guarantee {
+  position: relative;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2.1rem 1.5rem 1.5rem;
+}
+/* gold tab across the card's top-left, as on the reference */
+.lp-guarantee-tab {
+  position: absolute;
+  top: -0.85rem;
+  left: -0.5rem;
+  background: #d2b780;
+  color: #0f1c2e;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 4px 4px 4px 0;
+}
+.lp-guarantee h3 { font-size: 1.24rem; margin: 0 0 0.5rem; color: #14243a; }
+.lp-guarantee p { margin: 0; color: #3a4557; font-size: 1.01rem; }
+
+.lp-guarantees-cta { text-align: center; margin-top: 2.4rem; }
+/* same nudge as the form button, on the same cadence, so the page has one
+   shake rather than two competing ones */
+.lp-gold-btn {
+  display: inline-block;
+  background: #d2b780;
+  color: #0f1c2e;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: 0.02em;
+  padding: 1rem 2.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(210, 183, 128, 0.22);
+  animation: lp-nudge 3.5s ease-in-out 0.8s infinite;
+}
+.lp-gold-btn:hover,
+.lp-gold-btn:focus-visible,
+.lp-gold-btn:active { animation: none; background: #e0caa0; }
+.lp-gold-btn:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .lp-guarantees-title { gap: 0.6rem; }
+  .lp-laurel { width: 24px; height: 44px; }
+  .lp-gold-btn { padding: 0.95rem 1.5rem; font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-gold-btn { animation: none; }
 }
 
 /* ---------- CTA band ---------- */

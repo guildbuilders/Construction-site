@@ -840,20 +840,19 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 /* ---------- How we deliver ---------- */
 .lp-deliver {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: stretch;
   margin-top: 2.2rem;
 }
 /* the layered look from the reference, done with one offset backdrop rather
    than extra image requests */
+/* No frame. The gold outline came off at Omer's request, so the photo takes
+   the whole column: the 26px the border and its padding were occupying, plus
+   the width freed by evening up the grid below. */
 .lp-deliver-photo {
   position: relative;
   min-height: 340px;
-  padding: 12px;
-  border: 1px solid #d2b780;
-  border-radius: 16px;
-  background: #ffffff;
 }
 /* The frame used to be an outline offset down and to the right, which read as
    stray lines poking out from behind the photo. It now sits evenly around it,
@@ -869,15 +868,12 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
      needs, the image fills that box and contributes no height of its own, so
      photo and copy are always exactly level. */
   position: absolute;
-  /* Inset by the frame's padding so the photo sits centred inside it. The
-     width and height are spelled out because an absolutely positioned img is
-     a replaced element: given only insets it takes its intrinsic size and
-     spills straight out of the frame rather than stretching to fit. Insets
-     resolve against the padding box, so subtracting both paddings lands the
-     photo exactly on the content box. */
-  inset: 12px;
-  width: calc(100% - 24px);
-  height: calc(100% - 24px);
+  /* The width and height are spelled out because an absolutely positioned img
+     is a replaced element: given only insets it takes its intrinsic size and
+     spills out of its box rather than stretching to fit. */
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center 35%;
   border-radius: 14px;
@@ -938,7 +934,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   .lp-deliver { grid-template-columns: 1fr; gap: 2rem; }
   /* stacked, so there is no sibling to match and nothing to fill: the image
      goes back into flow with a shape of its own */
-  .lp-deliver-photo { min-height: 0; padding: 10px; }
+  .lp-deliver-photo { min-height: 0; }
   /* back in flow, so the frame's own padding makes the gap and the calc
      sizing from the two column layout must not follow it here */
   .lp-deliver-photo img {

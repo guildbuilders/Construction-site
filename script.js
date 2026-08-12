@@ -1,3 +1,14 @@
+/* Phone-click conversion, mirroring the inline version on the landing
+   pages so a tap from anywhere on the site is measured the same way.
+   No value is sent - the conversion action in Google Ads owns it. */
+function gb_callConversion() {
+  if (typeof gtag === "function") {
+    gtag("event", "phone_click");
+    gtag("event", "conversion", { send_to: "AW-18096983407/4xQWCNa0wdwcEO-aqLVD" });
+  }
+  return true;
+}
+
 
 // Hero video: only load it on screens wide enough to benefit. On phones the
 // poster image stands in, which saves 4-6MB of download on a cellular

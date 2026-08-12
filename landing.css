@@ -228,7 +228,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 800;
   top: 0.15rem;
 }
@@ -256,11 +256,11 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   text-align: center;
   margin: 0 0 1.2rem;
   font-size: 0.95rem;
-  color: #6a7688;
+  color: #5f6a7a;
 }
 .lp-form label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #14243a;
   margin: 0 0 0.25rem;
@@ -283,8 +283,10 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   display: inline-block;
   width: 100%;
   text-align: center;
-  background: #d2b780;
-  color: #0f1c2e;
+  /* Deliberately off the ivory/gold palette - this is the one element on the
+     page that should win the eye outright. White on #07078d is ~13:1. */
+  background: #07078d;
+  color: #ffffff;
   font-weight: 800;
   font-size: 1.08rem;
   border: none;
@@ -294,7 +296,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   text-decoration: none;
   transition: background 0.2s ease, transform 0.1s ease;
 }
-.lp-btn:hover { background: #c2a24e; }
+.lp-btn:hover { background: #1b1bb1; }
 .lp-btn:active { transform: translateY(1px); }
 
 /* Draw the eye to the submit button. Most of the cycle sits still - a
@@ -326,8 +328,8 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 
 .lp-form-fineprint {
   text-align: center;
-  font-size: 0.88rem;
-  color: #8a94a4;
+  font-size: 0.9rem;
+  color: #66707f;
   margin: 0.8rem 0 0;
 }
 
@@ -409,7 +411,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 .lp-trust-item { flex: 1 1 200px; }
 .lp-trust-item strong { display: block; color: #14243a; font-size: 1.05rem; }
-.lp-trust-item span { font-size: 0.92rem; color: #6a7688; }
+.lp-trust-item span { font-size: 0.92rem; color: #5f6a7a; }
 
 /* ---------- Generic section ---------- */
 .lp-section { padding: 3.4rem 0; }
@@ -527,7 +529,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 .lp-cta-ghost:hover { background: #ffffff; color: #14243a; }
 
 /* ---------- Footer ---------- */
-.lp-footer { background: #0f1c2e; color: #b9c2d0; text-align: center; padding: 2rem 0; font-size: 0.88rem; }
+.lp-footer { background: #0f1c2e; color: #b9c2d0; text-align: center; padding: 2rem 0; font-size: 0.9rem; }
 .lp-footer strong { color: #ffffff; }
 
 /* ---------- Sticky mobile call bar ---------- */
@@ -659,7 +661,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   }
   .lp-sticky-call .call { font-size: 0.95rem; }
   @media (max-width: 374px) {
-    .lp-sticky-call a { font-size: 0.86rem; padding-left: 0.25rem; padding-right: 0.25rem; }
+    .lp-sticky-call a { font-size: 0.9rem; padding-left: 0.25rem; padding-right: 0.25rem; }
   }
   .lp-sticky-call .call { background: #14243a; color: #ffffff; }
   .lp-sticky-call .quote { background: #d2b780; color: #0f1c2e; }
@@ -690,7 +692,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 
 .lp-promo-stars {
   color: #d2b780;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   letter-spacing: 0.45em;
   line-height: 1;
   /* letter-spacing adds a trailing gap; pull it back so the row reads centred */
@@ -727,7 +729,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
     padding: 0.75rem 1.4rem 0.85rem;
   }
   .lp-promo-lead { font-size: 1.2rem; }
-  .lp-promo-offer { font-size: 0.88rem; }
+  .lp-promo-offer { font-size: 0.9rem; }
 
   .lp-hero-copy { text-align: center; }
   /* 32ch makes this narrower than the column, so centring the text inside a

@@ -51,7 +51,7 @@
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=47" />
+  <link rel="stylesheet" href="landing.css?v=49" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -102,7 +102,7 @@
           <li>Cabinets, countertops, full kitchen remodels</li>
           <li>Serving all of San Diego County</li>
         </ul>
-        <span class="lp-hero-reviews"><span class="stars">★★★★★</span> 5.0 on Google Reviews</span>
+        <span class="lp-hero-reviews"><span class="stars">★★★★★</span> 5.0 on Google &amp; Thumbtack</span>
       </div>
 
       <div class="lp-form-card" id="quote">
@@ -141,17 +141,50 @@
     <div class="lp-container lp-trustbar-inner">
       <div class="lp-trust-item"><strong>Licensed Contractor</strong><span>CA License #1154614</span></div>
       <div class="lp-trust-item"><strong>Family-Owned</strong><span>Local, Since 2021</span></div>
-      <div class="lp-trust-item"><strong>5.0 ★ Rated</strong><span>Google Reviews</span></div>
+      <div class="lp-trust-item"><strong>5.0 ★ Rated</strong><span>Google &amp; Thumbtack</span></div>
       <div class="lp-trust-item"><strong>Free Estimates</strong><span>&amp; Design Consultation</span></div>
     </div>
   </div>
+
+  <!-- How it works -->
+  <section class="lp-section alt">
+    <div class="lp-container">
+      <h2>How It Works</h2>
+      <div class="lp-steps">
+        <div class="lp-step"><div class="lp-step-num">1</div><h3>Free Consultation</h3><p>We come to your home at no cost, measure the space, and talk through how you actually use your kitchen day to day. You get design ideas and a good sense of what your remodel involves.</p></div>
+        <div class="lp-step"><div class="lp-step-num">2</div><h3>Clear Estimate</h3><p>You receive a clear, detailed estimate that lays out materials, labor, and a realistic timeline in plain language. No vague ballpark numbers, and no surprise line items appearing halfway through the job.</p></div>
+        <div class="lp-step"><div class="lp-step-num">3</div><h3>We Design It</h3><p>We draw the space before we touch it. Layout, cabinetry, countertops, tile, and hardware are chosen together as one design, so you see the finished kitchen and change your mind on paper rather than halfway through the build.</p></div>
+        <div class="lp-step"><div class="lp-step-num">4</div><h3>We Build It</h3><p>Our team manages every trade your remodel needs, so you only ever deal with us. We protect your home, clean the site at the end of each day, and keep you updated at every stage until the final detail is finished.</p></div>
+      </div>
+
+      <!-- Owner card. A face at the end of the sequence does more for trust
+           than another line of copy; the credential line carries the licence
+           number, which advertising has to show anyway. -->
+      <div class="lp-owner">
+        <img
+          class="lp-owner-photo"
+          src="owner-headshot-300.webp"
+          srcset="owner-headshot-300.webp 300w, owner-headshot.webp 600w"
+          sizes="132px"
+          width="132"
+          height="132"
+          alt="Owner and CEO of Guild Builders Inc."
+          loading="lazy"
+        />
+        <div class="lp-owner-text">
+          <p class="lp-owner-role">Owner - CEO</p>
+          <p class="lp-owner-line">Licensed California Contractor · CA #1154614</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Gallery -->
   <section class="lp-section">
     <div class="lp-container">
       <h2>Beautiful &amp; Memorable Kitchen Remodels</h2>
       <p class="lp-section-lead">San Diego Kitchens We've Designed &amp; Built</p>
-      <div class="lp-gallery">
+      <div class="lp-gallery" id="gallery-track" tabindex="0" role="group" aria-label="Kitchen project photos, scrollable">
         <img src="miracle1-1000.webp" data-full="miracle1-2000.webp" class="lp-gallery-image" alt="Remodeled kitchen with center island" loading="lazy" />
         <img src="kingsfield1-1000.webp" data-full="kingsfield1-2000.webp" class="lp-gallery-image" alt="Custom kitchen cabinetry" loading="lazy" />
         <img src="caminito1-1000.webp" data-full="caminito1-2000.webp" class="lp-gallery-image" alt="Modern kitchen remodel" loading="lazy" />
@@ -171,24 +204,15 @@
         <img src="brava1-1000.webp" data-full="brava1-2000.webp" class="lp-gallery-image" alt="Renovated kitchen with new finishes" loading="lazy" />
         <img src="dixie1-1000.webp" data-full="dixie1-2000.webp" class="lp-gallery-image" alt="Modern kitchen with quartz countertops" loading="lazy" />
       </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="lp-section alt">
-    <div class="lp-container">
-      <h2>How It Works</h2>
-      <div class="lp-steps">
-        <div class="lp-step"><div class="lp-step-num">1</div><h3>Free Consultation</h3><p>We come to your home at no cost, measure the space, and talk through how you actually use your kitchen day to day. You get design ideas and a good sense of what your remodel involves.</p></div>
-        <div class="lp-step"><div class="lp-step-num">2</div><h3>Clear Estimate</h3><p>You receive a clear, detailed estimate that lays out materials, labor, and a realistic timeline in plain language. No vague ballpark numbers, and no surprise line items appearing halfway through the job.</p></div>
-        <div class="lp-step"><div class="lp-step-num">3</div><h3>We Design It</h3><p>We draw the space before we touch it. Layout, cabinetry, countertops, tile, and hardware are chosen together as one design, so you see the finished kitchen and change your mind on paper rather than halfway through the build.</p></div>
-        <div class="lp-step"><div class="lp-step-num">4</div><h3>We Build It</h3><p>Our team manages every trade your remodel needs, so you only ever deal with us. We protect your home, clean the site at the end of each day, and keep you updated at every stage until the final detail is finished.</p></div>
+      <div class="lp-gallery-nav">
+        <button type="button" class="lp-gallery-arrow" id="gallery-prev" aria-label="Previous photos" aria-controls="gallery-track">&#8592;</button>
+        <button type="button" class="lp-gallery-arrow" id="gallery-next" aria-label="Next photos" aria-controls="gallery-track">&#8594;</button>
       </div>
     </div>
   </section>
 
   <!-- Reviews -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>What San Diego Homeowners Are Saying</h2>
       <div class="lp-reviews">
@@ -264,6 +288,32 @@
     <img class="lp-lightbox-content" id="lightbox-img" alt="Expanded project image" />
     <button type="button" class="lp-lightbox-arrow lp-lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
   </div>
+
+  <script>
+    /* Gallery carousel arrows. Scrolls by a viewport of the track rather than
+       one image, so a click always advances a full row on desktop and one
+       card on a phone. The buttons disable at each end. */
+    (function () {
+      var track = document.getElementById('gallery-track');
+      var prev = document.getElementById('gallery-prev');
+      var next = document.getElementById('gallery-next');
+      if (!track || !prev || !next) return;
+      function page() { return Math.max(track.clientWidth * 0.85, 200); }
+      function sync() {
+        /* 4px of slack at each end: snap points and fractional widths mean
+           scrollLeft rarely lands exactly on 0 or on the maximum, which would
+           otherwise leave an arrow enabled at a limit it cannot pass */
+        var max = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 4;
+        next.disabled = track.scrollLeft >= max - 4;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    })();
+  </script>
 
   <script>
     /* Lightbox for the landing-page gallery. Landing pages do not load

@@ -538,11 +538,13 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   border-right: 2px solid #b9c2ce;
   transform: rotate(45deg);
 }
+/* No overflow:hidden here. The card cannot hide overflow or it clips the
+   chevron in the gap, and the photo cannot hide it either or it clips the
+   number badge straddling its bottom edge. Rounding the image itself gets the
+   corners without clipping anything. */
 .lp-step-photo {
   position: relative;
   line-height: 0;
-  border-radius: 11px 11px 0 0;
-  overflow: hidden;
 }
 .lp-step-photo img {
   width: 100%;
@@ -550,10 +552,12 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   aspect-ratio: 1.42;
   object-fit: cover;
   display: block;
+  border-radius: 11px 11px 0 0;
 }
 /* the number straddles the photo's bottom edge, as on the reference */
 .lp-step-num {
   position: absolute;
+  z-index: 2;
   left: 50%;
   bottom: -19px;
   transform: translateX(-50%);
@@ -843,15 +847,17 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 /* the layered look from the reference, done with one offset backdrop rather
    than extra image requests */
-.lp-deliver-photo { position: relative; min-height: 340px; }
-.lp-deliver-photo::before {
-  content: "";
-  position: absolute;
-  inset: 14px -14px -14px 14px;
+.lp-deliver-photo {
+  position: relative;
+  min-height: 340px;
+  padding: 12px;
   border: 1px solid #d2b780;
-  border-radius: 14px;
-  z-index: 0;
+  border-radius: 16px;
+  background: #ffffff;
 }
+/* The frame used to be an outline offset down and to the right, which read as
+   stray lines poking out from behind the photo. It now sits evenly around it,
+   with the image inset by the frame's own padding. */
 .lp-deliver-photo img {
   position: relative;
   z-index: 1;
@@ -863,9 +869,15 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
      needs, the image fills that box and contributes no height of its own, so
      photo and copy are always exactly level. */
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  /* Inset by the frame's padding so the photo sits centred inside it. The
+     width and height are spelled out because an absolutely positioned img is
+     a replaced element: given only insets it takes its intrinsic size and
+     spills straight out of the frame rather than stretching to fit. Insets
+     resolve against the padding box, so subtracting both paddings lands the
+     photo exactly on the content box. */
+  inset: 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
   object-fit: cover;
   object-position: center 35%;
   border-radius: 14px;
@@ -926,9 +938,16 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   .lp-deliver { grid-template-columns: 1fr; gap: 2rem; }
   /* stacked, so there is no sibling to match and nothing to fill: the image
      goes back into flow with a shape of its own */
-  .lp-deliver-photo { min-height: 0; }
-  .lp-deliver-photo img { position: static; height: auto; aspect-ratio: 1.05; }
-  .lp-deliver-photo::before { inset: 10px -10px -10px 10px; }
+  .lp-deliver-photo { min-height: 0; padding: 10px; }
+  /* back in flow, so the frame's own padding makes the gap and the calc
+     sizing from the two column layout must not follow it here */
+  .lp-deliver-photo img {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.05;
+  }
 }
 @media (max-width: 600px) {
   .lp-faq-item summary { font-size: 1.02rem; gap: 0.8rem; }

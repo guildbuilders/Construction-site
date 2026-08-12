@@ -844,8 +844,13 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   z-index: 1;
   width: 100%;
   height: auto;
-  aspect-ratio: 1.34;
+  /* the Lake Ridge shot is a tall 0.56 portrait; a landscape frame would crop
+     away the beams and the length of the island, which are the whole picture.
+     0.78 keeps most of it and stands roughly as tall as the four items beside
+     it. object-position sits the crop high so the ceiling survives. */
+  aspect-ratio: 0.78;
   object-fit: cover;
+  object-position: center 35%;
   border-radius: 14px;
   display: block;
   box-shadow: 0 14px 36px rgba(20, 36, 58, 0.14);

@@ -283,10 +283,8 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   display: inline-block;
   width: 100%;
   text-align: center;
-  /* Deliberately off the ivory/gold palette - this is the one element on the
-     page that should win the eye outright. White on #07078d is ~13:1. */
-  background: #07078d;
-  color: #ffffff;
+  background: #d2b780;
+  color: #0f1c2e;
   font-weight: 800;
   font-size: 1.08rem;
   border: none;
@@ -296,7 +294,7 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   text-decoration: none;
   transition: background 0.2s ease, transform 0.1s ease;
 }
-.lp-btn:hover { background: #1b1bb1; }
+.lp-btn:hover { background: #c2a24e; }
 .lp-btn:active { transform: translateY(1px); }
 
 /* Draw the eye to the submit button. Most of the cycle sits still - a

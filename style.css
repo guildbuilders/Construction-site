@@ -1871,7 +1871,7 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
     white-space: nowrap;
   }
   .site-sticky-call .call { background: #14243a; color: #ffffff; }
-  .site-sticky-call .quote { background: #07078d; color: #ffffff; }
+  .site-sticky-call .quote { background: #d2b780; color: #0f1c2e; }
   body { padding-bottom: 64px; }
   @media (max-width: 374px) {
     .site-sticky-call a { font-size: 0.88rem; }

@@ -269,6 +269,26 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 .lp-btn:hover { background: #c2a24e; }
 .lp-btn:active { transform: translateY(1px); }
+
+/* Draw the eye to the submit button. Most of the cycle sits still - a
+   constant wobble reads as broken rather than inviting. Cancelled on
+   hover/focus so the press feedback and keyboard focus behave normally,
+   and off entirely for anyone who asked for reduced motion. */
+@keyframes lp-nudge {
+  0%, 82%, 100% { transform: translateX(0); }
+  86%           { transform: translateX(-7px); }
+  90%           { transform: translateX(7px); }
+  94%           { transform: translateX(-4px); }
+  97%           { transform: translateX(2px); }
+}
+.lp-btn { animation: lp-nudge 4.5s ease-in-out 2s infinite; }
+.lp-btn:hover,
+.lp-btn:focus-visible,
+.lp-btn:active { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-btn { animation: none; }
+}
 /* the padlock reads small next to the text at matching size */
 .lp-lock { font-size: 1.18em; line-height: 1; vertical-align: -0.06em; }
 

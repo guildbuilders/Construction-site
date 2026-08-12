@@ -51,7 +51,7 @@
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=49" />
+  <link rel="stylesheet" href="landing.css?v=51" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -157,30 +157,38 @@
         <div class="lp-step"><div class="lp-step-num">4</div><h3>We Build It</h3><p>Our team manages every trade your remodel needs, so you only ever deal with us. We protect your home, clean the site at the end of each day, and keep you updated at every stage until the final detail is finished.</p></div>
       </div>
 
-      <!-- Owner card. A face at the end of the sequence does more for trust
-           than another line of copy; the credential line carries the licence
-           number, which advertising has to show anyway. -->
+    </div>
+  </section>
+
+  <!-- About us. Sits between the process and the gallery: the visitor has
+       just read how the job runs, so this is where knowing who runs it lands. -->
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2>About Guild Builders</h2>
+      <p class="lp-section-lead">The people who will actually be in your home</p>
       <div class="lp-owner">
         <img
           class="lp-owner-photo"
           src="owner-headshot-300.webp"
           srcset="owner-headshot-300.webp 300w, owner-headshot.webp 600w"
-          sizes="132px"
-          width="132"
-          height="132"
+          sizes="148px"
+          width="148"
+          height="148"
           alt="Owner and CEO of Guild Builders Inc."
           loading="lazy"
         />
         <div class="lp-owner-text">
           <p class="lp-owner-role">Owner - CEO</p>
           <p class="lp-owner-line">Licensed California Contractor · CA #1154614</p>
+          <p class="lp-owner-bio">Guild Builders is a family-owned company, founded in San Diego in 2021 on a simple idea: do the work right, and make the process easy on the people living through it. We are licensed in California and rated 5.0 on both Google and Thumbtack, and you deal with the owner directly rather than a rotating cast of project managers.</p>
+          <p class="lp-owner-bio">In practice that means you always know what is happening and what comes next, the schedule is managed rather than hoped for, and your home is treated like somewhere people still live while the work is going on. We would rather tell you something inconvenient early than let it surprise you later.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Gallery -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>Beautiful &amp; Memorable Kitchen Remodels</h2>
       <p class="lp-section-lead">San Diego Kitchens We've Designed &amp; Built</p>
@@ -212,13 +220,40 @@
   </section>
 
   <!-- Reviews -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>What San Diego Homeowners Are Saying</h2>
-      <div class="lp-reviews">
-        <div class="lp-review"><div class="stars">★★★★★</div><p>"The best compliment I can give is that the remodel does not look pieced together. The kitchen, bar, and fireplace all flow together and feel intentional. We are really happy with the finished product and would definitely hire Omer again."</p><span class="lp-review-name">— Daniel D.</span></div>
-        <div class="lp-review"><div class="stars">★★★★★</div><p>"Remodeling can be stressful, but Omer made it a lot easier than I thought it would be in half the time that I expected. He had great ideas without trying to push me into things I didn't want, and the kitchen came out gorgeous! I really love how much cabinet storage and counter space I have."</p><span class="lp-review-name">— Maya M.</span></div>
+      <div class="lp-reviews" id="reviews-track" tabindex="0" role="group" aria-label="Customer reviews, scrollable">
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>“We just had our kitchen remodel in Encinitas completed and couldn’t be happier with how it turned out. We love the dark cabinets and waterfall island Omer and his crew put together for us.</p>
+          <p>The crew was professional throughout the whole process, showed up on time, kept the space clean, and communicated clearly about timelines. A few small hiccups came up along the way but they were handled quickly and Omer was always a phone call away.</p>
+          <p>Would absolutely recommend to anyone in the Encinitas and San Diego area looking to upgrade their kitchen!!”</p>
+          <span class="lp-review-name">Rahim M.</span>
+        </div>
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>“We love how our kitchen turned out. Opening it up to the living room made the whole space feel so much bigger, and we’re always hanging around the island now.</p>
+          <p>The crew was great, they were always on time, easy to work with, and cleaned up after themselves. Omer was communicative throughout the entire process and highly dependable. 10/10 recommend!”</p>
+          <span class="lp-review-name">Sara G.</span>
+        </div>
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>“My kitchen went from ‘we’ll deal with it later’ to the best room in the house. Omer brought great ideas, kept the project moving, and paid attention to the small details most people would overlook. The new layout is so much better and the finishes came together beautifully. I’m super happy with how everything turned out and I would absolutely trust Guild Builders again on another project.”</p>
+          <span class="lp-review-name">Dora T.</span>
+        </div>
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>“The best compliment I can give is that the remodel does not look pieced together. The kitchen, bar, and fireplace all flow together and feel intentional. We are really happy with the finished product and would definitely hire Omer again.”</p>
+          <span class="lp-review-name">Daniel D.</span>
+        </div>
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>“Remodeling can be stressful, but Omer made it a lot easier than I thought it would be in half the time that I expected. He had great ideas without trying to push me into things I didn’t want, and the kitchen came out gorgeous! I really love how much cabinet storage and counter space I have.”</p>
+          <span class="lp-review-name">Maya M.</span>
+        </div>
       </div>
+      <div class="lp-review-dots" id="review-dots" role="tablist" aria-label="Choose a review"></div>
     </div>
   </section>
 
@@ -288,6 +323,86 @@
     <img class="lp-lightbox-content" id="lightbox-img" alt="Expanded project image" />
     <button type="button" class="lp-lightbox-arrow lp-lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
   </div>
+
+  <script>
+    /* Reviews carousel: advances every 7 seconds and wraps at the end.
+       WCAG 2.2.2 wants a way to stop anything that moves on its own for more
+       than five seconds, so it pauses on hover and on keyboard focus, the dots
+       drive it manually, and it does not rotate at all when the visitor has
+       asked for reduced motion. */
+    (function () {
+      var track = document.getElementById('reviews-track');
+      var dotWrap = document.getElementById('review-dots');
+      if (!track || !dotWrap) return;
+      var cards = [].slice.call(track.querySelectorAll('.lp-review'));
+      if (cards.length < 2) return;
+
+      var DELAY = 7000;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var index = 0, timer = null;
+
+      var dots = cards.map(function (card, n) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'lp-review-dot';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', 'Review ' + (n + 1) + ' of ' + cards.length);
+        b.addEventListener('click', function () { go(n); restart(); });
+        dotWrap.appendChild(b);
+        return b;
+      });
+
+      function paint() {
+        dots.forEach(function (d, n) { d.setAttribute('aria-selected', n === index ? 'true' : 'false'); });
+      }
+      /* offsetLeft is relative to the offset parent, not the track, so the
+         first card's own offset has to come back out of it */
+      function target(n) { return cards[n].offsetLeft - cards[0].offsetLeft; }
+
+      var programmatic = false, settleProg;
+      function go(n) {
+        index = (n + cards.length) % cards.length;
+        /* The last cards' targets sit past the maximum scroll, so the browser
+           clamps them and the nearest-card check below would read the index
+           back as an earlier card, pinning the rotation on the second to last
+           slide forever. Ignore scroll events we caused ourselves. */
+        programmatic = true;
+        clearTimeout(settleProg);
+        settleProg = setTimeout(function () { programmatic = false; }, 900);
+        track.scrollTo({ left: target(index), behavior: reduced ? 'auto' : 'smooth' });
+        paint();
+      }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { if (reduced) return; stop(); timer = setInterval(function () { go(index + 1); }, DELAY); }
+      function restart() { stop(); start(); }
+
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      track.addEventListener('focusin', stop);
+      track.addEventListener('focusout', start);
+
+      /* a swipe or a trackpad scroll should take over, so track the nearest
+         card and reset the clock rather than fighting the visitor */
+      var settle;
+      track.addEventListener('scroll', function () {
+        if (programmatic) return;
+        clearTimeout(settle);
+        settle = setTimeout(function () {
+          if (programmatic) return;
+          var best = 0, min = Infinity;
+          cards.forEach(function (c, n) {
+            var d = Math.abs(target(n) - track.scrollLeft);
+            if (d < min) { min = d; best = n; }
+          });
+          if (best !== index) { index = best; paint(); }
+          restart();
+        }, 140);
+      }, { passive: true });
+
+      paint();
+      start();
+    })();
+  </script>
 
   <script>
     /* Gallery carousel arrows. Scrolls by a viewport of the track rather than

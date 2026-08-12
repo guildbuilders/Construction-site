@@ -159,12 +159,25 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   color: #ffffff;
   overflow: hidden;
 }
+/* Scrim over the hero video. This is the phone value and it is at its limit:
+   below 861px the copy is centred and full width, so it sits over the light
+   end of the gradient. Measured against the brightest frame of the clip, the
+   bullets and the review line run 5.09:1, and lightening the end stop even to
+   0.50 drops them to 4.41:1, under the 4.5 that body text needs. */
 .lp-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
   background: linear-gradient(120deg, rgba(15, 28, 46, 0.9) 0%, rgba(15, 28, 46, 0.72) 55%, rgba(15, 28, 46, 0.55) 100%);
+}
+/* From 861px the hero is two columns and the copy sits in the left one, over
+   the darkest end of the gradient, so the whole scrim can lift. Worst case on
+   the brightest frame is 4.80:1 on the review line, still clear of 4.5. */
+@media (min-width: 861px) {
+  .lp-hero::before {
+    background: linear-gradient(120deg, rgba(15, 28, 46, 0.78) 0%, rgba(15, 28, 46, 0.6) 55%, rgba(15, 28, 46, 0.45) 100%);
+  }
 }
 /* Poster fallback behind the hero video - matches whichever source the
    page loads, so the still frame never disagrees with the video. */
@@ -563,20 +576,22 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
    matching radius and shadow. */
 .lp-owner {
   display: flex;
-  align-items: center;
+  /* top, not centre: with the bio running several lines the photo would
+     otherwise float halfway down the card, away from the name it belongs to */
+  align-items: flex-start;
   gap: 1.7rem;
   max-width: 860px;
-  margin: 1.15rem auto 0;
-  padding: 1.5rem 1.8rem;
+  margin: 1.6rem auto 0;
+  padding: 1.8rem;
   background: #ffffff;
   border: 1px solid #e4ddce;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
 }
 .lp-owner-photo {
-  flex: 0 0 132px;
-  width: 132px;
-  height: 132px;
+  flex: 0 0 148px;
+  width: 148px;
+  height: 148px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -584,9 +599,6 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 /* the rule between photo and text, as on the reference card */
 .lp-owner-text {
   align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   border-left: 1px solid #e4ddce;
   padding-left: 1.7rem;
 }
@@ -599,16 +611,19 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   text-transform: uppercase;
   color: #14243a;
 }
-.lp-owner-line { margin: 0; font-size: 1.06rem; }
+.lp-owner-line { margin: 0 0 0.9rem; font-size: 1.06rem; }
+.lp-owner-bio { margin: 0 0 0.8rem; font-size: 1.02rem; line-height: 1.65; }
+.lp-owner-bio:last-child { margin-bottom: 0; }
 
 @media (max-width: 600px) {
   .lp-owner {
     flex-direction: column;
+    align-items: center;
     gap: 1.1rem;
     padding: 1.6rem 1.2rem;
     text-align: center;
   }
-  .lp-owner-photo { flex-basis: 112px; width: 112px; height: 112px; }
+  .lp-owner-photo { flex-basis: 124px; width: 124px; height: 124px; }
   /* the rule moves above the text once the card stacks */
   .lp-owner-text {
     align-self: stretch;
@@ -617,20 +632,69 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
     padding-left: 0;
     padding-top: 1.1rem;
   }
+  /* paragraphs stay ranged left; centring several lines of prose is hard work
+     to read, even though the name and credential above it do centre well */
+  .lp-owner-bio { text-align: left; }
 }
 
 /* ---------- Reviews ---------- */
+/* Carousel, same mechanics as the gallery so the two behave alike. Auto
+   advances every 7s; the script pauses it on hover and on focus and skips
+   rotation entirely under prefers-reduced-motion. */
 .lp-reviews {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  align-items: stretch;
   gap: 1.4rem;
   margin-top: 1.6rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.lp-reviews::-webkit-scrollbar { display: none; }
+.lp-reviews:focus-visible { outline: 2px solid #d2b780; outline-offset: 2px; }
 .lp-review {
+  flex: 0 0 auto;
+  width: min(520px, 86%);
+  /* start, to match the scrollTo targets the script computes from offsetLeft */
+  scroll-snap-align: start;
   background: #ffffff;
   border: 1px solid #e4ddce;
   border-radius: 12px;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+/* pushes the name to the bottom so it lines up across cards of unequal length */
+.lp-review .lp-review-name { margin-top: auto; }
+
+.lp-review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+}
+.lp-review-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #c8bda6;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.lp-review-dot[aria-selected="true"] {
+  background: #d2b780;
+  border-color: #d2b780;
+  transform: scale(1.15);
+}
+.lp-review-dot:hover { border-color: #d2b780; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-reviews { scroll-behavior: auto; }
 }
 .lp-review .stars { color: #f0c04a; letter-spacing: 2px; margin-bottom: 0.5rem; }
 .lp-review p { font-style: italic; color: #3a4557; margin: 0 0 0.8rem; }

@@ -1,14 +1,14 @@
-# Landing pages: the A/B split is retired. B is gone and A dropped its
-# suffix, so every old URL - with or without .html - lands on the survivor
-# rather than 404ing live ad traffic.
-/kitchen-remodel-a       /kitchen-remodel  301
-/kitchen-remodel-a.html  /kitchen-remodel  301
-/kitchen-remodel-b       /kitchen-remodel  301
-/kitchen-remodel-b.html  /kitchen-remodel  301
-/bathroom-remodel-a      /bathroom-remodel 301
-/bathroom-remodel-a.html /bathroom-remodel 301
-/bathroom-remodel-b      /bathroom-remodel 301
-/bathroom-remodel-b.html /bathroom-remodel 301
+# The A pages keep their filenames - they are the final URLs in Google Ads,
+# and an ad should land on the page itself rather than on a redirect.
+# Only the retired B pages redirect, so any B ad still in flight lands on A
+# instead of a 404. The suffix-less forms are here because they were briefly
+# live and may have been crawled or cached.
+/kitchen-remodel-b       /kitchen-remodel-a  301
+/kitchen-remodel-b.html  /kitchen-remodel-a  301
+/kitchen-remodel         /kitchen-remodel-a  301
+/bathroom-remodel-b      /bathroom-remodel-a 301
+/bathroom-remodel-b.html /bathroom-remodel-a 301
+/bathroom-remodel        /bathroom-remodel-a 301
 
 /exterior-renovations.html /decks-patio-covers 301
 /exterior-renovations /decks-patio-covers 301

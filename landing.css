@@ -275,13 +275,17 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
    hover/focus so the press feedback and keyboard focus behave normally,
    and off entirely for anyone who asked for reduced motion. */
 @keyframes lp-nudge {
-  0%, 82%, 100% { transform: translateX(0); }
-  86%           { transform: translateX(-7px); }
-  90%           { transform: translateX(7px); }
-  94%           { transform: translateX(-4px); }
-  97%           { transform: translateX(2px); }
+  0%            { transform: translateX(0); }
+  3%            { transform: translateX(-7px); }
+  6%            { transform: translateX(7px); }
+  9%            { transform: translateX(-4px); }
+  12%           { transform: translateX(2px); }
+  15%, 100%     { transform: translateX(0); }
 }
-.lp-btn { animation: lp-nudge 4.5s ease-in-out 2s infinite; }
+/* The shake sits at the START of the cycle, so the first one lands 0.8s
+   after load rather than four seconds in - it was finishing the cycle
+   before anyone saw it move. */
+.lp-btn { animation: lp-nudge 4.5s ease-in-out 0.8s infinite; }
 .lp-btn:hover,
 .lp-btn:focus-visible,
 .lp-btn:active { animation: none; }

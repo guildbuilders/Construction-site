@@ -182,6 +182,20 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 .lp-hero-copy h1 { color: #ffffff; font-size: clamp(2.1rem, 4.4vw, 3.3rem); }
 .lp-hero-copy .lp-subhead { font-size: 1.18rem; color: #eef1f6; max-width: 32ch; }
 .lp-hero-bullets { list-style: none; padding: 0; margin: 1.4rem 0 0; }
+
+/* Kitchen A centres its whole hero column - eyebrow through the review line.
+   The bullet LIST is centred as a block sized to its longest row rather than
+   each row individually, so the green ticks stay on one vertical edge. Same
+   reasoning as the mobile rule further down. */
+.lp-hero-copy-centered { text-align: center; }
+.lp-hero-copy-centered .lp-subhead { margin-left: auto; margin-right: auto; }
+.lp-hero-copy-centered .lp-hero-bullets {
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
 .lp-hero-bullets li {
   position: relative;
   padding-left: 2rem;

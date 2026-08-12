@@ -34,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 230px;
+  min-height: 210px;
 }
 
 .logo {
@@ -44,7 +44,7 @@ body {
 }
 
 .logo-image {
-  height: 200px;
+  height: 180px;
   width: auto;
   display: block;
 }
@@ -1300,7 +1300,7 @@ body.kitchen-page
   .nav {
     position: relative;
     justify-content: center;
-    min-height: 116px;
+    min-height: 106px;
   }
 
   .logo {
@@ -1308,7 +1308,7 @@ body.kitchen-page
   }
 
   .logo-image {
-    height: 96px;
+    height: 86px;
   }
 
   .menu-toggle {
@@ -1323,7 +1323,7 @@ body.kitchen-page
   .site-nav {
     display: none;
     position: absolute;
-    top: 116px;
+    top: 106px;
     left: 0;
     right: 0;
     background: #ffffff;

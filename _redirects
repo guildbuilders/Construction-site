@@ -1,3 +1,15 @@
+# Landing pages: the A/B split is retired. B is gone and A dropped its
+# suffix, so every old URL - with or without .html - lands on the survivor
+# rather than 404ing live ad traffic.
+/kitchen-remodel-a       /kitchen-remodel  301
+/kitchen-remodel-a.html  /kitchen-remodel  301
+/kitchen-remodel-b       /kitchen-remodel  301
+/kitchen-remodel-b.html  /kitchen-remodel  301
+/bathroom-remodel-a      /bathroom-remodel 301
+/bathroom-remodel-a.html /bathroom-remodel 301
+/bathroom-remodel-b      /bathroom-remodel 301
+/bathroom-remodel-b.html /bathroom-remodel 301
+
 /exterior-renovations.html /decks-patio-covers 301
 /exterior-renovations /decks-patio-covers 301
 

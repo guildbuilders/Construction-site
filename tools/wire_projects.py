@@ -12,6 +12,12 @@ from build_projects import PROJECTS, SITE
 CARD_BLURB = {p["page"]: p["blurb"] for p in PROJECTS}
 
 
+def link_for(p):
+    """The gallery detail link. Written and checked through the same function so
+    the idempotency guard can never drift from what is emitted again."""
+    return f'<a href="{p["page"][:-5]}" class="project-detail-link">See how we built it &rarr;</a>'
+
+
 def wire():
     os.chdir(SITE)
 
@@ -21,7 +27,12 @@ def wire():
       s = open(f, encoding="utf-8").read()
       added = 0
       for p in [q for q in PROJECTS if q.get("kind", "kitchen") == kind]:
-        if p["page"] in s:
+        # Match the href actually written below, which is extensionless. Testing
+        # for p["page"] here looked for the .html form, which this script never
+        # writes, so the guard could not see its own output and every run added
+        # another link. By the time it was noticed all 39 projects carried nine
+        # copies apiece, 351 tags where 39 belong.
+        if link_for(p) in s:
             continue
         anchor = p["anchor"].split("#")[1]
         pat = re.compile(rf'(<section id="{anchor}"[^>]*>\s*<div class="container">\s*)'
@@ -33,12 +44,12 @@ def wire():
              + m.group(1)
              + f'<p class="section-label">{p["project"]} &middot; {p["city"]}</p>'
              + m.group(2)
-             + f'<a href="{p["page"][:-5]}" class="project-detail-link">See how we built it &rarr;</a>\n\n        '
+             + link_for(p) + '\n\n        '
              + s[m.end():])
         added += 1
       open(f, "w", encoding="utf-8").write(s)
       want = [q for q in PROJECTS if q.get("kind", "kitchen") == kind]
-      present = sum(1 for p in want if p["page"] in s)
+      present = sum(1 for p in want if link_for(p) in s)
       print(f"{f}: +{added} links, {present}/{len(want)} present")
 
     # ---- city pages ----
@@ -90,8 +101,14 @@ def wire():
 
     # ---- sitemap ----
     sm = open("sitemap.xml", encoding="utf-8").read()
-    add = "".join(f'  <url><loc>https://guildbuildersgroup.com/{p["page"][:-5]}</loc></url>\n'
-                  for p in PROJECTS if f'/{p["page"]}<' not in sm)
+    # Same trap as the gallery guard above, still armed at the time of writing.
+    # The loc emitted is extensionless, so testing for the .html form matched
+    # only while the sitemap still carried .html URLs. Once that file was
+    # converted the guard would have stopped seeing its own output and appended
+    # all 39 again on the next run. Check for exactly what gets written.
+    def loc_for(p):
+        return f'  <url><loc>https://guildbuildersgroup.com/{p["page"][:-5]}</loc></url>\n'
+    add = "".join(loc_for(p) for p in PROJECTS if loc_for(p).strip() not in sm)
     if add:
         key = "  <url><loc>https://guildbuildersgroup.com/kitchens-cabinets.html</loc></url>\n"
         sm = sm.replace(key, key + add)

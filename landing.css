@@ -825,12 +825,12 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: stretch;
   margin-top: 2.2rem;
 }
 /* the layered look from the reference, done with one offset backdrop rather
    than extra image requests */
-.lp-deliver-photo { position: relative; }
+.lp-deliver-photo { position: relative; min-height: 340px; }
 .lp-deliver-photo::before {
   content: "";
   position: absolute;
@@ -842,13 +842,17 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 .lp-deliver-photo img {
   position: relative;
   z-index: 1;
+  /* The Lake Ridge shot is a tall 0.56 portrait. A fixed ratio left it hanging
+     past the copy at every width, 609 against 551 at 1200 and 450 against 657
+     at 900. Simply stretching it was worse: at its intrinsic ratio the image
+     drove the row to 889px and dragged the text column with it. Taking it out
+     of flow is what actually works. The column stretches to whatever the list
+     needs, the image fills that box and contributes no height of its own, so
+     photo and copy are always exactly level. */
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  /* the Lake Ridge shot is a tall 0.56 portrait; a landscape frame would crop
-     away the beams and the length of the island, which are the whole picture.
-     0.78 keeps most of it and stands roughly as tall as the four items beside
-     it. object-position sits the crop high so the ceiling survives. */
-  aspect-ratio: 0.78;
+  height: 100%;
   object-fit: cover;
   object-position: center 35%;
   border-radius: 14px;
@@ -907,6 +911,10 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 
 @media (max-width: 860px) {
   .lp-deliver { grid-template-columns: 1fr; gap: 2rem; }
+  /* stacked, so there is no sibling to match and nothing to fill: the image
+     goes back into flow with a shape of its own */
+  .lp-deliver-photo { min-height: 0; }
+  .lp-deliver-photo img { position: static; height: auto; aspect-ratio: 1.05; }
   .lp-deliver-photo::before { inset: 10px -10px -10px 10px; }
 }
 @media (max-width: 600px) {
@@ -1066,7 +1074,9 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.6rem;
-  align-items: start;
+  /* stretch, not start: the three cards read as a set, and a short one sitting
+     shallower than its neighbours looks like something is missing from it */
+  align-items: stretch;
 }
 .lp-guarantee {
   position: relative;

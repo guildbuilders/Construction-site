@@ -51,8 +51,16 @@ h1, h2, h3 {
 .lp-logo img { height: 68px; width: auto; display: block; }
 /* Home-page logo treatment: matches .logo-image in style.css (180px).
    translateY nudges it down visually without taking part in layout, so
-   nothing below it moves. */
-.lp-logo.lp-logo-home img { height: 171px; transform: translateY(8px); }
+   nothing below it moves. Because it takes no part in layout, the flex box
+   sizes to the untransformed height and the nudge pushes the logo 8px past
+   the header's bottom border, over the page once the header goes solid on
+   scroll. The margin hands those 8px back to the box so the border lands
+   under the logo instead of through it. */
+.lp-logo.lp-logo-home img {
+  height: 171px;
+  transform: translateY(8px);
+  margin-bottom: 8px;
+}
 
 /* ---------- Full-screen video hero, mirroring body.home in style.css ----------
    The header goes fixed and transparent so the logo reads as part of the

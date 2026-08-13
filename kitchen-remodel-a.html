@@ -621,7 +621,10 @@
   <section class="lp-section alt">
     <div class="lp-container">
       <h2>Brands We Build With</h2>
-      <p class="lp-section-lead">A few of the names we install. If your design calls for something else, we source it.</p>
+      <!-- Non-breaking space so the closing "it." cannot be left stranded on a
+           line of its own. A two-letter word alone under a full line reads as a
+           mistake, and this lead changes width at every breakpoint. -->
+      <p class="lp-section-lead">A few of the names we install. If your design calls for something else, we&nbsp;source&nbsp;it.</p>
       <div class="lp-brandstrip" id="brand-track" tabindex="0" role="group" aria-label="Brands we install, scrollable">
         <!-- Appliances -->
         <span class="lp-brand">Sub-Zero</span>

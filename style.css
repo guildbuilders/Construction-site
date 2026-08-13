@@ -1922,3 +1922,462 @@ body.blog-page .site-header.scrolled .site-nav a:hover {
     .site-sticky-call a { font-size: 0.88rem; }
   }
 }
+
+
+/* ==========================================================================
+   Blocks shared with the ads landing pages
+   --------------------------------------------------------------------------
+   How We Deliver, How It Works, the reviews carousel, the guarantees, the
+   owner card and the brand strip. Lifted from landing.css and renamed lp- to
+   gb-, rather than pointing the main site at landing.css.
+
+   Two stylesheets carrying the same block sounds like duplication, and the
+   alternative is worse: the landing pages exist to be edited hard and fast
+   against ad performance, and if the main site read the same rules, a tweak
+   aimed at a Google Ads test would silently move the pages that carry the
+   organic rankings. They are separate on purpose. The prefix is gb- and not
+   lp- because .hero-reviews already exists here and lp- would read as a lie.
+
+   If a block is changed in both places, change it in both places.
+   ========================================================================== */
+@keyframes gb-nudge {
+  0%            { transform: translateX(0); }
+  4%            { transform: translateX(-7px); }
+  8%            { transform: translateX(7px); }
+  12%           { transform: translateX(-4px); }
+  16%           { transform: translateX(2px); }
+  20%, 100%     { transform: translateX(0); }
+}
+.gb-section-lead { text-align: center; max-width: 60ch; margin: 0.5rem auto 2.2rem; }
+.gb-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.2rem;
+}
+.gb-step {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 12px;
+  /* deliberately NOT overflow:hidden. The photo needs clipping to the top
+     corners, but hiding overflow here also clips the chevron, which sits in
+     the gap outside the card. The clipping moves to the photo instead. */
+  text-align: center;
+  padding-bottom: 1.4rem;
+  box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
+}
+.gb-step + .gb-step::before {
+  content: "";
+  position: absolute;
+  top: 78px;
+  left: -1.1rem;
+  width: 11px;
+  height: 11px;
+  border-top: 2px solid #b9c2ce;
+  border-right: 2px solid #b9c2ce;
+  transform: rotate(45deg);
+}
+.gb-step-photo {
+  position: relative;
+  line-height: 0;
+}
+.gb-step-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.42;
+  object-fit: cover;
+  display: block;
+  border-radius: 11px 11px 0 0;
+}
+.gb-step-num {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -19px;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  color: #14243a;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+}
+.gb-step h3 { font-size: 1.2rem; margin: 2rem 1.1rem 0.5rem; }
+.gb-step p { font-size: 0.99rem; margin: 0 1.1rem; }
+.gb-steps-cta { text-align: center; margin-top: 2.4rem; }
+@media (max-width: 900px) {
+  .gb-steps { grid-template-columns: repeat(2, 1fr); gap: 1.7rem 1.5rem;   }
+  .gb-step + .gb-step::before { display: none;   }
+}
+@media (max-width: 520px) {
+  .gb-steps { grid-template-columns: 1fr;   }
+}
+.gb-owner {
+  display: flex;
+  /* top, not centre: with the bio running several lines the photo would
+     otherwise float halfway down the card, away from the name it belongs to */
+  align-items: flex-start;
+  gap: 1.7rem;
+  max-width: 860px;
+  margin: 1.6rem auto 0;
+  padding: 1.8rem;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
+}
+.gb-owner-figure {
+  flex: 0 0 340px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+.gb-owner-photo {
+  width: 340px;
+  height: auto;
+  /* the source ratio exactly, so nothing is cropped away */
+  aspect-ratio: 1023 / 1537;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.gb-owner-name {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.06rem;
+  color: #14243a;
+}
+.gb-owner-quote {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: #5c6879;
+  text-align: center;
+  border-top: 1px solid #e4ddce;
+  padding-top: 0.7rem;
+}
+.gb-owner-quote::before { content: "\201C"; }
+.gb-owner-quote::after { content: "\201D"; }
+.gb-owner-text {
+  align-self: stretch;
+  border-left: 1px solid #e4ddce;
+  padding-left: 1.7rem;
+}
+.gb-owner-role {
+  margin: 0 0 0.35rem;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.14rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #14243a;
+}
+.gb-owner-line { margin: 0 0 0.9rem; font-size: 1.06rem; }
+.gb-owner-bio { margin: 0 0 0.8rem; font-size: 1.02rem; line-height: 1.65; }
+.gb-owner-bio:last-child { margin-bottom: 0; }
+@media (max-width: 600px) {
+  .gb-owner {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.6rem 1.2rem;
+      text-align: center;
+      }
+  .gb-owner-figure { flex-basis: auto;   }
+  .gb-owner-photo { width: 260px;   }
+  .gb-owner-text {
+      align-self: stretch;
+      border-left: none;
+      border-top: 1px solid #e4ddce;
+      padding-left: 0;
+      padding-top: 1.1rem;
+      }
+  .gb-owner-bio { text-align: left;   }
+}
+.gb-deliver {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
+  margin-top: 2.2rem;
+}
+.gb-deliver-photo {
+  position: relative;
+  min-height: 340px;
+}
+.gb-deliver-photo img {
+  position: relative;
+  z-index: 1;
+  /* The Lake Ridge shot is a tall 0.56 portrait. A fixed ratio left it hanging
+     past the copy at every width, 609 against 551 at 1200 and 450 against 657
+     at 900. Simply stretching it was worse: at its intrinsic ratio the image
+     drove the row to 889px and dragged the text column with it. Taking it out
+     of flow is what actually works. The column stretches to whatever the list
+     needs, the image fills that box and contributes no height of its own, so
+     photo and copy are always exactly level. */
+  position: absolute;
+  /* The width and height are spelled out because an absolutely positioned img
+     is a replaced element: given only insets it takes its intrinsic size and
+     spills out of its box rather than stretching to fit. */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 14px 36px rgba(20, 36, 58, 0.14);
+}
+.gb-deliver-photo.is-top-weighted img { object-position: center 10%; }
+.gb-deliver-list { list-style: none; margin: 0; padding: 0; }
+.gb-deliver-list li { padding: 1.15rem 0; border-bottom: 1px solid #e4ddce; }
+.gb-deliver-list li:first-child { padding-top: 0; }
+.gb-deliver-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.gb-deliver-list h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+  margin: 0 0 0.4rem;
+}
+.gb-tick { flex: 0 0 22px; }
+.gb-deliver-list p { margin: 0; font-size: 1.03rem; }
+@media (max-width: 860px) {
+  .gb-deliver { grid-template-columns: 1fr; gap: 2rem;   }
+  .gb-deliver-photo { min-height: 0;   }
+  .gb-deliver-photo img {
+      position: static;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1.05;
+      }
+}
+@media (max-width: 600px) {
+  .gb-deliver-list h3 { font-size: 1.2rem;   }
+}
+.gb-reviews {
+  display: flex;
+  align-items: stretch;
+  gap: 1.4rem;
+  margin-top: 1.6rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.gb-reviews::-webkit-scrollbar { display: none; }
+.gb-reviews:focus-visible { outline: 2px solid #d2b780; outline-offset: 2px; }
+.gb-review {
+  flex: 0 0 auto;
+  width: min(520px, 86%);
+  /* start, to match the scrollTo targets the script computes from offsetLeft */
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.gb-review .gb-review-name { margin-top: auto; }
+@media (max-width: 860px) {
+  .gb-reviews { align-items: flex-start;   }
+  .gb-review .gb-review-name { margin-top: 0;   }
+}
+.gb-review-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+.gb-review-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #d2b780;
+  background: #ffffff;
+  color: #14243a;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.gb-review-arrow:hover { background: #d2b780; color: #0f1c2e; }
+@media (prefers-reduced-motion: reduce) {
+  .gb-reviews { scroll-behavior: auto;   }
+}
+.gb-review .stars { color: #f0c04a; letter-spacing: 2px; margin-bottom: 0.5rem; }
+.gb-review p { font-style: italic; color: #3a4557; margin: 0 0 0.8rem; }
+.gb-review .gb-review-name { font-weight: 700; color: #14243a; font-style: normal; }
+.gb-brandstrip {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.gb-brandstrip::-webkit-scrollbar { display: none; }
+.gb-brandstrip:focus-visible { outline: 2px solid #d2b780; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .gb-brandstrip { scroll-behavior: auto;   }
+}
+.gb-brand {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 178px;
+  min-height: 84px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e4ddce;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(20, 36, 58, 0.05);
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.07em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: #14243a;
+}
+.gb-brand img {
+  max-width: 146px;
+  max-height: 38px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 600px) {
+  .gb-brand img { max-width: 118px; max-height: 32px;   }
+}
+.gb-brand-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+@media (max-width: 600px) {
+  .gb-brand { width: 150px; min-height: 76px; font-size: 0.85rem;   }
+}
+.gb-guarantees {
+  background: #14243a;
+  color: #e7ecf3;
+  padding: 3.4rem 0;
+}
+.gb-guarantees-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  text-align: center;
+  margin: 0;
+}
+.gb-laurel { color: #d2b780; flex: 0 0 auto; }
+.gb-guarantees-title .gb-laurel:last-child { transform: scaleX(-1); }
+.gb-guarantees-lead {
+  text-align: center;
+  max-width: 58ch;
+  margin: 1.2rem auto 2.4rem;
+  color: #c4cedd;
+}
+.gb-guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+  /* stretch, not start: the three cards read as a set, and a short one sitting
+     shallower than its neighbours looks like something is missing from it */
+  align-items: stretch;
+}
+@media (min-width: 637px) and (max-width: 968px) {
+  .gb-guarantee:last-child {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 0.8rem);
+      margin-inline: auto;
+      }
+}
+.gb-guarantee {
+  position: relative;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2.1rem 1.5rem 1.5rem;
+}
+.gb-guarantee-tab {
+  position: absolute;
+  top: -0.85rem;
+  left: -0.5rem;
+  background: #d2b780;
+  color: #0f1c2e;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 4px 4px 4px 0;
+}
+.gb-guarantee h3 { font-size: 1.4rem; margin: 0 0 0.6rem; color: #14243a; }
+.gb-guarantee p { margin: 0; color: #3a4557; font-size: 1.14rem; line-height: 1.62; }
+.gb-guarantees-cta { text-align: center; margin-top: 2.4rem; }
+.gb-gold-btn {
+  display: inline-block;
+  background: #d2b780;
+  color: #0f1c2e;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: 0.02em;
+  padding: 1rem 2.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(210, 183, 128, 0.22);
+  animation: gb-nudge 3.5s ease-in-out 0.8s infinite;
+}
+.gb-gold-btn-light { box-shadow: 0 8px 22px rgba(20, 36, 58, 0.12); }
+.gb-gold-btn:hover,
+.gb-gold-btn:focus-visible,
+.gb-gold-btn:active { animation: none; background: #e0caa0; }
+.gb-gold-btn:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .gb-guarantees-title { gap: 0.6rem;   }
+  .gb-laurel { width: 24px; height: 44px;   }
+  .gb-gold-btn { padding: 0.95rem 1.5rem; font-size: 1rem;   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gb-gold-btn { animation: none;   }
+}
+
+/* landing.css centres only a few things in these blocks and lets the rest
+   inherit left from its own container, which is not centred. The main site's
+   .container IS centred, so every ported paragraph came across centre-aligned:
+   three-line bio paragraphs ragged on both edges, tick-list copy centred under
+   its own heading. Setting the roots back to left restores the inheritance the
+   blocks were written against. The pieces that are deliberately centred set it
+   on themselves and still win: the pull quote, the section leads, the two CTAs
+   and the guarantee band's heading. */
+.gb-deliver,
+.gb-steps,
+.gb-reviews,
+.gb-guarantee-grid,
+.gb-owner-text {
+  text-align: left;
+}

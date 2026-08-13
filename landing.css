@@ -1125,6 +1125,18 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
      shallower than its neighbours looks like something is missing from it */
   align-items: stretch;
 }
+/* Between 637 and 968px the auto-fit grid gives two columns and guarantee
+   three is left alone on row two, flush left with a column of dead space beside
+   it. justify-content cannot fix that: the 1fr tracks already fill the row, so
+   there is no free space to distribute. Spanning both columns and capping the
+   width back to one puts it under the gap between the two above it. */
+@media (min-width: 637px) and (max-width: 968px) {
+  .lp-guarantee:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.8rem);
+    margin-inline: auto;
+  }
+}
 .lp-guarantee {
   position: relative;
   background: #ffffff;

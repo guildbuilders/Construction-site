@@ -1419,17 +1419,17 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
    let it scroll away and shrink the logo. */
 @media (max-height: 500px) {
   body.lp-video-hero .lp-header { position: absolute; }
-  .lp-logo.lp-logo-home img { height: 72px; }
+  .lp-logo.lp-logo-home img { height: 68px; }
   body.lp-video-hero .lp-hero-inner {
-    padding-top: 88px;
+    padding-top: 84px;
     padding-bottom: 2rem;
   }
 }
 
 @media (max-width: 860px) {
-  .lp-logo.lp-logo-home img { height: 111px; }
+  .lp-logo.lp-logo-home img { height: 105px; }
   body.lp-video-hero .lp-hero-inner {
-    padding-top: 131px;
+    padding-top: 125px;
     padding-bottom: 2.5rem;
   }
   /* Header sits at the top of the PAGE rather than following the viewport,
@@ -1467,14 +1467,14 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
 }
 
 @media (max-width: 600px) {
-  .lp-logo.lp-logo-home img { height: 92px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 110px; }
+  .lp-logo.lp-logo-home img { height: 87px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 105px; }
 }
 
 /* Short phones - reclaim more height so the review line still makes the fold */
 @media (max-width: 860px) and (max-height: 720px) {
-  .lp-logo.lp-logo-home img { height: 79px; }
-  body.lp-video-hero .lp-hero-inner { padding-top: 95px; }
+  .lp-logo.lp-logo-home img { height: 75px; }
+  body.lp-video-hero .lp-hero-inner { padding-top: 91px; }
   body.lp-video-hero .lp-hero-copy .eyebrow { margin-bottom: 0.5rem; }
   body.lp-video-hero .lp-hero-bullets li { margin-bottom: 0.3rem; }
 }

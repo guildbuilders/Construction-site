@@ -87,7 +87,7 @@
       preload="auto"
       aria-hidden="true"
       poster="miracle-poster.webp"
-      data-src="miracle-video.mp4"
+      data-src="miracle-video.mp4" data-src-mobile="miracle-video-mobile.mp4"
     ></video>
 
     <div class="lp-container lp-hero-inner">
@@ -714,7 +714,13 @@
     (function () {
       var v = document.querySelector('.lp-hero-bg-video');
       if (v && v.dataset.src) {
-        v.src = v.dataset.src;
+        /* Phones get the 960-wide encode, 1.7MB against the master's 5.4MB.
+           This page is where the ad money lands, so it is the one place a
+           5MB hero on cellular is most expensive. */
+        var small = !window.matchMedia('(min-width: 861px)').matches;
+        var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn && conn.saveData) return;
+        v.src = (small && v.dataset.srcMobile) ? v.dataset.srcMobile : v.dataset.src;
         /* Slowed to 0.7x - the clip pans quickly enough to
            feel busy behind the headline. Set on loadedmetadata too because
            some browsers reset the rate when a new source loads. */

@@ -10,14 +10,19 @@ function gb_callConversion() {
 }
 
 
-// Hero video. This used to be desktop only, below 861px the poster stood in,
-// which is why the hero was a still on a phone. It now loads at every width,
-// matching the ads landing pages, which have never gated it.
+// Hero video. This used to be desktop only: below 861px nothing was attached
+// and the poster stood in, which is why the hero was a still on a phone.
 //
-// The cost the old gate was avoiding is real and has not gone away: the clip
-// is 5.4MB against a 148KB poster, and on a phone that is cellular data. The
-// honest fix is a smaller mobile encode rather than a gate, which needs
-// ffmpeg and is not installed here.
+// A phone now gets its own encode rather than either the 1080p master or a
+// still. 1920x1080 down to 960 wide at crf 30, no audio track, faststart, so
+// miracle goes 5.4MB to 1.7MB, kingsfield 6.3 to 2.0, westwood 5.5 to 1.7.
+// The clip sits behind a scrim at 0.55 to 0.72 opacity, so the detail the
+// compression costs is detail nobody was seeing through it. Compared frame to
+// frame under that scrim before picking crf: 32 was already indistinguishable,
+// and 30 leaves margin for motion artefacts, which a still frame will not show.
+//
+// Falls back to the full file if a page has no mobile encode, so adding a new
+// hero video cannot leave a phone with a blank hero.
 //
 // Save-Data is still respected. That is not a guess at what the visitor can
 // afford, it is a setting they turned on themselves, in the same class as
@@ -27,8 +32,9 @@ function gb_callConversion() {
   if (!v) return;
   var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   if (conn && conn.saveData) return;
+  var small = !window.matchMedia("(min-width: 861px)").matches;
   v.preload = "auto";
-  v.src = v.dataset.src;
+  v.src = (small && v.dataset.srcMobile) ? v.dataset.srcMobile : v.dataset.src;
   var play = v.play();
   if (play && play.catch) { play.catch(function () {}); }
 })();

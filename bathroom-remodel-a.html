@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,6 +12,11 @@
   })(window,document,'script','dataLayer','GTM-P526Z2L9');</script>
   <!-- End Google Tag Manager -->
   <meta name="robots" content="noindex, follow" />
+
+  <!-- Colors the mobile browser's status bar area to match the dark hero,
+       instead of Chrome's default white band above the logo. -->
+  <meta name="theme-color" content="#0f1c2e" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <title>Bathroom Remodeling in San Diego | Free Estimate | Guild Builders</title>
   <meta name="description" content="Free in-home estimate and design consultation for bathroom remodeling in San Diego County. Licensed contractor, family-owned, 5-star rated. Book in 60 seconds." />
@@ -27,7 +32,8 @@
        so no page_view and no event ever reached it - the tag only ever had
        an Ads destination configured. */
     gtag('config', 'G-39ZPTZ73DK');
-    /* Conversion action: "Contact (1)" / phone click on the website. */
+    /* Fires a Google Ads conversion when the click-to-call button is tapped.
+       Conversion action: "Contact (1)" / phone click on the website. */
     function gb_callConversion() {
       /* GA4 - lets Analytics attribute calls from organic and direct traffic,
          which Google Ads never sees. Deliberately NO send_to: G-39ZPTZ73DK is
@@ -57,6 +63,7 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <!-- Header: logo + phone only (no nav — keep the visitor focused) -->
   <header class="lp-header">
     <div class="lp-container lp-header-inner">
       <span class="lp-logo lp-logo-home"><img src="guild-logo-4.png" alt="Guild Builders Inc. logo" /></span>
@@ -66,20 +73,23 @@
     </div>
   </header>
 
-  <section class="lp-hero" style="background-image:url('lupita1-1000.webp');">
+  <!-- Hero with lead form above the fold -->
+  <section class="lp-hero lp-hero-still" style="background-image:url('lupita1-1000.webp');">
+
+
     <div class="lp-container lp-hero-inner">
 
-      <div class="lp-hero-copy">
-        <p class="eyebrow">San Diego County Bathroom Remodeling</p>
-        <h1>A Bathroom You'll Love Coming Home To</h1>
+      <div class="lp-hero-copy lp-hero-copy-centered">
+        <p class="eyebrow">San Diego’s Timeless &amp; Modern Bathroom Remodeling</p>
+        <h1>Secure Your FREE Design Consultation &amp; Save 25% On Your Dream Bathroom</h1>
         <p class="lp-subhead">Get a <strong>free in-home estimate &amp; design consultation</strong>; no pressure, no obligation.</p>
         <ul class="lp-hero-bullets">
           <li>Licensed contractor (CA #1154614)</li>
-          <li>Shower conversions, tile, vanities &amp; full remodels</li>
           <li>Family-owned, detail-driven craftsmanship</li>
+          <li>Showers, tile, vanities, full bathroom remodels</li>
           <li>Serving all of San Diego County</li>
         </ul>
-        <span class="lp-hero-reviews"><span class="stars">★★★★★</span> 5.0 on Google Reviews</span>
+        <span class="lp-hero-reviews"><span class="stars">★★★★★</span> 5.0 on Google &amp; Thumbtack</span>
       </div>
 
       <div class="lp-form-card" id="quote">
@@ -113,49 +123,353 @@
     </div>
   </section>
 
+  <!-- Trust bar -->
   <div class="lp-trustbar">
     <div class="lp-container lp-trustbar-inner">
       <div class="lp-trust-item"><strong>Licensed Contractor</strong><span>CA License #1154614</span></div>
       <div class="lp-trust-item"><strong>Family-Owned</strong><span>Local, Since 2021</span></div>
-      <div class="lp-trust-item"><strong>5.0 ★ Rated</strong><span>Google Reviews</span></div>
+      <div class="lp-trust-item"><strong>5.0 ★ Rated</strong><span>Google &amp; Thumbtack</span></div>
       <div class="lp-trust-item"><strong>Free Estimates</strong><span>&amp; Design Consultation</span></div>
     </div>
   </div>
 
+  <!-- Gallery -->
   <section class="lp-section">
     <div class="lp-container">
-      <h2>Recent Bathroom Projects</h2>
-      <p class="lp-section-lead">A few of the San Diego bathrooms we've designed and built.</p>
-      <div class="lp-gallery">
-        <img src="lupita2-1000.webp" data-full="lupita2-2000.webp" class="lp-gallery-image" alt="Remodeled bathroom" loading="lazy" />
-        <img src="sunsetridge1-1000.webp" data-full="sunsetridge1-2000.webp" class="lp-gallery-image" alt="Walk-in shower remodel" loading="lazy" />
-        <img src="avalon1-1000.webp" data-full="avalon1-2000.webp" class="lp-gallery-image" alt="Bathroom vanity and tile" loading="lazy" />
-        <img src="tynebourne1-1000.webp" data-full="tynebourne1-2000.webp" class="lp-gallery-image" alt="Modern bathroom remodel" loading="lazy" />
+      <h2>Beautiful &amp; Memorable Bathroom Remodels</h2>
+      <p class="lp-section-lead">San Diego Bathrooms We've Designed &amp; Built</p>
+      <div class="lp-gallery" id="gallery-track" tabindex="0" role="group" aria-label="Bathroom project photos, scrollable">
+        <img src="camino1-1000.webp" data-full="camino1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Camino de Orchidia bathroom remodel in Encinitas" loading="lazy" />
+        <img src="lupita1-1000.webp" data-full="lupita1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Lupita Court bathroom remodel in Carmel Valley" loading="lazy" />
+        <img src="avalon1-1000.webp" data-full="avalon1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Avalon Avenue bathroom remodel in San Diego" loading="lazy" />
+        <img src="sunsetridge1-1000.webp" data-full="sunsetridge1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Sunset Ridge Drive bathroom remodel in San Diego" loading="lazy" />
+        <img src="lark1-1000.webp" data-full="lark1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Lark Street bathroom remodel in San Diego" loading="lazy" />
+        <img src="ssierra1-1000.webp" data-full="ssierra1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="S. Sierra Avenue bathroom remodel in Solana Beach" loading="lazy" />
+        <img src="tynebourne1-1000.webp" data-full="tynebourne1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Tynebourne Circle bathroom remodel in Carmel Valley" loading="lazy" />
+        <img src="archer1-1000.webp" data-full="archer1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Archer Street bathroom remodel in Pacific Beach" loading="lazy" />
+        <img src="tara1-1000.webp" data-full="tara1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Tara Way bathroom remodel in San Marcos" loading="lazy" />
+        <img src="willowhaven1-1000.webp" data-full="willowhaven1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Willowhaven Road bathroom remodel in Encinitas" loading="lazy" />
+        <img src="honors1-1000.webp" data-full="honors1.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Honors Drive bathroom remodel in San Diego" loading="lazy" />
+        <img src="dalia9-1000.webp" data-full="dalia9.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Dalia Drive bathroom remodel in Rancho Santa Fe" loading="lazy" />
+        <img src="arabiancrest5-1000.webp" data-full="arabiancrest5.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Arabian Crest Drive bathroom remodel in Carmel Valley" loading="lazy" />
+        <img src="brava8-1000.webp" data-full="brava8.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Brava Street bathroom remodel in Carlsbad" loading="lazy" />
+        <img src="dixie11-1000.webp" data-full="dixie11.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Dixie Drive bathroom remodel in Pacific Beach" loading="lazy" />
+        <img src="kingsfield7-1000.webp" data-full="kingsfield7.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Kingsfield Court bathroom remodel in Carmel Valley" loading="lazy" />
+        <img src="camino2-1000.webp" data-full="camino2.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Camino de Orchidia bathroom remodel in Encinitas" loading="lazy" />
+        <img src="camino3-1000.webp" data-full="camino3.webp" class="lp-gallery-image" data-lightbox-group="gallery" alt="Camino de Orchidia bathroom remodel in Encinitas" loading="lazy" />
+      </div>
+      <div class="lp-gallery-nav">
+        <button type="button" class="lp-gallery-arrow" id="gallery-prev" aria-label="Previous photos" aria-controls="gallery-track">&#8592;</button>
+        <button type="button" class="lp-gallery-arrow" id="gallery-next" aria-label="Next photos" aria-controls="gallery-track">&#8594;</button>
       </div>
     </div>
   </section>
 
+  <!-- How we deliver. Follows the photographs: the work has just been shown,
+       so this is where how it gets done lands. -->
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2>How We Deliver An Incredible San Diego Remodeling Experience</h2>
+      <div class="lp-deliver">
+        <div class="lp-deliver-photo">
+          <img src="camino1-1000.webp"
+               srcset="camino1-1000.webp 1000w, camino1.webp 2000w"
+               sizes="(max-width: 860px) 92vw, 42vw"
+               alt="Completed bathroom with tiled shower and custom vanity"
+               width="1000" height="1333" loading="lazy" />
+        </div>
+        <ul class="lp-deliver-list">
+          <li>
+            <h3><svg class="lp-tick" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#14243a"/><path d="M7 12.4 L10.6 16 L17 9.2" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Design Comes First.</h3>
+            <p>We plan layout, tile, vanity, fixtures and lighting as one design, so you see the finished bathroom and approve it on paper before any demolition starts.</p>
+          </li>
+          <li>
+            <h3><svg class="lp-tick" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#14243a"/><path d="M7 12.4 L10.6 16 L17 9.2" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Every Trade Under One Roof.</h3>
+            <p>Tile, plumbing, electrical, glass, vanities and flooring are all scheduled and managed by us, so you are never left chasing subcontractors or refereeing between them.</p>
+          </li>
+          <li>
+            <h3><svg class="lp-tick" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#14243a"/><path d="M7 12.4 L10.6 16 L17 9.2" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Planned To The Day And The Dollar.</h3>
+            <p>Your estimate lays out materials, labor and a realistic timeline in plain language, and if something moves we tell you early rather than letting it surprise you halfway through.</p>
+          </li>
+          <li>
+            <h3><svg class="lp-tick" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#14243a"/><path d="M7 12.4 L10.6 16 L17 9.2" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Built To Hold Its Value.</h3>
+            <p>Bathrooms carry real weight when a house is valued, and they take more daily punishment than any other room. We build with layouts and finishes that keep working long after the job is signed off.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
   <section class="lp-section alt">
     <div class="lp-container">
       <h2>How It Works</h2>
       <div class="lp-steps">
-        <div class="lp-step"><div class="lp-step-num">1</div><h3>Free Consultation</h3><p>We visit your home, discuss your goals, and measure the space.</p></div>
-        <div class="lp-step"><div class="lp-step-num">2</div><h3>Clear Estimate</h3><p>You get an honest, detailed estimate and a realistic timeline.</p></div>
-        <div class="lp-step"><div class="lp-step-num">3</div><h3>We Build It</h3><p>Quality craftsmanship, clean job sites, and clear communication throughout.</p></div>
+        <div class="lp-step">
+          <div class="lp-step-photo">
+            <img src="lupita1-1000.webp" alt="" width="1000" height="667" loading="lazy" />
+            <span class="lp-step-num">1</span>
+          </div>
+          <h3>Free Consultation</h3>
+          <p>We come to your home at no cost, measure the space, and talk through how you actually use the bathroom day to day. You get design ideas and a good sense of what your remodel involves.</p>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-photo">
+            <img src="sunsetridge1-1000.webp" alt="" width="1000" height="667" loading="lazy" />
+            <span class="lp-step-num">2</span>
+          </div>
+          <h3>Clear Estimate</h3>
+          <p>You receive a clear, detailed estimate that lays out materials, labor, and a realistic timeline in plain language. No vague ballpark numbers, and no surprise line items appearing halfway through the job.</p>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-photo">
+            <img src="honors1-1000.webp" alt="" width="1000" height="667" loading="lazy" />
+            <span class="lp-step-num">3</span>
+          </div>
+          <h3>Your Design</h3>
+          <p>We design it with you, not at you. Layout, tile, vanity, fixtures, and lighting get chosen together, and nothing is final until you say it is. You see the finished bathroom and change your mind on paper rather than halfway through the build.</p>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-photo">
+            <img src="ssierra1-1000.webp" alt="" width="1000" height="667" loading="lazy" />
+            <span class="lp-step-num">4</span>
+          </div>
+          <h3>We Build It</h3>
+          <p>Our team manages every trade your remodel needs, so you only ever deal with us. We protect your home, clean the site at the end of each day, and keep you updated at every stage until the final detail is finished.</p>
+        </div>
       </div>
+      <div class="lp-steps-cta">
+        <a class="lp-gold-btn lp-gold-btn-light" href="tel:+16197632982" onclick="return gb_callConversion();">&#128222; (619) 763-2982</a>
+      </div>
+
     </div>
   </section>
 
+  <!-- About us. Follows the process: the visitor has just read how the job
+       runs, so this is where knowing who runs it lands. -->
   <section class="lp-section">
     <div class="lp-container">
-      <h2>What Homeowners Say</h2>
-      <div class="lp-reviews">
-        <div class="lp-review"><div class="stars">★★★★★</div><p>"My husband and I interviewed several contractors for our master and guest bath, we ended up hiring Omer with Guild Builders. He was communicative, on schedule, and very knowledgeable&hellip; We are more than satisfied with the end result and would recommend hiring Guild Builders for any renovation project."</p><span class="lp-review-name">— Rebecca H.</span></div>
-        <div class="lp-review"><div class="stars">★★★★★</div><p>"Guild Builders was professional, tidy, and detail-oriented. We couldn't be happier with our remodel."</p><span class="lp-review-name">— North County Client</span></div>
+      <h2>About Guild Builders</h2>
+      <p class="lp-section-lead">The people who will actually be in your home</p>
+      <div class="lp-owner">
+        <figure class="lp-owner-figure">
+          <img
+            class="lp-owner-photo"
+            src="owner-portrait-340.webp"
+            srcset="owner-portrait-340.webp 340w, owner-portrait.webp 680w"
+            sizes="(max-width: 600px) 260px, 340px"
+            width="340"
+            height="511"
+            alt="Omer, owner and CEO of Guild Builders Inc."
+            loading="lazy"
+          />
+          <figcaption class="lp-owner-name">Omer</figcaption>
+          <blockquote class="lp-owner-quote">I work directly with homeowners as a full service, one stop shop, so the project is as stress-free and efficient as possible.</blockquote>
+        </figure>
+        <div class="lp-owner-text">
+          <p class="lp-owner-role">Owner - CEO</p>
+          <p class="lp-owner-line">Licensed California Contractor · CA #1154614</p>
+          <p class="lp-owner-bio">Guild Builders is a family-owned company, founded in San Diego in 2021 on a simple idea: do the work right, and make the process easy on the people living through it. We are licensed in California and rated 5.0 on both Google and Thumbtack, and you deal with the owner directly rather than a rotating cast of project managers.</p>
+          <p class="lp-owner-bio">In practice that means you always know what is happening and what comes next, the schedule is managed rather than hoped for, and your home is treated like somewhere people still live while the work is going on. We would rather tell you something inconvenient early than let it surprise you later.</p>
+          <p class="lp-owner-bio">A bathroom looks its best the week it is finished. Ours are built so it still looks that way after years of daily use. That means grout that stays tight, glass that keeps its seal, and tile laid so water goes where it should.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Comparison. Columns are approaches rather than named competitor types:
+       a design-only firm does not build and a build-only contractor does not
+       design, which is true by definition and safe to put in an advertisement.
+       Claiming a licensed profession fails at its own job is not. -->
+  <section class="lp-section alt">
+    <div class="lp-container">
+      <h2>How We Compare</h2>
+      <p class="lp-section-lead">Four ways to get a bathroom remodeled, and what each one leaves you holding</p>
+      <div class="lp-compare-wrap">
+        <table class="lp-compare">
+          <thead>
+            <tr>
+              <td class="lp-compare-corner"></td>
+              <th scope="col" class="is-us">Guild Builders</th>
+              <th scope="col">Design<br />only firm</th>
+              <th scope="col">Build<br />only contractor</th>
+              <th scope="col">Hiring trades<br />yourself</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Design and build under one contract</th>
+              <td class="is-us"><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+            </tr>
+            <tr>
+              <th scope="row">One company accountable for the finished room</th>
+              <td class="is-us"><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+            </tr>
+            <tr>
+              <th scope="row">The whole bathroom drawn before demolition</th>
+              <td class="is-us"><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-var" role="img" aria-label="Varies">?</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Every trade scheduled and managed for you</th>
+              <td class="is-us"><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Licensed California contractor on the job</th>
+              <td class="is-us"><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-var" role="img" aria-label="Varies">?</span></td>
+            </tr>
+            <tr>
+              <th scope="row">One point of contact from first visit to walkthrough</th>
+              <td class="is-us"><span class="lp-c-yes" role="img" aria-label="Yes">&#10003;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+              <td><span class="lp-c-no" role="img" aria-label="No">&#10007;</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lp-compare-note">Licensed California contractor, CA #1154614. Rated 5.0 on Google and Thumbtack.</p>
+    </div>
+  </section>
+
+  <!-- Guarantees. These are promises in an advertisement, so each one is
+       written to be keepable. Number one says no SURPRISE change order rather
+       than no change order: California requires change orders in writing and
+       signed anyway, and a wall opened on dry rot has to be dealt with. The
+       promise that holds is that nothing reaches the invoice unapproved. -->
+  <section class="lp-guarantees">
+    <div class="lp-container">
+      <h2 class="lp-guarantees-title">
+        <svg class="lp-laurel" viewBox="0 0 40 74" width="34" height="62" aria-hidden="true"><path d="M30 4 C 14 16, 8 36, 12 70" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M27 12 C 20 9, 15 12, 14 18 C 20 20, 25 18, 27 12 Z" fill="currentColor"/><path d="M22 25 C 15 23, 10 26, 10 32 C 16 33, 21 31, 22 25 Z" fill="currentColor"/><path d="M18 39 C 11 38, 7 41, 8 47 C 14 47, 18 45, 18 39 Z" fill="currentColor"/><path d="M15 53 C 9 53, 5 56, 6 62 C 12 61, 15 59, 15 53 Z" fill="currentColor"/></svg>
+        <span>Your Guild Builders Guarantee</span>
+        <svg class="lp-laurel" viewBox="0 0 40 74" width="34" height="62" aria-hidden="true"><path d="M30 4 C 14 16, 8 36, 12 70" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M27 12 C 20 9, 15 12, 14 18 C 20 20, 25 18, 27 12 Z" fill="currentColor"/><path d="M22 25 C 15 23, 10 26, 10 32 C 16 33, 21 31, 22 25 Z" fill="currentColor"/><path d="M18 39 C 11 38, 7 41, 8 47 C 14 47, 18 45, 18 39 Z" fill="currentColor"/><path d="M15 53 C 9 53, 5 56, 6 62 C 12 61, 15 59, 15 53 Z" fill="currentColor"/></svg>
+      </h2>
+      <p class="lp-guarantees-lead">Our reputation rests on two things: the standard of the work, and doing what we said we would do.</p>
+      <div class="lp-guarantee-grid">
+        <div class="lp-guarantee">
+          <span class="lp-guarantee-tab">Guarantee #1:</span>
+          <h3>No surprise change orders.</h3>
+          <p>The price you sign is the price you pay. If you ask us to take on work beyond the agreed scope, or we open a wall and find something that has to be put right, you see the cost in writing and approve it before we touch it. Nothing is ever added to your invoice after the fact.</p>
+        </div>
+        <div class="lp-guarantee">
+          <span class="lp-guarantee-tab">Guarantee #2:</span>
+          <h3>We finish what we start.</h3>
+          <p>We do not leave your home until you and our team are 100% satisfied with the finished result. Put another way, we do not treat your remodel any differently from the ones we have done in our own homes. The punch list gets closed out before we call the job finished, not after.</p>
+        </div>
+        <div class="lp-guarantee">
+          <span class="lp-guarantee-tab">Guarantee #3:</span>
+          <h3>Our mistakes are on us.</h3>
+          <p>We plan your remodel down to the dollar and the day, and we hold ourselves to it. If our own workmanship, ordering, or scheduling costs you time or money, we absorb it rather than passing it on. Your price moves only when you approve a change in writing first.</p>
+        </div>
+      </div>
+      <div class="lp-guarantees-cta">
+        <a class="lp-gold-btn" href="#quote">Get Your Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2>What San Diego Homeowners Are Saying</h2>
+      <div class="lp-reviews" id="reviews-track" tabindex="0" role="group" aria-label="Customer reviews, scrollable">
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>"My husband and I interviewed several contractors for our master and guest bath, we ended up hiring Omer with Guild Builders. He was communicative, on schedule, and very knowledgeable&hellip; We are more than satisfied with the end result and would recommend hiring Guild Builders for any renovation project."</p>
+          <span class="lp-review-name">Rebecca H.</span>
+        </div>
+        <div class="lp-review">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>"Guild Builders was professional, tidy, and detail-oriented. We couldn't be happier with our remodel."</p>
+          <span class="lp-review-name">North County Client</span>
+        </div>
+      </div>
+      <div class="lp-review-nav">
+        <button type="button" class="lp-review-arrow" id="review-prev" aria-label="Previous review" aria-controls="reviews-track">&#8592;</button>
+        <button type="button" class="lp-review-arrow" id="review-next" aria-label="Next review" aria-controls="reviews-track">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ. details/summary rather than scripted panels: it is keyboard
+       operable and works with JavaScript off, for free. -->
+  <section class="lp-section alt">
+    <div class="lp-container">
+      <h2>Questions San Diego Homeowners Ask</h2>
+      <p class="lp-section-lead">Frequently asked questions</p>
+      <div class="lp-faq">
+        <details class="lp-faq-item" open>
+          <summary>Do I have to commit to a full remodel to talk to you?<span class="lp-faq-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9.5 L12 15.5 L18 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="lp-faq-a"><p>No. The first visit is a free in-home estimate and design consultation, and there is nothing owed if you decide not to go ahead. Plenty of people use it to find out what their bathroom would actually cost before they commit to anything.</p></div>
+        </details>
+        <details class="lp-faq-item">
+          <summary>How long does a bathroom remodel take?<span class="lp-faq-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9.5 L12 15.5 L18 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="lp-faq-a"><p>It depends on the scope. A tub to shower conversion runs a couple of weeks; a full bathroom with layout or plumbing changes takes longer. You get a realistic timeline in the estimate rather than an optimistic one, and we keep you updated as the work goes.</p></div>
+        </details>
+        <details class="lp-faq-item">
+          <summary>Do you help with design and material selection?<span class="lp-faq-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9.5 L12 15.5 L18 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="lp-faq-a"><p>Yes, and it happens before anything is torn out. We work through layout, tile, vanity, fixtures and lighting with you as one design, so the finished bathroom is decided on paper while changes are still free.</p></div>
+        </details>
+        <details class="lp-faq-item">
+          <summary>Are you licensed?<span class="lp-faq-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9.5 L12 15.5 L18 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="lp-faq-a"><p>Yes. Guild Builders Inc. holds California contractor license #1154614. You can look it up on the CSLB website, and the number appears on every estimate and contract we send.</p></div>
+        </details>
+        <details class="lp-faq-item">
+          <summary>What areas do you serve?<span class="lp-faq-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9.5 L12 15.5 L18 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+          <div class="lp-faq-a"><p>All of San Diego County, including La Jolla, Del Mar, Solana Beach, Rancho Santa Fe, Carmel Valley, Encinitas, Carlsbad, Poway, San Marcos and Escondido.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip. Wordmarks, not logos: naming a brand you genuinely install
+       is fair use, but reproducing its logo implies an endorsement or a dealer
+       relationship that has to actually exist. Only platforms whose rating the
+       site can stand behind appear here. -->
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2>Where San Diego Homeowners Review Us</h2>
+      <p class="lp-section-lead">Independent ratings from the people whose bathrooms we built</p>
+
+
+      <div class="lp-badges">
+          <a class="lp-badge" href="https://g.page/r/CTjnAyM7sZDXEBM" target="_blank" rel="noopener">
+            <span class="lp-badge-name">Google</span>
+            <span class="lp-badge-stars" aria-hidden="true">★★★★★</span>
+            <span class="lp-badge-score">5 out of 5</span>
+            <span class="lp-badge-cta">Read the reviews</span>
+          </a>
+          <a class="lp-badge" href="https://www.thumbtack.com/ca/encinitas/kitchen-remodeling/guild-builders-inc/service/586829413004967938" target="_blank" rel="noopener">
+            <span class="lp-badge-name">Thumbtack</span>
+            <span class="lp-badge-stars" aria-hidden="true">★★★★★</span>
+            <span class="lp-badge-score">5 out of 5</span>
+            <span class="lp-badge-cta">Read the reviews</span>
+          </a>
+          <a class="lp-badge" href="https://www.houzz.com/pro/guildbuilders" target="_blank" rel="noopener">
+            <span class="lp-badge-name">Houzz</span>
+            <span class="lp-badge-stars" aria-hidden="true">★★★★★</span>
+            <span class="lp-badge-score">5 out of 5</span>
+            <span class="lp-badge-cta">Read the reviews</span>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
   <section class="lp-cta-band">
     <div class="lp-container">
       <h2>Ready to Start Your Bathroom?</h2>
@@ -174,6 +488,7 @@
     </div>
   </footer>
 
+  <!-- Sticky mobile call/quote bar -->
   <div class="lp-sticky-call">
     <a class="call" href="tel:+16197632982" onclick="return gb_callConversion();">📞 (619) 763-2982</a>
     <a class="quote" href="#quote">Free Estimate</a>
@@ -181,16 +496,8 @@
 
   <script>
     (function () {
-      /* Hero video: pick the source matching the viewport shape so only ONE
-         file downloads. Portrait clip on phones, landscape on wide screens. */
-      var v = document.querySelector('.lp-hero-bg-video');
-      if (v && v.dataset.portrait) {
-        var wide = window.matchMedia('(min-width: 861px)').matches;
-        v.poster = wide ? v.dataset.landscapePoster : v.dataset.portraitPoster;
-        v.src = wide ? v.dataset.landscape : v.dataset.portrait;
-        var play = v.play();
-        if (play && play.catch) { play.catch(function () {}); }
-      }
+      /* No hero video here: every clip in the repo is a kitchen, so the
+         bathroom hero runs on a still until a bathroom walkthrough exists. */
 
       /* Transparent header over the hero, solid once scrolled past it.
          Mirrors the overlayHeader block in script.js, which landing pages
@@ -220,24 +527,148 @@
   </div>
 
   <script>
-    /* Lightbox for the landing-page gallery. Landing pages do not load
-       script.js - it drives the main site header - so this mirrors the same
-       behaviour standalone: thumbnails are the -1000 copies, data-full holds
-       the original. */
+    /* Reviews carousel: advances every 7 seconds and wraps at the end, with
+       arrows to move it a review at a time in either direction.
+       WCAG 2.2.2 wants a way to stop anything that moves on its own for more
+       than five seconds, so it pauses on hover and on keyboard focus, the
+       arrows drive it manually, and it does not rotate at all when the visitor
+       has asked for reduced motion. */
+    (function () {
+      var track = document.getElementById('reviews-track');
+      var prev = document.getElementById('review-prev');
+      var next = document.getElementById('review-next');
+      if (!track || !prev || !next) return;
+      var cards = [].slice.call(track.querySelectorAll('.lp-review'));
+      if (cards.length < 2) return;
+
+      var DELAY = 7000;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var index = 0, timer = null;
+
+      /* the arrows wrap, matching the rotation, so neither ever dead-ends */
+      prev.addEventListener('click', function () { go(index - 1); restart(); });
+      next.addEventListener('click', function () { go(index + 1); restart(); });
+
+      /* offsetLeft is relative to the offset parent, not the track, so the
+         first card's own offset has to come back out of it */
+      function target(n) { return cards[n].offsetLeft - cards[0].offsetLeft; }
+
+      var programmatic = false, settleProg;
+      function go(n) {
+        index = (n + cards.length) % cards.length;
+        /* The last cards' targets sit past the maximum scroll, so the browser
+           clamps them and the nearest-card check below would read the index
+           back as an earlier card, pinning the rotation on the second to last
+           slide forever. Ignore scroll events we caused ourselves. */
+        programmatic = true;
+        clearTimeout(settleProg);
+        settleProg = setTimeout(function () { programmatic = false; }, 900);
+        track.scrollTo({ left: target(index), behavior: reduced ? 'auto' : 'smooth' });
+      }
+      /* Only rotates while the carousel is actually on screen. Otherwise it
+         spends the whole visit advancing through reviews nobody is looking at,
+         and whoever scrolls down to it arrives mid-sequence at an arbitrary
+         card rather than at the first one. */
+      var inView = false;
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + 1); }, DELAY); }
+      function restart() { stop(); start(); }
+
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      track.addEventListener('focusin', stop);
+      track.addEventListener('focusout', start);
+
+      /* a swipe or a trackpad scroll should take over, so track the nearest
+         card and reset the clock rather than fighting the visitor */
+      var settle;
+      track.addEventListener('scroll', function () {
+        if (programmatic) return;
+        clearTimeout(settle);
+        settle = setTimeout(function () {
+          if (programmatic) return;
+          var best = 0, min = Infinity;
+          cards.forEach(function (c, n) {
+            var d = Math.abs(target(n) - track.scrollLeft);
+            if (d < min) { min = d; best = n; }
+          });
+          index = best;
+          restart();
+        }, 140);
+      }, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            inView = e.isIntersecting;
+            if (inView) { start(); } else { stop(); }
+          });
+        }, { threshold: 0.3 }).observe(track);
+      } else {
+        /* no observer, so fall back to the old behaviour rather than a
+           carousel that never moves */
+        inView = true;
+        start();
+      }
+    })();
+  </script>
+
+  <script>
+    /* Gallery carousel arrows. Scrolls by a viewport of the track rather than
+       one image, so a click always advances a full row on desktop and one
+       card on a phone. The buttons disable at each end. */
+    (function () {
+      var track = document.getElementById('gallery-track');
+      var prev = document.getElementById('gallery-prev');
+      var next = document.getElementById('gallery-next');
+      if (!track || !prev || !next) return;
+      function page() { return Math.max(track.clientWidth * 0.85, 200); }
+      function sync() {
+        /* 4px of slack at each end: snap points and fractional widths mean
+           scrollLeft rarely lands exactly on 0 or on the maximum, which would
+           otherwise leave an arrow enabled at a limit it cannot pass */
+        var max = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 4;
+        next.disabled = track.scrollLeft >= max - 4;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    })();
+  </script>
+
+  <script>
+    /* Lightbox. Landing pages do not load script.js - it drives the main site
+       header - so this mirrors that behaviour standalone: thumbnails are the
+       small copies, data-full holds the original.
+
+       Images carry a group, so the arrows walk the set you actually opened.
+       Paging out of the eighteen gallery photos and into a before-and-after
+       pair, or the reverse, would be baffling. */
     (function () {
       var box = document.getElementById('lightbox');
       var img = document.getElementById('lightbox-img');
-      var shots = Array.prototype.slice.call(document.querySelectorAll('.lp-gallery-image'));
-      if (!box || !img || !shots.length) return;
-      var i = 0;
+      var all = [].slice.call(document.querySelectorAll('img[data-full]'));
+      if (!box || !img || !all.length) return;
+
+      var group = [], i = 0;
       function show(n) {
-        i = (n + shots.length) % shots.length;
-        img.src = shots[i].dataset.full || shots[i].src;
-        img.alt = shots[i].alt;
+        i = (n + group.length) % group.length;
+        img.src = group[i].dataset.full || group[i].src;
+        img.alt = group[i].alt;
       }
-      function open(n) { show(n); box.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      function open(el) {
+        var g = el.dataset.lightboxGroup;
+        group = all.filter(function (x) { return x.dataset.lightboxGroup === g; });
+        show(group.indexOf(el));
+        box.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
       function close() { box.classList.remove('active'); document.body.style.overflow = ''; }
-      shots.forEach(function (el, n) { el.addEventListener('click', function () { open(n); }); });
+
+      all.forEach(function (el) { el.addEventListener('click', function () { open(el); }); });
       document.getElementById('lightbox-close').addEventListener('click', close);
       document.getElementById('lightbox-next').addEventListener('click', function (e) { e.stopPropagation(); show(i + 1); });
       document.getElementById('lightbox-prev').addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });

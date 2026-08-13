@@ -102,8 +102,13 @@ body.lp-video-hero .lp-header {
 body.lp-video-hero .lp-header-phone {
   color: #ffffff;
   border-color: #ffffff;
-  /* sits higher in the tall logo header rather than centered against it */
-  transform: translateY(-26px);
+  /* Centred against the logo. It used to be lifted 26px, which read as the
+     button having come loose from the row rather than as a deliberate offset.
+     The 4px puts the two optical centres together rather than the two layout
+     centres: the logo is nudged down 8px by a transform that takes no part in
+     layout, so the flex box centres the button against where the logo would
+     have been rather than where it is. Half the nudge closes the gap. */
+  transform: translateY(4px);
 }
 body.lp-video-hero .lp-header-phone:hover {
   background: #ffffff;
@@ -123,6 +128,31 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone {
 body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   background: #d2b780;
   color: #0f1c2e;
+}
+/* The big logo earns its size over the hero, where it reads as part of the
+   video. Past the hero the header is pinned for the rest of the page, and at
+   171px it was holding a fifth of a 900px screen permanently, on every
+   section below. Shrinking it on .scrolled keeps the entrance and stops
+   paying for it afterwards, which is the alternative to dropping the sticky
+   header altogether.
+
+   Scoped to exactly the case where the header is actually pinned: under 861px
+   wide, or under 501px tall, it is position:absolute and scrolls away on its
+   own, so there is nothing to reclaim and no reason to touch it. */
+@media (min-width: 861px) and (min-height: 501px) {
+  .lp-logo.lp-logo-home img {
+    transition: height 0.3s ease, transform 0.3s ease, margin-bottom 0.3s ease;
+  }
+  body.lp-video-hero .lp-header.scrolled .lp-logo.lp-logo-home img {
+    height: 72px;
+    transform: none;
+    margin-bottom: 0;
+  }
+  /* the 4px optical nudge pairs with the logo's own 8px, which is gone here */
+  body.lp-video-hero .lp-header.scrolled .lp-header-phone { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-logo.lp-logo-home img { transition: none; }
 }
 .lp-header-phone {
   display: inline-flex;
@@ -1337,7 +1367,7 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   body.lp-video-hero .lp-hero-inner { padding-top: 146px; }
   body.lp-video-hero .lp-form-card { transform: translateY(-5%); }
   body.lp-video-hero .lp-hero-copy { transform: translateY(-4%); }
-  body.lp-video-hero .lp-header-phone { transform: translateY(-16px); }
+  body.lp-video-hero .lp-header-phone { transform: translateY(4px); }
 }
 
 @media (min-width: 861px) and (max-height: 820px) {

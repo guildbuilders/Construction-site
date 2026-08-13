@@ -808,9 +808,19 @@
   </script>
 
   <script>
-    /* Gallery carousel arrows. Scrolls by a viewport of the track rather than
-       one image, so a click always advances a full row on desktop and one
-       card on a phone. The buttons disable at each end. */
+    /* Gallery carousel. Advances a full row every 7 seconds and wraps at the
+       end, with arrows to page it by hand. Arrows move 85% of a row rather
+       than a whole one, so a click leaves a column of context to scroll
+       against; the timer takes the whole row, because nobody is tracking their
+       place across an unattended move.
+
+       The arrows still disable at the ends while the timer wraps. That is not
+       a contradiction: pressing a dead end is a mistake to prevent, whereas a
+       rotation that stopped at the end would simply never come back.
+
+       WCAG 2.2.2: it pauses on hover and on keyboard focus, the arrows drive
+       it by hand, it is inert under reduced motion, and it only runs while on
+       screen so nobody arrives at it mid-sequence. */
     (function () {
       var track = document.getElementById('gallery-track');
       var prev = document.getElementById('gallery-prev');
@@ -825,11 +835,37 @@
         prev.disabled = track.scrollLeft <= 4;
         next.disabled = track.scrollLeft >= max - 4;
       }
-      prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
-      next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
+      prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); restart(); });
+      next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); restart(); });
       track.addEventListener('scroll', sync, { passive: true });
       window.addEventListener('resize', sync);
       sync();
+
+      var DELAY = 7000;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var inView = false, timer = null;
+      function advance() {
+        var max = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= max - 4) track.scrollTo({ left: 0, behavior: 'smooth' });
+        else track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+      }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(advance, DELAY); }
+      function restart() { stop(); start(); }
+
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      track.addEventListener('focusin', stop);
+      track.addEventListener('focusout', start);
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { inView = e.isIntersecting; if (inView) { start(); } else { stop(); } });
+        }, { threshold: 0.3 }).observe(track);
+      } else {
+        inView = true;
+        start();
+      }
     })();
   </script>
 

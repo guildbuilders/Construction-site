@@ -1273,6 +1273,11 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   flex-wrap: wrap;
   margin-top: 1.4rem;
 }
+/* Carries the same nudge as the header phone, the submit button and the gold
+   buttons. It was the one gold call-to-action on the page without it, and it
+   is the last thing a visitor who has read the whole page sees, so it is the
+   one that can least afford to sit still. Same 3.5s cycle as the rest, so the
+   ones sharing a viewport move together rather than at cross rhythms. */
 .lp-cta-phone {
   display: inline-flex;
   align-items: center;
@@ -1284,8 +1289,15 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   padding: 0.9rem 1.8rem;
   border-radius: 8px;
   text-decoration: none;
+  animation: lp-nudge 3.5s ease-in-out 0.8s infinite;
 }
 .lp-cta-phone:hover { background: #c2a24e; }
+.lp-cta-phone:hover,
+.lp-cta-phone:focus-visible,
+.lp-cta-phone:active { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .lp-cta-phone { animation: none; }
+}
 .lp-cta-ghost {
   display: inline-flex;
   align-items: center;

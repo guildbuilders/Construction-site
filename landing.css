@@ -1147,6 +1147,27 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   font-size: 1.08rem;
   color: #14243a;
 }
+/* The mark replaces the platform's name rather than sitting above it. Google
+   and Facebook ship a bare glyph, so a logo with the word under it would have
+   read as a caption, while Thumbtack and Houzz carry the word inside the mark
+   and would have said it twice. The name lives in alt either way, so nothing
+   is lost to a screen reader.
+
+   Capped at the same 38px the brand tiles use, so the two logo rows on the
+   page read at one size instead of competing. Height binds on all four: these
+   are marks, not the wide wordmarks upstairs. */
+/* Height is fixed rather than a max, and width is left to the attributes. All
+   four encode to exactly 38px tall, so this is the same size a max would give,
+   but it reserves the box before the lazy image arrives. With width and height
+   both auto an unloaded image is 0x0, so the badge rendered with no logo at
+   all and grew when it loaded. */
+.lp-badge-logo {
+  height: 38px;
+  width: auto;
+  max-width: 146px;
+  object-fit: contain;
+  display: block;
+}
 .lp-badge-stars { color: #f0c04a; letter-spacing: 2px; font-size: 1.05rem; }
 .lp-badge-score { font-size: 0.95rem; color: #5c6879; }
 .lp-badge-cta {

@@ -102,7 +102,7 @@
           <li>Cabinets, countertops, full kitchen remodels</li>
           <li>Serving all of San Diego County</li>
         </ul>
-        <span class="lp-hero-reviews"><span class="stars">★★★★★</span> 5.0 on Google &amp; Thumbtack</span>
+        <span class="lp-hero-reviews"><span class="stars">★★★★★</span> 5 stars on Google, Facebook &amp; Thumbtack</span>
       </div>
 
       <div class="lp-form-card" id="quote">
@@ -141,7 +141,7 @@
     <div class="lp-container lp-trustbar-inner">
       <div class="lp-trust-item"><strong>Licensed Contractor</strong><span>CA License #1154614</span></div>
       <div class="lp-trust-item"><strong>Family-Owned</strong><span>Local, Since 2021</span></div>
-      <div class="lp-trust-item"><strong>5.0 ★ Rated</strong><span>Google &amp; Thumbtack</span></div>
+      <div class="lp-trust-item"><strong>5.0 ★ Rated</strong><span>Google, Facebook &amp; Thumbtack</span></div>
       <div class="lp-trust-item"><strong>Free Estimates</strong><span>&amp; Design Consultation</span></div>
     </div>
   </div>
@@ -663,6 +663,12 @@
             <span class="lp-badge-score">5 out of 5</span>
             <span class="lp-badge-cta">Read the reviews</span>
           </a>
+          <a class="lp-badge" href="https://www.facebook.com/GuildBuildersInc/reviews" target="_blank" rel="noopener">
+            <span class="lp-badge-name">Facebook</span>
+            <span class="lp-badge-stars" aria-hidden="true">★★★★★</span>
+            <span class="lp-badge-score">5 out of 5</span>
+            <span class="lp-badge-cta">Read the reviews</span>
+          </a>
           <a class="lp-badge" href="https://www.thumbtack.com/ca/encinitas/kitchen-remodeling/guild-builders-inc/service/586829413004967938" target="_blank" rel="noopener">
             <span class="lp-badge-name">Thumbtack</span>
             <span class="lp-badge-stars" aria-hidden="true">★★★★★</span>
@@ -784,7 +790,7 @@
       prev.addEventListener('click', function () { go(index - 1); restart(); });
       next.addEventListener('click', function () { go(index + 1); restart(); });
 
-      var DELAY = 7000;
+      var DELAY = 5000;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var inView = false, timer = null;
       function stop() { if (timer) { clearInterval(timer); timer = null; } }
@@ -1058,7 +1064,7 @@
       window.addEventListener('resize', sync);
       sync();
 
-      var DELAY = 7000;
+      var DELAY = 5000;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var inView = false, timer = null;
       function advance() {

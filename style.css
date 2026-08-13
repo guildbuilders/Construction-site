@@ -34,7 +34,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 201px;
+  /* This, not .logo-image, is what sets the header height, so the logo cannot
+     be shrunk on its own: 201px held the old 171px logo with 30px of slack.
+     Same slack against 145px. Everything below the header rises by the 26px
+     difference, on every page. */
+  min-height: 175px;
 }
 
 .logo {
@@ -44,7 +48,8 @@ body {
 }
 
 .logo-image {
-  height: 171px;
+  /* 15% down from 171px */
+  height: 145px;
   width: auto;
   display: block;
   /* visual nudge only - transform does not affect layout, so the nav height
@@ -413,10 +418,18 @@ body.home .hero-video {
   padding: 0 0 8vh;
 }
 
-/* web/desktop only: drop the hero text lower so it sits under the logo */
+/* Desktop: centred between the fixed header and the foot of the hero rather
+   than dropped to the bottom. Bottom-aligning put the block 118px below the
+   header and 18px off the bottom at 1440x900, and 294 against 22 at 1440x1080,
+   which reads as the copy having sunk. The padding is the header's own height,
+   so the space above the block is measured from what the visitor can see
+   rather than from the top of a box the header is covering. Keep it in step
+   with .nav's min-height. */
 @media (min-width: 801px) {
   body.home .hero-video {
-    padding-bottom: 2vh;
+    align-items: center;
+    padding-top: 175px;
+    padding-bottom: 0;
   }
 }
 

@@ -10,14 +10,23 @@ function gb_callConversion() {
 }
 
 
-// Hero video: only load it on screens wide enough to benefit. On phones the
-// poster image stands in, which saves 4-6MB of download on a cellular
-// connection. The <video> carries no src until this runs, so nothing is
-// fetched on mobile at all.
+// Hero video. This used to be desktop only, below 861px the poster stood in,
+// which is why the hero was a still on a phone. It now loads at every width,
+// matching the ads landing pages, which have never gated it.
+//
+// The cost the old gate was avoiding is real and has not gone away: the clip
+// is 5.4MB against a 148KB poster, and on a phone that is cellular data. The
+// honest fix is a smaller mobile encode rather than a gate, which needs
+// ffmpeg and is not installed here.
+//
+// Save-Data is still respected. That is not a guess at what the visitor can
+// afford, it is a setting they turned on themselves, in the same class as
+// prefers-reduced-motion. Everyone else gets the video.
 (function () {
   var v = document.querySelector(".hero-bg-video[data-src]");
   if (!v) return;
-  if (!window.matchMedia("(min-width: 861px)").matches) return;
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn && conn.saveData) return;
   v.preload = "auto";
   v.src = v.dataset.src;
   var play = v.play();

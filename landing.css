@@ -1050,6 +1050,18 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
 }
 /* pushes the name to the bottom so it lines up across cards of unequal length */
 .lp-review .lp-review-name { margin-top: auto; }
+/* Both of those earn their keep only when several cards share a row and their
+   names should line up. On a phone one card is on screen at a time, so there
+   is nothing to line up with and the two together just buy dead space:
+   measured at 390px, every card was 685px tall because the longest set the
+   height, and Daniel D. carried 346px of that as a gap between his last line
+   and his name. Cards size to their own content here, and the name sits
+   directly under the review on the paragraph's own 0.8rem, which is what the
+   longest card already looked like. */
+@media (max-width: 860px) {
+  .lp-reviews { align-items: flex-start; }
+  .lp-review .lp-review-name { margin-top: 0; }
+}
 
 .lp-review-nav {
   display: flex;

@@ -51,7 +51,7 @@
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=75" />
+  <link rel="stylesheet" href="landing.css?v=76" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -891,7 +891,14 @@
       var tiles = [].slice.call(track.querySelectorAll('.lp-brand'));
       if (tiles.length < 2) return;
 
-      var DELAY = 4000;
+      /* 4s on a desktop, 3s on a phone. A phone fits two tiles to a row
+         against six on a desktop, so the same interval takes three times as
+         long to get through the strip; the shorter beat pulls that back
+         without becoming restless. Read live rather than captured at load, so
+         a rotation picks up the other cadence instead of keeping the one the
+         page happened to start in. */
+      var PHONE = window.matchMedia('(max-width: 860px)');
+      function delay() { return PHONE.matches ? 3000 : 4000; }
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var index = 0, timer = null;
 
@@ -935,8 +942,10 @@
 
       var inView = false;
       function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + perRow()); }, DELAY); }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + perRow()); }, delay()); }
       function restart() { stop(); start(); }
+
+      if (PHONE.addEventListener) { PHONE.addEventListener('change', restart); }
 
       track.addEventListener('mouseenter', stop);
       track.addEventListener('mouseleave', start);

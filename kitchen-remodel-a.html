@@ -51,7 +51,7 @@
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=71" />
+  <link rel="stylesheet" href="landing.css?v=72" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -599,6 +599,36 @@
     </div>
   </section>
 
+  <!-- Brand strip. Wordmarks, not logo files, for the same reason the review
+       badges above are wordmarks: naming a brand you genuinely install is
+       nominative fair use, while reproducing its mark reads as an endorsement
+       or a dealer relationship. Set as type it is also sharp at any pixel
+       density and costs no extra requests on a page that already carries a
+       hero video. -->
+  <section class="lp-section alt">
+    <div class="lp-container">
+      <h2>Brands We Build With</h2>
+      <p class="lp-section-lead">Appliances, fixtures and fittings we install in San Diego kitchens</p>
+      <div class="lp-brandstrip" id="brand-track" tabindex="0" role="group" aria-label="Brands we install, scrollable">
+        <span class="lp-brand">Sub-Zero</span>
+        <span class="lp-brand">Wolf</span>
+        <span class="lp-brand">Viking</span>
+        <span class="lp-brand">Café</span>
+        <span class="lp-brand">Kohler</span>
+        <span class="lp-brand">Delta</span>
+        <span class="lp-brand">Moen</span>
+        <span class="lp-brand">Signature Hardware</span>
+        <span class="lp-brand">Grohe</span>
+        <span class="lp-brand">Toto</span>
+        <span class="lp-brand">American Standard</span>
+      </div>
+      <div class="lp-brand-nav">
+        <button type="button" class="lp-review-arrow" id="brand-prev" aria-label="Previous brands" aria-controls="brand-track">&#8592;</button>
+        <button type="button" class="lp-review-arrow" id="brand-next" aria-label="Next brands" aria-controls="brand-track">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA band -->
   <section class="lp-cta-band">
     <div class="lp-container">
@@ -784,6 +814,85 @@
       } else {
         /* no observer, so fall back to the old behaviour rather than a
            carousel that never moves */
+        inView = true;
+        start();
+      }
+    })();
+  </script>
+
+  <script>
+    /* Brand strip: steps one tile every 2 seconds and wraps at the end.
+       Two seconds is well inside the five that WCAG 2.2.2 allows to move
+       unattended, so the same escapes the reviews carousel has apply here and
+       matter more: it pauses on hover and on keyboard focus, the arrows drive
+       it by hand, and it does not move at all under reduced motion. It also
+       only runs while it is actually on screen, which on this page means it is
+       usually still on the first tile when the visitor reaches it. */
+    (function () {
+      var track = document.getElementById('brand-track');
+      var prev = document.getElementById('brand-prev');
+      var next = document.getElementById('brand-next');
+      if (!track || !prev || !next) return;
+      var tiles = [].slice.call(track.querySelectorAll('.lp-brand'));
+      if (tiles.length < 2) return;
+
+      var DELAY = 2000;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var index = 0, timer = null;
+
+      prev.addEventListener('click', function () { go(index - 1); restart(); });
+      next.addEventListener('click', function () { go(index + 1); restart(); });
+
+      function target(n) { return tiles[n].offsetLeft - tiles[0].offsetLeft; }
+
+      /* The last tiles' targets sit past the maximum scroll, so the browser
+         clamps them and the nearest-tile check below would read the index back
+         as an earlier tile and pin the rotation short of the end. Ignore the
+         scroll events we caused ourselves. */
+      var programmatic = false, settleProg;
+      function go(n) {
+        index = (n + tiles.length) % tiles.length;
+        programmatic = true;
+        clearTimeout(settleProg);
+        settleProg = setTimeout(function () { programmatic = false; }, 900);
+        track.scrollTo({ left: target(index), behavior: reduced ? 'auto' : 'smooth' });
+      }
+
+      var inView = false;
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + 1); }, DELAY); }
+      function restart() { stop(); start(); }
+
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      track.addEventListener('focusin', stop);
+      track.addEventListener('focusout', start);
+
+      /* a swipe or a trackpad scroll takes over rather than being fought */
+      var settle;
+      track.addEventListener('scroll', function () {
+        if (programmatic) return;
+        clearTimeout(settle);
+        settle = setTimeout(function () {
+          if (programmatic) return;
+          var best = 0, min = Infinity;
+          tiles.forEach(function (t, n) {
+            var d = Math.abs(target(n) - track.scrollLeft);
+            if (d < min) { min = d; best = n; }
+          });
+          index = best;
+          restart();
+        }, 140);
+      }, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            inView = e.isIntersecting;
+            if (inView) { start(); } else { stop(); }
+          });
+        }, { threshold: 0.3 }).observe(track);
+      } else {
         inView = true;
         start();
       }

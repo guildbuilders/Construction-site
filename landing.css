@@ -302,6 +302,20 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   font-weight: 600;
 }
 .lp-hero-reviews .stars { color: #f0c04a; letter-spacing: 2px; }
+/* Adding Facebook made this line long enough to wrap on a phone, which broke
+   the stars away from the platforms they belong to. It holds one line now.
+   The size is capped by the viewport rather than set per breakpoint: the line
+   only has to fit once, and tying it to the width means it keeps fitting at
+   whatever screen turns up rather than at the three I happened to test. */
+@media (max-width: 860px) {
+  .lp-hero-reviews {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    font-size: min(0.95rem, 3.5vw);
+    gap: 0.45rem;
+  }
+  .lp-hero-reviews .stars { letter-spacing: 1px; }
+}
 
 /* ---------- Lead form card ---------- */
 .lp-form-card {
@@ -1462,7 +1476,12 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   }
   body.lp-video-hero .lp-hero-reviews {
     margin-top: 1rem;
-    font-size: 0.95rem;
+    /* The one-line rule above sets this too, and loses: that selector is a
+       class on its own against a body class plus a class here. Sized here
+       instead so it actually wins. 3.2vw rather than 3.5 because nowrap makes
+       the line as wide as it needs to be and 3.5 still ran 307px into the
+       294px a 320px screen has, which is a sideways scrollbar, not a wrap. */
+    font-size: min(0.95rem, 3.2vw);
   }
 }
 

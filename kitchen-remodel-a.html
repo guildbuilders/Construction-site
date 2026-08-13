@@ -862,10 +862,10 @@
   </script>
 
   <script>
-    /* Brand strip: pages a full row every 4 seconds and wraps at the end.
+    /* Brand strip: pages a full row every 3.5 seconds and wraps at the end.
        A tile at a time was the first cut, but at forty names it took eighty
        seconds to come round and nobody saw past the appliances. A row every
-       four covers the same forty in about half a minute on a desktop.
+       3.5 covers the same forty in about twenty-five seconds on a desktop.
 
        WCAG 2.2.2 is what governs the escapes, and it is the total duration
        that matters rather than the interval: this rotates for as long as the
@@ -882,7 +882,7 @@
       var tiles = [].slice.call(track.querySelectorAll('.lp-brand'));
       if (tiles.length < 2) return;
 
-      var DELAY = 4000;
+      var DELAY = 3500;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var index = 0, timer = null;
 

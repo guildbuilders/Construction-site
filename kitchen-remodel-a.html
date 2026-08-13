@@ -359,8 +359,82 @@
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- Brand strip. Wordmarks, not logo files, for the same reason the review
+       badges above are wordmarks: naming a brand you genuinely install is
+       nominative fair use, while reproducing its mark reads as an endorsement
+       or a dealer relationship. Set as type it is also sharp at any pixel
+       density and costs no extra requests on a page that already carries a
+       hero video.
+
+       Ordered by trade, not by prominence: appliances, surfaces, fittings,
+       cabinet hardware, paint. The groups are not labelled on the page, so if
+       a brand is added put it with its own kind or the run stops reading as
+       deliberate. The lead above has to stay non-exhaustive: this is a sample
+       of what we install, and read as a complete list it becomes a ceiling on
+       what we will source. -->
   <section class="lp-section">
+    <div class="lp-container">
+      <h2>Brands We Build With</h2>
+      <!-- Non-breaking space so the closing "it." cannot be left stranded on a
+           line of its own. A two-letter word alone under a full line reads as a
+           mistake, and this lead changes width at every breakpoint. -->
+      <p class="lp-section-lead">A few of the names we install. If your design calls for something else, we&nbsp;source&nbsp;it.</p>
+      <div class="lp-brandstrip" id="brand-track" tabindex="0" role="group" aria-label="Brands we install, scrollable">
+        <!-- Appliances -->
+        <span class="lp-brand">Sub-Zero</span>
+        <span class="lp-brand">Wolf</span>
+        <span class="lp-brand">Viking</span>
+        <span class="lp-brand">Café</span>
+        <span class="lp-brand">Thermador</span>
+        <span class="lp-brand">Miele</span>
+        <span class="lp-brand">Monogram</span>
+        <span class="lp-brand">JennAir</span>
+        <span class="lp-brand">Bosch</span>
+        <span class="lp-brand">KitchenAid</span>
+        <span class="lp-brand">Fisher &amp; Paykel</span>
+        <span class="lp-brand">Zephyr</span>
+        <!-- Surfaces -->
+        <span class="lp-brand">Caesarstone</span>
+        <span class="lp-brand">Cambria</span>
+        <span class="lp-brand">Silestone</span>
+        <span class="lp-brand">Dekton</span>
+        <span class="lp-brand">Daltile</span>
+        <span class="lp-brand">Emser Tile</span>
+        <span class="lp-brand">Arizona Tile</span>
+        <span class="lp-brand">MSI</span>
+        <!-- Fittings -->
+        <span class="lp-brand">Kohler</span>
+        <span class="lp-brand">Delta</span>
+        <span class="lp-brand">Moen</span>
+        <span class="lp-brand">Signature Hardware</span>
+        <span class="lp-brand">Grohe</span>
+        <span class="lp-brand">Toto</span>
+        <span class="lp-brand">American Standard</span>
+        <span class="lp-brand">Hansgrohe</span>
+        <span class="lp-brand">Brizo</span>
+        <span class="lp-brand">Blanco</span>
+        <span class="lp-brand">Kraus</span>
+        <!-- Cabinet hardware -->
+        <span class="lp-brand">Blum</span>
+        <span class="lp-brand">Richelieu</span>
+        <span class="lp-brand">Häfele</span>
+        <span class="lp-brand">Top Knobs</span>
+        <span class="lp-brand">Emtek</span>
+        <!-- Paint -->
+        <span class="lp-brand">Benjamin Moore</span>
+        <span class="lp-brand">Sherwin-Williams</span>
+        <span class="lp-brand">Dunn-Edwards</span>
+        <span class="lp-brand">Behr</span>
+      </div>
+      <div class="lp-brand-nav">
+        <button type="button" class="lp-review-arrow" id="brand-prev" aria-label="Previous brands" aria-controls="brand-track">&#8592;</button>
+        <button type="button" class="lp-review-arrow" id="brand-next" aria-label="Next brands" aria-controls="brand-track">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>How It Works</h2>
       <div class="lp-steps">
@@ -406,7 +480,7 @@
 
   <!-- About us. Follows the process: the visitor has just read how the job
        runs, so this is where knowing who runs it lands. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>About Guild Builders</h2>
       <p class="lp-section-lead">The people who will actually be in your home</p>
@@ -440,7 +514,7 @@
        a design-only firm does not build and a build-only contractor does not
        design, which is true by definition and safe to put in an advertisement.
        Claiming a licensed profession fails at its own job is not. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>How We Compare</h2>
       <p class="lp-section-lead">Four ways to get a kitchen remodeled, and what each one leaves you holding</p>
@@ -543,7 +617,7 @@
 
   <!-- FAQ. details/summary rather than scripted panels: it is keyboard
        operable and works with JavaScript off, for free. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>Questions San Diego Homeowners Ask</h2>
       <p class="lp-section-lead">Frequently asked questions</p>
@@ -576,7 +650,7 @@
        is fair use, but reproducing its logo implies an endorsement or a dealer
        relationship that has to actually exist. Only platforms whose rating the
        site can stand behind appear here. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>Where San Diego Homeowners Review Us</h2>
       <p class="lp-section-lead">Independent ratings from the people whose kitchens we built</p>
@@ -601,80 +675,6 @@
             <span class="lp-badge-score">5 out of 5</span>
             <span class="lp-badge-cta">Read the reviews</span>
           </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brand strip. Wordmarks, not logo files, for the same reason the review
-       badges above are wordmarks: naming a brand you genuinely install is
-       nominative fair use, while reproducing its mark reads as an endorsement
-       or a dealer relationship. Set as type it is also sharp at any pixel
-       density and costs no extra requests on a page that already carries a
-       hero video.
-
-       Ordered by trade, not by prominence: appliances, surfaces, fittings,
-       cabinet hardware, paint. The groups are not labelled on the page, so if
-       a brand is added put it with its own kind or the run stops reading as
-       deliberate. The lead above has to stay non-exhaustive: this is a sample
-       of what we install, and read as a complete list it becomes a ceiling on
-       what we will source. -->
-  <section class="lp-section alt">
-    <div class="lp-container">
-      <h2>Brands We Build With</h2>
-      <!-- Non-breaking space so the closing "it." cannot be left stranded on a
-           line of its own. A two-letter word alone under a full line reads as a
-           mistake, and this lead changes width at every breakpoint. -->
-      <p class="lp-section-lead">A few of the names we install. If your design calls for something else, we&nbsp;source&nbsp;it.</p>
-      <div class="lp-brandstrip" id="brand-track" tabindex="0" role="group" aria-label="Brands we install, scrollable">
-        <!-- Appliances -->
-        <span class="lp-brand">Sub-Zero</span>
-        <span class="lp-brand">Wolf</span>
-        <span class="lp-brand">Viking</span>
-        <span class="lp-brand">Café</span>
-        <span class="lp-brand">Thermador</span>
-        <span class="lp-brand">Miele</span>
-        <span class="lp-brand">Monogram</span>
-        <span class="lp-brand">JennAir</span>
-        <span class="lp-brand">Bosch</span>
-        <span class="lp-brand">KitchenAid</span>
-        <span class="lp-brand">Fisher &amp; Paykel</span>
-        <span class="lp-brand">Zephyr</span>
-        <!-- Surfaces -->
-        <span class="lp-brand">Caesarstone</span>
-        <span class="lp-brand">Cambria</span>
-        <span class="lp-brand">Silestone</span>
-        <span class="lp-brand">Dekton</span>
-        <span class="lp-brand">Daltile</span>
-        <span class="lp-brand">Emser Tile</span>
-        <span class="lp-brand">Arizona Tile</span>
-        <span class="lp-brand">MSI</span>
-        <!-- Fittings -->
-        <span class="lp-brand">Kohler</span>
-        <span class="lp-brand">Delta</span>
-        <span class="lp-brand">Moen</span>
-        <span class="lp-brand">Signature Hardware</span>
-        <span class="lp-brand">Grohe</span>
-        <span class="lp-brand">Toto</span>
-        <span class="lp-brand">American Standard</span>
-        <span class="lp-brand">Hansgrohe</span>
-        <span class="lp-brand">Brizo</span>
-        <span class="lp-brand">Blanco</span>
-        <span class="lp-brand">Kraus</span>
-        <!-- Cabinet hardware -->
-        <span class="lp-brand">Blum</span>
-        <span class="lp-brand">Richelieu</span>
-        <span class="lp-brand">Häfele</span>
-        <span class="lp-brand">Top Knobs</span>
-        <span class="lp-brand">Emtek</span>
-        <!-- Paint -->
-        <span class="lp-brand">Benjamin Moore</span>
-        <span class="lp-brand">Sherwin-Williams</span>
-        <span class="lp-brand">Dunn-Edwards</span>
-        <span class="lp-brand">Behr</span>
-      </div>
-      <div class="lp-brand-nav">
-        <button type="button" class="lp-review-arrow" id="brand-prev" aria-label="Previous brands" aria-controls="brand-track">&#8592;</button>
-        <button type="button" class="lp-review-arrow" id="brand-next" aria-label="Next brands" aria-controls="brand-track">&#8594;</button>
       </div>
     </div>
   </section>

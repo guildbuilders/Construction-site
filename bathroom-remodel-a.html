@@ -236,8 +236,76 @@
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- Brand strip. Wordmarks, not logo files, for the same reason the review
+       badges above are wordmarks: naming a brand you genuinely install is
+       nominative fair use, while reproducing its mark reads as an endorsement
+       or a dealer relationship. Set as type it is also sharp at any pixel
+       density and costs no extra requests on a page that already carries a
+       hero video.
+
+       Ordered by trade, not by prominence: surfaces, fittings, cabinet
+       hardware, paint. The groups are not labelled on the page, so if a brand
+       is added put it with its own kind or the run stops reading as
+       deliberate. The lead above has to stay non-exhaustive: this is a sample
+       of what we install, and read as a complete list it becomes a ceiling on
+       what we will source.
+
+       This is Kitchen A's strip less its twelve appliance brands. Sub-Zero,
+       Wolf, Viking and the rest are ranges, refrigerators and hoods, and on a
+       page selling bathrooms they read as padding rather than as coverage.
+       Everything a bathroom actually touches is still here. -->
+  <!-- 28 tiles here against Kitchen A's 40; the row paging is measured rather
+       than fixed, so it needs no adjusting for the shorter strip. -->
   <section class="lp-section alt">
+    <div class="lp-container">
+      <h2>Brands We Build With</h2>
+      <!-- Non-breaking space so the closing "it." cannot be left stranded on a
+           line of its own. A two-letter word alone under a full line reads as a
+           mistake, and this lead changes width at every breakpoint. -->
+      <p class="lp-section-lead">A few of the names we install. If your design calls for something else, we&nbsp;source&nbsp;it.</p>
+      <div class="lp-brandstrip" id="brand-track" tabindex="0" role="group" aria-label="Brands we install, scrollable">
+        <!-- Surfaces -->
+        <span class="lp-brand">Caesarstone</span>
+        <span class="lp-brand">Cambria</span>
+        <span class="lp-brand">Silestone</span>
+        <span class="lp-brand">Dekton</span>
+        <span class="lp-brand">Daltile</span>
+        <span class="lp-brand">Emser Tile</span>
+        <span class="lp-brand">Arizona Tile</span>
+        <span class="lp-brand">MSI</span>
+        <!-- Fittings -->
+        <span class="lp-brand">Kohler</span>
+        <span class="lp-brand">Delta</span>
+        <span class="lp-brand">Moen</span>
+        <span class="lp-brand">Signature Hardware</span>
+        <span class="lp-brand">Grohe</span>
+        <span class="lp-brand">Toto</span>
+        <span class="lp-brand">American Standard</span>
+        <span class="lp-brand">Hansgrohe</span>
+        <span class="lp-brand">Brizo</span>
+        <span class="lp-brand">Blanco</span>
+        <span class="lp-brand">Kraus</span>
+        <!-- Cabinet hardware -->
+        <span class="lp-brand">Blum</span>
+        <span class="lp-brand">Richelieu</span>
+        <span class="lp-brand">Häfele</span>
+        <span class="lp-brand">Top Knobs</span>
+        <span class="lp-brand">Emtek</span>
+        <!-- Paint -->
+        <span class="lp-brand">Benjamin Moore</span>
+        <span class="lp-brand">Sherwin-Williams</span>
+        <span class="lp-brand">Dunn-Edwards</span>
+        <span class="lp-brand">Behr</span>
+      </div>
+      <div class="lp-brand-nav">
+        <button type="button" class="lp-review-arrow" id="brand-prev" aria-label="Previous brands" aria-controls="brand-track">&#8592;</button>
+        <button type="button" class="lp-review-arrow" id="brand-next" aria-label="Next brands" aria-controls="brand-track">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="lp-section">
     <div class="lp-container">
       <h2>How It Works</h2>
       <div class="lp-steps">
@@ -283,7 +351,7 @@
 
   <!-- About us. Follows the process: the visitor has just read how the job
        runs, so this is where knowing who runs it lands. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>About Guild Builders</h2>
       <p class="lp-section-lead">The people who will actually be in your home</p>
@@ -317,7 +385,7 @@
        a design-only firm does not build and a build-only contractor does not
        design, which is true by definition and safe to put in an advertisement.
        Claiming a licensed profession fails at its own job is not. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>How We Compare</h2>
       <p class="lp-section-lead">Four ways to get a bathroom remodeled, and what each one leaves you holding</p>
@@ -420,7 +488,7 @@
 
   <!-- FAQ. details/summary rather than scripted panels: it is keyboard
        operable and works with JavaScript off, for free. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>Questions San Diego Homeowners Ask</h2>
       <p class="lp-section-lead">Frequently asked questions</p>
@@ -453,7 +521,7 @@
        is fair use, but reproducing its logo implies an endorsement or a dealer
        relationship that has to actually exist. Only platforms whose rating the
        site can stand behind appear here. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>Where San Diego Homeowners Review Us</h2>
       <p class="lp-section-lead">Independent ratings from the people whose bathrooms we built</p>
@@ -620,6 +688,110 @@
       } else {
         /* no observer, so fall back to the old behaviour rather than a
            carousel that never moves */
+        inView = true;
+        start();
+      }
+    })();
+  </script>
+
+  <script>
+    /* Brand strip: pages a full row every 4 seconds and wraps at the end.
+       A tile at a time was the first cut, but at forty names it took eighty
+       seconds to come round and nobody saw past the appliances. A row every
+       four covers the same forty in about twenty-eight seconds on a desktop.
+
+       WCAG 2.2.2 is what governs the escapes, and it is the total duration
+       that matters rather than the interval: this rotates for as long as the
+       section is on screen, well past five seconds, so a way to stop it is
+       required whatever the cadence. It pauses on hover and on keyboard focus,
+       the arrows page it by hand, and it does not move at all under reduced
+       motion. It also only runs while actually on screen, so the visitor
+       arrives at the first row rather than mid-sequence. */
+    (function () {
+      var track = document.getElementById('brand-track');
+      var prev = document.getElementById('brand-prev');
+      var next = document.getElementById('brand-next');
+      if (!track || !prev || !next) return;
+      var tiles = [].slice.call(track.querySelectorAll('.lp-brand'));
+      if (tiles.length < 2) return;
+
+      var DELAY = 4000;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var index = 0, timer = null;
+
+      /* How many tiles fit whole, measured rather than derived from the tile
+         width: it changes at the 600px breakpoint and again with the scrollbar,
+         and a row that is off by one leaves a tile never quite reached.
+         Recounted on every step so a resize needs no listener. */
+      function perRow() {
+        var first = tiles[0].offsetLeft, w = track.clientWidth, n = 0;
+        for (var i = 0; i < tiles.length; i++) {
+          if (tiles[i].offsetLeft - first + tiles[i].offsetWidth <= w + 1) n++;
+          else break;
+        }
+        return Math.max(1, n);
+      }
+
+      prev.addEventListener('click', function () { go(index - perRow()); restart(); });
+      next.addEventListener('click', function () { go(index + perRow()); restart(); });
+
+      function target(n) { return tiles[n].offsetLeft - tiles[0].offsetLeft; }
+
+      /* The last tiles' targets sit past the maximum scroll, so the browser
+         clamps them and the nearest-tile check below would read the index back
+         as an earlier tile and pin the rotation short of the end. Ignore the
+         scroll events we caused ourselves. */
+      var programmatic = false, settleProg;
+      /* Paging, so this wraps at the row rather than by modulus. A modulus
+         would take the step past the last tile and land mid-row, and from then
+         on every row would be offset by the remainder instead of starting
+         where the previous one ended. Overshooting the end goes back to the
+         start; stepping back off the front goes to the last whole row. */
+      function go(n) {
+        if (n >= tiles.length) n = 0;
+        else if (n < 0) n = Math.max(0, tiles.length - perRow());
+        index = n;
+        programmatic = true;
+        clearTimeout(settleProg);
+        settleProg = setTimeout(function () { programmatic = false; }, 900);
+        track.scrollTo({ left: target(index), behavior: reduced ? 'auto' : 'smooth' });
+      }
+
+      var inView = false;
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + perRow()); }, DELAY); }
+      function restart() { stop(); start(); }
+
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      track.addEventListener('focusin', stop);
+      track.addEventListener('focusout', start);
+
+      /* a swipe or a trackpad scroll takes over rather than being fought */
+      var settle;
+      track.addEventListener('scroll', function () {
+        if (programmatic) return;
+        clearTimeout(settle);
+        settle = setTimeout(function () {
+          if (programmatic) return;
+          var best = 0, min = Infinity;
+          tiles.forEach(function (t, n) {
+            var d = Math.abs(target(n) - track.scrollLeft);
+            if (d < min) { min = d; best = n; }
+          });
+          index = best;
+          restart();
+        }, 140);
+      }, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            inView = e.isIntersecting;
+            if (inView) { start(); } else { stop(); }
+          });
+        }, { threshold: 0.3 }).observe(track);
+      } else {
         inView = true;
         start();
       }

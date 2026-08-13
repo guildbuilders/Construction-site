@@ -862,13 +862,18 @@
   </script>
 
   <script>
-    /* Brand strip: steps one tile every 2 seconds and wraps at the end.
-       Two seconds is well inside the five that WCAG 2.2.2 allows to move
-       unattended, so the same escapes the reviews carousel has apply here and
-       matter more: it pauses on hover and on keyboard focus, the arrows drive
-       it by hand, and it does not move at all under reduced motion. It also
-       only runs while it is actually on screen, which on this page means it is
-       usually still on the first tile when the visitor reaches it. */
+    /* Brand strip: pages a full row every 4 seconds and wraps at the end.
+       A tile at a time was the first cut, but at forty names it took eighty
+       seconds to come round and nobody saw past the appliances. A row every
+       four covers the same forty in about half a minute on a desktop.
+
+       WCAG 2.2.2 is what governs the escapes, and it is the total duration
+       that matters rather than the interval: this rotates for as long as the
+       section is on screen, well past five seconds, so a way to stop it is
+       required whatever the cadence. It pauses on hover and on keyboard focus,
+       the arrows page it by hand, and it does not move at all under reduced
+       motion. It also only runs while actually on screen, so the visitor
+       arrives at the first row rather than mid-sequence. */
     (function () {
       var track = document.getElementById('brand-track');
       var prev = document.getElementById('brand-prev');
@@ -877,12 +882,25 @@
       var tiles = [].slice.call(track.querySelectorAll('.lp-brand'));
       if (tiles.length < 2) return;
 
-      var DELAY = 2000;
+      var DELAY = 4000;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var index = 0, timer = null;
 
-      prev.addEventListener('click', function () { go(index - 1); restart(); });
-      next.addEventListener('click', function () { go(index + 1); restart(); });
+      /* How many tiles fit whole, measured rather than derived from the tile
+         width: it changes at the 600px breakpoint and again with the scrollbar,
+         and a row that is off by one leaves a tile never quite reached.
+         Recounted on every step so a resize needs no listener. */
+      function perRow() {
+        var first = tiles[0].offsetLeft, w = track.clientWidth, n = 0;
+        for (var i = 0; i < tiles.length; i++) {
+          if (tiles[i].offsetLeft - first + tiles[i].offsetWidth <= w + 1) n++;
+          else break;
+        }
+        return Math.max(1, n);
+      }
+
+      prev.addEventListener('click', function () { go(index - perRow()); restart(); });
+      next.addEventListener('click', function () { go(index + perRow()); restart(); });
 
       function target(n) { return tiles[n].offsetLeft - tiles[0].offsetLeft; }
 
@@ -891,8 +909,15 @@
          as an earlier tile and pin the rotation short of the end. Ignore the
          scroll events we caused ourselves. */
       var programmatic = false, settleProg;
+      /* Paging, so this wraps at the row rather than by modulus. A modulus
+         would take the step past the last tile and land mid-row, and from then
+         on every row would be offset by the remainder instead of starting
+         where the previous one ended. Overshooting the end goes back to the
+         start; stepping back off the front goes to the last whole row. */
       function go(n) {
-        index = (n + tiles.length) % tiles.length;
+        if (n >= tiles.length) n = 0;
+        else if (n < 0) n = Math.max(0, tiles.length - perRow());
+        index = n;
         programmatic = true;
         clearTimeout(settleProg);
         settleProg = setTimeout(function () { programmatic = false; }, 900);
@@ -901,7 +926,7 @@
 
       var inView = false;
       function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + 1); }, DELAY); }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + perRow()); }, DELAY); }
       function restart() { stop(); start(); }
 
       track.addEventListener('mouseenter', stop);

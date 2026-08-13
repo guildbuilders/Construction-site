@@ -420,6 +420,30 @@ body.home .hero-video {
   }
 }
 
+/* Phones: the block was bottom-aligned, which is right on a desktop where it
+   wants to sit under a 171px logo, but wrong here. Measured at 390x844 it left
+   a 121px band of bare video between the logo and the eyebrow while the block
+   itself sat only 68px off the bottom: lopsided and low at the same time.
+
+   Centred instead, and centred in the part of the hero that is actually
+   visible rather than in the raw box. The header is fixed over the top 102px
+   and the sticky call bar covers the bottom 64px, so those two become the
+   padding and the gap above the block genuinely matches the gap below it.
+   Keep them in step with .logo-image (82px plus the header's 10px of padding
+   either side) and with the call bar, or the block goes off centre again.
+
+   svh rather than vh so the hero is the viewport at its SMALLEST, with the
+   address bar showing. Sizing to vh centres the block against a box taller
+   than the screen, which pushes it down behind the browser chrome. */
+@media (max-width: 800px) {
+  body.home .hero-video {
+    min-height: 100svh;
+    align-items: center;
+    padding-top: 102px;
+    padding-bottom: 64px;
+  }
+}
+
 /* header floats over the video (logo + nav become part of the video) */
 body.home .site-header {
   position: fixed;

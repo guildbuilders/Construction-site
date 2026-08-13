@@ -1176,6 +1176,30 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
   text-transform: uppercase;
   color: #14243a;
 }
+/* The logos are supplied on white and the tile is white, so they are dropped
+   in opaque rather than keyed to transparency: a colour-key threshold leaves
+   a fringe on antialiased type, and matching white on white has no seam to
+   hide. Only Arizona Tile needed work, arriving on 244 grey.
+
+   The marks share no aspect ratio: Fisher & Paykel is 15.7:1 and Benjamin
+   Moore is 1.1:1. Scaling them all to one width would leave the first a
+   hairline and the second towering, so each is capped on BOTH axes and fits
+   inside whichever binds. Wide wordmarks take the full width and come out
+   short; stacked marks take the full height and come out narrow. That is the
+   honest reading of the artwork rather than a uniform number applied to
+   everything. The assets are pre-fitted to 2x these caps, so the browser is
+   never scaling up. */
+.lp-brand img {
+  max-width: 146px;
+  max-height: 38px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 600px) {
+  .lp-brand img { max-width: 118px; max-height: 32px; }
+}
 .lp-brand-nav {
   display: flex;
   justify-content: center;

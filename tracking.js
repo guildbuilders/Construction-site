@@ -242,7 +242,83 @@
     captureLead(form);
   }, true);
 
+  /* ---------- 5. Confirmed bookings ----------
+     Only booking-confirmed.html carries this class, and the only way to reach
+     that page is the scheduler redirecting there once an appointment is
+     actually on the calendar. So booking_click is intent and this is the
+     booking, which is the difference that lets Ads bid on the real thing.
+
+     Schedulers put the invitee's details in the redirect query string. Where
+     they do, they go into user_data for Enhanced Conversions, and then the
+     query string is wiped from the address bar: an email sitting in a URL ends
+     up in analytics page paths, browser history and any link the visitor
+     shares, and none of those are places it belongs. */
+  function confirmBooking() {
+    var q;
+    try {
+      q = new URLSearchParams(location.search);
+    } catch (e) {
+      q = null;
+    }
+    function param() {
+      if (!q) return undefined;
+      for (var i = 0; i < arguments.length; i++) {
+        var v = q.get(arguments[i]);
+        if (v) return v.trim();
+      }
+      return undefined;
+    }
+
+    var email = param("invitee_email", "email", "attendeeEmail");
+    var whole = param("invitee_full_name", "name", "attendeeName", "invitee_name");
+    var first = param("invitee_first_name", "firstName");
+    var last = param("invitee_last_name", "lastName");
+    if (whole && !first && !last) {
+      var parts = whole.split(/\s+/);
+      first = parts.shift();
+      last = parts.length ? parts.join(" ") : undefined;
+    }
+
+    var address = { first_name: first, last_name: last, country: "US" };
+    var hasName = !!(first || last);
+
+    var payload = {
+      event: "booking_confirmed",
+      event_id: eventId("booking"),
+      currency: "USD",
+      booking_start: param("event_start_time", "startTime", "start"),
+      scheduler: param("scheduler") || undefined,
+      /* False means this page was opened without the scheduler's redirect
+         behind it - a refresh, a bookmark, someone with the URL. Filterable in
+         GTM, and the reason the Ads action should count One per click. */
+      booking_details: !!(email || whole || first)
+    };
+    /* baseContext reads location.href, which at this point still has the
+       invitee's email in it. The event must not carry that into GA4 or Ads as
+       page_url, so the context is built from the path alone. */
+    var ctx = baseContext(param("utm_source") || "calendar");
+    ctx.page_url = location.origin + location.pathname;
+    Object.keys(ctx).forEach(function (k) { payload[k] = ctx[k]; });
+
+    payload.user_data = {
+      email_address: email ? email.toLowerCase() : undefined,
+      phone_number: e164(param("invitee_phone", "phone", "attendeePhone")),
+      address: hasName ? address : undefined,
+      fbp: cookie("_fbp"),
+      fbc: cookie("_fbc")
+    };
+
+    push(payload);
+
+    if (q && location.search && window.history && history.replaceState) {
+      history.replaceState(null, "", location.pathname);
+    }
+  }
+
   if (document.body && document.body.classList.contains("gb-thanks")) {
     flushLead();
+  }
+  if (document.body && document.body.classList.contains("gb-booking-confirmed")) {
+    confirmBooking();
   }
 })();

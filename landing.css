@@ -269,6 +269,19 @@ body.lp-video-hero .lp-header.scrolled .lp-header-phone:hover {
   margin-right: auto;
   text-align: left;
 }
+/* ---------- Thank-you pages ----------
+   These reuse the landing hero but have no form card, so the hero's
+   1.1fr/0.9fr grid stranded the whole confirmation in the left column with
+   the right 45% of a desktop screen empty - it read as a broken page, not a
+   centred one. One column, centred, and no lift: the -10% on .lp-hero-copy
+   exists to balance the form card that isn't here. */
+.lp-thanks-inner { grid-template-columns: 1fr; justify-items: center; }
+body.lp-video-hero .lp-thanks-inner .lp-hero-copy {
+  max-width: 46rem;
+  transform: none;
+}
+.lp-thanks-cta { margin: 1.8rem 0 1.4rem; }
+
 .lp-hero-bullets li {
   position: relative;
   padding-left: 2rem;

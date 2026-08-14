@@ -27,7 +27,7 @@
 <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=85" />
+  <link rel="stylesheet" href="landing.css?v=86" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -148,8 +148,38 @@
     </div>
   </section>
 
-  <!-- Reviews -->
+  <!-- Before and after. Same slot the kitchen page uses, after the gallery:
+       the finished shots sell the work, this shows how far it moved. One pair
+       so far, so no arrows - a nav that cannot go anywhere is the dead button
+       problem again. Add the carousel script from kitchen-remodel-a.html when
+       a second pair lands. -->
   <section class="lp-section alt">
+    <div class="lp-container">
+      <h2>See Our Client's Home Transformations</h2>
+      <div class="lp-ba" id="ba-track" tabindex="0" role="group" aria-label="Before and after transformation">
+        <div class="lp-ba-item is-portrait">
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">Before</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-orchidia-before.webp" src="ba-orchidia-before-600.webp"
+                 srcset="ba-orchidia-before-600.webp 600w, ba-orchidia-before.webp 1536w"
+                 sizes="(max-width: 700px) 92vw, 370px" width="1536" height="2752"
+                 alt="Encinitas bathroom before the remodel" loading="lazy" />
+          </div>
+          <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">After</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-orchidia-after.webp" src="ba-orchidia-after-600.webp"
+                 srcset="ba-orchidia-after-600.webp 600w, ba-orchidia-after.webp 768w"
+                 sizes="(max-width: 700px) 92vw, 370px" width="768" height="1365"
+                 alt="Encinitas bathroom after the remodel" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="lp-section">
     <div class="lp-container">
       <h2>What San Diego Homeowners Are Saying</h2>
       <div class="lp-reviews" id="reviews-track" tabindex="0" role="group" aria-label="Customer reviews, scrollable">
@@ -186,7 +216,7 @@
 
   <!-- How we deliver. Follows the photographs: the work has just been shown,
        so this is where how it gets done lands. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>How We Deliver An Incredible San Diego Remodeling Experience</h2>
       <div class="lp-deliver">
@@ -239,7 +269,7 @@
        Everything a bathroom actually touches is still here. -->
   <!-- 28 tiles here against Kitchen A's 40; the row paging is measured rather
        than fixed, so it needs no adjusting for the shorter strip. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>Brands We Build With</h2>
       <!-- Non-breaking space so the closing "it." cannot be left stranded on a
@@ -288,7 +318,7 @@
   </section>
 
   <!-- How it works -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>How It Works</h2>
       <div class="lp-steps">
@@ -334,7 +364,7 @@
 
   <!-- About us. Follows the process: the visitor has just read how the job
        runs, so this is where knowing who runs it lands. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>About Guild Builders</h2>
       <p class="lp-section-lead">The people who will actually be in your home</p>
@@ -368,7 +398,7 @@
        a design-only firm does not build and a build-only contractor does not
        design, which is true by definition and safe to put in an advertisement.
        Claiming a licensed profession fails at its own job is not. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>How We Compare</h2>
       <p class="lp-section-lead">Four ways to get a bathroom remodeled, and what each one leaves you holding</p>
@@ -471,7 +501,7 @@
 
   <!-- FAQ. details/summary rather than scripted panels: it is keyboard
        operable and works with JavaScript off, for free. -->
-  <section class="lp-section alt">
+  <section class="lp-section">
     <div class="lp-container">
       <h2>Questions San Diego Homeowners Ask</h2>
       <p class="lp-section-lead">Frequently asked questions</p>
@@ -504,7 +534,7 @@
        is fair use, but reproducing its logo implies an endorsement or a dealer
        relationship that has to actually exist. Only platforms whose rating the
        site can stand behind appear here. -->
-  <section class="lp-section">
+  <section class="lp-section alt">
     <div class="lp-container">
       <h2>Where San Diego Homeowners Review Us</h2>
       <p class="lp-section-lead">Independent ratings from the people whose bathrooms we built</p>

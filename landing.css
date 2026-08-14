@@ -280,7 +280,30 @@ body.lp-video-hero .lp-thanks-inner .lp-hero-copy {
   max-width: 46rem;
   transform: none;
 }
-.lp-thanks-cta { margin: 1.8rem 0 1.4rem; }
+/* Call first, book second. Both sit on one row on a desktop and wrap to two
+   on a phone, so the gold phone button always reads as the primary action and
+   the ghost calendar link as the alternative. */
+.lp-thanks-cta {
+  margin: 1.8rem 0 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+}
+/* The ghost button is quieter than .lp-cta-phone but has to stay legible over
+   a moving video: white on the hero's overlay, and it fills the phone width so
+   the two buttons read as a stack rather than two ragged pills. */
+.lp-thanks-cta .lp-cta-ghost { font-size: 1.02rem; }
+@media (max-width: 600px) {
+  .lp-thanks-cta { flex-direction: column; gap: 0.75rem; }
+  .lp-thanks-cta .lp-cta-phone,
+  .lp-thanks-cta .lp-cta-ghost {
+    width: 100%;
+    max-width: 22rem;
+    justify-content: center;
+  }
+}
 
 .lp-hero-bullets li {
   position: relative;

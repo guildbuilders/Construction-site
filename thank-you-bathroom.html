@@ -42,12 +42,21 @@
       gtag('event', 'conversion', { send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD' });
       return true;
     }
+
+    /* GA4 only. There is no Ads conversion action for booking, and inventing
+       one here would double-count the lead: the form submit above already
+       reported it. This just measures how many people pick the calendar over
+       the phone. */
+    function gb_bookingClick() {
+      gtag('event', 'booking_click');
+      return true;
+    }
   </script>
 
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=81" />
+  <link rel="stylesheet" href="landing.css?v=82" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -93,6 +102,11 @@
         <p class="lp-subhead">Your dedicated project manager, Omer, will be contacting you within 24 hours to schedule your complimentary consultation and estimate.</p>
         <div class="lp-thanks-cta">
           <a class="lp-cta-phone" href="tel:+16197632982" onclick="return gb_callConversion();">&#128222; (619) 763-2982</a>
+          <!-- Omer's Google Calendar appointment schedule. Second, and styled
+               ghost rather than gold, because the call is the action most
+               people take. Opens in a new tab so the confirmation stays put. -->
+          <a class="lp-cta-ghost" href="https://calendar.app.google/mqGPysKovDo8FxvZA"
+             target="_blank" rel="noopener" onclick="return gb_bookingClick();">&#128197; Book a Time Online</a>
         </div>
         <span class="lp-hero-reviews"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5 stars on Google, Facebook &amp; Thumbtack</span>
       </div>

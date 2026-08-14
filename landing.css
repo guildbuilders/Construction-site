@@ -1024,13 +1024,6 @@ body.lp-video-hero .lp-thanks-inner .lp-hero-copy {
   display: block;
   box-shadow: 0 14px 36px rgba(20, 36, 58, 0.14);
 }
-/* Bathroom A only. Camino is a 0.56 portrait dropped into a box near square,
-   so cover throws away better than a third of the height, and at the shared
-   35% the window opened below the rain head - the fitting was cut in half.
-   The head sits between 9% and 16% down the frame, so the window has to start
-   above that. This lands it around 6%, which keeps the head, the ceiling
-   lights and the marble slab whole and spends the crop on the bath mat. */
-.lp-deliver-photo.is-top-weighted img { object-position: center 10%; }
 .lp-deliver-list { list-style: none; margin: 0; padding: 0; }
 .lp-deliver-list li { padding: 1.15rem 0; border-bottom: 1px solid #e4ddce; }
 .lp-deliver-list li:first-child { padding-top: 0; }

@@ -440,6 +440,24 @@ body.lp-video-hero .lp-thanks-inner .lp-hero-copy {
   color: #66707f;
   margin: 0.8rem 0 0;
 }
+/* Calendar link at the foot of the form card. Navy on white rather than the
+   gold used over the hero video: gold on white is the one place that pairing
+   drops under 4.5:1. Separated by a rule so it reads as an alternative to the
+   form rather than part of it. */
+.lp-form-calendar {
+  text-align: center;
+  font-size: 0.92rem;
+  margin: 1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid #e6e9ee;
+}
+.lp-form-calendar a {
+  color: #14243a;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lp-form-calendar a:hover { color: #a8842c; }
 
 /* ---------- Gallery lightbox ----------
    Ported from style.css, which landing pages do not load. Same behaviour:

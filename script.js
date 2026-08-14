@@ -9,6 +9,17 @@ function gb_callConversion() {
   return true;
 }
 
+// Google Calendar booking links. GA4 only, no Ads conversion action: the ones
+// that follow a form submit were already counted by the form, and no action
+// exists in the Ads account for a booking on its own. Same shape as
+// gb_callConversion so an onclick can call it before navigating away.
+function gb_bookingClick() {
+  if (typeof gtag === "function") {
+    gtag("event", "booking_click");
+  }
+  return true;
+}
+
 
 // Hero video. This used to be desktop only: below 861px nothing was attached
 // and the poster stood in, which is why the hero was a still on a phone.

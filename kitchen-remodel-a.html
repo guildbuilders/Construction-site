@@ -60,7 +60,7 @@
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=83" />
+  <link rel="stylesheet" href="landing.css?v=84" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -140,6 +140,14 @@
           <button type="submit" class="lp-btn">Get Your Free Estimate →</button>
           <p class="lp-form-fineprint"><span class="lp-lock">🔐</span> We respect your privacy. We will never sell or share your information.</p>
         </form>
+        <!-- Below the form and outside it, so the submit button stays the one
+             obvious next step inside the card. Same link as the CTA band at
+             the foot of the page, for the visitor who decides here. -->
+        <p class="lp-form-calendar">
+          <span aria-hidden="true">&#128197;</span>
+          <a href="https://calendar.app.google/mqGPysKovDo8FxvZA" target="_blank" rel="noopener"
+             onclick="return gb_bookingClick();">Or book a time on Omer&rsquo;s calendar</a>
+        </p>
       </div>
 
     </div>

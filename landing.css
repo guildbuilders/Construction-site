@@ -80,9 +80,15 @@ body.lp-video-hero .lp-hero-inner {
   padding-top: 191px;
   padding-bottom: 4rem;
 }
-/* lifts the lead form card 15% of its own height above the hero copy */
+/* Lifts the lead form card above the hero copy. 8%, not the 15% it was: on a
+   viewport around 1512x982 - the default window on a 14in MacBook - the hero
+   block centres such that a 15% lift put the top of the white card behind the
+   header's phone button. The button is white text on a transparent pill, so
+   over the card it went from legible to nearly invisible, which is a phone
+   number on the page where the ad money lands. Only viewports above 940px tall
+   ever used this value; shorter ones have their own rules below. */
 body.lp-video-hero .lp-form-card {
-  transform: translateY(-15%);
+  transform: translateY(-8%);
 }
 /* lifts the headline/bullets column so the Google review line clears the fold */
 body.lp-video-hero .lp-hero-copy {
@@ -852,6 +858,11 @@ body.lp-video-hero .lp-thanks-inner .lp-hero-copy {
    amount instead of butchering one to flatter the other, and it keeps every
    item the same height so the carousel does not jump as it turns. */
 .lp-ba-item.is-square .lp-ba-img { aspect-ratio: 1; }
+/* Camino is the tallest source in the set, a 9:16 frame, so a centred square
+   crop lost the rain head at the top of the shower - the thing the photograph
+   is of. Anchored to the top instead: the crop comes off the floor, which is
+   bath mat and tub edge. */
+.lp-ba-img.is-top { object-position: center top; }
 
 /* the drawn arrow, centred in the gap and sitting on the label line */
 .lp-ba-turn {

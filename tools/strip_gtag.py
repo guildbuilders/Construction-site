@@ -29,14 +29,101 @@ ADS_ID   = "AW-18096983407"
 PHONE_LB = "4xQWCNa0wdwcEO-aqLVD"
 FORM_LB  = "01S8CJac9d4cEO-aqLVD"
 
-# the async loader plus the inline config script that follows it
+# The async loader plus the inline config script that follows it, and the
+# comment above it. Three comment wordings are in use across the 98 pages -
+# "Google Ads / gtag", "Google tag (gtag.js)", and one on 404.html that names
+# the GA4 id inline. Missing a variant leaves a comment claiming the page
+# routes to Ads and GA4 when it no longer does, which is how the next person
+# reading this file gets misled.
 GTAG_BLOCK = re.compile(
-    r'[ \t]*<!-- Google Ads / gtag -->\s*'
+    r'[ \t]*<!-- Google (?:Ads / gtag|tag \(gtag\.js\))[^>]*-->\s*'
     r'|[ \t]*<script async src="https://www\.googletagmanager\.com/gtag/js\?id=[^"]+"></script>\s*'
     r'<script>.*?</script>\s*',
     re.S)
-ONCLICK  = re.compile(r'\s*onclick="return gb_callConversion\(\);"')
-GB_FUNC  = re.compile(r'\n?[ \t]*function gb_callConversion\(\)\s*\{.*?\n[ \t]*\}\n', re.S)
+ONCLICK  = re.compile(r'\s*onclick="return gb_(?:callConversion|bookingClick)\(\);"')
+
+GB_FUNCS = ("gb_callConversion", "gb_bookingClick")
+
+
+def _comment_start(src, i):
+    """Walk back from i over the comment lines that introduce the function, so
+    the explanation goes out with the thing it explains."""
+    while True:
+        line_start = src.rfind("\n", 0, i - 1) + 1 if i else 0
+        if line_start >= i:
+            return i
+        line = src[line_start:i].strip()
+        if line.startswith("//"):
+            i = line_start
+        elif line.endswith("*/"):
+            open_at = src.rfind("/*", 0, i)
+            if open_at == -1:
+                return i
+            i = src.rfind("\n", 0, open_at) + 1
+        else:
+            return i
+
+
+def strip_function(src, name):
+    """Remove `function name() { ... }` by COUNTING BRACES, not by regex.
+
+    The regex this replaces was `.*?\\n[ \\t]*\\}\\n` non-greedy, which stops at
+    the first closing brace sitting alone on a line - and gb_callConversion has
+    one, the inner `if (typeof gtag === "function") { ... }`. It cut the
+    function in half and left `return true; }` at the top level, so script.js
+    became a syntax error and every scripted feature on the site would have
+    died silently: menu, gallery, hero video, the lot. Grepping for the
+    function name said it was gone. `node --check` said otherwise.
+    """
+    pattern = re.compile(r'function\s+' + re.escape(name) + r'\s*\(\s*\)\s*\{')
+    removed = 0
+    while True:
+        m = pattern.search(src)
+        if not m:
+            return src, removed
+        n = len(src)
+        j = m.end() - 1          # sitting on the opening brace
+        depth = 0
+        while j < n:
+            ch = src[j]
+            if ch in "\"'`":     # skip string literals, braces inside don't count
+                quote, j = ch, j + 1
+                while j < n and src[j] != quote:
+                    j += 2 if src[j] == "\\" else 1
+                j += 1
+            elif src.startswith("//", j):
+                j = src.find("\n", j)
+                if j == -1:
+                    j = n
+            elif src.startswith("/*", j):
+                k = src.find("*/", j)
+                j = n if k == -1 else k + 2
+            elif ch == "{":
+                depth += 1
+                j += 1
+            elif ch == "}":
+                depth -= 1
+                j += 1
+                if depth == 0:
+                    break
+            else:
+                j += 1
+        if depth != 0:
+            raise SystemExit(f"unbalanced braces around {name} - refusing to guess")
+        start = _comment_start(src, m.start())
+        end = j
+        while end < n and src[end] in " \t":
+            end += 1
+        if end < n and src[end] == "\n":
+            end += 1
+        src = src[:start] + src[end:]
+        removed += 1
+
+# The same-origin endpoint the web container's Google tag points at. In a
+# server-side setup this is the thing that proves the container is really
+# wired up, because the Ads conversion tags live in the SERVER container and
+# never appear in gtm.js at all.
+TAGGING_URL = "guildbuildersgroup.com/edge"
 
 
 def preflight():
@@ -46,19 +133,36 @@ def preflight():
     try:
         js = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
     except Exception as e:
-        return False, [f"could not fetch the container: {e}"]
+        return False, [f"could not fetch the container: {e}"], []
 
-    missing = [label for needle, label in (
-        (GA4_ID,   f"GA4 config ({GA4_ID})"),
-        (ADS_ID,   f"Ads config ({ADS_ID})"),
-        (PHONE_LB, f"phone conversion label ({PHONE_LB})"),
-        (FORM_LB,  f"form conversion label ({FORM_LB})"),
-    ) if needle not in js]
+    missing, warnings = [], []
 
+    # Hard requirement 1: the container actually carries tags.
     m = re.search(r'"tags":\s*\[(.*?)\]\s*,\s*"predicates"', js, re.S)
     if m and not m.group(1).strip():
         missing.append("the container's tag array is empty")
-    return (not missing), missing
+
+    # Hard requirement 2: something in there measures. Either the GA4 id is
+    # configured in the web container the old way, or there is a Google tag
+    # pointing at our own tagging endpoint, which is the server-side way.
+    if GA4_ID not in js and TAGGING_URL not in js:
+        missing.append(
+            f"no GA4 config ({GA4_ID}) and no server_container_url "
+            f"({TAGGING_URL}) - nothing in this container measures anything")
+
+    # Soft: with a server-side setup the Ads conversion tags live in the
+    # server container and are invisible here, so their absence is not proof
+    # of anything. Worth printing, not worth blocking on.
+    for needle, label in (
+        (ADS_ID,   f"Ads config ({ADS_ID})"),
+        (PHONE_LB, f"phone conversion label ({PHONE_LB})"),
+        (FORM_LB,  f"form conversion label ({FORM_LB})"),
+    ):
+        if needle not in js:
+            warnings.append(f"{label} not in the web container "
+                            f"- expected if it lives in the server container")
+
+    return (not missing), missing, warnings
 
 
 def main():
@@ -66,10 +170,12 @@ def main():
     force  = "--force" in sys.argv
     os.chdir(SITE)
 
-    ok, missing = preflight()
+    ok, missing, warnings = preflight()
     print(f"GTM preflight on {GTM_ID}: {'PASS' if ok else 'FAIL'}")
     for m in missing:
         print(f"   missing: {m}")
+    for w in warnings:
+        print(f"   note   : {w}")
     if not ok and not force:
         print("\nRefusing to run. Removing the gtag now would leave the site with no\n"
               "GA4, no Ads conversions and gb_callConversion undefined, and nothing on\n"
@@ -86,7 +192,10 @@ def main():
         o = s
         s, n_block   = GTAG_BLOCK.subn("", s)
         s, n_click   = ONCLICK.subn("", s)
-        s, n_func    = GB_FUNC.subn("\n", s)
+        n_func = 0
+        for name in GB_FUNCS:
+            s, k = strip_function(s, name)
+            n_func += k
         if s == o:
             stats["untouched"] += 1
             continue
@@ -103,7 +212,10 @@ def main():
 
     # gb_callConversion also lives in script.js, for the 94 non-landing pages
     js = open("script.js", encoding="utf-8").read()
-    js2, n_js = GB_FUNC.subn("\n", js)
+    js2, n_js = js, 0
+    for name in GB_FUNCS:
+        js2, k = strip_function(js2, name)
+        n_js += k
     if apply_ and n_js:
         open("script.js", "w", encoding="utf-8").write(js2)
 

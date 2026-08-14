@@ -1541,6 +1541,22 @@ body.kitchen-page
   font-size: 0.98rem;
 }
 
+/* Byline under the hero image on an article. Deliberately quiet: it is
+   provenance, not part of the piece. The category is not repeated here because
+   the hero eyebrow immediately above already names it. */
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.2rem 0 0;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.88rem;
+  color: #66707f;
+}
+.post-meta time { color: inherit; }
+.post-meta-sep { color: #b9c2d0; }
+
 .blog-card-tag {
   display: inline-block;
   align-self: flex-start;

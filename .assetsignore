@@ -16,3 +16,5 @@ optimize-images.py
 HOW-TO-ADD-PHOTOS.md
 tools
 tools/**
+worker
+worker/**

@@ -1,24 +1,4 @@
-/* Phone-click conversion, mirroring the inline version on the landing
-   pages so a tap from anywhere on the site is measured the same way.
-   No value is sent - the conversion action in Google Ads owns it. */
-function gb_callConversion() {
-  if (typeof gtag === "function") {
-    gtag("event", "phone_click");
-    gtag("event", "conversion", { send_to: "AW-18096983407/4xQWCNa0wdwcEO-aqLVD" });
-  }
-  return true;
-}
 
-// Google Calendar booking links. GA4 only, no Ads conversion action: the ones
-// that follow a form submit were already counted by the form, and no action
-// exists in the Ads account for a booking on its own. Same shape as
-// gb_callConversion so an onclick can call it before navigating away.
-function gb_bookingClick() {
-  if (typeof gtag === "function") {
-    gtag("event", "booking_click");
-  }
-  return true;
-}
 
 
 // Hero video. This used to be desktop only: below 861px nothing was attached

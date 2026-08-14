@@ -19,41 +19,7 @@
   <title>Thank You | Kitchen Remodel | Guild Builders Inc.</title>
   <meta name="description" content="Your request is in. Omer will contact you within 24 hours to schedule your complimentary consultation and estimate." />
 
-  <!-- Google Ads / gtag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18096983407"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'AW-18096983407');
-    gtag('config', 'G-39ZPTZ73DK');
-
-    /* Google Ads: the SAME form-submit conversion thank-you.html fires, and the
-       reason this page exists as a copy rather than a redirect. The landing
-       forms used to land on thank-you.html; pointing them somewhere new without
-       carrying this action would have stopped every landing-page lead being
-       counted, while the main site's contact form kept reporting, so the drop
-       would have looked like an ad problem rather than a tracking one.
-       Value is owned by the conversion action in Ads, so none is sent here. */
-    gtag('event', 'conversion', { send_to: 'AW-18096983407/01S8CJac9d4cEO-aqLVD' });
-
-    function gb_callConversion() {
-      gtag('event', 'phone_click');
-      gtag('event', 'conversion', { send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD' });
-      return true;
-    }
-
-    /* GA4 only. There is no Ads conversion action for booking, and inventing
-       one here would double-count the lead: the form submit above already
-       reported it. This just measures how many people pick the calendar over
-       the phone. */
-    function gb_bookingClick() {
-      gtag('event', 'booking_click');
-      return true;
-    }
-  </script>
-
-  <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
   <link rel="stylesheet" href="landing.css?v=85" />
@@ -72,7 +38,7 @@
   <header class="lp-header">
     <div class="lp-container lp-header-inner">
       <span class="lp-logo lp-logo-home"><img src="guild-logo-4.png" alt="Guild Builders Inc. logo" /></span>
-      <a class="lp-header-phone" href="tel:+16197632982" onclick="return gb_callConversion();">
+      <a class="lp-header-phone" href="tel:+16197632982">
         <span class="tel">(619) 763-2982</span>
       </a>
     </div>
@@ -101,12 +67,12 @@
         <h1>Congratulations, you&rsquo;ve made the first step towards your dream kitchen!</h1>
         <p class="lp-subhead">Your dedicated project manager, Omer, will be contacting you within 24 hours to schedule your complimentary consultation and estimate.</p>
         <div class="lp-thanks-cta">
-          <a class="lp-cta-phone" href="tel:+16197632982" onclick="return gb_callConversion();">&#128222; (619) 763-2982</a>
+          <a class="lp-cta-phone" href="tel:+16197632982">&#128222; (619) 763-2982</a>
           <!-- Omer's Google Calendar appointment schedule. Second, and styled
                ghost rather than gold, because the call is the action most
                people take. Opens in a new tab so the confirmation stays put. -->
           <a class="lp-cta-ghost" href="https://calendar.app.google/mqGPysKovDo8FxvZA"
-             target="_blank" rel="noopener" onclick="return gb_bookingClick();">&#128197; Book a Time Online</a>
+             target="_blank" rel="noopener">&#128197; Book a Time Online</a>
         </div>
         <span class="lp-hero-reviews"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5 stars on Google, Facebook &amp; Thumbtack</span>
       </div>
@@ -125,7 +91,7 @@
        on this page it was a button that did nothing. The remaining link takes
        the whole bar - .lp-sticky-call a is flex: 1. -->
   <div class="lp-sticky-call">
-    <a class="call" href="tel:+16197632982" onclick="return gb_callConversion();">📞 (619) 763-2982</a>
+    <a class="call" href="tel:+16197632982">📞 (619) 763-2982</a>
   </div>
 
 

@@ -22,8 +22,14 @@
    Reference: https://stape.io/helpdesk/documentation/how-to-use-same-origin-through-cloudflare */
 
 /* The first-party path the browser sees. Must match the server_container_url
-   in the web container's Google tag and the Custom Loader path in Stape. */
-const TAGGING_PATH = "/metrics";
+   in the web container's Google tag and the Custom Loader path in Stape.
+
+   Not /metrics, which is what the Stape article uses: Stape's own custom
+   domain dialog lists "metrics" among the words to avoid because blocklists
+   match on them, and a path copied verbatim out of their documentation is the
+   easiest possible pattern to match. The whole point of same origin is to be
+   unremarkable. */
+const TAGGING_PATH = "/edge";
 
 const TAGGING_HOST = "REPLACE_WITH_STAPE_TAGGING_HOST";
 

@@ -291,7 +291,13 @@
       /* False means this page was opened without the scheduler's redirect
          behind it - a refresh, a bookmark, someone with the URL. Filterable in
          GTM, and the reason the Ads action should count One per click. */
-      booking_details: !!(email || whole || first)
+      booking_details: !!(email || whole || first),
+      /* The NAMES of the query parameters the scheduler sent, never the
+         values. Cal.com and Calendly label these differently and the labels
+         can change, so this is how we confirm the mapping above actually
+         matched after a real booking, without putting a customer's email
+         anywhere it should not be. Safe to leave on permanently. */
+      booking_param_keys: q ? Array.from(q.keys()).sort().join(",") || undefined : undefined
     };
     /* baseContext reads location.href, which at this point still has the
        invitee's email in it. The event must not carry that into GA4 or Ads as

@@ -1,10 +1,17 @@
 {
-  // Static-assets Worker that serves the Guild Builders site.
-  // Deploy with:  wrangler deploy
+  // Worker that serves the Guild Builders site and proxies the server-side
+  // GTM tagging server on our own hostname.  Deploy with:  wrangler deploy
   "name": "patient-flower-2dca",
+  "main": "worker/index.js",
   "compatibility_date": "2025-06-01",
   "assets": {
     "directory": ".",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Only /edge/* reaches the script; every other request is served straight
+    // from assets exactly as it was before there was a script at all. Keeps
+    // the blast radius of a bug in worker/index.js to the tagging path
+    // instead of the whole site.
+    "run_worker_first": ["/edge/*"]
   }
 }

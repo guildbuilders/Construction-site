@@ -31,11 +31,14 @@
    unremarkable. */
 const TAGGING_PATH = "/edge";
 
-const TAGGING_HOST = "REPLACE_WITH_STAPE_TAGGING_HOST";
+/* Custom subdomain, CNAME to usv.stape.io, DNS-only in Cloudflare. The browser
+   never sees this host - it talks to guildbuildersgroup.com/edge and this
+   Worker makes the onward call. */
+const TAGGING_HOST = "edge.guildbuildersgroup.com";
 
-/* Set to null once TAGGING_HOST is a custom subdomain. Stape only needs this
+/* null because TAGGING_HOST is a custom subdomain. Stape only needs this
    header to disambiguate traffic arriving at a shared stape.io host. */
-const STAPE_HOST = "guildbuildersgroup.com";
+const STAPE_HOST = null;
 
 export default {
   async fetch(request, env) {

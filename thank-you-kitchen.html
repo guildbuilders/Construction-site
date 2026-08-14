@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P526Z2L9');</script>
+  <!-- End Google Tag Manager -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta name="theme-color" content="#0f1c2e" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>Thank You | Kitchen Remodel | Guild Builders Inc.</title>
+  <meta name="description" content="Your request is in. Omer will contact you within 24 hours to schedule your complimentary consultation and estimate." />
+
+  <!-- Google Ads / gtag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18096983407"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-18096983407');
+    gtag('config', 'G-39ZPTZ73DK');
+
+    /* Google Ads: the SAME form-submit conversion thank-you.html fires, and the
+       reason this page exists as a copy rather than a redirect. The landing
+       forms used to land on thank-you.html; pointing them somewhere new without
+       carrying this action would have stopped every landing-page lead being
+       counted, while the main site's contact form kept reporting, so the drop
+       would have looked like an ad problem rather than a tracking one.
+       Value is owned by the conversion action in Ads, so none is sent here. */
+    gtag('event', 'conversion', { send_to: 'AW-18096983407/01S8CJac9d4cEO-aqLVD' });
+
+    function gb_callConversion() {
+      gtag('event', 'phone_click');
+      gtag('event', 'conversion', { send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD' });
+      return true;
+    }
+  </script>
+
+  <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css?v=1" />
+  <link rel="stylesheet" href="landing.css?v=80" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
+</head>
+
+<body class="lp-video-hero lp-thanks">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P526Z2L9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header: logo + phone only (no nav — keep the visitor focused) -->
+  <header class="lp-header">
+    <div class="lp-container lp-header-inner">
+      <span class="lp-logo lp-logo-home"><img src="guild-logo-4.png" alt="Guild Builders Inc. logo" /></span>
+      <a class="lp-header-phone" href="tel:+16197632982" onclick="return gb_callConversion();">
+        <span class="tel">(619) 763-2982</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Miracle Drive behind the confirmation, the same clip the ad landing page
+       opens on, so the page they land on after submitting is visibly the same
+       place they just came from. -->
+  <section class="lp-hero lp-hero-video">
+
+    <video
+      class="lp-hero-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      poster="miracle-poster.webp"
+      data-src="miracle-video.mp4" data-src-mobile="miracle-video-mobile.mp4"
+    ></video>
+
+    <div class="lp-container lp-hero-inner lp-thanks-inner">
+      <div class="lp-hero-copy lp-hero-copy-centered">
+        <p class="eyebrow">Request Received</p>
+        <h1>Congratulations, you&rsquo;ve made the first step towards your dream kitchen!</h1>
+        <p class="lp-subhead">Your dedicated project manager, Omer, will be contacting you within twenty four hours to schedule your complimentary consultation and estimate.</p>
+        <div class="lp-thanks-cta">
+          <a class="lp-cta-phone" href="tel:+16197632982" onclick="return gb_callConversion();">&#128222; (619) 763-2982</a>
+        </div>
+        <span class="lp-hero-reviews"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5 stars on Google, Facebook &amp; Thumbtack</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="lp-footer">
+    <div class="lp-container">
+      <p><strong>Guild Builders Inc.</strong> · Licensed Contractor CA #1154614 · Serving San Diego County</p>
+      <p>© 2026 Guild Builders Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile call/quote bar -->
+  <div class="lp-sticky-call">
+    <a class="call" href="tel:+16197632982" onclick="return gb_callConversion();">📞 (619) 763-2982</a>
+    <a class="quote" href="#quote">Free Estimate</a>
+  </div>
+
+
+  <script>
+    (function () {
+      var v = document.querySelector('.lp-hero-bg-video');
+      if (v && v.dataset.src) {
+        /* Phones get the 960-wide encode, 1.7MB against the master's 5.4MB.
+           This page is where the ad money lands, so it is the one place a
+           5MB hero on cellular is most expensive. */
+        var small = !window.matchMedia('(min-width: 861px)').matches;
+        var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn && conn.saveData) return;
+        v.src = (small && v.dataset.srcMobile) ? v.dataset.srcMobile : v.dataset.src;
+        /* Slowed to 0.7x - the clip pans quickly enough to
+           feel busy behind the headline. Set on loadedmetadata too because
+           some browsers reset the rate when a new source loads. */
+        v.playbackRate = 0.7;
+        v.addEventListener('loadedmetadata', function () { v.playbackRate = 0.7; });
+        var play = v.play();
+        if (play && play.catch) { play.catch(function () {}); }
+      }
+
+
+      /* Transparent header over the hero, solid once scrolled past it.
+         Mirrors the overlayHeader block in script.js, which landing pages
+         don't load. Logo swaps bold -> regular over the ivory. */
+      var header = document.querySelector('.lp-header');
+      var hero = document.querySelector('.lp-hero');
+      if (!header || !hero) return;
+      var logo = header.querySelector('.lp-logo img');
+      function updateHeader() {
+        var past = window.scrollY > hero.offsetHeight - header.offsetHeight;
+        header.classList.toggle('scrolled', past);
+        if (logo) {
+          logo.src = past ? 'guild-logo-reg.png' : 'guild-logo-4.png';
+        }
+      }
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      window.addEventListener('resize', updateHeader);
+    })();
+  </script>
+
+</body>
+</html>

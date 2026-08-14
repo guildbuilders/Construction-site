@@ -27,7 +27,7 @@
 <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=86" />
+  <link rel="stylesheet" href="landing.css?v=87" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -50,7 +50,25 @@
   </header>
 
   <!-- Hero with lead form above the fold -->
-  <section class="lp-hero lp-hero-still" style="background-image:url('lupita1-1000.webp');">
+  <section class="lp-hero lp-hero-video">
+
+    <!-- Hero video. Source is a portrait 1080x1920 walkthrough, so it gets two
+         encodes rather than one: a centre band cropped to the hero's own shape
+         for desktop, and the full portrait frame for phones, where the whole
+         thing fits. Both are attached in JS below so the poster paints first.
+         800KB and 710KB against the 11MB original. -->
+    <video
+      class="lp-hero-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      poster="bath-poster.webp"
+      data-src="bath-video.mp4" data-src-mobile="bath-video-mobile.mp4"
+      data-poster-mobile="bath-poster-mobile.webp"
+    ></video>
 
 
     <div class="lp-container lp-hero-inner">
@@ -148,21 +166,106 @@
     </div>
   </section>
 
-  <!-- Before and after. Same slot the kitchen page uses, after the gallery:
-       the finished shots sell the work, this shows how far it moved. One pair
-       so far, so no arrows - a nav that cannot go anywhere is the dead button
-       problem again. Add the carousel script from kitchen-remodel-a.html when
-       a second pair lands. -->
+  <!-- Before and after. Same slot the kitchen page uses, after the gallery.
+       Sources are a mix of portrait and landscape - three pairs have one of
+       each - so every frame is boxed square rather than to the kitchen page's
+       1.6. It is the only aspect that treats both orientations evenly, and it
+       stops the carousel changing height as it turns. -->
   <section class="lp-section alt">
     <div class="lp-container">
       <h2>See Our Client's Home Transformations</h2>
-      <div class="lp-ba" id="ba-track" tabindex="0" role="group" aria-label="Before and after transformation">
-        <div class="lp-ba-item is-portrait">
+      <div class="lp-ba" id="ba-track" tabindex="0" role="group" aria-label="Before and after transformations, scrollable">
+        <div class="lp-ba-item is-square">
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">Before</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-lupita-before.webp" src="ba-lupita-before-600.webp"
+                 srcset="ba-lupita-before-600.webp 600w, ba-lupita-before.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="Carmel Valley bathroom before the remodel" loading="lazy" />
+          </div>
+          <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">After</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-lupita-after.webp" src="ba-lupita-after-600.webp"
+                 srcset="ba-lupita-after-600.webp 600w, ba-lupita-after.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="Carmel Valley bathroom after the remodel" loading="lazy" />
+          </div>
+        </div>
+        <div class="lp-ba-item is-square">
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">Before</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-archer-before.webp" src="ba-archer-before-600.webp"
+                 srcset="ba-archer-before-600.webp 600w, ba-archer-before.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="Pacific Beach bathroom before the remodel" loading="lazy" />
+          </div>
+          <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">After</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-archer-after.webp" src="ba-archer-after-600.webp"
+                 srcset="ba-archer-after-600.webp 600w, ba-archer-after.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="Pacific Beach bathroom after the remodel" loading="lazy" />
+          </div>
+        </div>
+        <div class="lp-ba-item is-square">
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">Before</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-tara-before.webp" src="ba-tara-before-600.webp"
+                 srcset="ba-tara-before-600.webp 600w, ba-tara-before.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="San Marcos bathroom before the remodel" loading="lazy" />
+          </div>
+          <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">After</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-tara-after.webp" src="ba-tara-after-600.webp"
+                 srcset="ba-tara-after-600.webp 600w, ba-tara-after.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="San Marcos bathroom after the remodel" loading="lazy" />
+          </div>
+        </div>
+        <div class="lp-ba-item is-square">
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">Before</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-sample1-before.webp" src="ba-sample1-before-600.webp"
+                 srcset="ba-sample1-before-600.webp 600w, ba-sample1-before.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="San Diego bathroom before the remodel" loading="lazy" />
+          </div>
+          <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">After</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-sample1-after.webp" src="ba-sample1-after-600.webp"
+                 srcset="ba-sample1-after-600.webp 600w, ba-sample1-after.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="San Diego bathroom after the remodel" loading="lazy" />
+          </div>
+        </div>
+        <div class="lp-ba-item is-square">
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">Before</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-sample2-before.webp" src="ba-sample2-before-600.webp"
+                 srcset="ba-sample2-before-600.webp 600w, ba-sample2-before.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="San Diego bathroom before the remodel" loading="lazy" />
+          </div>
+          <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
+          <div class="lp-ba-side">
+            <span class="lp-ba-label">After</span>
+            <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-sample2-after.webp" src="ba-sample2-after-600.webp"
+                 srcset="ba-sample2-after-600.webp 600w, ba-sample2-after.webp 1400w"
+                 sizes="(max-width: 700px) 92vw, 45vw"
+                 alt="San Diego bathroom after the remodel" loading="lazy" />
+          </div>
+        </div>
+        <div class="lp-ba-item is-square">
           <div class="lp-ba-side">
             <span class="lp-ba-label">Before</span>
             <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-orchidia-before.webp" src="ba-orchidia-before-600.webp"
                  srcset="ba-orchidia-before-600.webp 600w, ba-orchidia-before.webp 1536w"
-                 sizes="(max-width: 700px) 92vw, 370px" width="1536" height="2752"
+                 sizes="(max-width: 700px) 92vw, 45vw"
                  alt="Encinitas bathroom before the remodel" loading="lazy" />
           </div>
           <span class="lp-ba-turn" aria-hidden="true"><svg viewBox="0 0 72 30" width="72" height="30" fill="none"><path d="M3 21 C 17 5, 42 2, 60 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M64.4 14.4 L56.1 14.5 L60.1 7.3 Z" fill="currentColor"/></svg></span>
@@ -170,10 +273,14 @@
             <span class="lp-ba-label">After</span>
             <img class="lp-ba-img" data-lightbox-group="beforeafter" data-full="ba-orchidia-after.webp" src="ba-orchidia-after-600.webp"
                  srcset="ba-orchidia-after-600.webp 600w, ba-orchidia-after.webp 768w"
-                 sizes="(max-width: 700px) 92vw, 370px" width="768" height="1365"
+                 sizes="(max-width: 700px) 92vw, 45vw"
                  alt="Encinitas bathroom after the remodel" loading="lazy" />
           </div>
         </div>
+      </div>
+      <div class="lp-ba-nav">
+        <button type="button" class="lp-ba-arrow" id="ba-prev" aria-label="Previous transformation" aria-controls="ba-track">&#8592;</button>
+        <button type="button" class="lp-ba-arrow" id="ba-next" aria-label="Next transformation" aria-controls="ba-track">&#8594;</button>
       </div>
     </div>
   </section>
@@ -936,6 +1043,88 @@
         if (e.key === 'ArrowRight') show(i + 1);
         if (e.key === 'ArrowLeft') show(i - 1);
       });
+    })();
+    (function () {
+      var track = document.getElementById('ba-track');
+      var prev = document.getElementById('ba-prev');
+      var next = document.getElementById('ba-next');
+      if (!track || !prev || !next) return;
+      var items = [].slice.call(track.querySelectorAll('.lp-ba-item'));
+      if (items.length < 2) return;
+      var index = 0;
+
+      function target(n) { return items[n].offsetLeft - items[0].offsetLeft; }
+      /* The settle handler below resets the clock so a swipe takes over from
+         the timer. Without this flag it also fires on the carousel's OWN
+         scrolls, so every unattended turn restarted the interval and the
+         effective gap became 7s plus the animation: measured at 7741ms
+         against the 7000 asked for. Ignore the scrolls we caused. */
+      var programmatic = false, settleProg;
+      function go(n) {
+        index = (n + items.length) % items.length;
+        programmatic = true;
+        clearTimeout(settleProg);
+        settleProg = setTimeout(function () { programmatic = false; }, 900);
+        track.scrollTo({ left: target(index), behavior: 'smooth' });
+      }
+      prev.addEventListener('click', function () { go(index - 1); restart(); });
+      next.addEventListener('click', function () { go(index + 1); restart(); });
+
+      var DELAY = 5000;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var inView = false, timer = null;
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() { if (reduced || !inView) return; stop(); timer = setInterval(function () { go(index + 1); }, DELAY); }
+      function restart() { stop(); start(); }
+
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      track.addEventListener('focusin', stop);
+      track.addEventListener('focusout', start);
+
+      /* keep the index honest if the visitor swipes instead */
+      var settle;
+      track.addEventListener('scroll', function () {
+        if (programmatic) return;
+        clearTimeout(settle);
+        settle = setTimeout(function () {
+          if (programmatic) return;
+          var best = 0, min = Infinity;
+          items.forEach(function (el, n) {
+            var d = Math.abs(target(n) - track.scrollLeft);
+            if (d < min) { min = d; best = n; }
+          });
+          index = best;
+          restart();
+        }, 140);
+      }, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { inView = e.isIntersecting; if (inView) { start(); } else { stop(); } });
+        }, { threshold: 0.3 }).observe(track);
+      } else {
+        inView = true;
+        start();
+      }
+    })();
+
+    /* Hero video source and speed, mirroring kitchen-remodel-a. */
+    (function () {
+      var v = document.querySelector('.lp-hero-bg-video');
+      if (!v || !v.dataset.src) return;
+      var small = !window.matchMedia('(min-width: 861px)').matches;
+      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (conn && conn.saveData) return;
+      if (small && v.dataset.posterMobile) { v.poster = v.dataset.posterMobile; }
+      v.src = (small && v.dataset.srcMobile) ? v.dataset.srcMobile : v.dataset.src;
+      /* 0.7x - the walkthrough moves quickly enough to feel busy behind the
+         headline. Set again on loadedmetadata because some browsers reset the
+         rate when a new source loads. */
+      v.playbackRate = 0.7;
+      v.addEventListener('loadedmetadata', function () { v.playbackRate = 0.7; });
+      var play = v.play();
+      if (play && play.catch) { play.catch(function () {}); }
     })();
   </script>
 

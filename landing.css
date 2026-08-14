@@ -846,19 +846,12 @@ body.lp-video-hero .lp-thanks-inner .lp-hero-copy {
   border-radius: 10px;
   display: block;
 }
-/* Portrait pair. Bathrooms are shot vertically - the shower runs floor to
-   ceiling - and forcing one into the 1.6 box above crops the story out of it.
-   So this variant keeps the frame whole and narrows the item instead. Sized
-   in px rather than a percentage because the constraint is the image height:
-   at full container width a 9:16 pair stands about 970px tall on a desktop,
-   which is a scroll of its own. */
-.lp-ba-item.is-portrait {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 0 2.4rem;
-}
-.lp-ba-item.is-portrait .lp-ba-img { aspect-ratio: 0.5625; }
+/* Square pair. The bathroom sources are a mix: three of the five pairs have a
+   portrait photo on one side and a landscape one on the other, so there is no
+   orientation that suits them all. A square box crops each by a comparable
+   amount instead of butchering one to flatter the other, and it keeps every
+   item the same height so the carousel does not jump as it turns. */
+.lp-ba-item.is-square .lp-ba-img { aspect-ratio: 1; }
 
 /* the drawn arrow, centred in the gap and sitting on the label line */
 .lp-ba-turn {

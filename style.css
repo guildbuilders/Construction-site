@@ -1561,7 +1561,10 @@ body.kitchen-page
 @media (max-width: 600px) {
   .post-meta { display: block; }
   .post-meta > span { display: block; }
-  .post-meta-sep { display: none; }
+  /* Has to outrank .post-meta > span above, which is a class plus an element
+     and so beats a bare .post-meta-sep - the dots stayed visible on their own
+     lines, which is worse than the stranding this rule exists to fix. */
+  .post-meta > .post-meta-sep { display: none; }
 }
 
 .blog-card-tag {

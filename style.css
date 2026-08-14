@@ -1548,6 +1548,10 @@ body.kitchen-page
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  /* centred to sit with the article body, which is centred too - left-aligned
+     it read as a stray line hanging off the photo */
+  justify-content: center;
+  text-align: center;
   gap: 0.5rem;
   margin: 1.2rem 0 0;
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;

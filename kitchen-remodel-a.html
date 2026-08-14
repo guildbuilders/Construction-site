@@ -46,12 +46,21 @@
       gtag('event', 'conversion', { send_to: 'AW-18096983407/4xQWCNa0wdwcEO-aqLVD' });
       return true;
     }
+    /* Calendar bookings, GA4 only. No Ads conversion action: a booking that
+       starts here is a lead this page has not otherwise counted, but until an
+       action exists in the Ads account there is nothing to send it to, and
+       reusing the form-submit label would report a form that was never
+       filled in. */
+    function gb_bookingClick() {
+      gtag('event', 'booking_click');
+      return true;
+    }
   </script>
 
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
-  <link rel="stylesheet" href="landing.css?v=82" />
+  <link rel="stylesheet" href="landing.css?v=83" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
@@ -694,6 +703,17 @@
         <a class="lp-cta-phone" href="tel:+16197632982" onclick="return gb_callConversion();">📞 (619) 763-2982</a>
         <a class="lp-cta-ghost" href="#quote">Request Your Free Estimate</a>
       </div>
+      <!-- Third way in, deliberately a text link rather than a third button.
+           The form is what Google Ads counts as the conversion, so the
+           calendar sits at the foot of the page for people who would rather
+           pick a slot than call, without competing with the form above. -->
+      <p class="lp-cta-calendar">
+        <!-- Emoji outside the anchor so the underline sits under the words
+             only, not under the calendar glyph. -->
+        <span aria-hidden="true">&#128197;</span>
+        <a href="https://calendar.app.google/mqGPysKovDo8FxvZA" target="_blank" rel="noopener"
+           onclick="return gb_bookingClick();">Or book a time on Omer&rsquo;s calendar</a>
+      </p>
     </div>
   </section>
 

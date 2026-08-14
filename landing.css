@@ -1402,6 +1402,17 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
 /* ---------- CTA band ---------- */
 .lp-cta-band { background: #14243a; color: #ffffff; text-align: center; padding: 3.2rem 0; }
 .lp-cta-band h2 { color: #ffffff; }
+/* Calendar link under the CTA buttons. Underlined and gold so it reads as a
+   link rather than a disabled third button, and quiet enough that the phone
+   and the estimate form stay the two things the eye lands on. */
+.lp-cta-calendar { margin: 1.2rem 0 0; }
+.lp-cta-calendar a {
+  color: #e2cd9f;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lp-cta-calendar a:hover { color: #ffffff; }
 .lp-cta-band h2::after { background: #d2b780; }
 .lp-cta-band .lp-cta-buttons {
   display: flex;

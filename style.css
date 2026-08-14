@@ -1556,6 +1556,13 @@ body.kitchen-page
 }
 .post-meta time { color: inherit; }
 .post-meta-sep { color: #b9c2d0; }
+/* On a phone the line wraps anyway, and the separator ends up stranded at the
+   end of a line with nothing after it. Stack the parts and drop the dots. */
+@media (max-width: 600px) {
+  .post-meta { display: block; }
+  .post-meta > span { display: block; }
+  .post-meta-sep { display: none; }
+}
 
 .blog-card-tag {
   display: inline-block;

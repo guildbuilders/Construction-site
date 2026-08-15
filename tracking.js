@@ -290,6 +290,15 @@
     };
     try {
       sessionStorage.setItem(BOOKING_STASH, JSON.stringify(payload));
+      /* A breadcrumb that outlives the page, so the mapping can be checked
+         after a real booking rather than only in the moment. Field NAMES and
+         whether each was found - never the values. Cal.com owns the payload
+         shape and can change it; this is how we would notice. */
+      localStorage.setItem("gb_last_booking", JSON.stringify({
+        at: new Date().toISOString(),
+        keys: payload.keys,
+        found: { email: !!email, name: !!whole, start: !!start }
+      }));
     } catch (e) { /* private mode; the conversion still fires, without matching */ }
     window.location.href = "/booking-confirmed";
   };

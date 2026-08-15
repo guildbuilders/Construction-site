@@ -261,6 +261,12 @@
      written anywhere it should not be. */
   var BOOKING_STASH = "gb_booking";
 
+  /* Never descends into `organizer`. That block is us, not the customer, and a
+     walk looking for "the first name or email in the object" will happily
+     return ours. Guarding the email alone was not enough: a payload with no
+     attendee still handed back the organizer's NAME as the booker's. */
+  var NOT_THE_CUSTOMER = { organizer: 1, team: 1, owner: 1, host: 1 };
+
   function dig(obj, keys, depth) {
     if (!obj || typeof obj !== "object" || (depth || 0) > 4) return undefined;
     for (var i = 0; i < keys.length; i++) {
@@ -269,6 +275,7 @@
     }
     for (var k in obj) {
       if (!Object.prototype.hasOwnProperty.call(obj, k)) continue;
+      if (NOT_THE_CUSTOMER[k]) continue;
       var child = obj[k];
       if (child && typeof child === "object") {
         var found = dig(Array.isArray(child) ? child[0] : child, keys, (depth || 0) + 1);

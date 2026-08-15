@@ -1515,7 +1515,11 @@ body.lp-book-page { background: #fbf8f2; }
 }
 .lp-book-embed {
   margin: 2.2rem auto 0;
-  min-height: 720px;
+  /* Tall enough that Cal.com's own sidebar shows the whole event description
+     rather than scrolling inside its iframe. The description is the only
+     selling copy left on this page, so it has to be readable without the
+     visitor discovering there is a scrollbar inside the box. */
+  min-height: 880px;
   width: 100%;
   background: #ffffff;
   border-radius: 14px;
@@ -1525,7 +1529,7 @@ body.lp-book-page { background: #fbf8f2; }
 .lp-book-fallback { margin-top: 2rem; color: #48556a; }
 @media (max-width: 860px) {
   .lp-book { padding-top: 118px; }
-  .lp-book-embed { min-height: 840px; border-radius: 10px; }
+  .lp-book-embed { min-height: 1040px; border-radius: 10px; }
 }
 
 /* ---------- Footer ---------- */

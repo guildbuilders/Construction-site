@@ -308,6 +308,12 @@
     var email = rawEmail;
     var whole = (who && (who.name || who.fullName)) ||
       dig(data, ["name", "attendeeName", "invitee_full_name"]);
+    /* Cal.com puts custom booking questions in a responses object, so the
+       phone can arrive either on the attendee or in there. Same organizer
+       guard applies via dig: our own number must never be sent as a
+       customer's. */
+    var phone = (who && (who.phone || who.phoneNumber || who.attendeePhone)) ||
+      dig(data, ["phone", "phoneNumber", "attendeePhone", "smsReminderNumber", "invitee_phone"]);
     var start = dig(data, ["startTime", "date", "start", "event_start_time"]);
 
     /* If the only email we could find is the organizer's, it is not a customer
@@ -321,6 +327,7 @@
     var payload = {
       email: email,
       name: whole,
+      phone: phone,
       start: start,
       keys: data && typeof data === "object" ? Object.keys(data).sort().join(",") : ""
     };
@@ -333,7 +340,7 @@
       localStorage.setItem("gb_last_booking", JSON.stringify({
         at: new Date().toISOString(),
         keys: payload.keys,
-        found: { email: !!email, name: !!whole, start: !!start },
+        found: { email: !!email, name: !!whole, phone: !!phone, start: !!start },
         fromAttendeeBlock: !!who,
         organizerPresent: !!organizerEmail,
         /* Distinguishes "Cal.com sent no email" from "we dropped it because it
@@ -414,7 +421,7 @@
 
     payload.user_data = {
       email_address: email ? email.toLowerCase() : undefined,
-      phone_number: e164(param("invitee_phone", "phone", "attendeePhone")),
+      phone_number: e164((stashed && stashed.phone) || param("invitee_phone", "phone", "attendeePhone")),
       address: hasName ? address : undefined,
       fbp: cookie("_fbp"),
       fbc: cookie("_fbc")

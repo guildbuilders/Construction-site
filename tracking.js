@@ -278,10 +278,36 @@
     return undefined;
   }
 
+  /* The attendee, explicitly. Cal.com's payload also carries an `organizer`
+     block, which is us. A generic walk for "the first email in the object"
+     could return info@guildbuildersgroup.com depending on key order, and we
+     would then hand Google our own address as the customer's for every single
+     booking: Enhanced Conversions matching against one address that is never
+     the buyer, reported as a healthy setup. So look where the attendee
+     actually lives first, and only fall back to walking. */
+  function attendee(data) {
+    var b = (data && (data.booking || data)) || {};
+    var list = b.attendees || b.attendee || (data && data.attendees);
+    var first = Array.isArray(list) ? list[0] : list;
+    return first && typeof first === "object" ? first : null;
+  }
+
   window.gb_bookingConfirmed = function (data) {
-    var email = dig(data, ["email", "attendeeEmail", "invitee_email"]);
-    var whole = dig(data, ["name", "attendeeName", "invitee_full_name"]);
+    var who = attendee(data);
+    var organizerEmail = data && data.organizer && data.organizer.email;
+
+    var email = (who && (who.email || who.emailAddress)) ||
+      dig(data, ["email", "attendeeEmail", "invitee_email"]);
+    var whole = (who && (who.name || who.fullName)) ||
+      dig(data, ["name", "attendeeName", "invitee_full_name"]);
     var start = dig(data, ["startTime", "date", "start", "event_start_time"]);
+
+    /* If the only email we could find is the organizer's, it is not a customer
+       and must not be sent as one. Better a conversion with no matching data
+       than a conversion matched to the wrong person. */
+    if (email && organizerEmail && email.toLowerCase() === String(organizerEmail).toLowerCase()) {
+      email = undefined;
+    }
     var payload = {
       email: email,
       name: whole,
@@ -297,7 +323,9 @@
       localStorage.setItem("gb_last_booking", JSON.stringify({
         at: new Date().toISOString(),
         keys: payload.keys,
-        found: { email: !!email, name: !!whole, start: !!start }
+        found: { email: !!email, name: !!whole, start: !!start },
+        fromAttendeeBlock: !!who,
+        organizerPresent: !!organizerEmail
       }));
     } catch (e) { /* private mode; the conversion still fires, without matching */ }
     window.location.href = "/booking-confirmed";

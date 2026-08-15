@@ -1497,20 +1497,21 @@ body.lp-book-page { background: #fbf8f2; }
   padding: 150px 0 3.5rem;
   text-align: center;
 }
-.lp-book h1 { color: #14243a; margin-top: 0.4rem; }
+/* The scheduler carries its own description, so the page above it is a title
+   and nothing else. Both lines are sized up from the landing page defaults
+   because there is no longer any body copy for them to sit against. */
+.lp-book h1 {
+  color: #14243a;
+  margin-top: 0.6rem;
+  font-size: clamp(2.5rem, 5.2vw, 3.8rem);
+}
 .lp-book .eyebrow {
   color: #a8842c;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-size: 0.92rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
   margin: 0;
-}
-.lp-book-lead {
-  max-width: 46rem;
-  margin: 0.9rem auto 0;
-  color: #48556a;
-  font-size: 1.05rem;
 }
 .lp-book-embed {
   margin: 2.2rem auto 0;

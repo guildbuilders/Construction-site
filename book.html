@@ -14,13 +14,13 @@
   <!-- Google Tag Manager -->
   <script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://guildbuildersgroup.com/edge",a="",i="1gbbeiage",c="3x3b6=DANcLjEvTzdQVVczVy5bQRNaU0dURAYJWAAUAAkGABIMCwUMFxEFFQoSEUcGDQ9BFggRVEoHBgAA",g="stapeUserId",v="",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
   <!-- End Google Tag Manager -->
-  <meta name="robots" content="noindex, nofollow" />
 
   <meta name="theme-color" content="#0f1c2e" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <title>Appointment Confirmed | Guild Builders Inc.</title>
-  <meta name="description" content="Your consultation is booked. Omer will see you then." />
+  <title>Book Your Free Estimate | Guild Builders Inc.</title>
+  <meta name="description" content="Pick a time for your free in-home estimate and design consultation with Omer. San Diego County kitchen and bathroom remodeling." />
+  <link rel="canonical" href="https://guildbuildersgroup.com/book" />
 
   <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -30,12 +30,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 </head>
 
-<!-- gb-booking-confirmed is what tracking.js watches for. It is the ONLY page
-     that pushes booking_confirmed, and it is only reachable by being redirected
-     here from the scheduler after an appointment is actually booked. That is
-     the whole point: booking_click means someone opened the calendar,
-     booking_confirmed means they picked a slot. -->
-<body class="lp-video-hero lp-thanks gb-booking-confirmed">
+<body class="lp-book-page">
 
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://edge.guildbuildersgroup.com/ns.html?id=GTM-P526Z2L9"
@@ -44,40 +39,34 @@
 
   <header class="lp-header">
     <div class="lp-container lp-header-inner">
-      <span class="lp-logo lp-logo-home"><img src="guild-logo-4.png" alt="Guild Builders Inc. logo" /></span>
+      <a class="lp-logo lp-logo-home" href="/"><img src="guild-logo-reg.png" alt="Guild Builders Inc. logo" /></a>
       <a class="lp-header-phone" href="tel:+16197632982">
         <span class="tel">(619) 763-2982</span>
       </a>
     </div>
   </header>
 
-  <section class="lp-hero lp-hero-video">
+  <main class="lp-book">
+    <div class="lp-container">
+      <p class="eyebrow">Free Estimate &amp; Design Consultation</p>
+      <h1>Pick a time that works for you</h1>
+      <p class="lp-book-lead">About an hour at your home. Omer looks at the space, talks through what you want to do, and follows up with a written estimate. No pressure and no obligation.</p>
 
-    <video
-      class="lp-hero-bg-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      aria-hidden="true"
-      poster="bath-poster.webp"
-      data-src="bath-video.mp4" data-src-mobile="bath-video-mobile.mp4"
-      data-poster-mobile="bath-poster-mobile.webp"
-    ></video>
+      <!-- The scheduler is embedded rather than linked out to. Two reasons, and
+           the second is the one that pays for itself: the visitor never leaves
+           guildbuildersgroup.com mid-conversion, and the booking therefore
+           completes on our own domain, where the _gcl_aw cookie holding the
+           Google click id still lives. A booking taken on cal.com would be a
+           conversion Google often could not tie back to the ad click that
+           produced it. -->
+      <div id="cal-embed" class="lp-book-embed"></div>
 
-    <div class="lp-container lp-hero-inner lp-thanks-inner">
-      <div class="lp-hero-copy lp-hero-copy-centered">
-        <p class="eyebrow">Appointment Confirmed</p>
-        <h1>You&rsquo;re booked in. See you then.</h1>
-        <p class="lp-subhead">The details are in your email, and the appointment is on Omer&rsquo;s calendar. If anything changes on your end, call and we will move it.</p>
-        <div class="lp-thanks-cta">
-          <a class="lp-cta-phone" href="tel:+16197632982">&#128222; (619) 763-2982</a>
-        </div>
-        <span class="lp-hero-reviews"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5 stars on Google, Facebook &amp; Thumbtack</span>
-      </div>
+      <noscript>
+        <p class="lp-book-fallback">The booking calendar needs JavaScript. Call
+          <a href="tel:+16197632982">(619) 763-2982</a> and we will find a time.</p>
+      </noscript>
     </div>
-  </section>
+  </main>
 
   <footer class="lp-footer">
     <div class="lp-container">
@@ -86,27 +75,42 @@
     </div>
   </footer>
 
-  <!-- Call only. There is nothing left to ask for on this page. -->
   <div class="lp-sticky-call">
     <a class="call" href="tel:+16197632982">📞 (619) 763-2982</a>
   </div>
 
   <script src="tracking.js?v=5"></script>
 
+  <!-- Cal.com embed loader, their snippet, unmodified. -->
   <script>
-    (function () {
-      var v = document.querySelector('.lp-hero-bg-video');
-      if (!v || !v.dataset.src) return;
-      var small = !window.matchMedia('(min-width: 861px)').matches;
-      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if (conn && conn.saveData) return;
-      if (small && v.dataset.posterMobile) { v.poster = v.dataset.posterMobile; }
-      v.src = (small && v.dataset.srcMobile) ? v.dataset.srcMobile : v.dataset.src;
-      v.playbackRate = 0.7;
-      v.addEventListener('loadedmetadata', function () { v.playbackRate = 0.7; });
-      var play = v.play();
-      if (play && play.catch) { play.catch(function () {}); }
-    })();
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "estimate", { origin: "https://app.cal.com" });
+
+    Cal.ns.estimate("inline", {
+      elementOrSelector: "#cal-embed",
+      config: { layout: "month_view" },
+      calLink: "guildbuilders/estimate"
+    });
+
+    Cal.ns.estimate("ui", { hideEventTypeDetails: false, layout: "month_view" });
+
+    /* A completed booking. gb_bookingConfirmed is defined in tracking.js: it
+       stashes what the embed hands us and sends the visitor to the confirmation
+       page, which pushes booking_confirmed once the page has fully loaded.
+       Pushing here instead would race the redirect, the same problem the lead
+       forms have. */
+    Cal.ns.estimate("on", {
+      action: "bookingSuccessful",
+      callback: function (e) {
+        try {
+          window.gb_bookingConfirmed(e && e.detail && e.detail.data);
+        } catch (err) {
+          /* Never let a tracking failure strand someone who just booked. */
+          window.location.href = "/booking-confirmed";
+        }
+      }
+    });
   </script>
 
 </body>

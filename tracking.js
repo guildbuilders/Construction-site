@@ -202,7 +202,7 @@
       microConversion("click_to_call", href.slice(4).trim(), label);
     } else if (href.indexOf("mailto:") === 0) {
       microConversion("click_to_email", href.slice(7).trim(), label);
-    } else if (href.indexOf("calendar.app.google") !== -1) {
+    } else if (href.indexOf("calendar.app.google") !== -1 || /(^|\/)book(\.html)?$/.test(href.split("?")[0])) {
       /* Not in the partner's document. Bookings are a lead the forms never
          see, so they need an event of their own if they are ever to be counted
          as a conversion. */
@@ -253,6 +253,47 @@
      query string is wiped from the address bar: an email sitting in a URL ends
      up in analytics page paths, browser history and any link the visitor
      shares, and none of those are places it belongs. */
+  /* Called by the Cal.com embed on /book the moment a booking completes. The
+     embed hands over a payload whose shape Cal.com owns and can change, so
+     nothing here assumes a path: it walks the object for the first email and
+     name it can find, and records which keys it actually saw so the mapping can
+     be checked against a real booking without a customer's address being
+     written anywhere it should not be. */
+  var BOOKING_STASH = "gb_booking";
+
+  function dig(obj, keys, depth) {
+    if (!obj || typeof obj !== "object" || (depth || 0) > 4) return undefined;
+    for (var i = 0; i < keys.length; i++) {
+      var v = obj[keys[i]];
+      if (typeof v === "string" && v) return v;
+    }
+    for (var k in obj) {
+      if (!Object.prototype.hasOwnProperty.call(obj, k)) continue;
+      var child = obj[k];
+      if (child && typeof child === "object") {
+        var found = dig(Array.isArray(child) ? child[0] : child, keys, (depth || 0) + 1);
+        if (found) return found;
+      }
+    }
+    return undefined;
+  }
+
+  window.gb_bookingConfirmed = function (data) {
+    var email = dig(data, ["email", "attendeeEmail", "invitee_email"]);
+    var whole = dig(data, ["name", "attendeeName", "invitee_full_name"]);
+    var start = dig(data, ["startTime", "date", "start", "event_start_time"]);
+    var payload = {
+      email: email,
+      name: whole,
+      start: start,
+      keys: data && typeof data === "object" ? Object.keys(data).sort().join(",") : ""
+    };
+    try {
+      sessionStorage.setItem(BOOKING_STASH, JSON.stringify(payload));
+    } catch (e) { /* private mode; the conversion still fires, without matching */ }
+    window.location.href = "/booking-confirmed";
+  };
+
   function confirmBooking() {
     var q;
     try {
@@ -269,8 +310,19 @@
       return undefined;
     }
 
-    var email = param("invitee_email", "email", "attendeeEmail");
-    var whole = param("invitee_full_name", "name", "attendeeName", "invitee_name");
+    /* Two ways a booking can arrive here. The embed on /book stashes what
+       Cal.com handed it and navigates; a scheduler configured to redirect
+       would instead arrive with query parameters. The stash wins when both
+       exist, because it came from the booking object rather than a URL. */
+    var stashed = null;
+    try {
+      var raw = sessionStorage.getItem(BOOKING_STASH);
+      sessionStorage.removeItem(BOOKING_STASH);
+      if (raw) stashed = JSON.parse(raw);
+    } catch (e) { /* storage unavailable or unparseable */ }
+
+    var email = (stashed && stashed.email) || param("invitee_email", "email", "attendeeEmail");
+    var whole = (stashed && stashed.name) || param("invitee_full_name", "name", "attendeeName", "invitee_name");
     var first = param("invitee_first_name", "firstName");
     var last = param("invitee_last_name", "lastName");
     if (whole && !first && !last) {
@@ -286,7 +338,7 @@
       event: "booking_confirmed",
       event_id: eventId("booking"),
       currency: "USD",
-      booking_start: param("event_start_time", "startTime", "start"),
+      booking_start: (stashed && stashed.start) || param("event_start_time", "startTime", "start"),
       scheduler: param("scheduler") || undefined,
       /* False means this page was opened without the scheduler's redirect
          behind it - a refresh, a bookmark, someone with the URL. Filterable in
@@ -297,7 +349,8 @@
          can change, so this is how we confirm the mapping above actually
          matched after a real booking, without putting a customer's email
          anywhere it should not be. Safe to leave on permanently. */
-      booking_param_keys: q ? Array.from(q.keys()).sort().join(",") || undefined : undefined
+      booking_param_keys: (stashed && stashed.keys) || (q ? Array.from(q.keys()).sort().join(",") || undefined : undefined),
+      booking_source: stashed ? "embed" : (q && q.toString() ? "redirect" : "direct")
     };
     /* baseContext reads location.href, which at this point still has the
        invitee's email in it. The event must not carry that into GA4 or Ads as

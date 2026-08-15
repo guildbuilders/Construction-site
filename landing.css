@@ -1488,6 +1488,45 @@ a.lp-badge:focus-visible { outline: 2px solid #d2b780; outline-offset: 3px; }
 }
 .lp-cta-ghost:hover { background: #ffffff; color: #14243a; }
 
+/* ---------- Booking page ----------
+   The scheduler is an iframe from Cal.com, so it gets a generous min-height:
+   the month view plus a time column needs real room, and a short box makes the
+   embed scroll inside itself, which on a phone is close to unusable. */
+body.lp-book-page { background: #fbf8f2; }
+.lp-book {
+  padding: 150px 0 3.5rem;
+  text-align: center;
+}
+.lp-book h1 { color: #14243a; margin-top: 0.4rem; }
+.lp-book .eyebrow {
+  color: #a8842c;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  margin: 0;
+}
+.lp-book-lead {
+  max-width: 46rem;
+  margin: 0.9rem auto 0;
+  color: #48556a;
+  font-size: 1.05rem;
+}
+.lp-book-embed {
+  margin: 2.2rem auto 0;
+  min-height: 720px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(20, 36, 58, 0.12);
+  overflow: hidden;
+}
+.lp-book-fallback { margin-top: 2rem; color: #48556a; }
+@media (max-width: 860px) {
+  .lp-book { padding-top: 118px; }
+  .lp-book-embed { min-height: 840px; border-radius: 10px; }
+}
+
 /* ---------- Footer ---------- */
 .lp-footer { background: #0f1c2e; color: #b9c2d0; text-align: center; padding: 2rem 0; font-size: 0.9rem; }
 .lp-footer strong { color: #ffffff; }

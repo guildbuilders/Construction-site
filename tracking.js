@@ -312,8 +312,8 @@
        phone can arrive either on the attendee or in there. Same organizer
        guard applies via dig: our own number must never be sent as a
        customer's. */
-    var phone = (who && (who.phone || who.phoneNumber || who.attendeePhone)) ||
-      dig(data, ["phone", "phoneNumber", "attendeePhone", "smsReminderNumber", "invitee_phone"]);
+    var phone = (who && (who.phone || who.phoneNumber || who.attendeePhone || who.attendeePhoneNumber)) ||
+      dig(data, ["attendeePhoneNumber", "phone", "phoneNumber", "attendeePhone", "smsReminderNumber", "invitee_phone"]);
     var start = dig(data, ["startTime", "date", "start", "event_start_time"]);
 
     /* If the only email we could find is the organizer's, it is not a customer

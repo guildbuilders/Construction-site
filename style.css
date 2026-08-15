@@ -741,17 +741,18 @@ p,
 }
 
 /* Calendar booking button in the contact details column. Colours are set
-   explicitly because .contact-wrap a above is more specific than .btn-secondary
-   and would otherwise decide them by accident. */
+   explicitly because .contact-wrap a above is more specific than .btn-primary
+   and would otherwise decide them by accident - and now that the button is
+   filled gold, that accident would have been gold text on a gold background. */
 .contact-book { margin: 1.7rem 0 0; }
 .contact-book .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #856512;
+  color: #0f1c2e;
 }
 .contact-book .btn:hover {
-  background: #d2b780;
+  background: #c2a24e;
   color: #0f1c2e;
   text-decoration: none;
 }

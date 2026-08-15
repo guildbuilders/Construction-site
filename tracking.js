@@ -303,8 +303,9 @@
     var who = attendee(data);
     var organizerEmail = data && data.organizer && data.organizer.email;
 
-    var email = (who && (who.email || who.emailAddress)) ||
+    var rawEmail = (who && (who.email || who.emailAddress)) ||
       dig(data, ["email", "attendeeEmail", "invitee_email"]);
+    var email = rawEmail;
     var whole = (who && (who.name || who.fullName)) ||
       dig(data, ["name", "attendeeName", "invitee_full_name"]);
     var start = dig(data, ["startTime", "date", "start", "event_start_time"]);
@@ -312,8 +313,10 @@
     /* If the only email we could find is the organizer's, it is not a customer
        and must not be sent as one. Better a conversion with no matching data
        than a conversion matched to the wrong person. */
+    var droppedAsOrganizer = false;
     if (email && organizerEmail && email.toLowerCase() === String(organizerEmail).toLowerCase()) {
       email = undefined;
+      droppedAsOrganizer = true;
     }
     var payload = {
       email: email,
@@ -332,7 +335,13 @@
         keys: payload.keys,
         found: { email: !!email, name: !!whole, start: !!start },
         fromAttendeeBlock: !!who,
-        organizerPresent: !!organizerEmail
+        organizerPresent: !!organizerEmail,
+        /* Distinguishes "Cal.com sent no email" from "we dropped it because it
+           was the organizer's" - which is what a self-booked test looks like.
+           Without this the two are indistinguishable and the honest reading of
+           found.email:false is ambiguous. */
+        rawEmailPresent: !!rawEmail,
+        droppedAsOrganizer: droppedAsOrganizer
       }));
     } catch (e) { /* private mode; the conversion still fires, without matching */ }
     window.location.href = "/booking-confirmed";

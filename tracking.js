@@ -33,6 +33,101 @@
     return m ? decodeURIComponent(m[3]) : undefined;
   }
 
+  /* ---------- 1b. Ad attribution ----------
+     The forms POST to formsubmit.co, which emails whatever named fields the
+     form carries. Until now the only source field was the page's static
+     lead_source, so a lead said which landing page produced it but never which
+     campaign, ad group or keyword. These stamp the click ids and utm
+     parameters onto every lead form so the email answers that, and onto
+     generate_lead so the same values reach GA4, Ads and Meta.
+
+     Read on load and stashed, because a visitor can arrive on an ad URL,
+     browse to another page and submit there, by which point the query string
+     is long gone. */
+  var ATTR_STASH = "gb_attr";
+  var ATTR_KEYS = [
+    "gclid", "gbraid", "wbraid",
+    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"
+  ];
+
+  function attribution() {
+    var found = {};
+    var any = false;
+
+    try {
+      var q = new URLSearchParams(location.search);
+      for (var i = 0; i < ATTR_KEYS.length; i++) {
+        var v = q.get(ATTR_KEYS[i]);
+        if (v) {
+          v = v.trim();
+          if (v) {
+            found[ATTR_KEYS[i]] = v;
+            any = true;
+          }
+        }
+      }
+    } catch (e) { /* no URLSearchParams; fall through to the stash */ }
+
+    /* A fresh set of parameters replaces the stash rather than merging into
+       it, so a second ad click in the same tab is not credited to the first. */
+    if (any) {
+      try {
+        sessionStorage.setItem(ATTR_STASH, JSON.stringify(found));
+      } catch (e) { /* private mode; this page still stamps its own values */ }
+      return found;
+    }
+
+    try {
+      var raw = sessionStorage.getItem(ATTR_STASH);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") {
+          for (var k = 0; k < ATTR_KEYS.length; k++) {
+            var key = ATTR_KEYS[k];
+            if (typeof parsed[key] === "string" && parsed[key]) found[key] = parsed[key];
+          }
+        }
+      }
+    } catch (e) { /* unreadable stash; carry on without it */ }
+
+    /* Google's own cookie, last resort: someone who clicked an ad earlier
+       still carries it once the query string is gone. The value is
+       GCL.<timestamp>.<gclid>, so the click id is the final segment. */
+    if (!found.gclid) {
+      var aw = cookie("_gcl_aw");
+      if (aw) {
+        var parts = aw.split(".");
+        var last = parts[parts.length - 1];
+        if (parts.length > 2 && last) found.gclid = last;
+      }
+    }
+
+    return found;
+  }
+
+  /* Written into the form as hidden fields on load rather than injected during
+     submit, so the values are part of the form before anything can race the
+     handler, and a submit that bypasses the listener still carries them. */
+  function stampForms() {
+    var attr = attribution();
+    var keys = Object.keys(attr);
+    if (!keys.length) return;
+
+    var forms = document.querySelectorAll("form[data-form-name]");
+    for (var i = 0; i < forms.length; i++) {
+      for (var j = 0; j < keys.length; j++) {
+        var name = keys[j];
+        /* Never clobber a field the page already defines. */
+        if (forms[i].querySelector('[name="' + name + '"]')) continue;
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = attr[name];
+        forms[i].appendChild(input);
+      }
+    }
+  }
+
   function baseContext(leadSource) {
     return {
       page_path: location.pathname,
@@ -118,6 +213,11 @@
 
     var ctx = baseContext(form.getAttribute("data-lead-source") || field(form, "lead_source"));
     Object.keys(ctx).forEach(function (k) { payload[k] = ctx[k]; });
+
+    /* The same values the hidden fields carry, so the dataLayer event and the
+       lead email agree about where the lead came from. */
+    var attr = attribution();
+    Object.keys(attr).forEach(function (k) { payload[k] = attr[k]; });
 
     payload.user_data = {
       email_address: email ? email.toLowerCase() : undefined,
@@ -433,6 +533,8 @@
       history.replaceState(null, "", location.pathname);
     }
   }
+
+  stampForms();
 
   if (document.body && document.body.classList.contains("gb-thanks")) {
     flushLead();

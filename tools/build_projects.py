@@ -958,6 +958,7 @@ PROJECTS = [
  "project": "Donahue Drive",
  "city": "San Diego", "city_page": "san-diego.html",
  "prefix": "donahue", "photos": range(1, 7),
+ "hero_photo": 2,
  "anchor": "kitchens-cabinets.html#kitchen-donahue-drive",
  "blurb": ("A kitchen rebuilt as part of a whole-home renovation in San Diego: white shaker cabinetry "
            "run to the ceiling, quartz counters, a farmhouse apron sink and champagne bronze fittings."),

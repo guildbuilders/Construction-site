@@ -322,6 +322,7 @@ FULLHOMES = [
  "project": "Donahue Drive",
  "city": "San Diego", "city_page": "san-diego.html",
  "prefix": "donahue", "photos": range(1, 16),
+ "hero_photo": 2,
  "anchor": "full-home-renovations.html#fullhome-donahue-drive",
  "related": [("The kitchen in detail", "kitchen-remodel-san-diego-donahue-drive.html"),
              ("The bathrooms in detail", "bathroom-remodel-san-diego-donahue-drive.html")],

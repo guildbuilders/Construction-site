@@ -101,17 +101,25 @@ def wire():
 
     # ---- sitemap ----
     sm = open("sitemap.xml", encoding="utf-8").read()
-    # Same trap as the gallery guard above, still armed at the time of writing.
-    # The loc emitted is extensionless, so testing for the .html form matched
-    # only while the sitemap still carried .html URLs. Once that file was
-    # converted the guard would have stopped seeing its own output and appended
-    # all 39 again on the next run. Check for exactly what gets written.
-    def loc_for(p):
-        return f'  <url><loc>https://guildbuildersgroup.com/{p["page"][:-5]}</loc></url>\n'
-    add = "".join(loc_for(p) for p in PROJECTS if loc_for(p).strip() not in sm)
+    # Two traps here, both of the same family as the gallery guard above: the
+    # guard has to match what is actually in the file, and the insertion point
+    # has to exist.
+    #
+    # 1. Guard on the <loc> alone, not on the whole <url> element. Entries
+    #    written by hand carry a <lastmod> and the ones written here do not,
+    #    so comparing whole elements never matches an existing entry and every
+    #    run would append the same URLs again.
+    # 2. Insert before </urlset>, not after a named page. This anchored on
+    #    ".../kitchens-cabinets.html" and went silently dead the moment the
+    #    sitemap was converted to extensionless URLs - `add` was computed
+    #    correctly and then thrown away by a replace that matched nothing.
+    def url_for(p):
+        return f'https://guildbuildersgroup.com/{p["page"][:-5]}'
+    add = "".join(f'  <url><loc>{url_for(p)}</loc></url>\n'
+                  for p in PROJECTS if f'<loc>{url_for(p)}</loc>' not in sm)
     if add:
-        key = "  <url><loc>https://guildbuildersgroup.com/kitchens-cabinets.html</loc></url>\n"
-        sm = sm.replace(key, key + add)
+        assert "</urlset>" in sm, "sitemap.xml has no </urlset> to insert before"
+        sm = sm.replace("</urlset>", add + "</urlset>")
         open("sitemap.xml", "w", encoding="utf-8").write(sm)
     print("sitemap urls:", sm.count("<url>"))
 

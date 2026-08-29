@@ -8,8 +8,32 @@ import os, json, re
 
 SITE = "/Users/omershapan/Documents/Guild Builders Website/Construction-site"
 URL = "https://guildbuildersgroup.com"
-CSS = "style.css?v=90"
-JS = "script.js?v=49"
+CSS = "style.css?v=100"
+
+# The Stape custom loader and its noscript counterpart, verbatim from the
+# hand-maintained pages. Kept as plain constants rather than inline in the
+# page template because the minified loader is full of braces and the
+# template is an f-string. Regenerate in Stape if the loader changes; do not
+# hand-edit. The gtag layer these pages used to carry was stripped (see
+# tools/strip_gtag.py) and must not come back here, or every conversion is
+# counted twice.
+GTM_HEAD = """  <!-- Google Tag Manager. Stape Custom Loader, regenerated 2026-08-14 with
+       Cookie Keeper. The container is served first-party from /edge on our own
+       domain, and on Safari 16.4+ the loader asks for a "kp" prefixed filename
+       so Stape can set the analytics cookies server-side, out of reach of ITP's
+       seven day cap. stapeUserId is the identifier it recognises a returning
+       visitor by. Stape generates this block and it must not be hand-edited.
+       Regenerate it in Stape if the cookie settings or loader filename change. -->
+  <!-- Google Tag Manager -->
+  <script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://guildbuildersgroup.com/edge",a="",i="1gbbeiage",c="3x3b6=DANcLjEvTzdQVVczVy5bQRNaU0dURAYJWAAUAAkGABIMCwUMFxEFFQoSEUcGDQ9BFggRVEoHBgAA",g="stapeUserId",v="",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
+  <!-- End Google Tag Manager -->"""
+
+GTM_NOSCRIPT = """  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://edge.guildbuildersgroup.com/ns.html?id=GTM-P526Z2L9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->"""
+JS = "script.js?v=53"
+TRACKING = "tracking.js?v=12"
 
 CITIES = [("san-diego","San Diego"),("la-jolla","La Jolla"),("del-mar","Del Mar"),
   ("solana-beach","Solana Beach"),("rancho-santa-fe","Rancho Santa Fe"),("carmel-valley","Carmel Valley"),
@@ -899,6 +923,65 @@ PROJECTS = [
 
 <p>Proof that a full gut does not require moving a single wall. The layout that worked was kept, and everything the family actually touches — cabinetry, counters, tile, floor — was rebuilt. Eight weeks from demolition to final walkthrough.</p>
 """},
+{
+ "page": "kitchen-remodel-san-diego-donahue-drive.html",
+ "project": "Donahue Drive",
+ "city": "San Diego", "city_page": "san-diego.html",
+ "prefix": "donahue", "photos": range(1, 7),
+ "anchor": "kitchens-cabinets.html#kitchen-donahue-drive",
+ "blurb": ("A kitchen rebuilt as part of a whole-home renovation in San Diego: white shaker cabinetry "
+           "run to the ceiling, quartz counters, a farmhouse apron sink and champagne bronze fittings."),
+ "hero_sub": ("Donahue Drive &mdash; white shaker cabinetry run to the ceiling, quartz counters, a "
+              "farmhouse apron sink and champagne bronze fittings throughout."),
+ "specs": [("Location","San Diego"),
+           ("Timeline","Part of an 8 week whole-home renovation"),
+           ("Scope","Full kitchen rebuild"),
+           ("Cabinetry","White shaker, run to the ceiling"),
+           ("Counters","Quartz, calacatta pattern"),
+           ("Sink","Farmhouse apron front"),
+           ("Fittings","Champagne bronze"),
+           ("Flooring","Luxury vinyl plank")],
+ "body": """
+<p>This kitchen was one room in a renovation that covered the whole house, and it was designed at the same time as the bathrooms, the fireplace and the floor it sits on. That is why the same quartz appears in three rooms and the same finish appears on every handle in the house.</p>
+
+<h2>Cabinetry to the ceiling</h2>
+
+<p>The upper cabinets run all the way up. There is no soffit, no gap, and nothing stored on top of anything.</p>
+
+<p>In a 1,500 square foot house that decision does real work. The usual arrangement stops the uppers short and leaves a foot or more of dead air above them, which becomes a dust shelf and a place to put things nobody can reach. Running the boxes to the ceiling converts that band into the storage that a smaller kitchen needs for the items used a few times a year.</p>
+
+<p>It also changes the proportions of the room. The eye follows the cabinetry up instead of stopping at a horizontal line partway, so a modest ceiling reads taller than it measures.</p>
+
+<h2>The peninsula</h2>
+
+<p>The counter turns and runs out toward the dining area rather than closing the kitchen off with a wall.</p>
+
+<p>A peninsula is the right answer in a house this size. A full island needs clearance on four sides, and forcing one into a room that cannot give it produces walkways too tight to pass someone in. Anchored to the run at one end, the peninsula gives the same seating edge and the same landing space while only needing clearance on three.</p>
+
+<p>What it buys is sightlines. Whoever is cooking is in the same room as whoever is at the table, which in a compact house is most of what open plan is actually for.</p>
+
+<h2>Quartz and the backsplash</h2>
+
+<p>Quartz counters in a calacatta pattern, with a marble-look tile carried across the backsplash in a stacked horizontal run.</p>
+
+<p>Quartz rather than natural marble is the practical call in a working kitchen. Marble etches on contact with anything acidic, and a squeeze of lemon leaves a dull mark that no amount of cleaning removes. Engineered quartz takes the same veined look without that behaviour, and needs no sealing.</p>
+
+<p>The backsplash tile is laid in long horizontal courses rather than a running bond. Stacked that way it pulls the eye along the counter run and makes the wall read wider, which suits a kitchen that gains more from feeling broad than from feeling tall.</p>
+
+<h2>The sink and the fittings</h2>
+
+<p>A farmhouse apron sink under the window, with a champagne bronze faucet above it and the same finish on every pull and knob in the room.</p>
+
+<p>An apron sink is not a drop-in decision. The cabinet beneath it is built specifically to carry it, with the front removed and the box reinforced for the weight, so it has to be specified before the cabinetry is made. Retrofitting one into a finished run means rebuilding the cabinet.</p>
+
+<p>What it earns is a break in the cabinetry. A long white run reads as a wall of doors; the apron interrupts it with something with mass at the point where people actually stand.</p>
+
+<p>The bronze on the fittings is doing the same job in a different register. In a room finished almost entirely in white, the hardware is the only colour, and keeping it to a single warm metal across the faucet, the pulls and the appliance trim is what stops that from looking accidental.</p>
+
+<h2>The result</h2>
+
+<p>A compact kitchen that stores more than it looks like it should, opens onto the dining room it shares a floor with, and carries the same stone and the same metal as the rest of the house.</p>
+"""},
 ]
 
 
@@ -982,30 +1065,13 @@ def build(p):
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
-  new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  }})(window,document,'script','dataLayer','GTM-P526Z2L9');</script>
-  <!-- End Google Tag Manager -->
+{GTM_HEAD}
 
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
 
   <title>{title}</title>
   <meta name="description" content="{p['blurb']}" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18096983407"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {{ dataLayer.push(arguments); }}
-    gtag('js', new Date());
-    gtag('config', 'AW-18096983407');
-    gtag('config', 'G-39ZPTZ73DK');
-  </script>
-
-  <link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css?v=1" />
 
@@ -1028,10 +1094,7 @@ def build(p):
 
 <body class="project-page">
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P526Z2L9"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+{GTM_NOSCRIPT}
 
   <div id="top"></div>
 
@@ -1116,7 +1179,7 @@ def build(p):
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Guild Builders Inc. All rights reserved.</p>
+      <p>© 2026 Guild Builders Inc. All rights reserved. · <a href="/privacy-policy">Privacy Policy</a></p>
       <p class="footer-license">Licensed Contractor | CA License #1154614</p>
       <p class="footer-areas">Serving {FOOTER}</p>
     </div>
@@ -1130,11 +1193,12 @@ def build(p):
   </div>
 
   <div class="site-sticky-call">
-    <a class="call" href="tel:+16197632982" onclick="return gb_callConversion();">&#128222; (619) 763-2982</a>
+    <a class="call" href="tel:+16197632982">&#128222; (619) 763-2982</a>
     <a class="quote" href="contact">Free Estimate</a>
   </div>
 
   <script src="{JS}"></script>
+  <script src="{TRACKING}"></script>
 
 </body>
 </html>

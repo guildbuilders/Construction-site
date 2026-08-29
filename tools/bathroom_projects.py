@@ -878,4 +878,70 @@ BATHROOMS = [
 
 <p>Three bathrooms finished to the same standard, in six weeks.</p>
 """},
+{
+ "kind": "bathroom",
+ "page": "bathroom-remodel-san-diego-donahue-drive.html",
+ "project": "Donahue Drive",
+ "city": "San Diego", "city_page": "san-diego.html",
+ "prefix": "donahue", "photos": [10, 11, 12, 13, 14],
+ "anchor": "bathrooms.html#bathroom-donahue-drive",
+ "blurb": ("Two bathrooms rebuilt in a San Diego whole-home renovation: large-format porcelain showers "
+           "with recessed niches and sliding glass, quartz-topped shaker vanities, and lit mirrors in both."),
+ "hero_sub": ("Donahue Drive &mdash; two bathrooms rebuilt with large-format porcelain showers, recessed "
+              "niches, quartz-topped vanities and lit mirrors."),
+ "specs": [("Location","San Diego"),
+           ("Timeline","Part of an 8 week whole-home renovation"),
+           ("Scope","Two full bathroom remodels"),
+           ("Showers","Large-format porcelain, recessed niches, sliding glass"),
+           ("Vanities","White shaker; one single, one double"),
+           ("Counters","Quartz"),
+           ("Mirrors","Backlit LED in one, lighted bar in the other"),
+           ("Flooring","Luxury vinyl plank")],
+ "body": """
+<p>Two bathrooms in the same house, rebuilt at the same time, in the same materials. That is the part worth noticing before any individual detail: they were specified together, so they belong to one house rather than to two different years.</p>
+
+<h2>Large-format porcelain instead of tile</h2>
+
+<p>Both showers are lined in large porcelain panels with a marble veining, rather than in conventional tile.</p>
+
+<p>The difference is the grout. A standard tiled shower has grout lines every few inches, and grout is the part that stains, that needs sealing, and that eventually has to be raked out and replaced. Large-format panels reduce that to a handful of joints in the entire enclosure, so the wall reads as stone and there is very little left to clean.</p>
+
+<p>The trade is in the handling. Panels this size are heavy and unforgiving of a wall that is not flat, so the substrate has to be brought true before anything is set. A small tile can absorb a slight bow in a wall across many joints; a large panel cannot, and any deviation shows as a shadow along the edge.</p>
+
+<p>Underneath both, the waterproofing assembly is the actual job. The stone is what you see, and the membrane and the pre-sloped pan behind it are what decide whether the framing is still dry in fifteen years.</p>
+
+<h2>The niches</h2>
+
+<p>Each shower has a recessed niche set into the wall, lined in the same porcelain.</p>
+
+<p>A niche is framing, not finishing. The opening has to be built into the stud bay before the walls close, positioned between studs, and waterproofed as part of the shower assembly rather than cut into it afterwards. It is a decision made at rough-in and it cannot be added later without opening the wall.</p>
+
+<p>The alternative is a caddy hanging off the shower head, which is what people resort to when nobody planned for the bottles that a shower obviously has to hold.</p>
+
+<h2>Sliding glass rather than a swinging door</h2>
+
+<p>Both enclosures use glass panels on a top track that slide rather than swing.</p>
+
+<p>In bathrooms of this size that is the difference between a door that opens and one that hits the toilet. A hinged shower door needs its whole arc kept clear on the outside, and in a compact room that arc is usually occupied. Sliding panels need none of it.</p>
+
+<h2>Two vanities, sized to two rooms</h2>
+
+<p>One bathroom takes a single vanity with an undermount basin; the other takes a double.</p>
+
+<p>The double is in the bathroom with the wall length to carry it, and two basins in a shared bathroom removes the queue that a single one creates every morning. Putting a double into the smaller room would have meant two cramped basins and no counter between them, which is worse than one basin with somewhere to set things down.</p>
+
+<p>Both are white shaker with quartz tops, matching the kitchen counters, and both have drawer banks rather than a pair of doors over an open cavity. Drawers are more work to build and considerably more useful: everything in them is reachable without kneeling on the floor.</p>
+
+<h2>Lit mirrors</h2>
+
+<p>One room has a mirror with the light built into the glass itself, the other a decorative bar mounted above.</p>
+
+<p>Both had to be planned before the drywall went on. A backlit mirror needs power arriving inside the wall at the exact height and centre of the finished mirror, and blocking behind that point to hang the weight from. There is no adding it neatly to a finished wall.</p>
+
+<p>Lighting from the front of a mirror, rather than from a fixture above and behind you, is also the reason these rooms are usable for anything requiring a close look. A ceiling light alone puts your own face in shadow.</p>
+
+<h2>The result</h2>
+
+<p>Two bathrooms that were treated as one decision, sharing the same stone, the same cabinetry and the same waterproofing standard, finished within the eight weeks the whole house took.</p>
+"""},
 ]

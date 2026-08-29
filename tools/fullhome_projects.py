@@ -316,4 +316,75 @@ FULLHOMES = [
 
 <p>Five rooms in one Rancho Santa Fe house, all in custom cabinetry, built as a single project the family was able to live through.</p>
 """},
+{
+ "kind": "fullhome",
+ "page": "home-renovation-san-diego-donahue-drive.html",
+ "project": "Donahue Drive",
+ "city": "San Diego", "city_page": "san-diego.html",
+ "prefix": "donahue", "photos": range(1, 16),
+ "anchor": "full-home-renovations.html#fullhome-donahue-drive",
+ "related": [("The kitchen in detail", "kitchen-remodel-san-diego-donahue-drive.html"),
+             ("The bathrooms in detail", "bathroom-remodel-san-diego-donahue-drive.html")],
+ "blurb": ("A whole-home renovation in San Diego: 1,500 sq ft rebuilt in eight weeks with a new kitchen, "
+           "two full bathrooms, a quartz fireplace, new windows and french doors, and new flooring, paint, "
+           "doors and lighting throughout."),
+ "hero_sub": ("Donahue Drive &mdash; 1,500 sq ft rebuilt in eight weeks: a new kitchen, two bathrooms, a "
+              "quartz fireplace, new windows and french doors, and new flooring throughout."),
+ "specs": [("Location","San Diego"),
+           ("Home","1,500 sq ft"),
+           ("Timeline","8 weeks"),
+           ("Scope","Kitchen, two bathrooms, fireplace and whole-house finishes"),
+           ("Kitchen","White shaker, quartz counters, farmhouse apron sink"),
+           ("Bathrooms","Two full remodels"),
+           ("Fireplace","Quartz slab surround and mantel"),
+           ("Windows and doors","New windows and new french doors"),
+           ("Flooring","Luxury vinyl plank throughout"),
+           ("Throughout","New paint, interior doors, hardware and lighting")],
+ "body": """
+<p>Fifteen hundred square feet, eight weeks, and everything inside it replaced. A kitchen, two bathrooms, the fireplace, the windows, the doors, the floor, the paint, the hardware and the lighting.</p>
+
+<h2>One stone through three rooms</h2>
+
+<p>The same quartz appears on the kitchen counters, on both bathroom vanities and clad across the fireplace surround and its mantel.</p>
+
+<p>That is the decision that ties this house together, and it is only available when the rooms are done at once. Stone is bought as slabs from a particular block, and slabs from the same block share their veining. Order the kitchen this year and the fireplace in three years and you are choosing from whatever is on the floor at the time, in a pattern that will be close but not the same. Side by side, close but not the same is worse than deliberately different.</p>
+
+<p>Running it onto the fireplace is the part most people skip. A fireplace surround is usually treated as its own thing, in its own material, chosen to suit the living room alone. Clad in the counter stone, it stops being a separate feature and becomes the point where the living room and the kitchen are visibly the same house.</p>
+
+<h2>Why eight weeks was possible</h2>
+
+<p>Eight weeks is quick for a whole house, and the reason is the scope. This renovation replaced everything you see and touch without moving the structure behind it. No walls came down, the kitchen kept its footprint, and the fixtures went back where the plumbing already served them.</p>
+
+<p>That removes the two things that stretch a schedule most: structural work, which brings engineering and its own inspections, and relocated plumbing, which means opening the slab and waiting on rough inspections before anything can close.</p>
+
+<p>What is left is a very large amount of finishing work, and finishing work is compressible in a way that structural work is not. It can run in parallel across rooms, and it is what a crew can be scaled up on.</p>
+
+<h2>Running the trades once</h2>
+
+<p>One demolition phase. One electrical rough covering the kitchen, both bathrooms, the recessed lighting through the living space and the fixtures in every bedroom. One tile crew moving between the two showers. One painter, once, through an empty house. One flooring installation across all 1,500 square feet at the end.</p>
+
+<p>Done room by room across several years, every one of those repeats, and the house becomes a job site each time. The flooring in particular can never be recovered: laid in stages, it meets at every doorway in a threshold strip, and by the time the last room is done the first room's plank has been discontinued.</p>
+
+<p>The floor going in last is also what dictates the order of everything before it. Luxury vinyl plank across the whole house cannot be laid until the wet trades are finished and out, so the schedule is built backwards from that point.</p>
+
+<h2>Windows and french doors</h2>
+
+<p>New windows throughout, and new french doors off both the dining room and the main bedroom.</p>
+
+<p>Doing windows during the renovation rather than after is considerably less disruptive, because the interior finishes are not yet in and the patching that follows a window swap is absorbed by work already scheduled. Afterwards, the same job means protecting a finished room and repainting it.</p>
+
+<p>The french doors are doing something a window cannot. Both rooms open onto the outside space, and in a house of this size the usable area is not only what is under the roof. A pair of glazed doors turns the patio into part of the room in a way a slider never quite does, because the whole opening clears rather than half of it.</p>
+
+<h2>The things nobody photographs</h2>
+
+<p>New interior doors and new hardware on all of them. New lighting throughout. Fresh paint on every surface in the house.</p>
+
+<p>These are the items that get cut when a budget tightens, and they are the reason a renovated house either reads as finished or reads as a new kitchen in an old house. Original hollow doors with mismatched handles, left in place around new work, undo a good deal of what the new work bought.</p>
+
+<p>Replacing them all at once is also the only practical time to do it. Doors and hardware are cheap individually and tedious to do piecemeal, and paint is quick in an empty house and slow in a furnished one.</p>
+
+<h2>The result</h2>
+
+<p>A San Diego house where the kitchen, both bathrooms, the fireplace and every surface between them were decided together and built as one job, in eight weeks rather than across several years.</p>
+"""},
 ]

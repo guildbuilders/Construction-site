@@ -1185,18 +1185,20 @@ a.card-link:hover h3 {
 
 /* FULL HOME PROJECT BACKGROUNDS */
 
+/* Kingsfield and Lark were each pinned full width because each happened to be
+   the last card of an odd-numbered grid at the time. Both stopped being last
+   when Donahue Drive was added, which left a stale full-width card mid-grid on
+   the whole-home page and two stacked full-width cards on the bathrooms page.
+   The generic rule above - last-child:nth-child(odd) - already does this for
+   whichever card is genuinely last, so pinning a named card is both redundant
+   and a trap the next project springs. Do not reintroduce it. */
 body.full-home-page .project-kingsfield {
-  grid-column: 1 / -1;
   background-position: center center;
 }
 
 /* KITCHEN PROJECT BACKGROUNDS */
 
 /* BATHROOM PROJECT BACKGROUNDS */
-
-body.bathroom-page .project-lark {
-  grid-column: 1 / -1;
-}
 
 /* BATHROOM PAGE ONLY BACKGROUND OVERRIDES */
 

@@ -8,32 +8,62 @@ import os, json, re
 
 SITE = "/Users/omershapan/Documents/Guild Builders Website/Construction-site"
 URL = "https://guildbuildersgroup.com"
-CSS = "style.css?v=100"
+# ---- shared chrome, read from a reference page rather than copied ----
+# Everything the project pages share with the hand-maintained pages is lifted
+# out of REFERENCE at build time instead of being duplicated here. A second
+# copy is what went wrong before: this template sat at the pre-swap head for
+# weeks, and rebuilding would have put the stripped gtag.js layer back on all
+# 42 project pages, reverted the Stape loader to the plain googletagmanager
+# one, and rolled the asset versions backwards. Derived values cannot drift.
+# If an extraction fails the build stops rather than shipping a wrong head.
+REFERENCE = "index.html"
 
-# The Stape custom loader and its noscript counterpart, verbatim from the
-# hand-maintained pages. Kept as plain constants rather than inline in the
-# page template because the minified loader is full of braces and the
-# template is an f-string. Regenerate in Stape if the loader changes; do not
-# hand-edit. The gtag layer these pages used to carry was stripped (see
-# tools/strip_gtag.py) and must not come back here, or every conversion is
-# counted twice.
-GTM_HEAD = """  <!-- Google Tag Manager. Stape Custom Loader, regenerated 2026-08-14 with
-       Cookie Keeper. The container is served first-party from /edge on our own
-       domain, and on Safari 16.4+ the loader asks for a "kp" prefixed filename
-       so Stape can set the analytics cookies server-side, out of reach of ITP's
-       seven day cap. stapeUserId is the identifier it recognises a returning
-       visitor by. Stape generates this block and it must not be hand-edited.
-       Regenerate it in Stape if the cookie settings or loader filename change. -->
-  <!-- Google Tag Manager -->
-  <script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://guildbuildersgroup.com/edge",a="",i="1gbbeiage",c="3x3b6=DANcLjEvTzdQVVczVy5bQRNaU0dURAYJWAAUAAkGABIMCwUMFxEFFQoSEUcGDQ9BFggRVEoHBgAA",g="stapeUserId",v="",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
-  <!-- End Google Tag Manager -->"""
 
-GTM_NOSCRIPT = """  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://edge.guildbuildersgroup.com/ns.html?id=GTM-P526Z2L9"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->"""
-JS = "script.js?v=53"
-TRACKING = "tracking.js?v=12"
+def _ref():
+    with open(os.path.join(SITE, REFERENCE), encoding="utf-8") as fh:
+        return fh.read()
+
+
+def _between(text, start, end, what):
+    i = text.find(start)
+    if i == -1:
+        raise SystemExit(f"build_projects: {REFERENCE} has no {what} (looking for {start!r})")
+    j = text.find(end, i)
+    if j == -1:
+        raise SystemExit(f"build_projects: {REFERENCE} has an unterminated {what}")
+    return text[i:j + len(end)]
+
+
+def _version(text, asset):
+    m = re.search(re.escape(asset) + r"\?v=\d+", text)
+    if not m:
+        raise SystemExit(f"build_projects: {REFERENCE} has no {asset}?v= to copy")
+    return m.group(0)
+
+
+_REF = _ref()
+
+# The Stape custom loader. Regenerate it in Stape if the cookie settings or the
+# loader filename change, paste it into REFERENCE, and every project page picks
+# it up on the next build. The minified loader is full of braces and the page
+# template is an f-string, which is why this is interpolated as a whole value
+# rather than written inline.
+GTM_HEAD = "  " + _between(_REF, "<!-- Google Tag Manager. Stape",
+                           "<!-- End Google Tag Manager -->", "Stape loader block")
+GTM_NOSCRIPT = "  " + _between(_REF, "<!-- Google Tag Manager (noscript) -->",
+                               "<!-- End Google Tag Manager (noscript) -->", "GTM noscript block")
+
+CSS = _version(_REF, "style.css")
+JS = _version(_REF, "script.js")
+TRACKING = _version(_REF, "tracking.js")
+
+# The gtag.js layer these pages used to carry was stripped (tools/strip_gtag.py)
+# because it double counted every Ads conversion alongside GTM. Guard against it
+# creeping back in through the reference page.
+if "gtag/js?id=" in GTM_HEAD or "gtag/js?id=" in _REF:
+    raise SystemExit(
+        f"build_projects: {REFERENCE} carries a hardcoded gtag.js layer. GTM owns "
+        "conversions now; shipping both counts every conversion twice. Refusing to build.")
 
 CITIES = [("san-diego","San Diego"),("la-jolla","La Jolla"),("del-mar","Del Mar"),
   ("solana-beach","Solana Beach"),("rancho-santa-fe","Rancho Santa Fe"),("carmel-valley","Carmel Valley"),
@@ -1206,12 +1236,45 @@ def build(p):
 
 
 if __name__ == "__main__":
+    import sys
+
     # An odd number of specs strands the last one alone in the 2-column strip
     # with dead space beside it. Fail loudly rather than ship it.
     odd = [p["page"] for p in PROJECTS if len(p["specs"]) % 2]
     if odd:
         raise SystemExit("odd spec count (strands a row): " + ", ".join(odd))
     os.chdir(SITE)
+
+    # --check builds to memory and reports which existing pages a real run
+    # would change, without touching anything. Run it after editing this file
+    # or the shared chrome in REFERENCE: a page you did not intend to touch
+    # showing up here means the template and the live pages have diverged, and
+    # that is how the head silently regressed once already. Exits 1 if any
+    # page other than a genuinely new one would change, so it can gate a
+    # commit hook or just be eyeballed before deploying.
+    if "--check" in sys.argv:
+        changed, new_pages = [], []
+        for p in PROJECTS:
+            want = build(p)
+            try:
+                with open(p["page"], encoding="utf-8") as fh:
+                    have = fh.read()
+            except FileNotFoundError:
+                new_pages.append(p["page"])
+                continue
+            if have != want:
+                changed.append(p["page"])
+        for n in new_pages:
+            print(f"  new:     {n}")
+        for c in changed:
+            print(f"  CHANGED: {c}")
+        print(f"{len(PROJECTS)} pages checked, {len(new_pages)} new, {len(changed)} would change")
+        if changed:
+            print("\nA rebuild would rewrite the pages above. If you did not intend that,")
+            print("the template in this file has drifted from the live pages: diff one of")
+            print("them before running the build for real.")
+        raise SystemExit(1 if changed else 0)
+
     for p in PROJECTS:
         open(p["page"], "w", encoding="utf-8").write(build(p))
         body = re.sub(r"<[^>]+>", " ", p["body"])

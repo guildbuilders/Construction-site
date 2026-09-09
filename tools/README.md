@@ -4,6 +4,10 @@ These build the individual project pages and wire them into the galleries,
 the city pages and the sitemap. They are NOT part of the deployed site -
 `.assetsignore` keeps `tools/` out of the Cloudflare upload.
 
+`meta-ads/` is a separate toolchain in the same folder for the same reason:
+it generates the Meta ad creative from the site's photo library. See
+`tools/meta-ads/README.txt`.
+
 ## Usage
 
     cd tools

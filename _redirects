@@ -10,6 +10,12 @@
 /bathroom-remodel-b.html /bathroom-remodel-a 301
 /bathroom-remodel        /bathroom-remodel-a 301
 
+# The cabinets page never carried an A/B variant, so it is just
+# /custom-cabinets. These two catch the -a form it was first published
+# under, in case that URL was pasted anywhere before the rename.
+/custom-cabinets-a       /custom-cabinets    301
+/custom-cabinets-a.html  /custom-cabinets    301
+
 /exterior-renovations.html /decks-patio-covers 301
 /exterior-renovations /decks-patio-covers 301
 

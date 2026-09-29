@@ -27,9 +27,9 @@
     // Set with: npx wrangler secret put RESEND_API_KEY
     // Omer's choice 2026-09-29. Comma-separate to add more recipients.
     "LEAD_TO": "omer@guildbuildersgroup.com",
-    // Resend's shared sender, in use until guildbuildersgroup.com finishes
-    // verifying. Then this becomes leads@guildbuildersgroup.com, which is
-    // what lets mail reach addresses other than the account owner.
-    "LEAD_FROM": "Guild Builders Website <onboarding@resend.dev>"
+    // Verified in Resend 2026-09-29, so notifications now come from our own
+    // domain. That is also what allows delivery to addresses other than the
+    // Resend account owner, should LEAD_TO ever grow.
+    "LEAD_FROM": "Guild Builders Website <leads@guildbuildersgroup.com>"
   }
 }

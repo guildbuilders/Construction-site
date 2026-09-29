@@ -25,7 +25,10 @@
   ],
   "vars": {
     // Set with: npx wrangler secret put RESEND_API_KEY
-    "LEAD_TO": "info@guildbuildersgroup.com",
-    "LEAD_FROM": "Guild Builders Website <leads@guildbuildersgroup.com>"
+    // TEMPORARY, 2026-09-29: until the domain is verified in Resend, their
+    // shared sender can only deliver to the account owner. Put this back to
+    // info@guildbuildersgroup.com the moment DNS verifies.
+    "LEAD_TO": "omer@guildbuildersgroup.com",
+    "LEAD_FROM": "Guild Builders Website <onboarding@resend.dev>"
   }
 }

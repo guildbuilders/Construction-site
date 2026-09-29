@@ -25,7 +25,7 @@
   ],
   "vars": {
     // Set with: npx wrangler secret put RESEND_API_KEY
-    "LEAD_TO": "",
+    "LEAD_TO": "info@guildbuildersgroup.com",
     "LEAD_FROM": "Guild Builders Website <leads@guildbuildersgroup.com>"
   }
 }

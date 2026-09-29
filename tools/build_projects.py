@@ -1210,6 +1210,7 @@ def build(p):
 
   <footer class="site-footer">
     <div class="container footer-inner">
+      <p class="footer-contact">Omer Shapan &middot; <a href="tel:+16197632982">(619) 763-2982</a> &middot; 1345 Encinitas Blvd, Encinitas, CA 92024</p>
       <p>© 2026 Guild Builders Inc. All rights reserved. · <a href="/privacy-policy">Privacy Policy</a></p>
       <p class="footer-license">Licensed Contractor | CA License #1154614</p>
       <p class="footer-areas">Serving {FOOTER}</p>

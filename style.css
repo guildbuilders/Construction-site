@@ -1001,6 +1001,19 @@ a.card-link:hover h3 {
   font-size: 0.9rem;
 }
 
+.footer-contact {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #48556a;
+}
+.footer-contact a {
+  color: #856512;
+  text-decoration: none;
+}
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
 .footer-license {
   margin-top: 8px;
   font-size: 0.9rem;

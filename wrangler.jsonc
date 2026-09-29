@@ -12,6 +12,20 @@
     // from assets exactly as it was before there was a script at all. Keeps
     // the blast radius of a bug in worker/index.js to the tagging path
     // instead of the whole site.
-    "run_worker_first": ["/edge/*"]
+    "run_worker_first": ["/edge/*", "/lead"]
+  },
+  // Lead capture. Every form submission is written here before the visitor is
+  // redirected, so a lead survives an email provider being down. Created
+  // 2026-09-29 when FormSubmit's backend began 500ing on every POST.
+  "kv_namespaces": [
+    {
+      "binding": "LEADS",
+      "id": "f25071ef57574db89d16dd06c83877a8"
+    }
+  ],
+  "vars": {
+    // Set with: npx wrangler secret put RESEND_API_KEY
+    "LEAD_TO": "",
+    "LEAD_FROM": "Guild Builders Website <leads@guildbuildersgroup.com>"
   }
 }

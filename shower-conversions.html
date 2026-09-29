@@ -157,7 +157,7 @@
       <div class="lp-form-card" id="quote">
         <h2>Free Estimate &amp; Design Consult</h2>
         <p class="lp-form-sub">Tell us about your project. We'll reach out within 24 hours.</p>
-        <form class="lp-form" data-form-name="shower_conversion_lead_form" data-lead-source="Google Ads — Showers Landing A" action="https://formsubmit.co/1b42094d0074b6b4874cd920b2882218" method="POST">
+        <form class="lp-form" data-form-name="shower_conversion_lead_form" data-lead-source="Google Ads — Showers Landing A" action="/lead" method="POST">
           <label for="first-name">First Name</label>
           <input id="first-name" type="text" name="first_name" autocomplete="given-name" required />
 
@@ -170,6 +170,7 @@
           <label for="email">Email</label>
           <input id="email" type="email" name="email" autocomplete="email" required />
 
+          <input type="hidden" name="form_name" value="shower_conversion_lead_form" />
           <input type="hidden" name="_subject" value="New Lead — Google Ads (Showers A)" />
           <input type="hidden" name="lead_source" value="Google Ads — Showers Landing A" />
           <input type="hidden" name="_next" value="https://guildbuildersgroup.com/thank-you-showers" />

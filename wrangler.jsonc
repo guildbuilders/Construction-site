@@ -12,7 +12,7 @@
     // from assets exactly as it was before there was a script at all. Keeps
     // the blast radius of a bug in worker/index.js to the tagging path
     // instead of the whole site.
-    "run_worker_first": ["/edge/*", "/lead"]
+    "run_worker_first": ["/edge/*", "/lead", "/leads"]
   },
   // Lead capture. Every form submission is written here before the visitor is
   // redirected, so a lead survives an email provider being down. Created
@@ -25,10 +25,11 @@
   ],
   "vars": {
     // Set with: npx wrangler secret put RESEND_API_KEY
-    // TEMPORARY, 2026-09-29: until the domain is verified in Resend, their
-    // shared sender can only deliver to the account owner. Put this back to
-    // info@guildbuildersgroup.com the moment DNS verifies.
+    // Omer's choice 2026-09-29. Comma-separate to add more recipients.
     "LEAD_TO": "omer@guildbuildersgroup.com",
+    // Resend's shared sender, in use until guildbuildersgroup.com finishes
+    // verifying. Then this becomes leads@guildbuildersgroup.com, which is
+    // what lets mail reach addresses other than the account owner.
     "LEAD_FROM": "Guild Builders Website <onboarding@resend.dev>"
   }
 }

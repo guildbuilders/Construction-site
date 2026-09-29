@@ -236,12 +236,183 @@ async function handleLead(request, env, ctx) {
   return Response.redirect(target, 303);
 }
 
+
+/* ---------------------------------------------------------------------------
+   PRIVATE LEAD INBOX.  /leads?key=<token>
+
+   A safety net, not a CRM: if an email provider fails the way FormSubmit did,
+   every lead is still here and still readable. Read only, no deleting, so
+   this page can never be the reason a lead disappears.
+
+   Access is a single token in LEADS_VIEW_KEY (a Worker secret, never the
+   repo). Supplying it once sets a cookie, so the link only has to be used
+   the first time on a given device. A wrong token or no token gets the same
+   404 the rest of the site gives, which tells a scanner nothing about whether
+   the path exists.
+--------------------------------------------------------------------------- */
+
+const LEADS_VIEW_PATH = "/leads";
+const LEADS_COOKIE = "gb_leads";
+
+/* Length check first so the comparison below cannot leak the length, then a
+   full-width compare that does not stop at the first wrong character. */
+function tokenMatches(given, expected) {
+  if (!given || !expected || given.length !== expected.length) return false;
+  let diff = 0;
+  for (let i = 0; i < given.length; i++) {
+    diff |= given.charCodeAt(i) ^ expected.charCodeAt(i);
+  }
+  return diff === 0;
+}
+
+function cookieValue(header, name) {
+  if (!header) return "";
+  const parts = header.split(";");
+  for (const part of parts) {
+    const eq = part.indexOf("=");
+    if (eq === -1) continue;
+    if (part.slice(0, eq).trim() === name) return part.slice(eq + 1).trim();
+  }
+  return "";
+}
+
+function fmtWhen(iso) {
+  try {
+    return new Date(iso).toLocaleString("en-US", {
+      timeZone: "America/Los_Angeles",
+      weekday: "short", month: "short", day: "numeric",
+      hour: "numeric", minute: "2-digit",
+    });
+  } catch (e) { return iso; }
+}
+
+function leadCard(record) {
+  const f = record.fields || {};
+  const name = [f.name, [f.first_name, f.last_name].filter(Boolean).join(" ")]
+    .filter(Boolean)[0] || "No name given";
+
+  const contact = [];
+  if (f.phone) {
+    contact.push('<a class="btn" href="tel:' + esc(f.phone.replace(/[^0-9+]/g, "")) +
+      '">Call ' + esc(f.phone) + "</a>");
+  }
+  if (f.email) {
+    contact.push('<a class="btn ghost" href="mailto:' + esc(f.email) + '">' + esc(f.email) + "</a>");
+  }
+
+  const skip = { name: 1, first_name: 1, last_name: 1, phone: 1, email: 1, form_name: 1 };
+  const rest = orderFields(f)
+    .filter((k) => !skip[k])
+    .map((k) =>
+      '<div class="row"><span class="k">' + esc(k.replace(/_/g, " ")) + "</span>" +
+      '<span class="v">' + esc(f[k]).replace(/\n/g, "<br />") + "</span></div>")
+    .join("");
+
+  const d = record.delivery;
+  const badge = !d
+    ? '<span class="badge wait">email pending</span>'
+    : d.sent
+      ? '<span class="badge ok">emailed</span>'
+      : '<span class="badge bad">email failed: ' + esc(d.reason || "unknown") + "</span>";
+
+  return (
+    '<article class="lead">' +
+    '<header><h2>' + esc(name) + "</h2>" +
+    '<time>' + esc(fmtWhen(record.received)) + "</time></header>" +
+    (contact.length ? '<div class="actions">' + contact.join("") + "</div>" : "") +
+    (rest ? '<div class="fields">' + rest + "</div>" : "") +
+    '<footer>' + esc(record.form_name || "unknown form") + " &middot; " + badge + "</footer>" +
+    "</article>"
+  );
+}
+
+function leadsPage(records) {
+  const cards = records.length
+    ? records.map(leadCard).join("")
+    : '<p class="empty">No leads stored yet. Anything submitted on the site appears here the moment it arrives, whether or not the email goes out.</p>';
+
+  return '<!doctype html><html lang="en"><head><meta charset="utf-8" />' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1" />' +
+    '<meta name="robots" content="noindex, nofollow" />' +
+    "<title>Leads | Guild Builders</title><style>" +
+    ":root{color-scheme:light}" +
+    "*{box-sizing:border-box}" +
+    "body{margin:0;background:#eef1f6;color:#0f1c2e;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}" +
+    ".wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}" +
+    "h1{font-size:20px;margin:0 0 4px}" +
+    ".sub{color:#66707f;font-size:13px;margin:0 0 20px}" +
+    ".lead{background:#fff;border:1px solid #dde3ec;border-radius:12px;padding:16px;margin:0 0 14px}" +
+    ".lead header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}" +
+    ".lead h2{font-size:17px;margin:0}" +
+    ".lead time{color:#66707f;font-size:12px;white-space:nowrap}" +
+    ".actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}" +
+    ".btn{display:inline-block;background:#14243a;color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;font-size:14px;font-weight:600}" +
+    ".btn.ghost{background:#fff;color:#14243a;border:1px solid #c7d0de;font-weight:500}" +
+    ".fields{border-top:1px solid #eef1f6;padding-top:10px}" +
+    ".row{display:flex;gap:10px;padding:3px 0;font-size:14px}" +
+    ".k{color:#66707f;min-width:104px;text-transform:capitalize;flex:none}" +
+    ".v{color:#0f1c2e;overflow-wrap:anywhere}" +
+    "footer{margin-top:12px;padding-top:10px;border-top:1px solid #eef1f6;color:#66707f;font-size:12px}" +
+    ".badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600}" +
+    ".badge.ok{background:#e4f5ea;color:#1c6b3a}" +
+    ".badge.bad{background:#fdeaea;color:#a12626}" +
+    ".badge.wait{background:#fdf3e2;color:#8a5a12}" +
+    ".empty{background:#fff;border:1px solid #dde3ec;border-radius:12px;padding:24px;color:#66707f}" +
+    "</style></head><body><div class=\"wrap\">" +
+    "<h1>Leads</h1>" +
+    '<p class="sub">' + records.length + (records.length === 1 ? " lead" : " leads") +
+    " stored, newest first. Times are Pacific.</p>" +
+    cards + "</div></body></html>";
+}
+
+async function handleLeadsView(request, env) {
+  const notFound = () =>
+    new Response("Not found", { status: 404, headers: { "Content-Type": "text/plain" } });
+
+  if (request.method !== "GET") return notFound();
+  if (!env.LEADS_VIEW_KEY || !env.LEADS) return notFound();
+
+  const url = new URL(request.url);
+  const fromQuery = url.searchParams.get("key") || "";
+  const fromCookie = cookieValue(request.headers.get("Cookie"), LEADS_COOKIE);
+
+  const viaQuery = tokenMatches(fromQuery, env.LEADS_VIEW_KEY);
+  if (!viaQuery && !tokenMatches(fromCookie, env.LEADS_VIEW_KEY)) return notFound();
+
+  /* Keys are lead:<ISO timestamp>, so KV's lexicographic order is
+     chronological order and reversing gives newest first. */
+  const listed = await env.LEADS.list({ prefix: "lead:", limit: 400 });
+  const newest = listed.keys.map((k) => k.name).reverse().slice(0, 60);
+  const values = await Promise.all(
+    newest.map((name) => env.LEADS.get(name, { type: "json" }).catch(() => null))
+  );
+  const records = values.filter(Boolean);
+
+  const headers = {
+    "Content-Type": "text/html; charset=utf-8",
+    "Cache-Control": "no-store, private",
+    "X-Robots-Tag": "noindex, nofollow",
+    "Referrer-Policy": "no-referrer",
+  };
+  /* Arriving with the key in the URL trades it for a cookie, so the token
+     stops travelling in the address bar on every later visit. */
+  if (viaQuery) {
+    headers["Set-Cookie"] = LEADS_COOKIE + "=" + env.LEADS_VIEW_KEY +
+      "; Path=" + LEADS_VIEW_PATH + "; Max-Age=7776000; HttpOnly; Secure; SameSite=Lax";
+  }
+  return new Response(leadsPage(records), { headers });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     if (url.pathname === LEAD_PATH) {
       return handleLead(request, env, ctx);
+    }
+
+    if (url.pathname === LEADS_VIEW_PATH) {
+      return handleLeadsView(request, env);
     }
 
     const inTaggingPath =

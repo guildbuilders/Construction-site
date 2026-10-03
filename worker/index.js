@@ -403,6 +403,82 @@ async function handleLeadsView(request, env) {
   return new Response(leadsPage(records), { headers });
 }
 
+
+/* ---------------------------------------------------------------------------
+   MAINTENANCE MODE.  Flip MAINTENANCE in wrangler.jsonc, deploy, done.
+
+   Serves maintenance.html with a 503 and a Retry-After on the main site, while
+   the paid funnel keeps running. 503 rather than 200 is the whole point: a 200
+   maintenance page tells Google this IS the page now, and rankings built over
+   months can be dropped for a few hours of downtime. A 503 with Retry-After
+   says "temporary, come back", and Search Console treats it as such.
+
+   What deliberately stays up:
+     - the four ad landing pages and their thank-you pages, because Google Ads
+       disapproves ads whose landing page fails, and a disapproval outlasts the
+       maintenance window
+     - /book and /booking-confirmed, so booked work keeps flowing
+     - /privacy-policy, which the ads and the Meta form are required to link to
+     - /lead and /leads, so leads are still captured and readable
+     - /edge/*, the tagging proxy
+     - every static asset, or the pages above would render naked
+--------------------------------------------------------------------------- */
+
+const MAINTENANCE_PAGE = "/maintenance.html";
+
+/* Paths that keep serving normally. Compared after stripping .html and any
+   trailing slash, so /custom-cabinets, /custom-cabinets.html and
+   /custom-cabinets/ all match. */
+const MAINTENANCE_ALLOW = new Set([
+  "/kitchen-remodel-a",
+  "/bathroom-remodel-a",
+  "/custom-cabinets",
+  "/shower-conversions",
+  "/thank-you",
+  "/thank-you-kitchen",
+  "/thank-you-bathroom",
+  "/thank-you-cabinets",
+  "/thank-you-showers",
+  "/book",
+  "/booking-confirmed",
+  "/privacy-policy",
+  "/maintenance",
+]);
+
+/* Asset extensions that keep serving. .html is deliberately NOT here: it is
+   what the main site is made of, and allowing it would defeat the whole thing. */
+const ASSET_EXT = new Set([
+  "css", "js", "mjs", "map", "json", "xml", "txt",
+  "webp", "avif", "jpg", "jpeg", "png", "gif", "svg", "ico",
+  "mp4", "webm", "mov", "woff", "woff2", "ttf", "otf", "eot", "pdf",
+]);
+
+function maintenanceExempt(pathname) {
+  if (MAINTENANCE_ALLOW.has(pathname.replace(/\.html$/, "").replace(/\/+$/, "") || "/")) return true;
+  const dot = pathname.lastIndexOf(".");
+  if (dot > -1) {
+    const ext = pathname.slice(dot + 1).toLowerCase();
+    if (ASSET_EXT.has(ext)) return true;
+  }
+  return false;
+}
+
+async function maintenanceResponse(request, env) {
+  const url = new URL(request.url);
+  const page = await env.ASSETS.fetch(new URL(MAINTENANCE_PAGE, url.origin));
+  const body = await page.text();
+  return new Response(body, {
+    status: 503,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      /* Seconds. Tells crawlers when to come back rather than leaving them to
+         guess, and stops the 503 being read as a permanent failure. */
+      "Retry-After": "3600",
+      "Cache-Control": "no-store, must-revalidate",
+    },
+  });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -417,6 +493,12 @@ export default {
 
     const inTaggingPath =
       url.pathname === TAGGING_PATH || url.pathname.startsWith(TAGGING_PATH + "/");
+
+    /* Gate sits after /lead, /leads and before the site itself, so lead
+       capture and the tagging proxy are never affected by it. */
+    if (env.MAINTENANCE === "on" && !inTaggingPath && !maintenanceExempt(url.pathname)) {
+      return maintenanceResponse(request, env);
+    }
 
     if (!inTaggingPath) {
       /* Everything else is the site itself, served exactly as it is today. */

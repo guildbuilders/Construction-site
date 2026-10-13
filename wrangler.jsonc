@@ -12,9 +12,7 @@
     // from assets exactly as it was before there was a script at all. Keeps
     // the blast radius of a bug in worker/index.js to the tagging path
     // instead of the whole site.
-    // true, not a path list, because maintenance mode has to intercept every
-    // main-site URL. Put the narrow list back when maintenance ends.
-    "run_worker_first": true
+    "run_worker_first": ["/edge/*", "/lead", "/leads"]
   },
   // Lead capture. Every form submission is written here before the visitor is
   // redirected, so a lead survives an email provider being down. Created
@@ -28,10 +26,11 @@
   "vars": {
     // Set with: npx wrangler secret put RESEND_API_KEY
     // Omer's choice 2026-09-29. Comma-separate to add more recipients.
-    // "on" serves maintenance.html with a 503 on the main site. The ad
-    // landing pages, booking, privacy policy, /lead, /leads, /edge and all
-    // static assets keep serving. Set to "off" and deploy to bring it back.
-    "MAINTENANCE": "on",
+    // "on" serves maintenance.html with a 503 on the main site, leaving the
+    // ad landing pages, booking, privacy policy, /lead, /leads, /edge and all
+    // static assets serving. Turning it on also means setting
+    // run_worker_first to true above, since the gate has to see every URL.
+    "MAINTENANCE": "off",
     "LEAD_TO": "omer@guildbuildersgroup.com",
     // Verified in Resend 2026-09-29, so notifications now come from our own
     // domain. That is also what allows delivery to addresses other than the
